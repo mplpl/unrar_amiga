@@ -97,7 +97,9 @@
 #include <signal.h>
 
 
+#if !defined(_AMIGA)
 #define SAVE_LINKS
+#endif 
 
 #define ENABLE_ACCESS
 
@@ -109,12 +111,21 @@
 #define CPATHDIVIDER '\\'
 #define MASKALL      L"*"
 
+#ifndef _AMIGA
+#define READBINARY   "r"
+#define READTEXT     "r"
+#define UPDATEBINARY "r+"
+#define CREATEBINARY "w+"
+#define WRITEBINARY  "wb"
+#define APPENDTEXT   "a"
+#else
 #define READBINARY   "rb"
 #define READTEXT     "rt"
 #define UPDATEBINARY "r+b"
 #define CREATEBINARY "w+b"
 #define WRITEBINARY  "wb"
 #define APPENDTEXT   "at"
+#endif
 
 #if defined(_WIN_ALL)
   #ifdef _MSC_VER
@@ -146,7 +157,9 @@
   #include <sys/sysctl.h>
 #endif
 #ifndef SFX_MODULE
+#ifndef _AMIGA
     #include <sys/statvfs.h>
+#endif
 #endif
 #include <pwd.h>
 #include <grp.h>
@@ -166,7 +179,7 @@
 #include <locale.h>
 
 
-#ifdef  S_IFLNK
+#if defined(S_IFLNK) && !defined(_AMIGA)
 #define SAVE_LINKS
 #endif
 
@@ -206,7 +219,7 @@
   #endif
 #endif
 
-#if defined(__sparc) || defined(sparc) || defined(__hpux)
+#if defined(__sparc) || defined(sparc) || defined(__hpux) || defined(__amigaos__)
   #ifndef BIG_ENDIAN
      #define BIG_ENDIAN
   #endif

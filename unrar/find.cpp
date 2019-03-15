@@ -119,8 +119,12 @@ bool FindFile::FastFind(const wchar *FindMask,FindData *fd,bool GetSymLink)
   FindClose(hFind);
 #else
   char FindMaskA[NM];
+#ifdef _AMIGA
+  WideToLocal(FindMask,FindMaskA,ASIZE(FindMaskA));
+#else
   WideToChar(FindMask,FindMaskA,ASIZE(FindMaskA));
-
+#endif
+  
   struct stat st;
   if (GetSymLink)
   {

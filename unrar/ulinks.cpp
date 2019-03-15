@@ -2,6 +2,7 @@
 
 static bool UnixSymlink(const char *Target,const wchar *LinkName,RarTime *ftm,RarTime *fta)
 {
+#ifndef _AMIGA
   CreatePath(LinkName,true);
   DelFile(LinkName);
   char LinkNameA[NM];
@@ -32,6 +33,7 @@ static bool UnixSymlink(const char *Target,const wchar *LinkName,RarTime *ftm,Ra
   tv[1].tv_sec=ftm->GetUnix();
   tv[1].tv_usec=long(ftm->GetUnixNS()%1000000000/1000);
   lutimes(LinkNameA,tv);
+#endif
 #endif
 #endif
 

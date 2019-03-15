@@ -143,7 +143,7 @@ bool IsPathDiv(int Ch)
 
 bool IsDriveDiv(int Ch)
 {
-#ifdef _UNIX
+#if defined(_UNIX) && !defined(_AMIGA)
   return false;
 #else
   return Ch==':';
