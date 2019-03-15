@@ -1,11 +1,19 @@
 #include "rar.hpp"
 
+#ifdef _AMIGA
+int __stack  = 300000;
+
+int link(const char*, const char*)
+{
+	return 0;
+}
+#endif
+
 #if !defined(RARDLL)
 int main(int argc, char *argv[])
 {
-
 #ifdef _UNIX
-  setlocale(LC_ALL,"");
+  setlocale(LC_ALL, "");
 #endif
 
   InitConsole();

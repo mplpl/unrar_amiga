@@ -1294,7 +1294,7 @@ void Archive::ConvertAttributes()
   if (FileHead.HSType!=HSYS_WINDOWS)
     FileHead.FileAttr=FileHead.Dir ? 0x10 : 0x20;
 #endif
-#ifdef _UNIX
+#if defined(_UNIX) && !defined(_AMIGA)
   // umask defines which permission bits must not be set by default
   // when creating a file or directory. The typical default value
   // for the process umask is S_IWGRP | S_IWOTH (octal 022),

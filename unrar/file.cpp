@@ -86,8 +86,8 @@ bool File::Open(const wchar *Name,uint Mode)
   }
   if (hNewFile==FILE_BAD_HANDLE && LastError==ERROR_FILE_NOT_FOUND)
     ErrorType=FILE_NOTFOUND;
-
 #else
+#ifndef _AMIGA
   int flags=UpdateMode ? O_RDWR:(WriteMode ? O_WRONLY:O_RDONLY);
 #ifdef O_BINARY
   flags|=O_BINARY;
@@ -105,7 +105,7 @@ bool File::Open(const wchar *Name,uint Mode)
   extern "C" int flock(int, int);
 #endif
 
-  if (!OpenShared && UpdateMode && handle>=0 && flock(handle,LOCK_EX|LOCK_NB)==-1)
+  if (!OpenShared && UpdateMode && handle>=0) && flock(handle,LOCK_EX|LOCK_NB)==-1)
   {
     close(handle);
     return false;
@@ -123,6 +123,11 @@ bool File::Open(const wchar *Name,uint Mode)
   }
   if (hNewFile==FILE_BAD_HANDLE && errno==ENOENT)
     ErrorType=FILE_NOTFOUND;
+#else //_AMIGA
+  char NameA[NM];
+  WideToChar(Name,NameA,ASIZE(NameA));
+  hNewFile=fopen(NameA,UpdateMode ? UPDATEBINARY:READBINARY);
+#endif
 #endif
   NewFile=false;
   HandleType=FILE_HANDLENORMAL;
@@ -184,10 +189,13 @@ bool File::Create(const wchar *Name,uint Mode)
     if (GetWinLongPath(Name,LongName,ASIZE(LongName)))
       hFile=CreateFile(LongName,Access,ShareMode,NULL,CREATE_ALWAYS,0,NULL);
   }
-
 #else
   char NameA[NM];
+#if defined(_AMIGA)
+  WideToLocal(Name,NameA,ASIZE(NameA));
+#else
   WideToChar(Name,NameA,ASIZE(NameA));
+#endif
 #ifdef FILE_USE_OPEN
   hFile=open(NameA,(O_CREAT|O_TRUNC) | (WriteMode ? O_WRONLY : O_RDWR),0666);
 #else
@@ -573,10 +581,10 @@ void File::Flush()
 #ifdef _WIN_ALL
   FlushFileBuffers(hFile);
 #else
-#ifndef FILE_USE_OPEN
-  fflush(hFile);
-#endif
-  fsync(GetFD());
+//#ifndef FILE_USE_OPEN ML
+//  fflush(hFile);
+//#endif
+//  fsync(GetFD());
 #endif
 }
 
@@ -627,8 +635,12 @@ void File::SetCloseFileTimeByName(const wchar *Name,RarTime *ftm,RarTime *fta)
   if (setm || seta)
   {
     char NameA[NM];
+#ifdef _AMIGA
+    WideToLocal(Name,NameA,ASIZE(NameA));
+#else
     WideToChar(Name,NameA,ASIZE(NameA));
-
+#endif
+	  
 #ifdef UNIX_TIME_NS
     timespec times[2];
     times[0].tv_sec=seta ? fta->GetUnix() : 0;
@@ -646,7 +658,7 @@ void File::SetCloseFileTimeByName(const wchar *Name,RarTime *ftm,RarTime *fta)
       ut.actime=fta->GetUnix();
     else
       ut.actime=ut.modtime; // Need to set something, cannot left it 0.
-    utime(NameA,&ut);
+    //utime(NameA,&ut);  ML
 #endif
   }
 #endif
@@ -687,7 +699,6 @@ bool File::IsDevice()
   return isatty(GetFD());
 #endif
 }
-
 
 #ifndef SFX_MODULE
 int64 File::Copy(File &Dest,int64 Length)

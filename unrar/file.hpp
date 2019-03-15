@@ -1,7 +1,7 @@
 #ifndef _RAR_FILE_
 #define _RAR_FILE_
 
-#define FILE_USE_OPEN
+//#define FILE_USE_OPEN ML
 
 #ifdef _WIN_ALL
   typedef HANDLE FileHandle;

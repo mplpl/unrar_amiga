@@ -1,5 +1,9 @@
 #include "rar.hpp"
 
+#ifdef _AMIGA
+	#undef _UNIX
+#endif
+
 #include "hardlinks.cpp"
 #include "win32stm.cpp"
 
