@@ -2,8 +2,8 @@
 # Makefile for UNIX - unrar
 
 # MorphOS
-CXX=g++
-CXXFLAGS=-Wno-switch -D_AMIGA -noixemul -I../utf8proc
+CXX=c++
+CXXFLAGS=-O2 -Wno-switch -D_AMIGA -noixemul -I../utf8proc
 LIBFLAGS=-fPIC
 DEFINES=
 STRIP=strip
@@ -139,7 +139,6 @@ OBJECTS=rar.o strlist.o strfn.o pathfn.o smallfn.o global.o file.o filefn.o filc
 	rijndael.o getbits.o sha1.o sha256.o blake2s.o hash.o extinfo.o extract.o volume.o \
   list.o find.o unpack.o headers.o threadpool.o rs16.o cmddata.o ui.o
   
-
 .cpp.o:
 	$(COMPILE) -D$(WHAT) -c $<
 

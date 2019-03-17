@@ -8,7 +8,7 @@ int __stack  = 300000;
 int main(int argc, char *argv[])
 {
 #ifdef _UNIX
-  setlocale(LC_ALL, "");
+  setlocale(LC_ALL,"");
 #endif
 
   InitConsole();

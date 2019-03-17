@@ -112,7 +112,7 @@ bool File::Open(const wchar *Name,uint Mode)
   extern "C" int flock(int, int);
 #endif
 
-  if (!OpenShared && UpdateMode && handle>=0) && flock(handle,LOCK_EX|LOCK_NB)==-1)
+  if (!OpenShared && UpdateMode && handle>=0 && flock(handle,LOCK_EX|LOCK_NB)==-1)
   {
     close(handle);
     return false;
@@ -588,10 +588,10 @@ void File::Flush()
 #ifdef _WIN_ALL
   FlushFileBuffers(hFile);
 #else
-//#ifndef FILE_USE_OPEN ML
-//  fflush(hFile);
-//#endif
-//  fsync(GetFD());
+#ifndef FILE_USE_OPEN
+  fflush(hFile);
+#endif
+  //fsync(GetFD()); ML
 #endif
 }
 
