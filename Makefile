@@ -1,10 +1,10 @@
 
 TOPTARGETS := all clean
 
-SUBDIRS := utf8proc vfwprintf unrar_src
+SUBDIRS := utf8proc vfwprintf unrarsrc
 
 all: $(TOPTARGETS)
-	cp unrar_src/unrar .
+	cp unrarsrc/unrar .
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):
