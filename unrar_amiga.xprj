@@ -81,597 +81,601 @@
             <Option objcincludes="-I/gg/Frameworks/include"/>
             <Option objcdefines=""/>
         </CompilerSettings>
-        <FileUnit filepath="unrar/arccmt.cpp">
+        <FileUnit filepath="unrar_src/arccmt.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/archive.cpp">
+        <FileUnit filepath="unrar_src/archive.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/arcread.cpp">
+        <FileUnit filepath="unrar_src/arcread.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/blake2s.cpp">
+        <FileUnit filepath="unrar_src/blake2s.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/blake2sp.cpp">
+        <FileUnit filepath="unrar_src/blake2sp.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/blake2s_sse.cpp">
+        <FileUnit filepath="unrar_src/blake2s_sse.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/cmddata.cpp">
+        <FileUnit filepath="unrar_src/cmddata.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/cmdfilter.cpp">
+        <FileUnit filepath="unrar_src/cmdfilter.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/cmdmix.cpp">
+        <FileUnit filepath="unrar_src/cmdmix.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/coder.cpp">
+        <FileUnit filepath="unrar_src/coder.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/consio.cpp">
+        <FileUnit filepath="unrar_src/consio.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/crc.cpp">
+        <FileUnit filepath="unrar_src/crc.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/crypt.cpp">
+        <FileUnit filepath="unrar_src/crypt.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/crypt1.cpp">
+        <FileUnit filepath="unrar_src/crypt1.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/crypt2.cpp">
+        <FileUnit filepath="unrar_src/crypt2.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/crypt3.cpp">
+        <FileUnit filepath="unrar_src/crypt3.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/crypt5.cpp">
+        <FileUnit filepath="unrar_src/crypt5.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/dll.cpp">
+        <FileUnit filepath="unrar_src/dll.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/encname.cpp">
+        <FileUnit filepath="unrar_src/encname.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/errhnd.cpp">
+        <FileUnit filepath="unrar_src/errhnd.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/extinfo.cpp">
+        <FileUnit filepath="unrar_src/extinfo.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/extract.cpp">
+        <FileUnit filepath="unrar_src/extract.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/filcreat.cpp">
+        <FileUnit filepath="unrar_src/filcreat.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/file.cpp">
+        <FileUnit filepath="unrar_src/file.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/filefn.cpp">
+        <FileUnit filepath="unrar_src/filefn.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/filestr.cpp">
+        <FileUnit filepath="unrar_src/filestr.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/find.cpp">
+        <FileUnit filepath="unrar_src/find.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/getbits.cpp">
+        <FileUnit filepath="unrar_src/getbits.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/global.cpp">
+        <FileUnit filepath="unrar_src/global.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/hardlinks.cpp">
+        <FileUnit filepath="unrar_src/hardlinks.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/hash.cpp">
+        <FileUnit filepath="unrar_src/hash.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/headers.cpp">
+        <FileUnit filepath="unrar_src/headers.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/isnt.cpp">
+        <FileUnit filepath="unrar_src/isnt.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/list.cpp">
+        <FileUnit filepath="unrar_src/list.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/log.cpp">
+        <FileUnit filepath="unrar_src/log.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/match.cpp">
+        <FileUnit filepath="unrar_src/match.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/model.cpp">
+        <FileUnit filepath="unrar_src/model.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/options.cpp">
+        <FileUnit filepath="unrar_src/options.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/pathfn.cpp">
+        <FileUnit filepath="unrar_src/pathfn.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/qopen.cpp">
+        <FileUnit filepath="unrar_src/qopen.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rar.cpp">
+        <FileUnit filepath="unrar_src/rar.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rarpch.cpp">
+        <FileUnit filepath="unrar_src/rarpch.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rarvm.cpp">
+        <FileUnit filepath="unrar_src/rarvm.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rawread.cpp">
+        <FileUnit filepath="unrar_src/rawread.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rdwrfn.cpp">
+        <FileUnit filepath="unrar_src/rdwrfn.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/recvol.cpp">
+        <FileUnit filepath="unrar_src/recvol.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/recvol3.cpp">
+        <FileUnit filepath="unrar_src/recvol3.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/recvol5.cpp">
+        <FileUnit filepath="unrar_src/recvol5.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/resource.cpp">
+        <FileUnit filepath="unrar_src/resource.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rijndael.cpp">
+        <FileUnit filepath="unrar_src/rijndael.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rs.cpp">
+        <FileUnit filepath="unrar_src/rs.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rs16.cpp">
+        <FileUnit filepath="unrar_src/rs16.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/scantree.cpp">
+        <FileUnit filepath="unrar_src/scantree.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/secpassword.cpp">
+        <FileUnit filepath="unrar_src/secpassword.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/sha1.cpp">
+        <FileUnit filepath="unrar_src/sha1.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/sha256.cpp">
+        <FileUnit filepath="unrar_src/sha256.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/smallfn.cpp">
+        <FileUnit filepath="unrar_src/smallfn.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/strfn.cpp">
+        <FileUnit filepath="unrar_src/strfn.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/strlist.cpp">
+        <FileUnit filepath="unrar_src/strlist.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/suballoc.cpp">
+        <FileUnit filepath="unrar_src/suballoc.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/system.cpp">
+        <FileUnit filepath="unrar_src/system.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/threadmisc.cpp">
+        <FileUnit filepath="unrar_src/threadmisc.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/threadpool.cpp">
+        <FileUnit filepath="unrar_src/threadpool.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/timefn.cpp">
+        <FileUnit filepath="unrar_src/timefn.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/ui.cpp">
+        <FileUnit filepath="unrar_src/ui.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/uicommon.cpp">
+        <FileUnit filepath="unrar_src/uicommon.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/uiconsole.cpp">
+        <FileUnit filepath="unrar_src/uiconsole.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/uisilent.cpp">
+        <FileUnit filepath="unrar_src/uisilent.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/ulinks.cpp">
+        <FileUnit filepath="unrar_src/ulinks.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/unicode.cpp">
+        <FileUnit filepath="unrar_src/unicode.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/unpack.cpp">
+        <FileUnit filepath="unrar_src/unpack.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/unpack15.cpp">
+        <FileUnit filepath="unrar_src/unpack15.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/unpack20.cpp">
+        <FileUnit filepath="unrar_src/unpack20.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/unpack30.cpp">
+        <FileUnit filepath="unrar_src/unpack30.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/unpack50.cpp">
+        <FileUnit filepath="unrar_src/unpack50.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/unpack50frag.cpp">
+        <FileUnit filepath="unrar_src/unpack50frag.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/unpack50mt.cpp">
+        <FileUnit filepath="unrar_src/unpack50mt.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/unpackinline.cpp">
+        <FileUnit filepath="unrar_src/unpackinline.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/uowners.cpp">
+        <FileUnit filepath="unrar_src/uowners.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/volume.cpp">
+        <FileUnit filepath="unrar_src/volume.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/win32acl.cpp">
+        <FileUnit filepath="unrar_src/win32acl.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/win32lnk.cpp">
+        <FileUnit filepath="unrar_src/win32lnk.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/win32stm.cpp">
+        <FileUnit filepath="unrar_src/win32stm.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
-        <FileUnit filepath="unrar/archive.hpp">
+        <FileUnit filepath="unrar_src/archive.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/array.hpp">
+        <FileUnit filepath="unrar_src/array.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/blake2s.hpp">
+        <FileUnit filepath="unrar_src/blake2s.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/cmddata.hpp">
+        <FileUnit filepath="unrar_src/cmddata.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/coder.hpp">
+        <FileUnit filepath="unrar_src/coder.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/compress.hpp">
+        <FileUnit filepath="unrar_src/compress.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/consio.hpp">
+        <FileUnit filepath="unrar_src/consio.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/crc.hpp">
+        <FileUnit filepath="unrar_src/crc.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/crypt.hpp">
+        <FileUnit filepath="unrar_src/crypt.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/dll.hpp">
+        <FileUnit filepath="unrar_src/dll.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/encname.hpp">
+        <FileUnit filepath="unrar_src/encname.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/errhnd.hpp">
+        <FileUnit filepath="unrar_src/errhnd.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/extinfo.hpp">
+        <FileUnit filepath="unrar_src/extinfo.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/extract.hpp">
+        <FileUnit filepath="unrar_src/extract.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/filcreat.hpp">
+        <FileUnit filepath="unrar_src/filcreat.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/file.hpp">
+        <FileUnit filepath="unrar_src/file.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/filefn.hpp">
+        <FileUnit filepath="unrar_src/filefn.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/filestr.hpp">
+        <FileUnit filepath="unrar_src/filestr.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/find.hpp">
+        <FileUnit filepath="unrar_src/find.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/getbits.hpp">
+        <FileUnit filepath="unrar_src/getbits.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/global.hpp">
+        <FileUnit filepath="unrar_src/global.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/hash.hpp">
+        <FileUnit filepath="unrar_src/hash.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/headers.hpp">
+        <FileUnit filepath="unrar_src/headers.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/headers5.hpp">
+        <FileUnit filepath="unrar_src/headers5.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/isnt.hpp">
+        <FileUnit filepath="unrar_src/isnt.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/list.hpp">
+        <FileUnit filepath="unrar_src/list.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/loclang.hpp">
+        <FileUnit filepath="unrar_src/loclang.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/log.hpp">
+        <FileUnit filepath="unrar_src/log.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/match.hpp">
+        <FileUnit filepath="unrar_src/match.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/model.hpp">
+        <FileUnit filepath="unrar_src/model.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/options.hpp">
+        <FileUnit filepath="unrar_src/options.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/os.hpp">
+        <FileUnit filepath="unrar_src/os.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/pathfn.hpp">
+        <FileUnit filepath="unrar_src/pathfn.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/qopen.hpp">
+        <FileUnit filepath="unrar_src/qopen.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rar.hpp">
+        <FileUnit filepath="unrar_src/rar.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rardefs.hpp">
+        <FileUnit filepath="unrar_src/rardefs.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rarlang.hpp">
+        <FileUnit filepath="unrar_src/rarlang.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/raros.hpp">
+        <FileUnit filepath="unrar_src/raros.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rartypes.hpp">
+        <FileUnit filepath="unrar_src/rartypes.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rarvm.hpp">
+        <FileUnit filepath="unrar_src/rarvm.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rawint.hpp">
+        <FileUnit filepath="unrar_src/rawint.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rawread.hpp">
+        <FileUnit filepath="unrar_src/rawread.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rdwrfn.hpp">
+        <FileUnit filepath="unrar_src/rdwrfn.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/recvol.hpp">
+        <FileUnit filepath="unrar_src/recvol.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/resource.hpp">
+        <FileUnit filepath="unrar_src/resource.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rijndael.hpp">
+        <FileUnit filepath="unrar_src/rijndael.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rs.hpp">
+        <FileUnit filepath="unrar_src/rs.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/rs16.hpp">
+        <FileUnit filepath="unrar_src/rs16.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/savepos.hpp">
+        <FileUnit filepath="unrar_src/savepos.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/scantree.hpp">
+        <FileUnit filepath="unrar_src/scantree.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/secpassword.hpp">
+        <FileUnit filepath="unrar_src/secpassword.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/sha1.hpp">
+        <FileUnit filepath="unrar_src/sha1.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/sha256.hpp">
+        <FileUnit filepath="unrar_src/sha256.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/smallfn.hpp">
+        <FileUnit filepath="unrar_src/smallfn.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/strfn.hpp">
+        <FileUnit filepath="unrar_src/strfn.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/strlist.hpp">
+        <FileUnit filepath="unrar_src/strlist.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/suballoc.hpp">
+        <FileUnit filepath="unrar_src/suballoc.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/system.hpp">
+        <FileUnit filepath="unrar_src/system.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/threadpool.hpp">
+        <FileUnit filepath="unrar_src/threadpool.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/timefn.hpp">
+        <FileUnit filepath="unrar_src/timefn.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/ui.hpp">
+        <FileUnit filepath="unrar_src/ui.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/unicode.hpp">
+        <FileUnit filepath="unrar_src/unicode.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/unpack.hpp">
+        <FileUnit filepath="unrar_src/unpack.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/version.hpp">
+        <FileUnit filepath="unrar_src/version.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
         </FileUnit>
-        <FileUnit filepath="unrar/volume.hpp">
+        <FileUnit filepath="unrar_src/volume.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
+        </FileUnit>
+        <FileUnit filepath="../../../Applications/FlowStudio">
+            <Option inproject="1"/>
+            <Option filetype="3"/>
         </FileUnit>
     </Project>
 </FlowStudioProjectFile>

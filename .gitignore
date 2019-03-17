@@ -1,2 +1,3 @@
-unrar/*.o
-unrar/unrar
+*.o
+*.a
+unrar
