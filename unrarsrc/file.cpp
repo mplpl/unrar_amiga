@@ -4,7 +4,7 @@
 #include <dos/dos.h>
 // including proto/dos.h make a mess due to overlapping type names
 // therefore I'm just including this single declaration
-extern "C" LONG SetFileDate( CONST_STRPTR name, CONST struct DateStamp *date );
+extern "C" LONG SetFileDate( CONST_STRPTR, CONST struct DateStamp *);
 #endif
 
 File::File()
