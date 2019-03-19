@@ -5,6 +5,49 @@
 // therefore I'm just including these two declarations
 extern "C" BOOL MakeLink(STRPTR, STRPTR, LONG);
 extern "C" LONG SetFileDate( CONST_STRPTR, CONST struct DateStamp *);
+
+void UnixPathToAmiga(const char *upath, char *apath)
+{
+  // this function translates unix path into amiga path
+  // it does the following transformations:
+  // 1) trailing '/' is replaced with ':'
+  // 2) each '../' substring is replaced with '/'
+  // 3) remove './' when there is just one '.'
+  
+  int a = 0;  // amiga pointer
+  int u = 0;  // unix pointer 
+  while (upath[u])
+  {
+    if (u == 0 && upath[0] ==  '/')
+    {
+      apath[0] = ':';
+    }
+    else if (upath[u] == '.' && upath[u+1] == '.' && upath[u+2] == '/')
+    {
+      apath[a] = '/';
+      u += 2;
+    }
+    else if (upath[u] == '.' && upath[u+1] == '/')
+    {
+      u++;
+    }
+    else if (upath[u] == '/')
+    {
+      apath[a] = '/';
+    }
+    else
+    {
+      apath[a] = upath[u];
+    }
+    // skip all repeated '/'
+    while (upath[u+1] == '/') u++;
+    u++;
+    a++;
+  }
+  apath[a] = 0;
+}
+
+
 #endif
 
 static bool UnixSymlink(const char *Target,const wchar *LinkName,RarTime *ftm,RarTime *fta)
@@ -14,7 +57,10 @@ static bool UnixSymlink(const char *Target,const wchar *LinkName,RarTime *ftm,Ra
   DelFile(LinkName);
   char LinkNameA[NM];
   WideToLocal(LinkName,LinkNameA,ASIZE(LinkNameA));
-  if (!(MakeLink(LinkNameA, (char *)Target, 1)))
+  char TargetAmiga[NM];
+  UnixPathToAmiga(Target, TargetAmiga);
+  printf("[ami path %s]", TargetAmiga);
+  if (!(MakeLink(LinkNameA, (char *)TargetAmiga, 1)))
   {
     uiMsg(UIERROR_SLINKCREATE,UINULL,LinkName);
     ErrHandler.SetErrorCode(RARX_WARNING);

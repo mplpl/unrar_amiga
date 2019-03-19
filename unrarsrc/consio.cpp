@@ -106,7 +106,7 @@ static void cvt_wprintf(FILE *dest,const wchar *fmt,va_list arglist)
   vswprintf(lineBufW, 1024, fmtw, arglist);
   unsigned char lineBufMb[1024];
   WideToLocal(lineBufW, (char *)&lineBufMb, 1024);
-  fwprintf(dest, L"%s", (const char *)lineBufMb);
+  fprintf(dest, (const char *)lineBufMb);
 #else
   vfwprintf(dest,fmtw,arglist);
 #endif
