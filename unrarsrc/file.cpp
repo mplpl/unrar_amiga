@@ -1,5 +1,12 @@
 #include "rar.hpp"
 
+#ifdef _AMIGA
+#include <dos/dos.h>
+// including proto/dos.h make a mess due to overlapping type names
+// therefore I'm just including this single declaration
+extern "C" LONG SetFileDate( CONST_STRPTR, CONST struct DateStamp *);
+#endif
+
 File::File()
 {
   hFile=FILE_BAD_HANDLE;
@@ -105,7 +112,7 @@ bool File::Open(const wchar *Name,uint Mode)
   extern "C" int flock(int, int);
 #endif
 
-  if (!OpenShared && UpdateMode && handle>=0) && flock(handle,LOCK_EX|LOCK_NB)==-1)
+  if (!OpenShared && UpdateMode && handle>=0 && flock(handle,LOCK_EX|LOCK_NB)==-1)
   {
     close(handle);
     return false;
@@ -581,10 +588,10 @@ void File::Flush()
 #ifdef _WIN_ALL
   FlushFileBuffers(hFile);
 #else
-//#ifndef FILE_USE_OPEN ML
-//  fflush(hFile);
-//#endif
-//  fsync(GetFD());
+#ifndef FILE_USE_OPEN
+  fflush(hFile);
+#endif
+  //fsync(GetFD()); ML
 #endif
 }
 
@@ -648,6 +655,16 @@ void File::SetCloseFileTimeByName(const wchar *Name,RarTime *ftm,RarTime *fta)
     times[1].tv_sec=setm ? ftm->GetUnix() : 0;
     times[1].tv_nsec=setm ? long(ftm->GetUnixNS()%1000000000) : UTIME_NOW;
     utimensat(AT_FDCWD,NameA,times,0);
+#elif defined(_AMIGA)
+    if (setm)
+    {
+      struct DateStamp ds;
+      time_t amitime = ftm->GetUnix() - 252457200; // Amiga counts from Jan 1 78
+      ds.ds_Days = amitime / (60 * 60 * 24);
+      ds.ds_Minute = amitime % (60 * 60 * 24) / 60;
+      ds.ds_Tick = amitime % 60 * TICKS_PER_SECOND;
+      SetFileDate(NameA, &ds);
+    }
 #else
     utimbuf ut;
     if (setm)
@@ -658,7 +675,7 @@ void File::SetCloseFileTimeByName(const wchar *Name,RarTime *ftm,RarTime *fta)
       ut.actime=fta->GetUnix();
     else
       ut.actime=ut.modtime; // Need to set something, cannot left it 0.
-    //utime(NameA,&ut);  ML
+    utime(NameA,&ut);
 #endif
   }
 #endif

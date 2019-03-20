@@ -20,7 +20,7 @@ bool ExtractHardlink(wchar *NameNew,wchar *NameExisting,size_t NameExistingSize)
     ErrHandler.SetErrorCode(RARX_CREATE);
   }
   return Success;
-#elif defined(_UNIX)
+#elif defined(_UNIX) && !defined(_AMIGA)
   char NameExistingA[NM],NameNewA[NM];
   WideToChar(NameExisting,NameExistingA,ASIZE(NameExistingA));
   WideToChar(NameNew,NameNewA,ASIZE(NameNewA));

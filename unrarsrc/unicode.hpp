@@ -64,7 +64,7 @@ inline void copychrd(char *dest,const char *src) {*dest=*src;}
 #endif
 
 #ifdef _AMIGA
-void WideToLocal(const wchar *Src,char *Dest,size_t DestSize);
+bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize);
 #endif
 
 #endif

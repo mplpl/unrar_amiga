@@ -1,8 +1,81 @@
 
+#ifdef _AMIGA
+#include <dos/dos.h>
+// including proto/dos.h make a mess due to overlapping type names
+// therefore I'm just including these two declarations
+extern "C" BOOL MakeLink(STRPTR, STRPTR, LONG);
+extern "C" LONG SetFileDate( CONST_STRPTR, CONST struct DateStamp *);
+
+void UnixPathToAmiga(const char *upath, char *apath)
+{
+  // this function translates unix path into amiga path
+  // it does the following transformations:
+  // 1) trailing '/' is replaced with ':'
+  // 2) each '../' substring is replaced with '/'
+  // 3) remove './' when there is just one '.'
+  
+  int a = 0;  // amiga pointer
+  int u = 0;  // unix pointer 
+  while (upath[u])
+  {
+    if (u == 0 && upath[0] ==  '/')
+    {
+      apath[0] = ':';
+    }
+    else if (upath[u] == '.' && upath[u+1] == '.' && upath[u+2] == '/')
+    {
+      apath[a] = '/';
+      u += 2;
+    }
+    else if (upath[u] == '.' && upath[u+1] == '/')
+    {
+      u++;
+    }
+    else if (upath[u] == '/')
+    {
+      apath[a] = '/';
+    }
+    else
+    {
+      apath[a] = upath[u];
+    }
+    // skip all repeated '/'
+    while (upath[u+1] == '/') u++;
+    u++;
+    a++;
+  }
+  apath[a] = 0;
+}
+
+
+#endif
 
 static bool UnixSymlink(const char *Target,const wchar *LinkName,RarTime *ftm,RarTime *fta)
 {
-#ifndef _AMIGA
+#ifdef _AMIGA
+  CreatePath(LinkName,true);
+  DelFile(LinkName);
+  char LinkNameA[NM];
+  WideToLocal(LinkName,LinkNameA,ASIZE(LinkNameA));
+  char TargetAmiga[NM];
+  UnixPathToAmiga(Target, TargetAmiga);
+  printf("[ami path %s]", TargetAmiga);
+  if (!(MakeLink(LinkNameA, (char *)TargetAmiga, 1)))
+  {
+    uiMsg(UIERROR_SLINKCREATE,UINULL,LinkName);
+    ErrHandler.SetErrorCode(RARX_WARNING);
+    return false;
+  }
+  if (ftm!=NULL && ftm->IsSet())
+  {
+    struct DateStamp ds;
+    time_t amitime = ftm->GetUnix() - 252457200; // Amiga counts from Jan 1 78
+    ds.ds_Days = amitime / (60 * 60 * 24);
+    ds.ds_Minute = amitime % (60 * 60 * 24) / 60;
+    ds.ds_Tick = amitime % 60 * TICKS_PER_SECOND;
+    SetFileDate(LinkNameA, &ds);
+  }
+#else
   CreatePath(LinkName,true);
   DelFile(LinkName);
   char LinkNameA[NM];
@@ -35,8 +108,9 @@ static bool UnixSymlink(const char *Target,const wchar *LinkName,RarTime *ftm,Ra
   lutimes(LinkNameA,tv);
 #endif
 #endif
-#endif
 
+#endif
+  
   return true;
 }
 
@@ -86,7 +160,11 @@ bool ExtractUnixLink30(CommandData *Cmd,ComprDataIO &DataIO,Archive &Arc,const w
 bool ExtractUnixLink50(CommandData *Cmd,const wchar *Name,FileHeader *hd)
 {
   char Target[NM];
+#ifdef _AMIGA
+  WideToLocal(hd->RedirName,Target,ASIZE(Target));
+#else
   WideToChar(hd->RedirName,Target,ASIZE(Target));
+#endif
   if (hd->RedirType==FSREDIR_WINSYMLINK || hd->RedirType==FSREDIR_JUNCTION)
   {
     // Cannot create Windows absolute path symlinks in Unix. Only relative path

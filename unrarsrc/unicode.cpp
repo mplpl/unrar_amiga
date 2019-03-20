@@ -659,25 +659,33 @@ char* SupportDBCS::strrchrd(const char *s, int c)
 
 #ifdef _AMIGA
 
-void WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
+bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
 {
+  char *codepage = getenv("CODEPAGE");
+  //if (!codepage)
+  //{
+  //  return WideToChar(Src, Dest, DestSize);
+  //}
   // buffer for UTF-8 version of Src
   unsigned char utf8Buf[NM];
   WideToUtf(Src,(char *)utf8Buf,ASIZE(utf8Buf));
   
   // normalizing UTF-8
   unsigned char *lineBufNorm = utf8proc_NFC(utf8Buf);
-  
+
   // converting normalized UTF-8 to local encoding
-  iconv_t convBase=iconv_open("ISO-8859-2", "UTF-8");
+  iconv_t convBase=iconv_open((codepage)?codepage:"ISO-8859-1", 
+   "UTF-8");
   const char *inPtr = (const char *)lineBufNorm;
   char *outPtr = Dest;
   size_t inSize = 1024;
   size_t outSize = DestSize;
   int ret = iconv(convBase, &inPtr, &inSize, &outPtr, &outSize);
   *outPtr = 0;
-  free(lineBufNorm);
   iconv_close(convBase);
+  free(lineBufNorm);
+  
+  return true;
 }
 
 #endif

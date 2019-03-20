@@ -97,9 +97,7 @@
 #include <signal.h>
 
 
-#if !defined(_AMIGA)
 #define SAVE_LINKS
-#endif 
 
 #define ENABLE_ACCESS
 
@@ -179,7 +177,7 @@
 #include <locale.h>
 
 
-#if defined(S_IFLNK) && !defined(_AMIGA)
+#if defined(S_IFLNK)
 #define SAVE_LINKS
 #endif
 
