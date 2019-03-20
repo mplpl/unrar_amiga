@@ -1,4 +1,4 @@
-# Port of unrar for MorhpOS and Amiga OS4
+# Port of unrar for MorphOS and AmigaOS 4
 
 <h2>State of work:</h2>
 
@@ -36,3 +36,19 @@ Hard links are supported in a similar way as symbilic links. Again, they will on
 <h3>Reference files in an archive</h3>
 
 RAR can pack identical files as referenced inside of an archive - that reduces size of targer file. In order to make such archive -oi switch should be used. When unpacking, duplicates are re-created as separate files. That is fully supported in this port.
+
+<h2>Notes about porting</h2>
+
+This port is based on unrar source code version 5.7.3 (unrarsrc-5.7.3.tar.gz) from rarlab.com:
+https://www.rarlab.com/rar/unrarsrc-5.7.3.tar.gz
+
+For normalizing UTF, I used utf8proc. I did not need to port it for Amiga - it compiles without any change:
+https://juliastrings.github.io/utf8proc/
+
+For vfwprintf based functions of libc, that are not present on Amiga at all, I ported the code I took from newlib 3.1.0:
+http://sourceware.org/newlib/
+ftp://sourceware.org/pub/newlib/newlib-3.1.0.tar.gz
+
+MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.12).
+AmigaOS4 version of unrar has been compiled using gcc 4.x.x (part of SDK x.xx).
+
