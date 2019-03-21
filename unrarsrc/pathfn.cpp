@@ -171,7 +171,8 @@ void AddEndSlash(wchar *Path,size_t MaxLength)
 {
   size_t Length=wcslen(Path);
 #ifdef _AMIGA
-  if (Length>0 && Path[Length-1]!=CPATHDIVIDER && Path[Length-1]!=':')
+  if (Length>0 && Path[Length-1]!=CPATHDIVIDER && \
+    !IsDriveDiv(Path[Length-1]))
 #else
   if (Length>0 && Path[Length-1]!=CPATHDIVIDER)
 #endif

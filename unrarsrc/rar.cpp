@@ -1,7 +1,10 @@
 #include "rar.hpp"
 
 #ifdef _AMIGA
-int __stack  = 300000;
+size_t __stack  = 300000;
+#define Q(x) #x
+#define QUOTE(x) Q(x)
+const char *vers = "\\0$VER: UnRAR "QUOTE(RARVER_MAJOR)"."QUOTE(RARVER_MINOR); 
 #endif
 
 #if !defined(RARDLL)
