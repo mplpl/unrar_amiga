@@ -38,6 +38,14 @@ Hard links are supported in a similar way as symbilic links. Again, they will on
 
 RAR can pack identical files as references inside of an archive - that reduces size of the archive file. In order to make such archive -oi switch should be used when packing. When unpacking, duplicates are re-created as separate files. That is fully supported in this unrar port.
 
+<h3>Configuration file</h3>
+
+Unrar has a config file in which you can store switches that will always be used when unrar command is called. In order to do that, "switches=" should be present in the file with all the switches to add (for instance "switches=-ad -ola"). This port of unrar looks for configuration file in s:rar.conf.
+
+<h3>Support for locatization</h3>
+
+This unrar port complies with locatization rules of MorphOS and AmigaOS. unrar.cs file is included in the bundle, and can be base for making translations using tools like SimpleCat. 
+
 <h2>Notes about porting</h2>
 
 This port is based directly on unrar source code version 5.7.3 (unrarsrc-5.7.3.tar.gz) from rarlab.com:
