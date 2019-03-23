@@ -180,7 +180,11 @@ static void GetPasswordText(wchar *Str,uint MaxLength)
 #else
     strncpyz(StrA,getpass(""),ASIZE(StrA));
 #endif
+#ifdef _AMIGA
+    LocalToWide(StrA,Str,MaxLength);
+#else
     CharToWide(StrA,Str,MaxLength);
+#endif
     cleandata(StrA,sizeof(StrA));
 #endif
   }
