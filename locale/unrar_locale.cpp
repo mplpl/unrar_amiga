@@ -45,6 +45,10 @@
 #include <memory.h>
 #include <string.h>
 #include <wchar.h>
+#include <iconv.h>
+#include <stdlib.h>
+
+#define WIDECHAR_ENCODING "UTF-32BE"
 
 /*************************************************************************/
 
@@ -59,6 +63,7 @@ static struct Locale      *locale_locale;
 static struct Catalog     *locale_catalog;
 
 static wchar_t *CACHE[CATCOMP_LASTID + 1];
+static iconv_t conv_base;
 
 /*************************************************************************/
 
@@ -68,9 +73,15 @@ static wchar_t *CACHE[CATCOMP_LASTID + 1];
 
 BOOL Locale_Open( STRPTR catname, ULONG version, ULONG revision) 
 {
+  static char *codepage = getenv("CODEPAGE");
+  // here I'm assuming that wchar_t encoding is give - this is a brave 
+  // assumption, that may not always be right - but on Amiga it is, so 
+  // it's good enought for now
+  conv_base=iconv_open(WIDECHAR_ENCODING, codepage?codepage:"ISO8859-1");
+  memset(CACHE, 0, sizeof(wchar_t) * (CATCOMP_LASTID + 1));
+  
   if( (LocaleBase = OpenLibrary( "locale.library",0 )) ) 
   {
-    memset(CACHE, 0, sizeof(wchar_t) * (CATCOMP_LASTID + 1));
 #ifdef __amigaos4__
     if( (ILocale = (struct LocaleIFace *) GetInterface( LocaleBase, "main", 1, NULL)) ) 
     {
@@ -107,6 +118,7 @@ BOOL Locale_Open( STRPTR catname, ULONG version, ULONG revision)
 
 void Locale_Close(void)
 {
+  iconv_close(conv_base);
   for (int i = 0; i < CATCOMP_LASTID; i++)
   {
     delete[] CACHE[i];
@@ -174,20 +186,30 @@ const wchar_t *GetWString(long id)
     return CACHE[id];
   }
   // new string
-  char *str = GetString(id);
+  const char *str = GetString(id);
   if (!str)
   {
     return 0;
   }
+  
   int len = strlen(str);
-  CACHE[id] = new wchar_t[2*len + 1];
-  swprintf(CACHE[id], len + 1, L"%s", str);
+  // I have a string now encoded using local charset of given locale
+  // I need to convert it to wchar_t using iconv
+  CACHE[id] = new wchar_t[len + 1];
+  const char *inPtr = str;
+  char *outPtr = (char *)CACHE[id];
+  size_t inSize = len;
+  size_t outSize = sizeof(wchar_t) * (len + 1);
+  int ret = iconv(conv_base, &inPtr, &inSize, &outPtr, &outSize);
+  *(wchar_t *)outPtr = (wchar_t)0;
+  
+  //CACHE[id] = new wchar_t[len + 1];
+  //swprintf(CACHE[id], len + 1, L"%s", outBuff);
   
   return CACHE[id];
 } 
 
 /* \\\ GetWString */
-
 
 
 
