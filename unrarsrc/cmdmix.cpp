@@ -10,7 +10,7 @@ void CommandData::OutTitle()
   if (TitleShown)
     return;
   TitleShown=true;
-
+  
   wchar Version[80];
   if (RARVER_BETA!=0)
     swprintf(Version,ASIZE(Version),L"%d.%02d %ls %d",RARVER_MAJOR,RARVER_MINOR,St(MBeta),RARVER_BETA);

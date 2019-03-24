@@ -1,5 +1,12 @@
 #include "rar.hpp"
 
+#ifdef _AMIGA
+#include <dos/dos.h>
+// including proto/dos.h make a mess due to overlapping type names
+// therefore I'm just including this single declaration
+extern "C" LONG SetFileDate( CONST_STRPTR, CONST struct DateStamp *);
+#endif
+
 File::File()
 {
   hFile=FILE_BAD_HANDLE;
@@ -86,8 +93,8 @@ bool File::Open(const wchar *Name,uint Mode)
   }
   if (hNewFile==FILE_BAD_HANDLE && LastError==ERROR_FILE_NOT_FOUND)
     ErrorType=FILE_NOTFOUND;
-
 #else
+#ifndef _AMIGA
   int flags=UpdateMode ? O_RDWR:(WriteMode ? O_WRONLY:O_RDONLY);
 #ifdef O_BINARY
   flags|=O_BINARY;
@@ -123,6 +130,11 @@ bool File::Open(const wchar *Name,uint Mode)
   }
   if (hNewFile==FILE_BAD_HANDLE && errno==ENOENT)
     ErrorType=FILE_NOTFOUND;
+#else //_AMIGA
+  char NameA[NM];
+  WideToChar(Name,NameA,ASIZE(NameA));
+  hNewFile=fopen(NameA,UpdateMode ? UPDATEBINARY:READBINARY);
+#endif
 #endif
   NewFile=false;
   HandleType=FILE_HANDLENORMAL;
@@ -184,10 +196,13 @@ bool File::Create(const wchar *Name,uint Mode)
     if (GetWinLongPath(Name,LongName,ASIZE(LongName)))
       hFile=CreateFile(LongName,Access,ShareMode,NULL,CREATE_ALWAYS,0,NULL);
   }
-
 #else
   char NameA[NM];
+#if defined(_AMIGA)
+  WideToLocal(Name,NameA,ASIZE(NameA));
+#else
   WideToChar(Name,NameA,ASIZE(NameA));
+#endif
 #ifdef FILE_USE_OPEN
   hFile=open(NameA,(O_CREAT|O_TRUNC) | (WriteMode ? O_WRONLY : O_RDWR),0666);
 #else
@@ -576,7 +591,7 @@ void File::Flush()
 #ifndef FILE_USE_OPEN
   fflush(hFile);
 #endif
-  fsync(GetFD());
+  //fsync(GetFD()); ML
 #endif
 }
 
@@ -627,8 +642,12 @@ void File::SetCloseFileTimeByName(const wchar *Name,RarTime *ftm,RarTime *fta)
   if (setm || seta)
   {
     char NameA[NM];
+#ifdef _AMIGA
+    WideToLocal(Name,NameA,ASIZE(NameA));
+#else
     WideToChar(Name,NameA,ASIZE(NameA));
-
+#endif
+	  
 #ifdef UNIX_TIME_NS
     timespec times[2];
     times[0].tv_sec=seta ? fta->GetUnix() : 0;
@@ -636,6 +655,16 @@ void File::SetCloseFileTimeByName(const wchar *Name,RarTime *ftm,RarTime *fta)
     times[1].tv_sec=setm ? ftm->GetUnix() : 0;
     times[1].tv_nsec=setm ? long(ftm->GetUnixNS()%1000000000) : UTIME_NOW;
     utimensat(AT_FDCWD,NameA,times,0);
+#elif defined(_AMIGA)
+    if (setm)
+    {
+      struct DateStamp ds;
+      time_t amitime = ftm->GetUnix() - 252457200; // Amiga counts from Jan 1 78
+      ds.ds_Days = amitime / (60 * 60 * 24);
+      ds.ds_Minute = amitime % (60 * 60 * 24) / 60;
+      ds.ds_Tick = amitime % 60 * TICKS_PER_SECOND;
+      SetFileDate(NameA, &ds);
+    }
 #else
     utimbuf ut;
     if (setm)
@@ -687,7 +716,6 @@ bool File::IsDevice()
   return isatty(GetFD());
 #endif
 }
-
 
 #ifndef SFX_MODULE
 int64 File::Copy(File &Dest,int64 Length)
