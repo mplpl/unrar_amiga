@@ -146,7 +146,9 @@
   #include <sys/sysctl.h>
 #endif
 #ifndef SFX_MODULE
+#ifndef _AMIGA
     #include <sys/statvfs.h>
+#endif
 #endif
 #include <pwd.h>
 #include <grp.h>
@@ -166,7 +168,7 @@
 #include <locale.h>
 
 
-#ifdef  S_IFLNK
+#if defined(S_IFLNK)
 #define SAVE_LINKS
 #endif
 
@@ -177,7 +179,11 @@
 
 #define ENABLE_ACCESS
 
+#ifdef _AMIGA
+#define DefConfigName  L"rar.conf"
+#else
 #define DefConfigName  L".rarrc"
+#endif
 #define DefLogName     L".rarlog"
 
 
@@ -206,7 +212,7 @@
   #endif
 #endif
 
-#if defined(__sparc) || defined(sparc) || defined(__hpux)
+#if defined(__sparc) || defined(sparc) || defined(__hpux) || defined(__amigaos__)
   #ifndef BIG_ENDIAN
      #define BIG_ENDIAN
   #endif

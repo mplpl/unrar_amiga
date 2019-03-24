@@ -1,9 +1,19 @@
 #include "rar.hpp"
 
+#ifdef _AMIGA
+size_t __stack  = 300000;
+#define Q(x) #x
+#define QUOTE(x) Q(x)
+const char *vers = "\\0$VER: UnRAR "QUOTE(RARVER_MAJOR)"."QUOTE(RARVER_MINOR); 
+#endif
+
 #if !defined(RARDLL)
 int main(int argc, char *argv[])
 {
-
+#ifdef _AMIGA
+  Locale_Open("unrar.catalog", 1, 0);
+#endif
+  
 #ifdef _UNIX
   setlocale(LC_ALL,"");
 #endif
@@ -98,6 +108,9 @@ int main(int argc, char *argv[])
   if (ShutdownOnClose!=POWERMODE_KEEP && ErrHandler.IsShutdownEnabled() &&
       !ShutdownCheckAnother(false))
     Shutdown(ShutdownOnClose);
+#endif
+#ifdef _AMIGA
+  Locale_Close();
 #endif
   ErrHandler.MainExit=true;
   return ErrHandler.GetErrorCode();
