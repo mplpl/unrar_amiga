@@ -1,7 +1,20 @@
-
-
 static bool UnixSymlink(const char *Target,const wchar *LinkName,RarTime *ftm,RarTime *fta)
 {
+#ifdef _AMIGA
+  CreatePath(LinkName,true);
+  DelFile(LinkName);
+  char LinkNameA[NM];
+  WideToLocal(LinkName,LinkNameA,ASIZE(LinkNameA));
+  char TargetAmiga[NM];
+  UnixPathToAmiga(Target, TargetAmiga);
+  if (!(MakeLink(LinkNameA, (char *)TargetAmiga, true)))
+  {
+    uiMsg(UIERROR_SLINKCREATE,UINULL,LinkName);
+    ErrHandler.SetErrorCode(RARX_WARNING);
+    return false;
+  }
+  SetFileModificationTime(LinkNameA, ftm);
+#else
   CreatePath(LinkName,true);
   DelFile(LinkName);
   char LinkNameA[NM];
@@ -35,6 +48,8 @@ static bool UnixSymlink(const char *Target,const wchar *LinkName,RarTime *ftm,Ra
 #endif
 #endif
 
+#endif
+  
   return true;
 }
 
@@ -84,7 +99,11 @@ bool ExtractUnixLink30(CommandData *Cmd,ComprDataIO &DataIO,Archive &Arc,const w
 bool ExtractUnixLink50(CommandData *Cmd,const wchar *Name,FileHeader *hd)
 {
   char Target[NM];
+#ifdef _AMIGA
+  WideToLocal(hd->RedirName,Target,ASIZE(Target));
+#else
   WideToChar(hd->RedirName,Target,ASIZE(Target));
+#endif
   if (hd->RedirType==FSREDIR_WINSYMLINK || hd->RedirType==FSREDIR_JUNCTION)
   {
     // Cannot create Windows absolute path symlinks in Unix. Only relative path

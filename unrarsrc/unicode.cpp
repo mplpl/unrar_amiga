@@ -1,4 +1,10 @@
 #include "rar.hpp"
+
+#ifdef _AMIGA
+#include <iconv.h>
+#include <utf8proc.h>
+#endif
+
 #define MBFUNCTIONS
 
 #if defined(_UNIX) && defined(MBFUNCTIONS)
@@ -167,7 +173,8 @@ bool WideToCharMap(const wchar *Src,char *Dest,size_t DestSize,bool &Success)
       }
       SrcPos++;
       memset(&ps,0,sizeof(ps));
-      int Length=mbrlen(Dest+DestPos,MB_CUR_MAX,&ps);
+      //int Length=mbrlen(Dest+DestPos,MB_CUR_MAX,&ps);
+	  int Length=mblen(Dest+DestPos,MB_CUR_MAX);
       DestPos+=Max(Length,1);
     }
   }
@@ -219,7 +226,8 @@ void CharToWideMap(const char *Src,wchar *Dest,size_t DestSize,bool &Success)
     else
     {
       memset(&ps,0,sizeof(ps));
-      int Length=mbrlen(Src+SrcPos,MB_CUR_MAX,&ps);
+      //int Length=mbrlen(Src+SrcPos,MB_CUR_MAX,&ps);
+      int Length=mblen(Src+SrcPos,MB_CUR_MAX);
       SrcPos+=Max(Length,1);
       DestPos++;
     }
@@ -648,3 +656,51 @@ char* SupportDBCS::strrchrd(const char *s, int c)
   return((char *)found);
 }
 #endif
+
+#ifdef _AMIGA
+
+bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
+{
+  static char *codepage = getenv("CODEPAGE");
+  //if (!codepage)
+  //{
+  //  return WideToChar(Src, Dest, DestSize);
+  //}
+  // buffer for UTF-8 version of Src
+  unsigned char utf8Buf[NM];
+  WideToUtf(Src,(char *)utf8Buf,ASIZE(utf8Buf));
+  
+  // normalizing UTF-8
+  unsigned char *lineBufNorm = utf8proc_NFC(utf8Buf);
+
+  // converting normalized UTF-8 to local encoding
+  iconv_t convBase=iconv_open((codepage)?codepage:"ISO-8859-1", "UTF-8");
+  const char *inPtr = (const char *)lineBufNorm;
+  char *outPtr = Dest;
+  size_t inSize = strlen((char *)lineBufNorm);
+  size_t outSize = DestSize;
+  int ret = iconv(convBase, &inPtr, &inSize, &outPtr, &outSize);
+  *outPtr = 0;
+  iconv_close(convBase);
+  free(lineBufNorm);
+  
+  return true;
+}
+
+
+bool LocalToWide(const char *Src,wchar *Dest,size_t DestSize)
+{
+  static char *codepage = getenv("CODEPAGE");
+  iconv_t convBase=iconv_open("UTF-32BE", (codepage)?codepage:"ISO-8859-1");
+  const char *inPtr = Src;
+  char *outPtr = (char *)Dest;
+  size_t inSize = strlen((char *)Src);
+  size_t outSize = sizeof(wchar_t) * DestSize;
+  int ret = iconv(convBase, &inPtr, &inSize, &outPtr, &outSize);
+  *(wchar_t *)outPtr = (wchar_t)0;
+  iconv_close(convBase);
+  return true;
+}
+
+#endif
+
