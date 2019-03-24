@@ -102,10 +102,10 @@ static void cvt_wprintf(FILE *dest,const wchar *fmt,va_list arglist)
   WriteConsole(hOut,Msg,(DWORD)wcslen(Msg),&Written,NULL);
 #else
 #if defined(_AMIGA)
-  wchar lineBufW[1024];
-  vswprintf(lineBufW, 1024, fmtw, arglist);
-  unsigned char lineBufMb[1024];
-  WideToLocal(lineBufW, (char *)&lineBufMb, 1024);
+  wchar lineBufW[2*1024];
+  vswprintf(lineBufW, 2*1024, fmtw, arglist);
+  unsigned char lineBufMb[2*1024];
+  WideToLocal(lineBufW, (char *)&lineBufMb, 2*1024);
   fprintf(dest, (const char *)lineBufMb);
 #else
   vfwprintf(dest,fmtw,arglist);
@@ -180,7 +180,11 @@ static void GetPasswordText(wchar *Str,uint MaxLength)
 #else
     strncpyz(StrA,getpass(""),ASIZE(StrA));
 #endif
+#ifdef _AMIGA
+    LocalToWide(StrA,Str,MaxLength);
+#else
     CharToWide(StrA,Str,MaxLength);
+#endif
     cleandata(StrA,sizeof(StrA));
 #endif
   }

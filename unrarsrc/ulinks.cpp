@@ -1,55 +1,3 @@
-
-#ifdef _AMIGA
-#include <dos/dos.h>
-// including proto/dos.h make a mess due to overlapping type names
-// therefore I'm just including these two declarations
-extern "C" BOOL MakeLink(STRPTR, STRPTR, LONG);
-extern "C" LONG SetFileDate( CONST_STRPTR, CONST struct DateStamp *);
-
-void UnixPathToAmiga(const char *upath, char *apath)
-{
-  // this function translates unix path into amiga path
-  // it does the following transformations:
-  // 1) trailing '/' is replaced with ':'
-  // 2) each '../' substring is replaced with '/'
-  // 3) remove './' when there is just one '.'
-  
-  int a = 0;  // amiga pointer
-  int u = 0;  // unix pointer 
-  while (upath[u])
-  {
-    if (u == 0 && upath[0] ==  '/')
-    {
-      apath[0] = ':';
-    }
-    else if (upath[u] == '.' && upath[u+1] == '.' && upath[u+2] == '/')
-    {
-      apath[a] = '/';
-      u += 2;
-    }
-    else if (upath[u] == '.' && upath[u+1] == '/')
-    {
-      u++;
-    }
-    else if (upath[u] == '/')
-    {
-      apath[a] = '/';
-    }
-    else
-    {
-      apath[a] = upath[u];
-    }
-    // skip all repeated '/'
-    while (upath[u+1] == '/') u++;
-    u++;
-    a++;
-  }
-  apath[a] = 0;
-}
-
-
-#endif
-
 static bool UnixSymlink(const char *Target,const wchar *LinkName,RarTime *ftm,RarTime *fta)
 {
 #ifdef _AMIGA
@@ -59,22 +7,13 @@ static bool UnixSymlink(const char *Target,const wchar *LinkName,RarTime *ftm,Ra
   WideToLocal(LinkName,LinkNameA,ASIZE(LinkNameA));
   char TargetAmiga[NM];
   UnixPathToAmiga(Target, TargetAmiga);
-  printf("[ami path %s]", TargetAmiga);
-  if (!(MakeLink(LinkNameA, (char *)TargetAmiga, 1)))
+  if (!(MakeLink(LinkNameA, (char *)TargetAmiga, true)))
   {
     uiMsg(UIERROR_SLINKCREATE,UINULL,LinkName);
     ErrHandler.SetErrorCode(RARX_WARNING);
     return false;
   }
-  if (ftm!=NULL && ftm->IsSet())
-  {
-    struct DateStamp ds;
-    time_t amitime = ftm->GetUnix() - 252457200; // Amiga counts from Jan 1 78
-    ds.ds_Days = amitime / (60 * 60 * 24);
-    ds.ds_Minute = amitime % (60 * 60 * 24) / 60;
-    ds.ds_Tick = amitime % 60 * TICKS_PER_SECOND;
-    SetFileDate(LinkNameA, &ds);
-  }
+  SetFileModificationTime(LinkNameA, ftm);
 #else
   CreatePath(LinkName,true);
   DelFile(LinkName);

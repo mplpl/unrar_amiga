@@ -849,8 +849,12 @@ size_t Archive::ReadHeader50()
         size_t ReadNameSize=Min(NameSize,ASIZE(FileName)-1);
         Raw.GetB((byte *)FileName,ReadNameSize);
         FileName[ReadNameSize]=0;
-
+#ifdef _AMIGA
+        UtfToWide((const char *)utf8proc_NFC((unsigned char *)FileName),
+          hd->FileName,ASIZE(hd->FileName));
+#else
         UtfToWide(FileName,hd->FileName,ASIZE(hd->FileName));
+#endif
 
         // Should do it before converting names, because extra fields can
         // affect name processing, like in case of NTFS streams.

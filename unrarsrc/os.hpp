@@ -109,21 +109,12 @@
 #define CPATHDIVIDER '\\'
 #define MASKALL      L"*"
 
-#ifndef _AMIGA
-#define READBINARY   "r"
-#define READTEXT     "r"
-#define UPDATEBINARY "r+"
-#define CREATEBINARY "w+"
-#define WRITEBINARY  "wb"
-#define APPENDTEXT   "a"
-#else
 #define READBINARY   "rb"
 #define READTEXT     "rt"
 #define UPDATEBINARY "r+b"
 #define CREATEBINARY "w+b"
 #define WRITEBINARY  "wb"
 #define APPENDTEXT   "at"
-#endif
 
 #if defined(_WIN_ALL)
   #ifdef _MSC_VER
@@ -188,7 +179,11 @@
 
 #define ENABLE_ACCESS
 
+#ifdef _AMIGA
+#define DefConfigName  L"rar.conf"
+#else
 #define DefConfigName  L".rarrc"
+#endif
 #define DefLogName     L".rarlog"
 
 
