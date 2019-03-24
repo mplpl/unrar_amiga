@@ -34,7 +34,7 @@ void ExtractUnixOwner20(Archive &Arc,const wchar *FileName)
   }
   uint Attr=GetFileAttr(FileName);
   gid_t GroupID=gr->gr_gid;
-#if defined(SAVE_LINKS) && !defined(_APPLE) && !defined(_AMIGA)
+#if defined(SAVE_LINKS) && !defined(_APPLE)
   if (lchown(NameA,OwnerID,GroupID)!=0)
 #else
   if (chown(NameA,OwnerID,GroupID)!=0)
@@ -77,7 +77,7 @@ void ExtractUnixOwner30(Archive &Arc,const wchar *FileName)
   }
   uint Attr=GetFileAttr(FileName);
   gid_t GroupID=gr->gr_gid;
-#if defined(SAVE_LINKS) && !defined(_APPLE) && !defined(_AMIGA)
+#if defined(SAVE_LINKS) && !defined(_APPLE)
   if (lchown(NameA,OwnerID,GroupID)!=0)
 #else
   if (chown(NameA,OwnerID,GroupID)!=0)
@@ -129,7 +129,7 @@ void SetUnixOwner(Archive &Arc,const wchar *FileName)
     else
       hd.UnixGroupID=gr->gr_gid;
   }
-#if defined(SAVE_LINKS) && !defined(_APPLE) && !defined(_AMIGA)
+#if defined(SAVE_LINKS) && !defined(_APPLE)
   if (lchown(NameA,hd.UnixOwnerID,hd.UnixGroupID)!=0)
 #else
   if (chown(NameA,hd.UnixOwnerID,hd.UnixGroupID)!=0)

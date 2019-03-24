@@ -1,26 +1,15 @@
 #
 # Makefile for UNIX - unrar
 
-# MorphOS
+# Linux using GCC
 CXX=c++
-CXXFLAGS=-O2 -Wno-switch -D_AMIGA -noixemul -I../utf8proc -I../locale
+CXXFLAGS=-O2 -Wno-logical-op-parentheses -Wno-switch -Wno-dangling-else
 LIBFLAGS=-fPIC
-DEFINES=
+DEFINES=-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -DRAR_SMP
 STRIP=strip
 AR=ar
-LDFLAGS=-noixemul -L../utf8proc -L../vfwprintf -L../locale
-LIBS=-lutf8proc -lvfwprintf -lunrarlocale
+LDFLAGS=-pthread
 DESTDIR=/usr
-
-# Linux using GCC
-#CXX=c++
-#CXXFLAGS=-O2 -Wno-logical-op-parentheses -Wno-switch -Wno-dangling-else
-#LIBFLAGS=-fPIC
-#DEFINES=-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -DRAR_SMP
-#STRIP=strip
-#AR=ar
-#LDFLAGS=-pthread
-#DESTDIR=/usr
 
 # Linux using LCC
 #CXX=lcc
@@ -138,7 +127,7 @@ OBJECTS=rar.o strlist.o strfn.o pathfn.o smallfn.o global.o file.o filefn.o filc
 	resource.o match.o timefn.o rdwrfn.o consio.o options.o errhnd.o rarvm.o secpassword.o \
 	rijndael.o getbits.o sha1.o sha256.o blake2s.o hash.o extinfo.o extract.o volume.o \
   list.o find.o unpack.o headers.o threadpool.o rs16.o cmddata.o ui.o
-  
+
 .cpp.o:
 	$(COMPILE) -D$(WHAT) -c $<
 
@@ -151,7 +140,7 @@ uninstall:	uninstall-unrar
 clean:
 	@rm -f *.o *.bak *~
 
-unrar:	$(OBJECTS) $(UNRAR_OBJ)
+unrar:	clean $(OBJECTS) $(UNRAR_OBJ)
 	@rm -f unrar
 	$(LINK) -o unrar $(LDFLAGS) $(OBJECTS) $(UNRAR_OBJ) $(LIBS)	
 	$(STRIP) unrar
