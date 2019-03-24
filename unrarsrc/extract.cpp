@@ -635,7 +635,7 @@ bool CmdExtract::ExtractCurrentFile(Archive &Arc,size_t HeaderSize,bool &Repeat)
           ExtrPrepareName(Arc,Arc.FileHead.RedirName,NameExisting,ASIZE(NameExisting));
           if (FileCreateMode && *NameExisting!=0) // *NameExisting can be 0 in case of excessive -ap switch.
             if (Type==FSREDIR_HARDLINK)
-              LinkSuccess=ExtractHardlink(DestFileName,NameExisting,ASIZE(NameExisting),Arc);
+              LinkSuccess=ExtractHardlink(DestFileName,NameExisting,ASIZE(NameExisting));
             else
               LinkSuccess=ExtractFileCopy(CurFile,Arc.FileName,DestFileName,NameExisting,ASIZE(NameExisting));
         }

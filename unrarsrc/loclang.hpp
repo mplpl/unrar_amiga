@@ -8,7 +8,7 @@
 #define   MRegTo             L"\nRegistered to %s\n"
 #define   MShare             L"\nTrial version             Type 'rar -?' for help\n"
 #define   MRegKeyWarning     L"\nAvailable license key is valid only for %s\n"
-#define   MUCopyright        L"\nUNRAR %s freeware      Copyright (c) 1993-%d Alexander Roshal\n\nMorphOS port by Marcin Labenski\n"
+#define   MUCopyright        L"\nUNRAR %s freeware      Copyright (c) 1993-%d Alexander Roshal\n"
 #define   MBeta              L"beta"
 #define   Mx86               L"x86"
 #define   Mx64               L"x64"

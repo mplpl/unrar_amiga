@@ -1,26 +1,15 @@
 #
 # Makefile for UNIX - unrar
 
-# MorphOS
+# Linux using GCC
 CXX=c++
-CXXFLAGS=-O2 -Wno-switch -D_AMIGA -noixemul -I../utf8proc -I../locale
+CXXFLAGS=-O2 -Wno-logical-op-parentheses -Wno-switch -Wno-dangling-else
 LIBFLAGS=-fPIC
-DEFINES=
+DEFINES=-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -DRAR_SMP
 STRIP=strip
 AR=ar
-LDFLAGS=-noixemul -L../utf8proc -L../vfwprintf -L../locale
-LIBS=-lutf8proc -lvfwprintf -lunrarlocale
+LDFLAGS=-pthread
 DESTDIR=/usr
-
-# Linux using GCC
-#CXX=c++
-#CXXFLAGS=-O2 -Wno-logical-op-parentheses -Wno-switch -Wno-dangling-else
-#LIBFLAGS=-fPIC
-#DEFINES=-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -DRAR_SMP
-#STRIP=strip
-#AR=ar
-#LDFLAGS=-pthread
-#DESTDIR=/usr
 
 # Linux using LCC
 #CXX=lcc
@@ -151,7 +140,7 @@ uninstall:	uninstall-unrar
 clean:
 	@rm -f *.o *.bak *~
 
-unrar:	$(OBJECTS) $(UNRAR_OBJ)
+unrar:	clean $(OBJECTS) $(UNRAR_OBJ)
 	@rm -f unrar
 	$(LINK) -o unrar $(LDFLAGS) $(OBJECTS) $(UNRAR_OBJ) $(LIBS)	
 	$(STRIP) unrar
