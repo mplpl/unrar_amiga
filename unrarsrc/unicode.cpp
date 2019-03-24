@@ -703,4 +703,3 @@ bool LocalToWide(const char *Src,wchar *Dest,size_t DestSize)
 }
 
 #endif
-
