@@ -14,6 +14,15 @@ RAR stores file names in Unicode format and uses it in console printing or file 
 
 Obviously, in order to see national characters in shell or when browsing unpacked files in Ambient/Workbench you need to have fonts with the right encoding installed in OS and set as system font and/or in Ambient.
 
+<h3>National characters in password</h3>
+
+National characters are supported in passwords. A password can be given in the following forms:
+* from shell when asked
+* from shell command as -p 
+* from RAR envoronment variable
+
+In each of the case above, only passwords containing national characters of currently selected locale are supported and should be given using locale encoding (as for file names described above).
+
 <h3>File modification dates</h3>
 
 When unpacking, created files get modification date set as stored in RAR archive. The data is set in the local time zone. As there is no special attribute for creation data in AmigaOS, this value is always ignored.
