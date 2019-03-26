@@ -73,7 +73,9 @@
 #define _FSEEK_OPTIMIZATION 1
 
 /* Define if wide char orientation is supported.  */
+#ifndef __amigaos4__
 #define _WIDE_ORIENT 1
+#endif
 
 /* Define if unbuffered stream file optimization is supported.  */
 //#define _UNBUF_STREAM_OPT 1

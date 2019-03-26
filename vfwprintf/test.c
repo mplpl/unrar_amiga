@@ -3,16 +3,6 @@
 #include <locale.h>
 #include <string.h>
 
-void go(FILE *f, const wchar_t *s, ...)
-{
-	va_list args;
-  	va_start (args, s);
-	vfwprintf(f, s, args);
-	va_end (args);
-}
-
-#define  ASIZE(x) (sizeof(x)/sizeof(x[0]))
-
 int main()
 {
     setlocale(LC_ALL,"");

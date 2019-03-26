@@ -2,6 +2,7 @@
 
 #ifdef _AMIGA
 size_t __stack  = 300000;
+static const char __attribute((used)) min_stack[] = "$STACK:300000";
 #define Q(x) #x
 #define QUOTE(x) Q(x)
 const char *vers = "\\0$VER: UnRAR "QUOTE(RARVER_MAJOR)"."QUOTE(RARVER_MINOR); 

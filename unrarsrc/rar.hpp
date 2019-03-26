@@ -87,8 +87,9 @@
 #include "benchmark.hpp"
 #endif
 
-
-
+#ifdef __amigaos4__
+#include "../vfwprintf/vfwprintf.h"
+#endif
 
 
 #endif
