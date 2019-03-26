@@ -37,7 +37,9 @@
 #include "sys/config.h"
 #include <sys/cdefs.h>
 
+#ifndef __amigaos4__
 typedef unsigned long __uint32_t;
+#endif
 
 #ifdef __IEEE_LITTLE_ENDIAN
 #define IEEE_8087

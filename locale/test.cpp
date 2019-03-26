@@ -1,10 +1,16 @@
 #include "loclangamiga.hpp"
 #include <stdio.h>
+#include <stdarg.h>
+#include <locale.h>
+
+#ifdef __amigaos4__
+#include "../vfwprintf/vfwprintf.h"
+#endif
 
 int main()
 {
 	Locale_Open("unrar.catalog", 1, 0);
-	wprintf(L"%ls\n", MCopyright);
-	wprintf(L"%ls\n", MCopyright);
+    wprintf(L"%ls\n", MUCopyright);
+	wprintf(L"%ls\n", MUCopyright);
 	Locale_Close();
 }

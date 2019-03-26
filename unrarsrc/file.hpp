@@ -4,13 +4,13 @@
 //#define FILE_USE_OPEN ML
 
 #ifdef _WIN_ALL
-  typedef HANDLE FileHandle;
+  typedef HANDLE FHandle;
   #define FILE_BAD_HANDLE INVALID_HANDLE_VALUE
 #elif defined(FILE_USE_OPEN)
-  typedef off_t FileHandle;
+  typedef off_t FHandle;
   #define FILE_BAD_HANDLE -1
 #else
-  typedef FILE* FileHandle;
+  typedef FILE* FHandle;
   #define FILE_BAD_HANDLE NULL
 #endif
 
@@ -50,7 +50,7 @@ enum FILE_MODE_FLAGS {
 class File
 {
   private:
-    FileHandle hFile;
+    FHandle hFile;
     bool LastWrite;
     FILE_HANDLETYPE HandleType;
     bool SkipClose;
@@ -105,8 +105,8 @@ class File
     FILE_HANDLETYPE GetHandleType() {return HandleType;}
     bool IsDevice();
     static bool RemoveCreated();
-    FileHandle GetHandle() {return hFile;}
-    void SetHandle(FileHandle Handle) {Close();hFile=Handle;}
+    FHandle GetHandle() {return hFile;}
+    void SetHandle(FHandle Handle) {Close();hFile=Handle;}
     void SetIgnoreReadErrors(bool Mode) {IgnoreReadErrors=Mode;}
     int64 Copy(File &Dest,int64 Length=INT64NDF);
     void SetAllowDelete(bool Allow) {AllowDelete=Allow;}

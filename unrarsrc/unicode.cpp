@@ -661,7 +661,11 @@ char* SupportDBCS::strrchrd(const char *s, int c)
 
 bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
 {
+#ifdef __amigaos4__
+  static char *codepage = getenv("Charset");
+#else
   static char *codepage = getenv("CODEPAGE");
+#endif
   //if (!codepage)
   //{
   //  return WideToChar(Src, Dest, DestSize);
@@ -669,12 +673,11 @@ bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
   // buffer for UTF-8 version of Src
   unsigned char utf8Buf[NM];
   WideToUtf(Src,(char *)utf8Buf,ASIZE(utf8Buf));
-  
+
   // normalizing UTF-8
   unsigned char *lineBufNorm = utf8proc_NFC(utf8Buf);
-
   // converting normalized UTF-8 to local encoding
-  iconv_t convBase=iconv_open((codepage)?codepage:"ISO-8859-1", "UTF-8");
+  iconv_t convBase=iconv_open("ISO-8859-2", "UTF-8");
   const char *inPtr = (const char *)lineBufNorm;
   char *outPtr = Dest;
   size_t inSize = strlen((char *)lineBufNorm);
@@ -690,16 +693,22 @@ bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
 
 bool LocalToWide(const char *Src,wchar *Dest,size_t DestSize)
 {
+#ifdef __amigaos4__
+  static char *codepage = getenv("Charset");
+#else
   static char *codepage = getenv("CODEPAGE");
-  iconv_t convBase=iconv_open("UTF-32BE", (codepage)?codepage:"ISO-8859-1");
+#endif
+  iconv_t convBase=iconv_open("UTF-8", (codepage)?codepage:"ISO-8859-1");
+  char buf[4 * DestSize + 1];
   const char *inPtr = Src;
-  char *outPtr = (char *)Dest;
+  char *outPtr = (char *)buf;
   size_t inSize = strlen((char *)Src);
-  size_t outSize = sizeof(wchar_t) * DestSize;
+  size_t outSize = 4 * DestSize;
   int ret = iconv(convBase, &inPtr, &inSize, &outPtr, &outSize);
-  *(wchar_t *)outPtr = (wchar_t)0;
+  *outPtr = 0;
   iconv_close(convBase);
-  return true;
+
+  return UtfToWide(buf, Dest, DestSize);
 }
 
 #endif

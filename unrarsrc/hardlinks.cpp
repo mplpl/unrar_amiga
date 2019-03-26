@@ -1,11 +1,6 @@
 #ifdef _AMIGA
-#include <dos/dos.h>
-// including proto/dos.h make a mess due to overlapping type names
-// therefore I'm just including declarations for functions I use
-extern "C" BOOL MakeLink(STRPTR, APTR, LONG);
-extern "C" LONG SetFileDate(CONST_STRPTR, CONST struct DateStamp *);
-extern "C" BPTR Lock(STRPTR, LONG);
-extern "C" void UnLock(BPTR);
+#define __USE_INLINE__
+#include <proto/dos.h>
 
 void UnixPathToAmiga(const char *upath, char *apath)
 {
@@ -99,7 +94,7 @@ bool ExtractHardlink(wchar *NameNew,wchar *NameExisting,size_t NameExistingSize,
   bool Success = false;
   if (lock)
   {
-    Success = (MakeLink(NameNewA, (APTR)lock, false));
+    Success = (MakeLink(NameNewA, (LONG)lock, false));
     if (!Success)
     {
       uiMsg(UIERROR_HLINKCREATE,NameNew);

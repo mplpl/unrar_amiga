@@ -2347,7 +2347,7 @@ vswprintf (wchar_t *str, size_t size, const wchar_t *fmt, va_list ap)
   {
     return EOF;
   }
-  f._flags = __SWR | __SSTR | __SWCH;
+  f._flags = __SWR | __SSTR; //| __SWCH;
   f._bf._base = f._p = (unsigned char *) str;
   f._bf._size = f._w = (size > 0 ? (size - 1) * sizeof (wchar_t) : 0);
   f._file = -1;  /* No file. */
@@ -2368,9 +2368,9 @@ vswprintf (wchar_t *str, size_t size, const wchar_t *fmt, va_list ap)
   return ret;
 }
 
-
+/*
 int
-vswprintf__ (wchar_t *str, size_t size, const wchar_t *fmt, va_list ap)
+vswprintf (wchar_t *str, size_t size, const wchar_t *fmt, va_list ap)
 {
   int ret;
   FILE *f=fopen("x.tmp", "w+b");
@@ -2390,6 +2390,7 @@ vswprintf__ (wchar_t *str, size_t size, const wchar_t *fmt, va_list ap)
   //wprintf(L"%ls", (wchar_t *)cstr);
   return ret-1;
 }
+*/
 
 int
 swprintf (wchar_t *str,
@@ -2446,3 +2447,13 @@ wprintf(const wchar_t *fmt0,
 	va_end (args);
 	return ret;
 }
+
+#ifdef __amigaos4__
+int
+putwchar(wchar_t c)
+{
+	char ch = ((unsigned char)c+3);
+	return putchar(ch);
+}
+#endif
+

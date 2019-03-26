@@ -7,7 +7,7 @@ static bool UnixSymlink(const char *Target,const wchar *LinkName,RarTime *ftm,Ra
   WideToLocal(LinkName,LinkNameA,ASIZE(LinkNameA));
   char TargetAmiga[NM];
   UnixPathToAmiga(Target, TargetAmiga);
-  if (!(MakeLink(LinkNameA, (char *)TargetAmiga, true)))
+  if (!(MakeLink(LinkNameA, (LONG)TargetAmiga, true)))
   {
     uiMsg(UIERROR_SLINKCREATE,UINULL,LinkName);
     ErrHandler.SetErrorCode(RARX_WARNING);

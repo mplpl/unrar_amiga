@@ -32,6 +32,7 @@
 **
 */
 
+#define __USE_INLINE__
 #include <exec/types.h>
 #include <libraries/locale.h>
 
@@ -42,13 +43,9 @@
 #define CATCOMP_NUMBERS 1
 #include "unrar_locale.h" /* prototypes and catcomp block */
 
-#include <memory.h>
 #include <string.h>
 #include <wchar.h>
-#include <iconv.h>
 #include <stdlib.h>
-
-#define WIDECHAR_ENCODING "UTF-32BE"
 
 /*************************************************************************/
 
@@ -63,7 +60,6 @@ static struct Locale      *locale_locale;
 static struct Catalog     *locale_catalog;
 
 static wchar_t *CACHE[CATCOMP_LASTID + 1];
-static iconv_t conv_base;
 
 /*************************************************************************/
 
@@ -73,11 +69,6 @@ static iconv_t conv_base;
 
 BOOL Locale_Open( STRPTR catname, ULONG version, ULONG revision) 
 {
-  static char *codepage = getenv("CODEPAGE");
-  // here I'm assuming that wchar_t encoding is give - this is a brave 
-  // assumption, that may not always be right - but on Amiga it is, so 
-  // it's good enought for now
-  conv_base=iconv_open(WIDECHAR_ENCODING, codepage?codepage:"ISO8859-1");
   memset(CACHE, 0, sizeof(wchar_t) * (CATCOMP_LASTID + 1));
   
   if( (LocaleBase = OpenLibrary( "locale.library",0 )) ) 
@@ -88,7 +79,7 @@ BOOL Locale_Open( STRPTR catname, ULONG version, ULONG revision)
 #endif
       if( (locale_locale = OpenLocale(NULL)) ) 
       {
-        if( (locale_catalog = OpenCatalogA(locale_locale, catname, TAG_DONE)) ) 
+        if( (locale_catalog = OpenCatalog(locale_locale, catname, TAG_DONE)) )
         {
           if(    locale_catalog->cat_Version  == version  &&
             locale_catalog->cat_Revision == revision ) 
@@ -118,7 +109,6 @@ BOOL Locale_Open( STRPTR catname, ULONG version, ULONG revision)
 
 void Locale_Close(void)
 {
-  iconv_close(conv_base);
   for (int i = 0; i < CATCOMP_LASTID; i++)
   {
     delete[] CACHE[i];
@@ -164,7 +154,7 @@ STRPTR  builtin;
   builtin = (STRPTR)((ULONG)l + 6);
 
   if ( locale_catalog && LocaleBase ) {
-    return( GetCatalogStr( locale_catalog, id, builtin));
+    return((STRPTR)GetCatalogStr( locale_catalog, id, builtin));
   }
   return(builtin);
 }
@@ -173,6 +163,7 @@ STRPTR  builtin;
 /* /// GetWString */
 
 /*************************************************************************/
+extern bool LocalToWide(const char *Src,wchar_t *Dest,size_t DestSize);
 
 const wchar_t *GetWString(long id)
 {	
@@ -191,21 +182,12 @@ const wchar_t *GetWString(long id)
   {
     return 0;
   }
-  
+
+  // I have a string encoded using local charset of given locale
+  // I need to convert it to wchar_t
   int len = strlen(str);
-  // I have a string now encoded using local charset of given locale
-  // I need to convert it to wchar_t using iconv
   CACHE[id] = new wchar_t[len + 1];
-  const char *inPtr = str;
-  char *outPtr = (char *)CACHE[id];
-  size_t inSize = len;
-  size_t outSize = sizeof(wchar_t) * (len + 1);
-  int ret = iconv(conv_base, &inPtr, &inSize, &outPtr, &outSize);
-  *(wchar_t *)outPtr = (wchar_t)0;
-  
-  //CACHE[id] = new wchar_t[len + 1];
-  //swprintf(CACHE[id], len + 1, L"%s", outBuff);
-  
+  LocalToWide(str, CACHE[id], len + 1);
   return CACHE[id];
 } 
 

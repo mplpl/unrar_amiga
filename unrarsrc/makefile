@@ -3,12 +3,12 @@
 
 # MorphOS
 CXX=c++
-CXXFLAGS=-O2 -Wno-switch -D_AMIGA -noixemul -I../utf8proc -I../locale
+CXXFLAGS=-O2 -Wno-switch -D_AMIGA -I../utf8proc -I../locale
 LIBFLAGS=-fPIC
 DEFINES=
 STRIP=strip
 AR=ar
-LDFLAGS=-noixemul -L../utf8proc -L../vfwprintf -L../locale
+LDFLAGS=-L../utf8proc -L../vfwprintf -L../locale
 LIBS=-lutf8proc -lvfwprintf -lunrarlocale
 DESTDIR=/usr
 
@@ -149,7 +149,7 @@ install:	install-unrar
 uninstall:	uninstall-unrar
 
 clean:
-	@rm -f *.o *.bak *~
+	@rm -f *.o *.bak
 
 unrar:	$(OBJECTS) $(UNRAR_OBJ)
 	@rm -f unrar

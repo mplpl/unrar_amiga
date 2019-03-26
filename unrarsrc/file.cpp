@@ -1,10 +1,15 @@
 #include "rar.hpp"
 
 #ifdef _AMIGA
-#include <dos/dos.h>
-// including proto/dos.h make a mess due to overlapping type names
-// therefore I'm just including this single declaration
-extern "C" LONG SetFileDate( CONST_STRPTR, CONST struct DateStamp *);
+#define __USE_INLINE__
+#include <proto/dos.h>
+#undef Open
+#undef Rename
+#undef Seek
+#undef Read
+#undef Write
+#undef File
+#undef Close
 #endif
 
 File::File()
@@ -51,7 +56,7 @@ void File::operator = (File &SrcFile)
 bool File::Open(const wchar *Name,uint Mode)
 {
   ErrorType=FILE_SUCCESS;
-  FileHandle hNewFile;
+  FHandle hNewFile;
   bool OpenShared=File::OpenShared || (Mode & FMF_OPENSHARED)!=0;
   bool UpdateMode=(Mode & FMF_UPDATE)!=0;
   bool WriteMode=(Mode & FMF_WRITE)!=0;
