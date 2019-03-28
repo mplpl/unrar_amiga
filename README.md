@@ -47,7 +47,7 @@ Hard links are supported in a similar way as symbilic links. Again, they will on
 
 RAR can pack identical files as references inside of an archive - that reduces size of the archive file. In order to make such archive -oi switch should be used when packing. When unpacking, duplicates are re-created as separate files. That is fully supported in this unrar port.
 
-<h3>NTFS Junction Points in an archive</a>
+<h3>NTFS Junction Points in an archive</h3>
 
 NTFS Junction Points are like symbolic links but their target is always absolute path with a drive letter in front. In Unrar version 5.7 for Unix-like systems (including Amiga, at least from devenv stand point) these kind of links are always skipped silently (!). While is a different behaviour from how it was in 5.0, I decided to leave it unchanged for Amiga. So in practice, junction points are always skipped when unpacking.
 
