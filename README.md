@@ -10,7 +10,7 @@ All the basic functions like listing (verbose, base, technical), unpacking (w/ o
 
 RAR stores file names in Unicode format and uses it in console printing or file operation (create, find, ...) in UTF-8. Unfortunately no Amiga operating system supports UTF-8 today, therefore in order to handle localized names, this unrar port converts names to local 8-bit encoding set in locale prefs in OS. Unfortunately, Amiga locale library does not report selected code page. Fortunately, but both MorphOS and AmigaOS4 sets appropriate environment variable, that unrar reads:
 * on Morphos: CODEPAGE
-* on AmigaOS4: ???
+* on AmigaOS4: Charset
 
 Obviously, in order to see national characters in shell or when browsing unpacked files in Ambient/Workbench you need to have fonts with the right encoding installed in OS and set as system font and/or in Ambient.
 
@@ -46,6 +46,10 @@ Hard links are supported in a similar way as symbilic links. Again, they will on
 <h3>Reference files in an archive</h3>
 
 RAR can pack identical files as references inside of an archive - that reduces size of the archive file. In order to make such archive -oi switch should be used when packing. When unpacking, duplicates are re-created as separate files. That is fully supported in this unrar port.
+
+<h3>NTFS Junction Points in an archive</a>
+
+NTFS Junction Points are like symbolic links but their target is always absolute path with a drive letter in front. In Unrar version 5.7 for Unix-like systems (including Amiga, at least from devenv stand point) these kind of links are always skipped silently (!). While is a different behaviour from how it was in 5.0, I decided to leave it unchanged for Amiga. So in practice, junction points are always skipped when unpacking.
 
 <h3>Configuration file</h3>
 
