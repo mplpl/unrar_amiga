@@ -4,7 +4,7 @@ static bool UnixSymlink(const char *Target,const wchar *LinkName,RarTime *ftm,Ra
   CreatePath(LinkName,true);
   DelFile(LinkName);
   char LinkNameA[NM];
-  WideToLocal(LinkName,LinkNameA,ASIZE(LinkNameA));
+  WideToChar(LinkName,LinkNameA,ASIZE(LinkNameA));
   char TargetAmiga[NM];
   UnixPathToAmiga(Target, TargetAmiga);
   if (!(MakeLink(LinkNameA, (LONG)TargetAmiga, true)))
@@ -80,9 +80,14 @@ bool ExtractUnixLink30(CommandData *Cmd,ComprDataIO &DataIO,Archive &Arc,const w
     // and extraction routine will report the checksum error.
     if (!DataIO.UnpHash.Cmp(&Arc.FileHead.FileHash,Arc.FileHead.UseHashKey ? Arc.FileHead.HashKey:NULL))
       return true;
-
+    
     wchar TargetW[NM];
+#ifdef _AMIGA
+    UtfToWide(Target,TargetW,ASIZE(TargetW));
+    WideToChar(TargetW,Target,ASIZE(Target));
+#else
     CharToWide(Target,TargetW,ASIZE(TargetW));
+#endif
     // Check for *TargetW==0 to catch CharToWide failure.
     // Use Arc.FileHead.FileName instead of LinkName, since LinkName
     // can include the destination path as a prefix, which can
@@ -99,11 +104,7 @@ bool ExtractUnixLink30(CommandData *Cmd,ComprDataIO &DataIO,Archive &Arc,const w
 bool ExtractUnixLink50(CommandData *Cmd,const wchar *Name,FileHeader *hd)
 {
   char Target[NM];
-#ifdef _AMIGA
-  WideToLocal(hd->RedirName,Target,ASIZE(Target));
-#else
   WideToChar(hd->RedirName,Target,ASIZE(Target));
-#endif
   if (hd->RedirType==FSREDIR_WINSYMLINK || hd->RedirType==FSREDIR_JUNCTION)
   {
     // Cannot create Windows absolute path symlinks in Unix. Only relative path
