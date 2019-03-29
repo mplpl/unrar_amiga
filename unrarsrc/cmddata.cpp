@@ -76,11 +76,7 @@ void CommandData::ParseCommandLine(bool Preprocess,int argc, char *argv[])
   for (int I=1;I<argc;I++)
   {
     Arg.Alloc(strlen(argv[I])+1);
-#ifdef _AMIGA
-    LocalToWide(argv[I],&Arg[0],Arg.Size());
-#else
     CharToWide(argv[I],&Arg[0],Arg.Size());
-#endif
     if (Preprocess)
       PreprocessArg(&Arg[0]);
     else
@@ -180,11 +176,7 @@ void CommandData::ParseEnvVar()
   if (EnvStr!=NULL)
   {
     Array<wchar> EnvStrW(strlen(EnvStr)+1);
-#ifdef _AMIGA
-    LocalToWide(EnvStr,&EnvStrW[0],EnvStrW.Size());
-#else
     CharToWide(EnvStr,&EnvStrW[0],EnvStrW.Size());
-#endif
     ProcessSwitchesString(&EnvStrW[0]);
   }
 }

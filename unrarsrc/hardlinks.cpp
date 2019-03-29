@@ -87,8 +87,8 @@ bool ExtractHardlink(wchar *NameNew,wchar *NameExisting,size_t NameExistingSize,
   return Success;
 #elif defined(_AMIGA)
   char NameExistingA[NM],NameNewA[NM],NameExistingAmiga[NM];
-  WideToLocal(NameExisting,NameExistingA,ASIZE(NameExistingA));
-  WideToLocal(NameNew,NameNewA,ASIZE(NameNewA));
+  WideToChar(NameExisting,NameExistingA,ASIZE(NameExistingA));
+  WideToChar(NameNew,NameNewA,ASIZE(NameNewA));
   UnixPathToAmiga(NameExistingA, NameExistingAmiga);
   BPTR lock = Lock(NameExistingAmiga, SHARED_LOCK);
   bool Success = false;

@@ -112,11 +112,7 @@ bool File::Open(const wchar *Name,uint Mode)
 #endif
 #endif
   char NameA[NM];
-#ifdef _AMIGA
-  WideToLocal(Name,NameA,ASIZE(NameA));
-#else
   WideToChar(Name,NameA,ASIZE(NameA));
-#endif
   int handle=open(NameA,flags);
 #ifdef LOCK_EX
 
@@ -205,11 +201,7 @@ bool File::Create(const wchar *Name,uint Mode)
   }
 #else
   char NameA[NM];
-#if defined(_AMIGA)
-  WideToLocal(Name,NameA,ASIZE(NameA));
-#else
   WideToChar(Name,NameA,ASIZE(NameA));
-#endif
 #ifdef FILE_USE_OPEN
   hFile=open(NameA,(O_CREAT|O_TRUNC) | (WriteMode ? O_WRONLY : O_RDWR),0666);
 #else
@@ -649,11 +641,7 @@ void File::SetCloseFileTimeByName(const wchar *Name,RarTime *ftm,RarTime *fta)
   if (setm || seta)
   {
     char NameA[NM];
-#ifdef _AMIGA
-    WideToLocal(Name,NameA,ASIZE(NameA));
-#else
     WideToChar(Name,NameA,ASIZE(NameA));
-#endif
 	  
 #ifdef UNIX_TIME_NS
     timespec times[2];

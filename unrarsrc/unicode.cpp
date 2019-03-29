@@ -35,7 +35,8 @@ bool WideToChar(const wchar *Src,char *Dest,size_t DestSize)
 // wcstombs is broken in Android NDK r9.
 #elif defined(_APPLE)
   WideToUtf(Src,Dest,DestSize);
-
+#elif defined(_AMIGA)
+  WideToLocal(Src,Dest,DestSize);
 #elif defined(MBFUNCTIONS)
   if (!WideToCharMap(Src,Dest,DestSize,RetCode))
   {
@@ -100,7 +101,8 @@ bool CharToWide(const char *Src,wchar *Dest,size_t DestSize)
 // mbstowcs is broken in Android NDK r9.
 #elif defined(_APPLE)
   UtfToWide(Src,Dest,DestSize);
-
+#elif defined(_AMIGA)
+  LocalToWide(Src,Dest,DestSize);
 #elif defined(MBFUNCTIONS)
   mbstate_t ps;
   memset (&ps, 0, sizeof(ps));
@@ -658,7 +660,6 @@ char* SupportDBCS::strrchrd(const char *s, int c)
 #endif
 
 #ifdef _AMIGA
-
 bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
 {
 #ifdef __amigaos4__
@@ -666,10 +667,7 @@ bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
 #else
   static char *codepage = getenv("CODEPAGE");
 #endif
-  //if (!codepage)
-  //{
-  //  return WideToChar(Src, Dest, DestSize);
-  //}
+  
   // buffer for UTF-8 version of Src
   unsigned char utf8Buf[NM];
   WideToUtf(Src,(char *)utf8Buf,ASIZE(utf8Buf));
@@ -677,12 +675,39 @@ bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
   // normalizing UTF-8
   unsigned char *lineBufNorm = utf8proc_NFC(utf8Buf);
   // converting normalized UTF-8 to local encoding
-  iconv_t convBase=iconv_open("ISO-8859-2", "UTF-8");
+  iconv_t convBase=iconv_open(codepage?codepage:"ISO-8859-1", "UTF-8");
   const char *inPtr = (const char *)lineBufNorm;
   char *outPtr = Dest;
   size_t inSize = strlen((char *)lineBufNorm);
   size_t outSize = DestSize;
-  int ret = iconv(convBase, &inPtr, &inSize, &outPtr, &outSize);
+  while (iconv(convBase, &inPtr, &inSize, &outPtr, &outSize) == (size_t)-1)
+  {
+    if (!outSize || !inSize) break;
+    *outPtr = '?';
+    outPtr++;
+    outSize--;
+    int chw = 1;
+    unsigned char cp = (unsigned char)(*inPtr);
+    if (cp < 0x80)
+    {
+      chw = 1;
+    }
+    else if (cp < 0xe0)
+    {
+      chw = 2;
+    }
+    else if (cp < 0xf0)
+    {
+      chw = 3;
+    }
+    else
+    {
+      chw = 4;
+    }
+    inPtr += chw;
+    inSize -= chw;
+    if (!outSize || !inSize) break;
+  }
   *outPtr = 0;
   iconv_close(convBase);
   free(lineBufNorm);
@@ -704,7 +729,16 @@ bool LocalToWide(const char *Src,wchar *Dest,size_t DestSize)
   char *outPtr = (char *)buf;
   size_t inSize = strlen((char *)Src);
   size_t outSize = 4 * DestSize;
-  int ret = iconv(convBase, &inPtr, &inSize, &outPtr, &outSize);
+  while (iconv(convBase, &inPtr, &inSize, &outPtr, &outSize) == (size_t)-1)
+  {
+    if (!outSize || !inSize) break;
+    *outPtr = '?';
+    outPtr++;
+    outSize--;
+    inPtr++;
+    inSize--;
+    if (!outSize || !inSize) break;
+  }
   *outPtr = 0;
   iconv_close(convBase);
 

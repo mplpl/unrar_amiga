@@ -4,7 +4,7 @@ MKDIR_CODE MakeDir(const wchar *Name,bool SetAttr,uint Attr)
 {
 #ifdef _AMIGA
   char NameA[NM];
-  WideToLocal(Name,NameA,ASIZE(NameA));
+  WideToChar(Name,NameA,ASIZE(NameA));
   return (mkdir(NameA,(mode_t)Attr)==0) ? MKDIR_SUCCESS : MKDIR_ERROR;
 #elif defined(_WIN_ALL)
   // Windows automatically removes dots and spaces in the end of directory
@@ -197,11 +197,7 @@ bool FileExist(const wchar *Name)
   return GetFileAttr(Name)!=0xffffffff;
 #elif defined(ENABLE_ACCESS)
   char NameA[NM];
-#ifdef _AMIGA
-  WideToLocal(Name,NameA,ASIZE(NameA));
-#else
   WideToChar(Name,NameA,ASIZE(NameA));
-#endif
   return access(NameA,0)==0;
 #else
   FindData FD;
@@ -298,11 +294,7 @@ uint GetFileAttr(const wchar *Name)
   return Attr;
 #else
   char NameA[NM];
-#ifdef _AMIGA
-  WideToLocal(Name,NameA,ASIZE(NameA));
-#else
   WideToChar(Name,NameA,ASIZE(NameA));
-#endif
   struct stat st;
   if (stat(NameA,&st)!=0)
     return 0;
@@ -324,11 +316,7 @@ bool SetFileAttr(const wchar *Name,uint Attr)
   return Success;
 #elif defined(_UNIX)
   char NameA[NM];
-#ifdef _AMIGA
-  WideToLocal(Name,NameA,ASIZE(NameA));
-#else
   WideToChar(Name,NameA,ASIZE(NameA));
-#endif
   return chmod(NameA,(mode_t)Attr)==0;
 #else
   return false;
