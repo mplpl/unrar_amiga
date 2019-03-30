@@ -23,6 +23,26 @@ National characters are supported in passwords. A password can be given in the f
 
 In each of the case above, only passwords containing national characters of currently selected locale are supported and should be given using locale encoding (as for file names described above).
 
+<h4>-sc switch</h4>
+
+Unrar has -sc<chr>[obj] switch described as "Specify the character set" that is not very useful and not very well documented. From the source code I read that <chr> can be one of: 
+* "a" for ANSI, 
+* "o" for OEM, 
+* "u" for Unicode and 
+* "f" for UTF-8. 
+
+For non-Windows systems, only "u" and "f" matters (BTW: "u" is UTF-16 not UTF-32).
+
+[obj] is one of:
+* 'c' for comment - does not apply unrar, used only in 'full' rar utility
+* 'r' for redirect - applies to Windows only
+* 'l' for file lists - applies to file lists to unpact (specified after "@"), file list to exclude (specified after -x@) and filter mast file list (specified after -n@).
+  
+So for filelist is -sc is not used, unrar will try to autodetect UTF-16 and UTF-8 and when it fails it will assume local encoding. The latter will also happen when "a" or "o" was used.
+
+All above is standard unrar behavior - I'm only documenting it here.
+  
+
 <h3>File modification dates</h3>
 
 When unpacking, created files get modification date set as stored in RAR archive. The data is set in the local time zone. As there is no special attribute for creation data in AmigaOS, this value is always ignored.
