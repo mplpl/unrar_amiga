@@ -6,15 +6,17 @@
 
 All the basic functions like listing (verbose, base, technical), unpacking (w/ or w/o path, selected files or all), testing or printing works fine. Note, that wherever a path is needed it has to be in amiga format not POSIX ie. //test.rar not ../../test.rar.
 
-<h3>National characters in file names</h3>
+<h3>National characters support</h3>
+
+<h4>National characters in file names</h4>
 
 RAR stores file names in Unicode format and uses it in console printing or file operation (create, find, ...) in UTF-8. Unfortunately no Amiga operating system supports UTF-8 today, therefore in order to handle localized names, this unrar port converts names to local 8-bit encoding set in locale prefs in OS. Unfortunately, Amiga locale library does not report selected code page. Fortunately, but both MorphOS and AmigaOS4 sets appropriate environment variable, that unrar reads:
 * on Morphos: CODEPAGE
-* on AmigaOS4: ???
+* on AmigaOS4: Charset
 
 Obviously, in order to see national characters in shell or when browsing unpacked files in Ambient/Workbench you need to have fonts with the right encoding installed in OS and set as system font and/or in Ambient.
 
-<h3>National characters in password</h3>
+<h4>National characters in password</h4>
 
 National characters are supported in passwords. A password can be given in the following forms:
 * from shell when asked
@@ -22,6 +24,33 @@ National characters are supported in passwords. A password can be given in the f
 * from RAR envoronment variable
 
 In each of the case above, only passwords containing national characters of currently selected locale are supported and should be given using locale encoding (as for file names described above).
+
+<h4>-sc switch</h4>
+
+Unrar has -sc<chr>[obj] switch described as "Specify the character set" that is not very useful and not very well documented. From the source code I read that <chr> can be one of: 
+* "a" for ANSI, 
+* "o" for OEM, 
+* "u" for Unicode and 
+* "f" for UTF-8. 
+
+For non-Windows systems, only "u" and "f" matters (BTW: "u" is UTF-16 not UTF-32).
+
+[obj] is one of:
+* 'c' for comment - does not apply unrar, used only in 'full' rar utility
+* 'r' for redirect - applies to Windows only
+* 'l' for file lists - applies to file lists to unpact (specified after "@"), file list to exclude (specified after -x@) and filter mast file list (specified after -n@).
+  
+So for filelist is -sc is not used, unrar will try to autodetect UTF-16 and UTF-8 and when it fails it will assume local encoding. The latter will also happen when "a" or "o" was used.
+
+All above is standard unrar behavior - I'm only documenting it here.
+
+<h3>Wildcards</h3>
+
+Unrar supports wildcard in Windows style:
+* "?" = any character
+* "*" = any charasters sequence
+
+Amiga style is not supported for this moment.
 
 <h3>File modification dates</h3>
 
@@ -46,6 +75,10 @@ Hard links are supported in a similar way as symbilic links. Again, they will on
 <h3>Reference files in an archive</h3>
 
 RAR can pack identical files as references inside of an archive - that reduces size of the archive file. In order to make such archive -oi switch should be used when packing. When unpacking, duplicates are re-created as separate files. That is fully supported in this unrar port.
+
+<h3>NTFS Junction Points in an archive</h3>
+
+NTFS Junction Points are like symbolic links but their target is always absolute path with a drive letter in front. In Unrar version 5.7 for Unix-like systems (including Amiga, at least from devenv stand point) these kind of links are always skipped silently (!). While is a different behaviour from how it was in 5.0, I decided to leave it unchanged for Amiga. So in practice, junction points are always skipped when unpacking.
 
 <h3>Configuration file</h3>
 
