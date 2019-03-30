@@ -1,4 +1,12 @@
 /*
+ * Here are changes I made:
+ * * removing reent completely
+ * * removing any reference to INTEGER_ONLY and STRING_ONLY version of 
+ *  the function - these were used to generate special version of 
+ *  vfwprintf function that I'm not going to use
+ */
+ 
+/*
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -31,98 +39,26 @@
  */
 
 /*
-FUNCTION
-<<vfwprintf>>, <<vwprintf>>, <<vswprintf>>---wide character format argument list
-
-INDEX
-	vfwprintf
-INDEX
-	_vfwprintf_r
-INDEX
-	vwprintf
-INDEX
-	_vwprintf_r
-INDEX
-	vswprintf
-INDEX
-	_vswprintf_r
-
-SYNOPSIS
-	#include <stdio.h>
-	#include <stdarg.h>
-	#include <wchar.h>
-	int vwprintf(const wchar_t *__restrict <[fmt]>, va_list <[list]>);
-	int vfwprintf(FILE *__restrict <[fp]>,
-		const wchar_t *__restrict <[fmt]>, va_list <[list]>);
-	int vswprintf(wchar_t * __restrict <[str]>, size_t <[size]>,
-		const wchar_t *__ restrict <[fmt]>, va_list <[list]>);
-
-	int _vwprintf_r(struct _reent *<[reent]>, const wchar_t *<[fmt]>,
-		va_list <[list]>);
-	int _vfwprintf_r(struct _reent *<[reent]>, FILE *<[fp]>,
-		const wchar_t *<[fmt]>, va_list <[list]>);
-	int _vswprintf_r(struct _reent *<[reent]>, wchar_t *<[str]>,
-		size_t <[size]>, const wchar_t *<[fmt]>, va_list <[list]>);
-
-DESCRIPTION
-<<vwprintf>>, <<vfwprintf>> and <<vswprintf>> are (respectively) variants
-of <<wprintf>>, <<fwprintf>> and <<swprintf>>.  They differ only in allowing
-their caller to pass the variable argument list as a <<va_list>> object
-(initialized by <<va_start>>) rather than directly accepting a variable
-number of arguments.  The caller is responsible for calling <<va_end>>.
-
-<<_vwprintf_r>>, <<_vfwprintf_r>> and <<_vswprintf_r>> are reentrant
-versions of the above.
-
-RETURNS
-The return values are consistent with the corresponding functions.
-
-PORTABILITY
-POSIX-1.2008 with extensions; C99 (compliant except for POSIX extensions).
-
-Supporting OS subroutines required: <<close>>, <<fstat>>, <<isatty>>,
-<<lseek>>, <<read>>, <<sbrk>>, <<write>>.
-
-SEEALSO
-<<wprintf>>, <<fwprintf>> and <<swprintf>>.
-*/
-
-/*
  * Actual wprintf innards.
  *
  * This code is large and complicated...
  */
 
-//#define __SINGLE_THREAD__
+#define __SINGLE_THREAD__
 
 #include "newlib.h"
 
-#ifdef INTEGER_ONLY
-# define VFWPRINTF vfiwprintf
-# ifdef STRING_ONLY
-#   define _VFWPRINTF_R _svfiwprintf_r
-# else
-#   define _VFWPRINTF_R _vfiwprintf_r
-# endif
-#else
-# define VFWPRINTF vfwprintf
-# ifdef STRING_ONLY
-#   define _VFWPRINTF_R _svfwprintf_rx
-# else
-#   define _VFWPRINTF_R _vfwprintf_rx
-# endif
-# ifndef NO_FLOATING_POINT
-#  define FLOATING_POINT
-# endif
+#ifndef NO_FLOATING_POINT
+#define FLOATING_POINT
 #endif
+
 
 #define _NO_POS_ARGS
 #ifdef _WANT_IO_POS_ARGS
 # undef _NO_POS_ARGS
 #endif
 
-//#include <_ansi.h>
-//#include <reent.h>
+#include "_ansi.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -132,7 +68,7 @@ SEEALSO
 #include <wctype.h>
 //#include <sys/lock.h>
 #include <stdarg.h>
-//#include "local.h"
+#include "local.h"
 #include "fvwrite.h"
 #include "vfieeefp.h"
 #ifdef __HAVE_LOCALE_INFO_EXTENDED__
@@ -153,14 +89,10 @@ SEEALSO
 # undef _NO_LONGLONG
 #endif
 
-int _VFWPRINTF_R (FILE *, const wchar_t *, va_list);
-/* Defined in vfprintf.c. */
+int vfwprintf(FILE *, const wchar_t *, va_list);
+
 #ifdef _FVWRITE_IN_STREAMIO
-# ifdef STRING_ONLY
-#  define __SPRINT ssprint
-# else
-#  define __SPRINT sprint
-# endif
+#define __SPRINT sprint
 
 int
 __SPRINT (FILE *fp,
@@ -174,7 +106,8 @@ __SPRINT (FILE *fp,
         return 0;
     }
 #ifdef _WIDE_ORIENT
-    if (fp->_flags2 & __SWID)
+    //if (fp->_flags2 & __SWID)
+    if (fwide(fp, 0) < 0)
     {
         struct __siov *iov;
         wchar_t *p;
@@ -198,64 +131,44 @@ __SPRINT (FILE *fp,
     }
     else
 #endif
-        err = __sfvwrite_r(fp, uio);
+        err = __sfvwrite(fp, uio);
 out:
     uio->uio_resid = 0;
     uio->uio_iovcnt = 0;
     return err;
 }
 #else
-# ifdef STRING_ONLY
-#  define __SPRINT ssputs
-# else
-#  define __SPRINT sfputs
-# endif
+#define __SPRINT sfputs
+
 int __SPRINT (FILE *fp, const char *buf, size_t len)
 {
     register int i;
 #ifdef _WIDE_ORIENT
     //if (fp->_flags2 & __SWID)
-	if (fwide(fp, 0) < 0)
+    if (fwide(fp, 0) < 0)
     {
-		//printf("[wide]");
         wchar_t *p;
-        //printf("[beg:%d]", len); 
         p = (wchar_t *) buf;
         for (i = 0; i < (len / sizeof (wchar_t)); i++)
         {
-			//printf("*");
-			//printf("[%lc]", p[i]);
-            if (fputwc (p[i], fp) == WEOF) {
-				//printf("%d-%d", i, len);
-				//printf("[%lc]", p[i]);
-				//printf("[%lc]", p[i+1]);
-				//printf("[%lc]", p[i+2]);
-				//printf("[%lc]", p[i+3]);
-				//printf("[%lc]", p[i+4]);
-				//printf("A");
+            if (fputwc (p[i], fp) == WEOF) 
                 return -1;
-				}
         }
     }
     else
 #endif
     {
-		//printf("[bytes]");
         for (i = 0; i < len; i++)
         {
             /* Call __sfputc_r to skip _fputc_r.  */
             if (fputc ((unsigned char)buf[i], fp) == EOF)
-			{
-				//printf("\n!!ML: EOF\n");
                 return -1;
-			}
         }
-		//printf("\n!!ML: put %d chars - size was %d\n", i-1, len);
     }
     return (0);
 }
 #endif
-#ifndef STRING_ONLY
+
 #ifdef _UNBUF_STREAM_OPT
 /*
  * Helper function for `fprintf to unbuffered unix file': creates a
@@ -268,14 +181,11 @@ __sbwprintf (register FILE *fp,
        va_list ap)
 {
 	int ret;
-	printf("\n!!ML __sbwprintf\n");
 	FILE fake;
 	unsigned char buf[BUFSIZ];
 
 	/* copy the important variables */
 	fake._flags = fp->_flags & ~__SNBF;
-	//ML
-    //fake._flags2 = fp->_flags2;
 	fake._file = fp->_file;
 	fake._cookie = fp->_cookie;
 	fake._write = fp->_write;
@@ -289,7 +199,7 @@ __sbwprintf (register FILE *fp,
 #endif
 
 	/* do the work, then copy any error status */
-	ret = _VFWPRINTF_R (&fake, fmt, ap);
+	ret = vfwprintf(&fake, fmt, ap);
 	if (ret >= 0 && fflush (&fake))
 		ret = EOF;
 	if (fake._flags & __SERR)
@@ -301,7 +211,7 @@ __sbwprintf (register FILE *fp,
 	return (ret);
 }
 #endif /* _UNBUF_STREAM_OPT */
-#endif /* !STRING_ONLY */
+
 
 
 #if defined (FLOATING_POINT) || defined (_WANT_IO_C99_FORMATS)
@@ -459,154 +369,11 @@ get_arg (int n, wchar_t *fmt,
 # define GROUPING	0x400		/* use grouping ("'" flag) */
 #endif
 
-#define _DEFAULT_ASPRINTF_BUFSIZE 64
-
-/*
- * Allocate a file buffer, or switch to unbuffered I/O.
- * Per the ANSI C standard, ALL tty devices default to line buffered.
- *
- * As a side effect, we set __SOPT or __SNPT (en/dis-able fseek
- * optimization) right after the _fstat() that finds the buffer size.
- */
-
-void
-__smakebuf (register FILE *fp)
-{
-  register void *p;
-  int flags;
-  size_t size;
-  int couldbetty = 0;
-  printf("!!!ML Making buffer\n");
-  if (fp->_flags & __SNBF)
-  {
-      fp->_bf._base = fp->_p = fp->_nbuf;
-      fp->_bf._size = 1;
-      return;
-  }
-  flags = 0; //__swhatbuf_r (fp, &size, &couldbetty);
-  if ((p = malloc (size)) == NULL)
-  {
-	printf("!!!ML Buffer created\n");
-    if (!(fp->_flags & __SSTR))
-	{
-	  fp->_flags = (fp->_flags & ~__SLBF) | __SNBF;
-	  fp->_bf._base = fp->_p = fp->_nbuf;
-	  fp->_bf._size = 1;
-	}
-  }
-  else
-  {
-	  printf("!!!ML Buffer copied\n");
-      //ptr->__cleanup = _cleanup_r;
-      fp->_flags |= __SMBF;
-      fp->_bf._base = fp->_p = (unsigned char *) p;
-      fp->_bf._size = size;
-      //if (couldbetty && _isatty_r (ptr, fp->_file))
-	//fp->_flags = (fp->_flags & ~__SNBF) | __SLBF;
-      fp->_flags |= flags;
-  }
-}
-
-
-
-
-#define	cantwrite(fp)                                     \
-  ((((fp)->_flags & __SWR) == 0 || (fp)->_bf._base == NULL) && \
-   __swsetup(fp))
-
-#define	FREEUB(fp) {                    \
-	if ((fp)->_ub._base != (fp)->_ubuf) \
-		free((char *)(fp)->_ub._base); \
-	(fp)->_ub._base = NULL; \
-}
-
-#define HASUB(fp) ((fp)->_ub._base != NULL)
-
 int
-__swsetup (register FILE * fp)
-{
-  /* Make sure stdio is set up.  */
-
-  //CHECK_INIT (_REENT, fp);
-
-  /*
-   * If we are not writing, we had better be reading and writing.
-   */
-  //printf(" ");
-  if ((fp->_flags & __SWR) == 0)
-  {
-      if ((fp->_flags & __SRW) == 0)
-      {
-	  	//ptr->_errno = EBADF;
-	  	fp->_flags |= __SERR;
-	  	return EOF;
-      }
-      if (fp->_flags & __SRD)
-      {
-		  /* clobber any ungetc data */
-		  if (HASUB (fp))
-		    FREEUB (fp);
-		  fp->_flags &= ~(__SRD | __SEOF);
-		  fp->_r = 0;
-		  fp->_p = fp->_bf._base;
-	  }
-      fp->_flags |= __SWR;
-  }
-  /*
-   * Make a buffer if necessary, then set _w.
-   * A string I/O file should not explicitly allocate a buffer
-   * unless asprintf is being used.
-   */
-  if (fp->_bf._base == NULL
-        && (!(fp->_flags & __SSTR) || (fp->_flags & __SMBF)))
-    __smakebuf (fp);
-  if (fp->_flags & __SLBF)
-  {
-      /*
-       * It is line buffered, so make _lbfsize be -_bufsize
-       * for the putc() macro.  We will change _lbfsize back
-       * to 0 whenever we turn off __SWR.
-       */
-      fp->_w = 0;
-      fp->_lbfsize = -fp->_bf._size;
-  }
-  else
-    fp->_w = fp->_flags & __SNBF ? 0 : fp->_bf._size;
-
-  if (!fp->_bf._base && (fp->_flags & __SMBF))
-  {
-      /* __smakebuf_r set errno, but not flag */
-      fp->_flags |= __SERR;
-      return EOF;
-  }
-  return 0;
-}
-
-
-#ifndef STRING_ONLY
-int
-VFWPRINTF (FILE *__restrict fp,
-       const wchar_t *__restrict fmt0,
-       va_list ap)
-{
-  int result;
-  result = _VFWPRINTF_R (fp, fmt0, ap);
-  return result;
-}
-#endif /* STRING_ONLY */
-
-int
-_VFWPRINTF_R (FILE * fp,
+vfwprintf(FILE * fp,
        const wchar_t *fmt0,
        va_list ap)
 {
-	//printf("\n!!ML vfwprintf\n");
-	//printf(" ");
-    //fputws(fmt0, stdout);
-    //fputws(L"\n", stdout);
-	//printf("\n!!ML vfwprintf flags %u\n", fp->_flags);
-	//fputws(fmt0, stdout);
-    //fputws(L"\n", stdout);
 	
 	register wchar_t *fmt;	/* format string */
 	register wint_t ch;	/* character from fmt */
@@ -813,9 +580,8 @@ _VFWPRINTF_R (FILE * fp,
 	    (u_long)GET_ARG (N, ap, u_int))
 #endif
 
-#ifndef STRING_ONLY
 	/* Initialize std streams if not dealing with sprintf family.  */
-	//CHECK_INIT (fp);
+	CHECK_INIT (fp);
 	//_newlib_flockfile_start (fp);
 
 	//ML3
@@ -836,19 +602,6 @@ _VFWPRINTF_R (FILE * fp,
 		return (__sbwprintf (fp, fmt0, ap));
 	}
 #endif
-#else /* STRING_ONLY */
-        /* Create initial buffer if we are called by asprintf family.  */
-        if (fp->_flags & __SMBF && !fp->_bf._base)
-        {
-		fp->_bf._base = fp->_p = malloc (64);
-		if (!fp->_p)
-		{
-			
-			return EOF;
-		}
-		fp->_bf._size = 64;
-        }
-#endif /* STRING_ONLY */
 
 	fmt = (wchar_t *)fmt0;
 #ifdef _FVWRITE_IN_STREAMIO
@@ -1760,9 +1513,7 @@ done:
 error:
 	if (malloc_buf != NULL)
 		free (malloc_buf);
-#ifndef STRING_ONLY
-	//_newlib_flockfile_end (fp);
-#endif
+	//_newlib_flockfile_end (fp); ML
 	return (__sferror (fp) ? EOF : ret);
 	/* NOTREACHED */
 }
@@ -2331,129 +2082,4 @@ wcstol (const wchar_t *nptr, wchar_t **endptr,
 	return (acc);
 }
 
-
-
-int
-vswprintf (wchar_t *str, size_t size, const wchar_t *fmt, va_list ap)
-{
-  //printf("\n!!ML vswprintf\n");
-  int ret;
-  FILE f;
-  //printf("\n!!ML vswprintf for size %d\n", size);
-  //fputws(fmt, stdout);
-  //fputws(L"\n", stdout);
-	
-  if (size > INT_MAX / sizeof (wchar_t))
-  {
-    return EOF;
-  }
-  f._flags = __SWR | __SSTR; //| __SWCH;
-  f._bf._base = f._p = (unsigned char *) str;
-  f._bf._size = f._w = (size > 0 ? (size - 1) * sizeof (wchar_t) : 0);
-  f._file = -1;  /* No file. */
-  ret = vfwprintf (&f, fmt, ap);
-/* _svfwprintf_r() does not put in a terminating NUL, so add one if
-   * appropriate, which is whenever size is > 0.  _svfwprintf_r() stops
-   * after n-1, so always just put at the end.  */
-  if (size > 0)  {
-    *(wchar_t *)f._p = L'\0';	/* terminate the string */
-  }
-  if(ret >= size)  {
-  /* _svfwprintf_r() returns how many wide characters it would have printed
-     * if there were enough space.  Return an error if too big to fit in str,
-     * unlike snprintf, which returns the size needed.  */
-    ret = -1;
-  }
-  //printf("\n!!ML vswprintf ret %d\n", ret);
-  return ret;
-}
-
-/*
-int
-vswprintf (wchar_t *str, size_t size, const wchar_t *fmt, va_list ap)
-{
-  int ret;
-  FILE *f=fopen("x.tmp", "w+b");
-  fwide(f, -1);
-  ret = vfwprintf (f, fmt, ap);
-  fclose(f);
-  f=fopen("x.tmp", "r+");
-  unsigned char buf[10];
-  unsigned char *cstr = (unsigned char *)str;
-  int i=0;
-  while (fread(buf, 1, 1, f)) cstr[i++] = buf[0];
-  fclose(f);
-  cstr[i]=0;
-  cstr[i+1]=0;
-  cstr[i+2]=0;
-  cstr[i+3]=0;
-  //wprintf(L"%ls", (wchar_t *)cstr);
-  return ret-1;
-}
-*/
-
-int
-swprintf (wchar_t *str,
-       size_t size,
-       const wchar_t *fmt, ...)
-{
-	//printf("\n!!ML swprintf size %d\n", size);
-	int ret;
-	va_list args;
-  	va_start (args, fmt);
-	ret = vswprintf(str, size, fmt, args);
-	va_end (args);
-	//printf("\n!!ML swprintf ret %d\n", ret);
-	//fputws(str, stdout);
-	return ret;
-	
-}
-
-
-int
-fwprintf(FILE * fp,
-       const wchar_t *fmt0,
-       ...)
-{
-	//printf("\n!!ML fwprintf\n");
-	int ret;
-	va_list args;
-  	va_start (args, fmt0);
-	ret = vfwprintf(fp, fmt0, args);
-	va_end (args);
-	return ret;
-}
-
-
-int
-vwprintf(const wchar_t *fmt0,
-       va_list ap)
-{
-	//printf("\n!!ML vwprintf\n");
-	return vfwprintf(stdout, fmt0, ap);
-}
-
-
-
-int
-wprintf(const wchar_t *fmt0,
-       ...)
-{
-	//printf("\n!!ML wprintf\n");
-	int ret;
-	va_list args;
-  	va_start (args, fmt0);
-	ret =  vwprintf(fmt0, args);
-	va_end (args);
-	return ret;
-}
-
-#ifdef __amigaos4__
-int
-putwchar(wchar_t c)
-{
-	char ch = ((unsigned char)c+3);
-	return putchar(ch);
-}
-#endif
 

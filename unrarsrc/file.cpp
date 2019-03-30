@@ -10,6 +10,11 @@
 #undef Write
 #undef File
 #undef Close
+#undef Exit
+#undef Flush
+int fsync(int fd) {return 0;}
+// flock is only used below when updating rar - not in urar
+int flock(int fs, int op) {return 0;}
 #endif
 
 File::File()
@@ -99,7 +104,6 @@ bool File::Open(const wchar *Name,uint Mode)
   if (hNewFile==FILE_BAD_HANDLE && LastError==ERROR_FILE_NOT_FOUND)
     ErrorType=FILE_NOTFOUND;
 #else
-#ifndef _AMIGA
   int flags=UpdateMode ? O_RDWR:(WriteMode ? O_WRONLY:O_RDONLY);
 #ifdef O_BINARY
   flags|=O_BINARY;
@@ -109,7 +113,6 @@ bool File::Open(const wchar *Name,uint Mode)
 #endif
   char NameA[NM];
   WideToChar(Name,NameA,ASIZE(NameA));
-
   int handle=open(NameA,flags);
 #ifdef LOCK_EX
 
@@ -135,11 +138,6 @@ bool File::Open(const wchar *Name,uint Mode)
   }
   if (hNewFile==FILE_BAD_HANDLE && errno==ENOENT)
     ErrorType=FILE_NOTFOUND;
-#else //_AMIGA
-  char NameA[NM];
-  WideToChar(Name,NameA,ASIZE(NameA));
-  hNewFile=fopen(NameA,UpdateMode ? UPDATEBINARY:READBINARY);
-#endif
 #endif
   NewFile=false;
   HandleType=FILE_HANDLENORMAL;
@@ -203,11 +201,7 @@ bool File::Create(const wchar *Name,uint Mode)
   }
 #else
   char NameA[NM];
-#if defined(_AMIGA)
-  WideToLocal(Name,NameA,ASIZE(NameA));
-#else
   WideToChar(Name,NameA,ASIZE(NameA));
-#endif
 #ifdef FILE_USE_OPEN
   hFile=open(NameA,(O_CREAT|O_TRUNC) | (WriteMode ? O_WRONLY : O_RDWR),0666);
 #else
@@ -596,7 +590,7 @@ void File::Flush()
 #ifndef FILE_USE_OPEN
   fflush(hFile);
 #endif
-  //fsync(GetFD()); ML
+  fsync(GetFD());
 #endif
 }
 
@@ -647,11 +641,7 @@ void File::SetCloseFileTimeByName(const wchar *Name,RarTime *ftm,RarTime *fta)
   if (setm || seta)
   {
     char NameA[NM];
-#ifdef _AMIGA
-    WideToLocal(Name,NameA,ASIZE(NameA));
-#else
     WideToChar(Name,NameA,ASIZE(NameA));
-#endif
 	  
 #ifdef UNIX_TIME_NS
     timespec times[2];

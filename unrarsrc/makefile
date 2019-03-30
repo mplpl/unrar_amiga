@@ -3,12 +3,12 @@
 
 # MorphOS
 CXX=c++
-CXXFLAGS=-O2 -Wno-switch -D_AMIGA -I../utf8proc -I../locale
+CXXFLAGS=-O2 -Wno-switch -D_AMIGA -I../utf8proc -I../locale -noixemul
 LIBFLAGS=-fPIC
 DEFINES=
 STRIP=strip
 AR=ar
-LDFLAGS=-L../utf8proc -L../vfwprintf -L../locale
+LDFLAGS=-L../utf8proc -L../vfwprintf -L../locale -noixemul
 LIBS=-lutf8proc -lvfwprintf -lunrarlocale
 DESTDIR=/usr
 

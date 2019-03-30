@@ -33,7 +33,8 @@ int main()
 	wchar_t buf3[1024];
 	swprintf(buf3, 1024, L"to jest test %s Z\n", "123");
 	wprintf(buf3);*/
-	
+	//puts("aaa");
+  //fputws(L"aaa", stdout);
 	wprintf(L"Test vswprintf: ");
 	wchar_t buf4[1024];
 	swprintf(buf4, 1024, L"to jest test %ls\n", L"a\x017c\x00f3\x0142\x0107z");
