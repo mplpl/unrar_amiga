@@ -31,6 +31,16 @@ void CommandData::OutTitle()
     exit(0);
   }
   mprintf(St(MUCopyright),Version,RARVER_YEAR);
+#ifdef _AMIGA
+#ifdef __amigaos4__
+  mprintf(St(MAmigaPortBy), L"AmigaOS4");
+#elif defined(__morphos__)
+  mprintf(St(MAmigaPortBy), L"MorphOS");
+#else
+  mprintf(St(MAmigaPortBy), L"AmigaOS");
+#endif
+#endif
+  
 #endif
 #endif
 }

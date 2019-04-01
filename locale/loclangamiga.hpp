@@ -384,3 +384,4 @@
 #define MNeedAdmin GetWString(MSG_MNeedAdmin)
 #define MDictOutMem GetWString(MSG_MDictOutMem)
 #define MUseSmalllerDict GetWString(MSG_MUseSmalllerDict)
+#define MAmigaPortBy GetWString(MSG_MAmigaPortBy)
