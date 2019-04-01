@@ -8,8 +8,8 @@ LIBFLAGS=-fPIC
 DEFINES=
 STRIP=strip
 AR=ar
-LDFLAGS=-L../utf8proc -L../vfwprintf -L../locale -noixemul
-LIBS=-lutf8proc -lvfwprintf -lunrarlocale
+LDFLAGS=-L../utf8proc -L../wstdio -L../locale -noixemul
+LIBS=-lutf8proc -lwstdio -lunrarlocale
 DESTDIR=/usr
 
 # Linux using GCC

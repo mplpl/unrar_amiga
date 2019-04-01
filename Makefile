@@ -1,7 +1,7 @@
 
 TOPTARGETS := all clean
 
-SUBDIRS := utf8proc vfwprintf locale unrarsrc
+SUBDIRS := utf8proc wstdio locale unrarsrc
 
 all: $(TOPTARGETS)
 	cp unrarsrc/unrar .
