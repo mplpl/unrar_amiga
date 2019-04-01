@@ -267,8 +267,8 @@ bool getwstr(wchar *str,size_t n)
     str[ReadSize]=0;
   }
 #elif defined(_AMIGA)
-  char buf[1000];
-  if (fgets(buf, 999, stdin)==NULL)
+  char buf[n+1];
+  if (fgets(buf, n, stdin)==NULL)
   {
 	  ErrHandler.Exit(RARX_USERBREAK);
   } 
