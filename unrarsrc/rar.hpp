@@ -88,7 +88,7 @@
 #endif
 
 #ifdef __amigaos4__
-#include "../vfwprintf/vfwprintf.h"
+#include "../wstdio/wstdio.h"
 #endif
 
 
