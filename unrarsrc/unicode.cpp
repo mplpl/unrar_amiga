@@ -174,9 +174,12 @@ bool WideToCharMap(const wchar *Src,char *Dest,size_t DestSize,bool &Success)
         Success=false;
       }
       SrcPos++;
+#ifdef _AMIGA
+      int Length=mblen(Dest+DestPos,MB_CUR_MAX);
+#else
       memset(&ps,0,sizeof(ps));
-      //int Length=mbrlen(Dest+DestPos,MB_CUR_MAX,&ps);
-	  int Length=mblen(Dest+DestPos,MB_CUR_MAX);
+      int Length=mbrlen(Dest+DestPos,MB_CUR_MAX,&ps);
+#endif
       DestPos+=Max(Length,1);
     }
   }
@@ -227,9 +230,12 @@ void CharToWideMap(const char *Src,wchar *Dest,size_t DestSize,bool &Success)
     }
     else
     {
-      memset(&ps,0,sizeof(ps));
-      //int Length=mbrlen(Src+SrcPos,MB_CUR_MAX,&ps);
+#ifdef _AMIGA
       int Length=mblen(Src+SrcPos,MB_CUR_MAX);
+#else
+      memset(&ps,0,sizeof(ps));
+      int Length=mbrlen(Src+SrcPos,MB_CUR_MAX,&ps);
+#endif
       SrcPos+=Max(Length,1);
       DestPos++;
     }
