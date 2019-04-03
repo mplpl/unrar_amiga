@@ -1,4 +1,4 @@
-# Port of unrar for MorphOS and AmigaOS 4
+# Port of unrar for MorphOS and AmigaOS4
 
 <h2>State of work:</h2>
 
