@@ -1,0 +1,64 @@
+Short: UnRAR 5.70
+Author: Alexander Roshal, Marcin Labenski
+Uploader: marcin.labenski@gmail.com
+Type: util/arc
+Version: 5.7.3
+Architecture: ppc-amigaos >=4.1; ppc-morphos >=3
+Distribution: aminet
+
+This is a brand new UnRAR port for AmigaOS4 and MorphOS based on source code 
+version 5.7.3.
+
+Source code of this program is available on github:
+https://github.com/mplpl/unrar_amiga
+
+Features:
+---------
+
+* support all the basic unrar commands and options, including listing, 
+unpacking (all or selected items), printing and testing archive files
+
+* support national characters in archive name, names of files and directories
+in the archive, passwords, comments and list files
+
+* support restoring information about file modification date, owner and group
+
+* support unpacking symbolic links and hard links stored in archives
+
+* can read switches from configuration file s:rar.conf or RAR environment 
+variable
+
+* support AmigaOS localization via locale.library
+
+
+Content
+-------
+
+unrar_mos      - version of unrar for MorphOS
+unrar_aos4     - version of unrar for AmigaOS 4.1
+catalogs       - unrar translations - currently Polish translation only
+unrar.cd       - locale catalog descriptor file (for custom translations)
+UnRAR.readme   - this readme file
+
+
+Installation
+------------
+
+MorphOS: 
+copy unrar_mos to c:unrar
+copy catalogs to locale:catalogs all
+
+Note: MorphOS has its own unrar 3.90 in protected System:MorphOS/C direcory
+that is used with higher priority than a file for c:unrar. And so if you want
+to use the one from c: you need to call it explicitely, like this:
+c:unrar l my_archive.rar
+To avaid this, you can also copy unrar to c:unrar5, and then call it as unrar5:
+copy unrar_mos to c:unrar5
+unrar5 l my_archive.rar
+
+AmigaOS4:
+copy unrar_aos4 to c:unrar
+copy catalogs to locale:catalogs all
+
+Note (for both MorphOS and AmigaOS4): if you don't like my Polish translation,
+do not copy it to locale: and you will get English version only.
