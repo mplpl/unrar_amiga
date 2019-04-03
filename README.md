@@ -8,11 +8,18 @@ All the basic functions like listing (verbose, base, technical), unpacking (w/ o
 
 <h3>National characters support</h3>
 
-<h4>National characters in file names</h4>
-
-RAR stores file names in Unicode format and uses it in console printing or file operation (create, find, ...) in UTF-8. Unfortunately no Amiga operating system supports UTF-8 today, therefore in order to handle localized names, this unrar port converts names to local 8-bit encoding set in locale prefs in OS. Unfortunately, Amiga locale library does not report selected code page. Fortunately, but both MorphOS and AmigaOS4 sets appropriate environment variable, that unrar reads:
+RAR stores data in UTF-8 in an archive file, then read it into Unicode (wchar_t) and finally it uses it (prints, create files, find files, ...) in UTF-8. Unfortunately no Amiga operating system supports UTF-8 today, therefore in order to handle national characters in file names, comments, options, etc. it needs to be converted to OS local encoding sets in OS prefs. Unrar reads what was set using environment variables:
 * on Morphos: CODEPAGE
 * on AmigaOS4: Charset
+Characters that cannot be converted, because are not present in selected codepage, are replaced with '?'. That means that national characters are fully supported but only for selected locale, i.e. if I have Polish locale and have a rar archive with Spanish characters, they will not appeart and will be replaced by '?'. That in turns mean that some files may have the same names even if they are different files. In that case only one will be unpacked. To deal with this, you can use special environment variable RAR_CODEPAGE that allows overriding codepage (for both MorhOS and AmigaOS4) without changing system prefs. For an example above, if you set RAR_CODEPAGE, you will still not see Spanish characters (unless you have the right font) but at least you should get all the files unpacked.
+
+
+<h4>National characters in file names</h4>
+
+National characters in in file names are handled as described above - this covers:
+* name of files and directories in an archive
+* archive names given to unrar command
+* names in list files (if -sc option is not used)
 
 Obviously, in order to see national characters in shell or when browsing unpacked files in Ambient/Workbench you need to have fonts with the right encoding installed in OS and set as system font and/or in Ambient.
 
@@ -38,9 +45,9 @@ For non-Windows systems, only "u" and "f" matters (BTW: "u" is UTF-16 not UTF-32
 [obj] is one of:
 * 'c' for comment - does not apply unrar, used only in 'full' rar utility
 * 'r' for redirect - applies to Windows only
-* 'l' for file lists - applies to file lists to unpact (specified after "@"), file list to exclude (specified after -x@) and filter mast file list (specified after -n@).
+* 'l' for file lists - applies to file list to unpack (specified after "@"), file list to exclude (specified after -x@) and filter file list (specified after -n@).
   
-So for filelist is -sc is not used, unrar will try to autodetect UTF-16 and UTF-8 and when it fails it will assume local encoding. The latter will also happen when "a" or "o" was used.
+So for option -sc is not used, unrar will try to autodetect UTF-16 and UTF-8 and when it fails it will assume local encoding. The latter will also happen when "a" or "o" was used.
 
 All above is standard unrar behavior - I'm only documenting it here.
 
@@ -84,6 +91,8 @@ NTFS Junction Points are like symbolic links but their target is always absolute
 
 Unrar has a config file in which you can store switches that will always be used when unrar command is called. In order to do that, "switches=" should be present in the file with all the switches to add (for instance "switches=-ad -ola"). This port of unrar looks for configuration file in s:rar.conf.
 
+There is also "RAR" environment variable that can have switches to use (like "switches=" in configuration file). The priority of resolving options to use is: directly given in command, RAR environment variable, configuration file.
+
 <h3>Support for locatization</h3>
 
 This unrar port complies with locatization rules of MorphOS and AmigaOS. unrar.cs file is included in the bundle, and can be base for making translations using tools like SimpleCat. 
@@ -98,6 +107,7 @@ https://juliastrings.github.io/utf8proc/
 
 For vfwprintf-like functions from libc, that are not implemented on Amiga at all, I ported the code I took from newlib 3.1.0:
 http://sourceware.org/newlib/
+
 ftp://sourceware.org/pub/newlib/newlib-3.1.0.tar.gz
 
 MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.12).
