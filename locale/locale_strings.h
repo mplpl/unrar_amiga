@@ -1,5 +1,5 @@
-#ifndef LOCLANGAMIGA_H
-#define LOCLANGAMIGA_H 1
+#ifndef LOCLANG_HPP
+#define LOCLANG_HPP 1
 
 /* Locale Catalog Source File
  *
@@ -419,8 +419,9 @@
 #define MSG_MNeedAdmin 378
 #define MSG_MDictOutMem 379
 #define MSG_MUseSmalllerDict 380
+#define MSG_MAmigaPortBy 381
 
-#define CATCOMP_LASTID 380
+#define CATCOMP_LASTID 381
 
 #endif /* CATCOMP_NUMBERS */
 
@@ -440,7 +441,7 @@
 #define MSG_MRegTo_STR "\nRegistered to %s\n"
 #define MSG_MShare_STR "\nTrial version             Type 'rar -?' for help\n"
 #define MSG_MRegKeyWarning_STR "\nAvailable license key is valid only for %s\n"
-#define MSG_MUCopyright_STR "\nUNRAR %s freeware      Copyright (c) 1993-%d Alexander Roshal\n\nMorphOS port by Marcin Labenski\n"
+#define MSG_MUCopyright_STR "\nUNRAR %s freeware      Copyright (c) 1993-%d Alexander Roshal\n"
 #define MSG_MBeta_STR "beta"
 #define MSG_Mx86_STR "x86"
 #define MSG_Mx64_STR "x64"
@@ -811,6 +812,7 @@
 #define MSG_MNeedAdmin_STR "\nYou may need to run RAR as administrator"
 #define MSG_MDictOutMem_STR "\nNot enough memory for %d MB compression dictionary, changed to %d MB."
 #define MSG_MUseSmalllerDict_STR "\nPlease use a smaller compression dictionary."
+#define MSG_MAmigaPortBy_STR "\n%s port by Marcin Labenski\n"
 
 #endif /* CATCOMP_STRINGS */
 
@@ -1209,6 +1211,7 @@ static const struct CatCompArrayType CatCompArray[] =
     {MSG_MNeedAdmin,(STRPTR)MSG_MNeedAdmin_STR},
     {MSG_MDictOutMem,(STRPTR)MSG_MDictOutMem_STR},
     {MSG_MUseSmalllerDict,(STRPTR)MSG_MUseSmalllerDict_STR},
+    {MSG_MAmigaPortBy,(STRPTR)MSG_MAmigaPortBy_STR},
 };
 
 #endif /* CATCOMP_ARRAY */
@@ -1241,8 +1244,8 @@ static const char CatCompBlock[] =
     MSG_MShare_STR "\x00\x00"
     "\x00\x00\x00\x09\x00\x2E"
     MSG_MRegKeyWarning_STR "\x00\x00"
-    "\x00\x00\x00\x0A\x00\x62"
-    MSG_MUCopyright_STR "\x00\x00"
+    "\x00\x00\x00\x0A\x00\x40"
+    MSG_MUCopyright_STR "\x00"
     "\x00\x00\x00\x0B\x00\x06"
     MSG_MBeta_STR "\x00\x00"
     "\x00\x00\x00\x0C\x00\x04"
@@ -1983,6 +1986,8 @@ static const char CatCompBlock[] =
     MSG_MDictOutMem_STR "\x00\x00"
     "\x00\x00\x01\x7C\x00\x2E"
     MSG_MUseSmalllerDict_STR "\x00"
+    "\x00\x00\x01\x7D\x00\x1E"
+    MSG_MAmigaPortBy_STR "\x00\x00"
 };
 
 #endif /* CATCOMP_BLOCK */
@@ -1992,5 +1997,55 @@ static const char CatCompBlock[] =
 
 
 
-#endif /* LOCLANGAMIGA_H */
+struct LocaleInfo
+{
+    APTR li_LocaleBase;
+    APTR li_Catalog;
+};
+
+
+
+
+
+#ifdef CATCOMP_CODE
+
+#include <libraries/locale.h>
+#include <proto/locale.h>
+
+
+STRPTR GetString(struct LocaleInfo *li, LONG stringNum)
+{
+LONG   *l;
+UWORD  *w;
+STRPTR  builtIn;
+
+    l = (LONG *)CatCompBlock;
+
+    while (*l != stringNum)
+    {
+        w = (UWORD *)((ULONG)l + 4);
+        l = (LONG *)((ULONG)l + (ULONG)*w + 6);
+    }
+    builtIn = (STRPTR)((ULONG)l + 6);
+
+#undef LocaleBase
+#define LocaleBase li->li_LocaleBase
+    
+    if (LocaleBase)
+        return(GetCatalogStr(li->li_Catalog,stringNum,builtIn));
+#undef LocaleBase
+
+    return(builtIn);
+}
+
+
+#endif /* CATCOMP_CODE */
+
+
+
+/****************************************************************************/
+
+
+
+#endif /* LOCLANG_HPP */
 

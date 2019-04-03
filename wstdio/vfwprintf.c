@@ -44,8 +44,6 @@
  * This code is large and complicated...
  */
 
-#define __SINGLE_THREAD__
-
 #include "newlib.h"
 
 #ifndef NO_FLOATING_POINT
@@ -58,7 +56,7 @@
 # undef _NO_POS_ARGS
 #endif
 
-#include "_ansi.h"
+//#include "_ansi.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -68,8 +66,8 @@
 #include <wctype.h>
 //#include <sys/lock.h>
 #include <stdarg.h>
-#include "local.h"
-#include "fvwrite.h"
+//#include "local.h"
+//#include "fvwrite.h"
 #include "vfieeefp.h"
 #ifdef __HAVE_LOCALE_INFO_EXTENDED__
 #include "../locale/setlocale.h"
@@ -91,53 +89,6 @@
 
 int vfwprintf(FILE *, const wchar_t *, va_list);
 
-#ifdef _FVWRITE_IN_STREAMIO
-#define __SPRINT sprint
-
-int
-__SPRINT (FILE *fp,
-            register struct __suio *uio)
-{
-    register int err = 0;
-    
-    if (uio->uio_resid == 0)
-    {
-        uio->uio_iovcnt = 0;
-        return 0;
-    }
-#ifdef _WIDE_ORIENT
-    //if (fp->_flags2 & __SWID)
-    if (fwide(fp, 0) < 0)
-    {
-        struct __siov *iov;
-        wchar_t *p;
-        int i, len;
-        
-        iov = uio->uio_iov;
-        for (; uio->uio_resid != 0;
-             uio->uio_resid -= len * sizeof (wchar_t), iov++)
-        {
-            p = (wchar_t *) iov->iov_base;
-            len = iov->iov_len / sizeof (wchar_t);
-            for (i = 0; i < len; i++)
-            {
-                if (fputwc(p[i], fp) == WEOF)
-                {
-                    err = -1;
-                    goto out;
-                }
-            }
-        }
-    }
-    else
-#endif
-        err = __sfvwrite(fp, uio);
-out:
-    uio->uio_resid = 0;
-    uio->uio_iovcnt = 0;
-    return err;
-}
-#else
 #define __SPRINT sfputs
 
 int __SPRINT (FILE *fp, const char *buf, size_t len)
@@ -167,52 +118,6 @@ int __SPRINT (FILE *fp, const char *buf, size_t len)
     }
     return (0);
 }
-#endif
-
-#ifdef _UNBUF_STREAM_OPT
-/*
- * Helper function for `fprintf to unbuffered unix file': creates a
- * temporary buffer.  We only work on write-only files; this avoids
- * worries about ungetc buffers and so forth.
- */
-static int
-__sbwprintf (register FILE *fp,
-       const wchar_t *fmt,
-       va_list ap)
-{
-	int ret;
-	FILE fake;
-	unsigned char buf[BUFSIZ];
-
-	/* copy the important variables */
-	fake._flags = fp->_flags & ~__SNBF;
-	fake._file = fp->_file;
-	fake._cookie = fp->_cookie;
-	fake._write = fp->_write;
-
-	/* set up the buffer */
-	fake._bf._base = fake._p = buf;
-	fake._bf._size = fake._w = sizeof (buf);
-	fake._lbfsize = 0;	/* not actually used, but Just In Case */
-#ifndef __SINGLE_THREAD__
-	__lock_init_recursive (fake._lock);
-#endif
-
-	/* do the work, then copy any error status */
-	ret = vfwprintf(&fake, fmt, ap);
-	if (ret >= 0 && fflush (&fake))
-		ret = EOF;
-	if (fake._flags & __SERR)
-		fp->_flags |= __SERR;
-
-#ifndef __SINGLE_THREAD__
-	__lock_close_recursive (fake._lock);
-#endif
-	return (ret);
-}
-#endif /* _UNBUF_STREAM_OPT */
-
-
 
 #if defined (FLOATING_POINT) || defined (_WANT_IO_C99_FORMATS)
 # include <locale.h>
@@ -427,12 +332,6 @@ vfwprintf(FILE * fp,
 	int realsz;		/* field size expanded by dprec */
 	int size = 0;		/* size of converted field or string */
 	wchar_t *xdigs = NULL;	/* digits for [xX] conversion */
-#ifdef _FVWRITE_IN_STREAMIO
-#define NIOV 8
-	struct __suio uio;	/* output information: summary */
-	struct __siov iov[NIOV];/* ... and individual io vectors */
-	register struct __siov *iovp;/* for PRINT macro */
-#endif
 	wchar_t buf[BUF];	/* space for %c, %ls/%S, %[diouxX], %[aA] */
 	wchar_t ox[2];		/* space for 0x hex-prefix */
 	wchar_t *malloc_buf = NULL;/* handy pointer for malloced buffers */
@@ -473,42 +372,7 @@ vfwprintf(FILE * fp,
 	/*
 	 * BEWARE, these `goto error' on error, and PAD uses `n'.
 	 */
-#ifdef _FVWRITE_IN_STREAMIO
-#define	PRINT(ptr, len) { \
-	iovp->iov_base = (char *) (ptr); \
-	iovp->iov_len = (len) * sizeof (wchar_t); \
-	uio.uio_resid += (len) * sizeof (wchar_t); \
-	iovp++; \
-	if (++uio.uio_iovcnt >= NIOV) { \
-		if (__SPRINT(fp, &uio)) \
-			goto error; \
-		iovp = iov; \
-	} \
-}
-#define	PAD(howmany, with) { \
-	if ((n = (howmany)) > 0) { \
-		while (n > PADSIZE) { \
-			PRINT (with, PADSIZE); \
-			n -= PADSIZE; \
-		} \
-		PRINT (with, n); \
-	} \
-}
-#define PRINTANDPAD(p, ep, len, with) { \
-	int n = (ep) - (p); \
-	if (n > (len)) \
-		n = (len); \
-	if (n > 0) \
-		PRINT((p), n); \
-	PAD((len) - (n > 0 ? n : 0), (with)); \
-}
-#define	FLUSH() { \
-	if (uio.uio_resid && __SPRINT(fp, &uio)) \
-		goto error; \
-	uio.uio_iovcnt = 0; \
-	iovp = iov; \
-}
-#else
+
 #define PRINT(ptr, len) {		\
 	if (__SPRINT (fp, (const char *)(ptr), (len) * sizeof (wchar_t)) == EOF) \
 		goto error;		\
@@ -531,7 +395,6 @@ vfwprintf(FILE * fp,
 	PAD((len) - (n > 0 ? n : 0), (with)); \
 }
 #define	FLUSH()
-#endif
 
 	/* Macros to support positional arguments */
 #ifndef _NO_POS_ARGS
@@ -581,7 +444,7 @@ vfwprintf(FILE * fp,
 #endif
 
 	/* Initialize std streams if not dealing with sprintf family.  */
-	CHECK_INIT (fp);
+	//CHECK_INIT (fp);
 	//_newlib_flockfile_start (fp);
 
 	//ML3
@@ -594,21 +457,7 @@ vfwprintf(FILE * fp,
 	//	return (EOF);
 	//}
 
-#ifdef _UNBUF_STREAM_OPT
-	/* optimise fwprintf(stderr) (and other unbuffered Unix files) */
-	if ((fp->_flags & (__SNBF|__SWR|__SRW)) == (__SNBF|__SWR) &&
-	    fp->_file >= 0) {
-		//_newlib_flockfile_exit (fp);
-		return (__sbwprintf (fp, fmt0, ap));
-	}
-#endif
-
 	fmt = (wchar_t *)fmt0;
-#ifdef _FVWRITE_IN_STREAMIO
-	uio.uio_iov = iovp = iov;
-	uio.uio_resid = 0;
-	uio.uio_iovcnt = 0;
-#endif
 	ret = 0;
 #ifndef _NO_POS_ARGS
 	arg_index = 0;

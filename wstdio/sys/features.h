@@ -37,8 +37,10 @@ extern "C" {
 # endif
 #endif /* __GNUC_PREREQ */
 /* Version with trailing underscores for BSD compatibility. */
+  
+#ifndef __GNUC_PREREQ__
 #define	__GNUC_PREREQ__(ma, mi)	__GNUC_PREREQ(ma, mi)
-
+#endif
 
 /*
  * Feature test macros control which symbols are exposed by the system

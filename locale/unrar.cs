@@ -1,4 +1,4 @@
-## Version $VER: unrar.catalog 1.0 (22.03.2019)
+## Version $VER: xxxxxx.catalog 1.00 (01.04.2019)
 ## Languages english
 ## Codeset english 0
 ## SimpleCatConfig CharsPerLine 200
@@ -34,7 +34,7 @@ MSG_MRegKeyWarning
 \nAvailable license key is valid only for %s\n
 ;
 MSG_MUCopyright
-\nUNRAR %s freeware      Copyright (c) 1993-%d Alexander Roshal\n\nMorphOS port by Marcin Labenski\n
+\nUNRAR %s freeware      Copyright (c) 1993-%d Alexander Roshal\n
 ;
 MSG_MBeta
 beta
@@ -1145,3 +1145,6 @@ MSG_MDictOutMem
 ;
 MSG_MUseSmalllerDict
 \nPlease use a smaller compression dictionary.
+;
+MSG_MAmigaPortBy
+\n%s port by Marcin Labenski\n

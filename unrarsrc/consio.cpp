@@ -106,7 +106,7 @@ static void cvt_wprintf(FILE *dest,const wchar *fmt,va_list arglist)
   vswprintf(lineBufW, 2*1024, fmtw, arglist);
   unsigned char lineBufMb[2*1024];
   WideToChar(lineBufW, (char *)&lineBufMb, 2*1024);
-  fprintf(dest, (const char *)lineBufMb);
+  fprintf(dest, "%s", (const char *)lineBufMb);
 #else
   vfwprintf(dest,fmtw,arglist);
 #endif
@@ -267,8 +267,8 @@ bool getwstr(wchar *str,size_t n)
     str[ReadSize]=0;
   }
 #elif defined(_AMIGA)
-  char buf[1000];
-  if (fgets(buf, 999, stdin)==NULL)
+  char buf[n+1];
+  if (fgets(buf, n, stdin)==NULL)
   {
 	  ErrHandler.Exit(RARX_USERBREAK);
   } 
