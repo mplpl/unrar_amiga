@@ -1,0 +1,2 @@
+dist:
+	lha -r a unrar.lha unrar

@@ -81,10 +81,6 @@
             <Option objcincludes="-I/gg/Frameworks/include"/>
             <Option objcdefines=""/>
         </CompilerSettings>
-        <FileUnit filepath="amiga.cpp">
-            <Option inproject="1"/>
-            <Option filetype="3"/>
-        </FileUnit>
         <FileUnit filepath="unrarsrc/arccmt.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
@@ -680,6 +676,14 @@
         <FileUnit filepath="../../../Applications/FlowStudio">
             <Option inproject="1"/>
             <Option filetype="3"/>
+        </FileUnit>
+        <FileUnit filepath="../../../Applications/FlowStudio">
+            <Option inproject="1"/>
+            <Option filetype="3"/>
+        </FileUnit>
+        <FileUnit filepath="UnRAR.readme">
+            <Option inproject="1"/>
+            <Option filetype="16"/>
         </FileUnit>
     </Project>
 </FlowStudioProjectFile>
