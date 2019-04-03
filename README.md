@@ -11,6 +11,7 @@ All the basic functions like listing (verbose, base, technical), unpacking (w/ o
 RAR stores data in UTF-8 in an archive file, then read it into Unicode (wchar_t) and finally it uses it (prints, create files, find files, ...) in UTF-8. Unfortunately no Amiga operating system supports UTF-8 today, therefore in order to handle national characters in file names, comments, options, etc. it needs to be converted to OS local encoding sets in OS prefs. Unrar reads what was set using environment variables:
 * on Morphos: CODEPAGE
 * on AmigaOS4: Charset
+
 Characters that cannot be converted, because are not present in selected codepage, are replaced with '?'. That means that national characters are fully supported but only for selected locale, i.e. if I have Polish locale and have a rar archive with Spanish characters, they will not appeart and will be replaced by '?'. That in turns mean that some files may have the same names even if they are different files. In that case only one will be unpacked. To deal with this, you can use special environment variable RAR_CODEPAGE that allows overriding codepage (for both MorhOS and AmigaOS4) without changing system prefs. For an example above, if you set RAR_CODEPAGE, you will still not see Spanish characters (unless you have the right font) but at least you should get all the files unpacked.
 
 
