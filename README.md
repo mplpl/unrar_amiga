@@ -1,6 +1,24 @@
 # Port of unrar for MorphOS and AmigaOS4
 
-<h2>State of work:</h2>
+<h2>Features</h2>
+
+* support all the basic unrar commands and options, including listing, 
+unpacking (all or selected items), printing and testing archive files
+
+* support national characters in archive name, names of files and directories
+in the archive, passwords, comments and list files
+
+* support restoring information about file modification date, owner and group
+
+* support unpacking symbolic links and hard links stored in archives
+
+* can read switches from configuration file s:rar.conf or RAR environment 
+variable
+
+* support AmigaOS localization via locale.library
+
+
+<h2>Details</h2>
 
 <h3>Basic functions</h3>
 
