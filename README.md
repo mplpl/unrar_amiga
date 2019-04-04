@@ -22,20 +22,20 @@ variable
 
 <h3>Basic functions</h3>
 
-All the basic functions like listing (verbose, base, technical), unpacking (w/ or w/o path, selected files or all), testing or printing works fine. Note, that wherever a path is needed it has to be in amiga format not POSIX ie. //test.rar not ../../test.rar.
+All the basic functions like listing (verbose, base, technical), unpacking (w/ or w/o path, selected files or all), testing or printing works fine. Note, that wherever a path is needed it has to be in amiga format not POSIX i.e. //test.rar not ../../test.rar.
 
 <h3>National characters support</h3>
 
-RAR stores data in UTF-8 in an archive file, then reads it into Unicode (wchar_t) and finally it uses it (prints, create files, find files, ...) in UTF-8. Unfortunately no Amiga operating system supports UTF-8 today, therefore in order to handle national characters in file names, comments, options, etc. it needs to be converted to OS local encoding set in OS prefs. Unrar reads what was set using environment variables:
+RAR stores data in UTF-8 in an archive file, then reads it into Unicode (wchar_t) and finally it uses it (prints, create files, find files, ...) in UTF-8. Unfortunately, no Amiga operating system supports UTF-8 today, therefore in order to handle national characters in file names, comments, options, etc. it needs to be converted to OS local encoding set in OS prefs. Unrar reads what was set using environment variables:
 * on Morphos: CODEPAGE
 * on AmigaOS4: Charset
 
-Characters that cannot be converted, because are not present in selected codepage, are replaced with '?'. That means that national characters are fully supported but only for selected locale, i.e. if I have Polish locale with ISO-8859-2 encoding and have a rar archive with Spanish characters, they will not appear and will be replaced by '?'. That in turns mean that some files may have the same names even if they are different files. In that case only one will be unpacked. To deal with this, you can use special environment variable RAR_CODEPAGE that allows overriding codepage (for both MorhOS and AmigaOS4) without changing system prefs. For an example above, if you set RAR_CODEPAGE, you will still not see Spanish characters (unless you have the right font) but at least you should get all the files unpacked.
+Characters that cannot be converted, because are not present in selected codepage, are replaced with '?'. That means that national characters are fully supported but only for selected locale, i.e. if I have Polish locale with ISO-8859-2 encoding and have a rar archive with Spanish characters, they will not appear and will be replaced by '?'. That in turns mean that some files may have the same names even if they are different files. In that case only one will be unpacked. To deal with this, you can use special environment variable RAR_CODEPAGE that allows overriding codepage (for both MorphOS and AmigaOS4) without changing system prefs. For an example above, if you set RAR_CODEPAGE, you will still not see Spanish characters (unless you have the right font) but at least you should get all the files unpacked.
 
 
 <h4>National characters in file names</h4>
 
-National characters in file names are handled as described above - this covers:
+National characters in file names are handled as described above - this cover:
 * name of files and directories in an archive
 * targets for symbolic and hard links in an archive
 * archive names given to unrar command
@@ -48,7 +48,7 @@ Obviously, in order to see national characters in shell or when browsing unpacke
 National characters are supported in passwords. A password can be given in the following forms:
 * from shell when asked
 * in command invocation using -p switch 
-* from RAR envoronment variable
+* from RAR environment variable
 
 In each of the case above, only passwords containing national characters of currently selected locale are supported and should be given using locale encoding (as for file names described above). If the password is not using current locale charset, RAR_CODEPAGE need to be used to select it.
 
@@ -75,29 +75,29 @@ All above is standard unrar behavior - I'm only documenting it here.
 
 Unrar supports wildcard in Windows style:
 * "?" = any character
-* "*" = any charaster sequence
+* "*" = any character sequence
 
 Amiga style wildcards are not supported at this moment.
 
 <h3>File modification dates</h3>
 
-When unpacking, created files get modification date set as stored in RAR archive. The data is set in the local time zone. As there is no special attribute for creation and access dates in AmigaOS, this values are always ignored.
+When unpacking, created files get modification date set as stored in RAR archive. The data is set in the local time zone. As there is no special attribute for creation and access dates in AmigaOS, these values are always ignored.
 
 <h3>File owner and group</h3>
 
-When unpacking from RAR archive with option -ow, unrar will try to set owner name and group. It will only succed if a user with given name and a group with given name is present in local system. Otherwise an error will be printed. When -ow is not used, owner/group is ignored.
+When unpacking from RAR archive with option -ow, unrar will try to set owner name and group. It will only succeed if a user with given name and a group with given name is present in local system. Otherwise an error will be printed. When -ow is not used, owner/group is ignored.
 
 <h3>Symbolic links in an archive</h3>
 
-RAR can store symbolic links and this unrar port supports that. When unpacking, targets for unix symbolic links will be changed into Amiga links (Makelink function) provided that filesystem into which unpack is done supports that (SFS does). When the filesystem does not support symbolic links, an error will be printed and the symbolic link will be ignored.
+RAR can store symbolic links and this unrar port supports that. When unpacking, targets for Unix symbolic links will be changed into Amiga links (Makelink function) provided that filesystem into which unpack is done supports that (SFS does). When the filesystem does not support symbolic links, an error will be printed and the symbolic link will be ignored.
 
-As RAR stores symbolic link target in the form that is right on OS where an archive was created, before making links in Amiga, the path need to be converted (for instance ../test.txt need to be changed to /test.txt). This unrar port does such conversion.
+As RAR stores symbolic link target in the form that is right on OS where an archive was created, before making links in Amiga, the path needs to be converted (for instance ../test.txt need to be changed to /test.txt). This unrar port does such conversion.
 
-Note: unrar checks if a link is safe to create and will skip links targeting outside of enpacking directory. In order to make it create them, you need to use -ola switch when unpacking.
+Note: unrar checks if a link is safe to create and will skip links targeting outside of unpacking directory. In order to make it create them, you need to use -ola switch when unpacking.
 
 <h3>Hard links in an archive</h3>
 
-Hard links are supported in a similar way as symbilic links. Again, they will only work if target filesystem supports hard links (SFS dos not). Otherwise an error will be printed and hardlink will be ignored. There is no option in unrar that would allow the user to unpack hardlinks and regular files or symbolic links - so if target filesystem does not support hard links it is not possible to get them unpacked. 
+Hard links are supported in a similar way as symbolic links. Again, they will only work if target filesystem supports hard links (SFS dos not). Otherwise an error will be printed and hard link will be ignored. There is no option in unrar that would allow the user to unpack hard links and regular files or symbolic links - so if target filesystem does not support hard links it is not possible to get them unpacked. 
 
 <h3>Reference files in an archive</h3>
 
@@ -105,7 +105,7 @@ RAR can pack identical files as references inside of an archive - that reduces s
 
 <h3>NTFS Junction Points in an archive</h3>
 
-NTFS Junction Points are like symbolic links but their target is always absolute path with a drive letter in front. In Unrar version 5.7 for Unix-like systems (including Amiga) these kind of links are always skipped silently (!). While it is a different behaviour from how it was in 5.0, I decided to leave it unchanged for Amiga. So in practice, junction points are always skipped when unpacking.
+NTFS Junction Points are like symbolic links, but their target is always absolute path with a drive letter in front. In Unrar version 5.7 for Unix-like systems (including Amiga) these kinds of links are always skipped silently (!). While it is a different behavior from how it was in 5.0, I decided to leave it unchanged for Amiga. So, in practice, junction points are always skipped when unpacking.
 
 <h3>Configuration file</h3>
 
@@ -113,9 +113,9 @@ Unrar has a config file in which you can store switches that will always be used
 
 There is also "RAR" environment variable that can have switches to use (like a value of "switches=" in configuration file). The priority of resolving switches to use is: directly given in command, RAR environment variable, configuration file.
 
-<h3>Support for locatization</h3>
+<h3>Support for localization</h3>
 
-This unrar port complies with locatization rules of MorphOS and AmigaOS. unrar.cs file is included in the bundle, and can be base for making translations using tools like SimpleCat. 
+This unrar port complies with localization rules of MorphOS and AmigaOS. unrar.cs file is included in the bundle and can be base for making translations using tools like SimpleCat. 
 
 <h2>Notes about porting</h2>
 
