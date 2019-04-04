@@ -9,6 +9,8 @@ Distribution: aminet
 This is a brand new UnRAR port for AmigaOS4 and MorphOS based on source code
 version 5.7.3.
 
+UnRAR license is available in license.txt file in this archive.
+
 Source code of this program is available on github:
 https://github.com/mplpl/unrar_amiga
 
@@ -38,6 +40,7 @@ unrar_mos      - version of unrar for MorphOS
 unrar_aos4     - version of unrar for AmigaOS 4.1
 catalogs       - unrar translations - currently Polish translation only
 unrar.cd       - locale catalog descriptor file (for custom translations)
+license.txt    - UnRAR license
 UnRAR.readme   - this readme file
 
 
