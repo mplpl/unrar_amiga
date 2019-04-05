@@ -145,9 +145,9 @@ it.
 -sc switch
 ----------
 
-Unrar has -sc[obj] switch described as "Specify the character set" that
+Unrar has -sc<chr>[obj] switch described as "Specify the character set" that
 is not very useful and not very well documented. From the source code I
-read that can be one of:
+read that <chr> can be one of:
 * "a" for ANSI,
 * "o" for OEM,
 * "u" for Unicode and
