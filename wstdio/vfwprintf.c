@@ -111,9 +111,22 @@ int __SPRINT (FILE *fp, const char *buf, size_t len)
     {
         for (i = 0; i < len; i++)
         {
-            /* Call __sfputc_r to skip _fputc_r.  */
-            if (fputc ((unsigned char)buf[i], fp) == EOF)
-                return -1;
+            if (fp->_file != -1 || fp == stdout || fp == stderr)
+            {
+                // fp is a real file or one of standard streams
+            	if (fputc ((unsigned char)buf[i], fp) == EOF)
+            		return -1;
+            }
+        	else
+            {
+                // fp is fake file that I made in vswprintf
+            	if (fp->_w == -1)
+                	return -1;
+
+                *fp->_p = (unsigned char)buf[i];
+            	fp->_p++;
+            	fp->_w--;
+            }
         }
     }
     return (0);
