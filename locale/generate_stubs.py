@@ -1,5 +1,10 @@
+#
+# Copyright (c) 2019 Marcin Labenski
+# MIT License
+#
+
 print("""
-NOTE: This scripts need python 3.2.2 - it won't work with 2.5.4
+NOTE: This script needs python 3.2.2 - it won't work with 2.5.4
 
 This tool gets string from loclang.hpp file from unrar source code
 and generated two file in this dir:

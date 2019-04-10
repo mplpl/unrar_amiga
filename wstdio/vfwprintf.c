@@ -1,9 +1,21 @@
 /*
- * Here are changes I made:
- * * removing reent completely
- * * removing any reference to INTEGER_ONLY and STRING_ONLY version of 
+ * Amiga Port by Marcin Labenski.
+ * License as for the original file (see below).
+ *
+ * This code comes from newlib 3.1.0.
+ * I ported it to MorphOS/AmigaOS4 in order to add missing functions
+ * from *wprintf* familly. I needed to make some simplifications
+ * to keep it light and portable. Here they are:
+ * * removed reent completely
+ * * removed any reference to INTEGER_ONLY and STRING_ONLY version of 
  *  the function - these were used to generate special version of 
  *  vfwprintf function that I'm not going to use
+ * * removed support streamio (FVWRITE_IN_STREAMIO)
+ * * removed support for unbuf streams (UNBUF_STREAM_OPT)
+ * * sfputs to be tailored for Amiga environment
+ *
+ * NOTE: this implementation is far from being complete, but it
+ * is enough for my porting projects to work
  */
  
 /*
@@ -114,18 +126,18 @@ int __SPRINT (FILE *fp, const char *buf, size_t len)
             if (fp->_file != -1 || fp == stdout || fp == stderr)
             {
                 // fp is a real file or one of standard streams
-            	if (fputc ((unsigned char)buf[i], fp) == EOF)
-            		return -1;
+              if (fputc ((unsigned char)buf[i], fp) == EOF)
+                return -1;
             }
-        	else
+            else
             {
-                // fp is fake file that I made in vswprintf
-            	if (fp->_w == -1)
-                	return -1;
+              // fp is fake file that I made in vswprintf
+              if (fp->_w == -1)
+                return -1;
 
-                *fp->_p = (unsigned char)buf[i];
-            	fp->_p++;
-            	fp->_w--;
+              *fp->_p = (unsigned char)buf[i];
+              fp->_p++;
+              fp->_w--;
             }
         }
     }

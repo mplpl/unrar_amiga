@@ -2,8 +2,8 @@ CXX=c++
 CXXFLAGS=-Wno-switch -D_AMIGA
 LIBFLAGS=-fPIC
 DEFINES=
-LDFLAGS=-noixemul -L../vfwprintf  -L../utf8proc
-LIBS=../unrarsrc/unicode.o -lvfwprintf -lutf8proc
+LDFLAGS=-noixemul -L../wstdio  -L../utf8proc
+LIBS=../unrarsrc/unicode.o -lwstdio -lutf8proc
 
 LINK=$(CXX)
 	
