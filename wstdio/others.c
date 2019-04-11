@@ -66,3 +66,4 @@ putwchar(wchar_t c)
   return putchar(ch);
 }
 #endif
+
