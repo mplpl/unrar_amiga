@@ -2,13 +2,13 @@
 #include <stdio.h>
 
 #ifdef __amigaos4__
-#include "../vfwprintf/vfwprintf.h"
+#include "../wstdio/wstdio.h"
 #endif
 
 int main()
 {
   Locale_Open("unrar.catalog", 1, 0);
-  wprintf(L"%ls\n", MUCopyright);
-  wprintf(L"%ls\n", MUCopyright);
+  wprintf(L"%ls\n", MAmigaPortBy);
+  wprintf(L"%ls\n", MAmigaPortBy);
   Locale_Close();
 }

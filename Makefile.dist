@@ -1,2 +1,2 @@
 dist:
-	lha -r a unrar.lha unrar
+	lha -r a UnRAR-5.70.lha unrar

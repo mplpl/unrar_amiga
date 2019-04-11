@@ -1,28 +1,19 @@
-#ifndef UNRAR_LOCALE_H
-#define UNRAR_LOCALE_H 1
-
 /*
-** unrar_locale.h
-**
-** (c) 2006 by Guido Mersmann
-**
-** Object source created by SimpleCat
-*/
+ * wstdio for MorphOS/AmigaOS4
+ * Copyright (c) 2019 Marcin Labenski.
+ * MIT License
+ */
 
-/*************************************************************************/
+#ifndef __UNRAR_LOCALE_H__
+#define __UNRAR_LOCALE_H__
+
 
 #include "locale_strings.h"
 #include <wchar.h>
 
-/*
-** Prototypes
-*/
-
-BOOL Locale_Open( STRPTR catname, ULONG version, ULONG revision);
-void Locale_Close(void);
+BOOL Locale_Open(const char *catname);
+void Locale_Close();
 STRPTR GetString(long ID);
 const wchar_t *GetWString(long id);
 
-/*************************************************************************/
-
-#endif /* UNRAR_LOCALE_H */
+#endif
