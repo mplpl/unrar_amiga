@@ -30,6 +30,8 @@ in the archive, passwords, comments and list files
 
 * support unpacking symbolic links and hard links stored in archives
 
+* support unpacking multi-volume and SFX archives
+
 * can read switches from configuration file s:rar.conf or RAR environment
 variable
 
@@ -39,11 +41,13 @@ variable
 Content
 =======
 
-unrar_mos      - version of unrar for MorphOS
-unrar_aos4     - version of unrar for AmigaOS 4.1
-catalogs       - unrar translations - currently Polish translation only
-license.txt    - UnRAR license
-UnRAR.readme   - this readme file
+unrar_mos             - unrar version for MorphOS 3
+unrar_aos4            - unrar version for AmigaOS 4.1
+catalogs              - unrar translations - currently Polish translation only
+license.txt           - UnRAR license
+license_newlib.txt    - newlib license
+license_utf8proc.txt  - utf8proc license
+UnRAR.readme          - this readme file
 
 
 Installation
@@ -56,7 +60,7 @@ copy unrar_mos to c:unrar
 copy catalogs to locale:catalogs all
 
 Note: MorphOS has its own unrar 3.90 in protected System:MorphOS/C direcory
-that is used with higher priority than a file for c:unrar. And so if you want
+that is used with higher priority than a file in c:unrar. And so if you want
 to use the one from c: you need to call it explicitely, like this:
 
 c:unrar l my_archive.rar
@@ -72,8 +76,11 @@ AmigaOS4:
 copy unrar_aos4 to c:unrar
 copy catalogs to locale:catalogs all
 
-Note (for both MorphOS and AmigaOS4): if you don't like my Polish translation,
-do not copy it to locale: and you will get English version only.
+
+
+Note (for both MorphOS and AmigaOS4): if you have Polish locale set and you
+don't like my Polish translation, do not copy it to locale: and you will get 
+English only version.
 
 
 Detailed port description
@@ -91,12 +98,12 @@ National characters support
 ---------------------------
 
 RAR stores data in UTF-8 in an archive file, then reads it into Unicode
-(wchar_t) and finally it uses it (prints, create files, find files, ...)
+(wchar_t) and finally it uses it (print, create files, find files, ...)
 in UTF-8. Unfortunately, no Amiga operating system supports UTF-8 today,
 therefore in order to handle national characters in file names,
-comments, options, etc. it needs to be converted to OS local encoding
-set in OS prefs. Unrar reads what was set using environment variables:
-* on Morphos: CODEPAGE
+comments, etc. it needs to be converted to OS local encoding set in OS 
+prefs. Unrar reads what was set using environment variables:
+* on MorphOS: CODEPAGE
 * on AmigaOS4: Charset
 
 Characters that cannot be converted, because are not present in selected
@@ -116,8 +123,8 @@ National characters in file names
 ---------------------------------
 
 National characters in file names are handled as described above - this
-cover:
-* name of files and directories in an archive
+covers:
+* name of files, directories and links in an archive
 * targets for symbolic and hard links in an archive
 * archive names given to unrar command
 * names in list files (if -sc option is not used)
@@ -135,6 +142,7 @@ in the following forms:
 * from shell when asked
 * in command invocation using -p switch
 * from RAR environment variable
+* from rar.conf configuration file
 
 In each of the case above, only passwords containing national characters
 of currently selected locale are supported and should be given using
@@ -172,7 +180,7 @@ All above is standard unrar behavior - I'm only documenting it here.
 Wildcards
 ---------
 
-Unrar supports wildcard in Windows style:
+Unrar supports wildcards in Windows style:
 * "?" = any character
 * "*" = any character sequence
 
@@ -182,7 +190,7 @@ File modification dates
 -----------------------
 
 When unpacking, created files get modification date set as stored in RAR
-archive. The data is set in the local time zone. As there is no special
+archive. The date is set in the local time zone. As there is no special
 attribute for creation and access dates in AmigaOS, these values are
 always ignored.
 
@@ -219,7 +227,7 @@ Hard links in an archive
 Hard links are supported in a similar way as symbolic links. Again, they
 will only work if target filesystem supports hard links (SFS dos not).
 Otherwise an error will be printed and hard link will be ignored. There
-is no option in unrar that would allow the user to unpack hard links and
+is no option in unrar that would allow the user to unpack hard links as
 regular files or symbolic links - so if target filesystem does not
 support hard links it is not possible to get them unpacked.
 
@@ -239,7 +247,7 @@ NTFS Junction Points are like symbolic links, but their target is always
 absolute path with a drive letter in front. In Unrar version 5.7 for
 Unix-like systems (including Amiga) these kinds of links are always
 skipped silently (!). While it is a different behavior from how it was
-in 5.0, I decided to leave it unchanged for Amiga. So, in practice,
+in 5.0, I decided to keep it unchanged for Amiga. So, in practice,
 junction points are always skipped when unpacking.
 
 Configuration file
@@ -260,7 +268,7 @@ Support for localization
 ------------------------
 
 This unrar port complies with localization rules of MorphOS and AmigaOS.
-You can find cs/cd file for making additional translations on GitHubis
+You can find cs/cd file for making additional translations on GitHub
 in "locale" directory.
 
 
