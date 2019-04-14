@@ -1,0 +1,2 @@
+dist:
+	lha -r a UnRAR-5.70.lha unrar_5.70
