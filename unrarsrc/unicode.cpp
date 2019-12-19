@@ -762,7 +762,7 @@ bool LocalToWide(const char *Src,wchar *Dest,size_t DestSize)
     }
   }
   char buf[4 * DestSize + 1];
-  char *inPtr = Src;
+  char *inPtr = (char *)Src;
   char *outPtr = (char *)buf;
   size_t inSize = strlen((char *)Src);
   size_t outSize = 4 * DestSize;
