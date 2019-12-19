@@ -1,0 +1,1531 @@
+## version $VER: unrar.catalog 1.0 (22.03.2019)
+## codeset 5
+## language polski
+;
+MSG_MYesNo
+_Tak_Nie
+; _Yes_No
+;
+MSG_MYesNoAll
+_Tak_Nie_Wszystko
+; _Yes_No_All
+;
+MSG_MYesNoAllQ
+_Tak_Nie_Wszystko_nIgdy_Przerwij
+; _Yes_No_All_nEver_Quit
+;
+MSG_MYesNoAllRenQ
+_Tak_Nie_Wszystko_nIgdy_Zmien_Przerwij
+; _Yes_No_All_nEver_Rename_Quit
+;
+MSG_MContinueQuit
+_Kontynuj_Przerwij
+; _Continue_Quit
+;
+MSG_MRetryAbort
+_pOnów_Przerwij
+; _Retry_Abort
+;
+MSG_MCopyright
+\nRAR %s   Copyright (c) 1993-%d Alexander Roshal   %d %s %d
+; \nRAR %s   Copyright (c) 1993-%d Alexander Roshal   %d %s %d
+;
+MSG_MRegTo
+\nZarejestrowane dla %s\n
+; \nRegistered to %s\n
+;
+MSG_MShare
+\nWersja Testowa (Trial)             Wpisz 'rar -?' aby wy¶wietliæ pomoc\n
+; \nTrial version             Type 'rar -?' for help\n
+;
+MSG_MRegKeyWarning
+\nKlucz licencyjny jest wa¿ny tylko dla %s\n
+; \nAvailable license key is valid only for %s\n
+;
+MSG_MUCopyright
+\nUNRAR %s freeware      Copyright (c) 1993-%d Alexander Roshal\n
+; \nUNRAR %s freeware      Copyright (c) 1993-%d Alexander Roshal\n
+;
+MSG_MBeta
+beta
+; beta
+;
+MSG_Mx86
+x86
+; x86
+;
+MSG_Mx64
+x64
+; x64
+;
+MSG_MMonthJan
+Sty
+; Jan
+;
+MSG_MMonthFeb
+Lut
+; Feb
+;
+MSG_MMonthMar
+Mar
+; Mar
+;
+MSG_MMonthApr
+Kwi
+; Apr
+;
+MSG_MMonthMay
+Maj
+; May
+;
+MSG_MMonthJun
+Cze
+; Jun
+;
+MSG_MMonthJul
+Lip
+; Jul
+;
+MSG_MMonthAug
+Sie
+; Aug
+;
+MSG_MMonthSep
+Wrz
+; Sep
+;
+MSG_MMonthOct
+Pa¼
+; Oct
+;
+MSG_MMonthNov
+Lis
+; Nov
+;
+MSG_MMonthDec
+Gru
+; Dec
+;
+MSG_MRARTitle1
+\nU¿ycie:     rar <polecenie> -<opcja 1> -<opcja N> <archiwum> <pliki...>
+; \nUsage:     rar <command> -<switch 1> -<switch N> <archive> <files...>
+;
+MSG_MUNRARTitle1
+\nU¿ycie:     unrar <polecenie> -<opcja 1> -<opcja N> <archiwum> <pliki...>
+; \nUsage:     unrar <command> -<switch 1> -<switch N> <archive> <files...>
+;
+MSG_MRARTitle2
+\n               <@listaplików...> <¶cie¿ka_rozpakowywania\\>
+; \n               <@listfiles...> <path_to_extract\\>
+;
+MSG_MCHelpCmd
+\n\n<Polecenia>
+; \n\n<Commands>
+;
+MSG_MCHelpCmdA
+\n  a             Dodaj pliki do archiwum
+; \n  a             Add files to archive
+;
+MSG_MCHelpCmdC
+\n  c             Dodaj komentarz
+; \n  c             Add archive comment
+;
+MSG_MCHelpCmdCH
+\n  ch            Zmieñ parametry archiwum
+; \n  ch            Change archive parameters
+;
+MSG_MCHelpCmdCW
+\n  cw            Zapisz komentarz do pliku
+; \n  cw            Write archive comment to file
+;
+MSG_MCHelpCmdD
+\n  d             Usuñ pliki z archiwum
+; \n  d             Delete files from archive
+;
+MSG_MCHelpCmdE
+\n  e             Rozpakuj pliki bez ¶cie¿ek
+; \n  e             Extract files without archived paths
+;
+MSG_MCHelpCmdF
+\n  f             Od¶wie¿ pliki w archiwum
+; \n  f             Freshen files in archive
+;
+MSG_MCHelpCmdI
+\n  i[par]=<str>  Znajd¼ ci±g znaków w archiwum
+; \n  i[par]=<str>  Find string in archives
+;
+MSG_MCHelpCmdK
+\n  k             Zablokuj archiwum
+; \n  k             Lock archive
+;
+MSG_MCHelpCmdL
+\n  l[t[a],b]     Wy¶wietl zawarto¶æ archiwum [techniczne[wszystkie],tylko nazwy]
+; \n  l[t[a],b]     List archive contents [technical[all], bare]
+;
+MSG_MCHelpCmdM
+\n  m[f]          Przenie¶ do archiwum [files only]
+; \n  m[f]          Move to archive [files only]
+;
+MSG_MCHelpCmdP
+\n  p             Wypisz plik na standardowe wyj¶cie
+; \n  p             Print file to stdout
+;
+MSG_MCHelpCmdR
+\n  r             Napraw archiwum
+; \n  r             Repair archive
+;
+MSG_MCHelpCmdRC
+\n  rc            Odtwórz brakuj±ce wolumeny
+; \n  rc            Reconstruct missing volumes
+;
+MSG_MCHelpCmdRN
+\n  rn            Zmieñ nazwê pliku w archiwum
+; \n  rn            Rename archived files
+;
+MSG_MCHelpCmdRR
+\n  rr[N]         Dodaj rekordy zabezpieczaj±ce
+; \n  rr[N]         Add data recovery record
+;
+MSG_MCHelpCmdRV
+\n  rv[N]         Utwórz wolumen odzyskiwania
+; \n  rv[N]         Create recovery volumes
+;
+MSG_MCHelpCmdS
+\n  s[name|-]     Konwertuj archiwum do lub z formatu SFX
+; \n  s[name|-]     Convert archive to or from SFX
+;
+MSG_MCHelpCmdT
+\n  t             Testuj archiwum
+; \n  t             Test archive files
+;
+MSG_MCHelpCmdU
+\n  u             Uaktualnij pliki w archiwum
+; \n  u             Update files in archive
+;
+MSG_MCHelpCmdV
+\n  v[t[a],b]     Wy¶wietl wiêcej informacji o zawarto¶ci archiwum [technicznie[wszystkie],tylko nazwy]
+; \n  v[t[a],b]     Verbosely list archive contents [technical[all],bare]
+;
+MSG_MCHelpCmdX
+\n  x             Rozpakuj pliki z ich ¶cie¿kami
+; \n  x             Extract files with full path
+;
+MSG_MCHelpSw
+\n\n<Opcje>
+; \n\n<Switches>
+;
+MSG_MCHelpSwm
+\n  -             Zakoñcz skanowanie opcji
+; \n  -             Stop switches scanning
+;
+MSG_MCHelpSwAT
+\n  @[+]          Wy³±cz [w³±cz] listy plików
+; \n  @[+]          Disable [enable] file lists
+;
+MSG_MCHelpSwAC
+\n  ac            Wyczy¶æ atrybut archiwalno¶ci po zakoñczeniu pakowania
+; \n  ac            Clear Archive attribute after compression or extraction
+;
+MSG_MCHelpSwAD
+\n  ad            Dodaj nazwê archiwum na pocz±tku ¶cie¿ki rozpakowywania
+; \n  ad            Append archive name to destination path
+;
+MSG_MCHelpSwAG
+\n  ag[format]    Wygeneruj nazwê archiwum u¿ywaj±c aktualnej daty
+; \n  ag[format]    Generate archive name using the current date
+;
+MSG_MCHelpSwAI
+\n  ai            Ignoruj atrybuty plików
+; \n  ai            Ignore file attributes
+;
+MSG_MCHelpSwAO
+\n  ao            Dodaj pliki z ustawionym atrybutem archiwalno¶ci
+; \n  ao            Add files with Archive attribute set
+;
+MSG_MCHelpSwAP
+\n  ap<¶cie¿ka>   Ustaw ¶cie¿kê wewn±trz archiwum
+; \n  ap<path>      Set path inside archive
+;
+MSG_MCHelpSwAS
+\n  as            Zsynchronizuj zawarto¶æ archiwum
+; \n  as            Synchronize archive contents
+;
+MSG_MCHelpSwCm
+\n  c-            Wy³±cz pokazywanie komentarza
+; \n  c-            Disable comments show
+;
+MSG_MCHelpSwCFGm
+\n  cfg-          Wy³±cz odczytywanie konfiguracji z pliku
+; \n  cfg-          Disable read configuration
+;
+MSG_MCHelpSwCL
+\n  cl            Skonwertuj nazwy na ma³e litery
+; \n  cl            Convert names to lower case
+;
+MSG_MCHelpSwCU
+\n  cu            Skonwertuj nazwy na du¿e litery
+; \n  cu            Convert names to upper case
+;
+MSG_MCHelpSwDF
+\n  df            Usuñ pliki po zarchiwizowaniu
+; \n  df            Delete files after archiving
+;
+MSG_MCHelpSwDH
+\n  dh            Otwieraj wspó³dzielone pliki
+; \n  dh            Open shared files
+;
+MSG_MCHelpSwDR
+\n  dr            Usuwaj pliki przez ¶mietnik
+; \n  dr            Delete files to Recycle Bin
+;
+MSG_MCHelpSwDS
+\n  ds            Wy³±cz sortowanie przy dodawaniu plików do archiwum typu solid
+; \n  ds            Disable name sort for solid archive
+;
+MSG_MCHelpSwDW
+\n  dw            Usuñ pliki po zarchiwizowaniu
+; \n  dw            Wipe files after archiving
+;
+MSG_MCHelpSwEa
+\n  e[+]<attr>    Ustaw maskê atrybutów plików do uwzglêdnienia lub pominiêcia
+; \n  e[+]<attr>    Set file exclude and include attributes
+;
+MSG_MCHelpSwED
+\n  ed            Nie dodawaj pustych katalogów
+; \n  ed            Do not add empty directories
+;
+MSG_MCHelpSwEN
+\n  en            Nie dodawaj bloku 'end of archive'
+; \n  en            Do not put 'end of archive' block
+;
+MSG_MCHelpSwEP
+\n  ep            Pomiñ ¶cie¿ki plików
+; \n  ep            Exclude paths from names
+;
+MSG_MCHelpSwEP1
+\n  ep1           Pomiñ nazwê katalogu bazowego
+; \n  ep1           Exclude base directory from names
+;
+MSG_MCHelpSwEP2
+\n  ep2           Rozwiñ ¶cie¿ki do pe³nych
+; \n  ep2           Expand paths to full
+;
+MSG_MCHelpSwEP3
+\n  ep3           Rozwiñ ¶cie¿ki do pe³nych uwzglêdniaj±c literê dysku
+; \n  ep3           Expand paths to full including the drive letter
+;
+MSG_MCHelpSwF
+\n  f             Od¶wie¿ pliki
+; \n  f             Freshen files
+;
+MSG_MCHelpSwHP
+\n  hp[has³o]     Szyfruj zarówno pliki jak i nag³ówki
+; \n  hp[password]  Encrypt both file data and headers
+;
+MSG_MCHelpSwHT
+\n  ht[b|c]       Wybierz typ haszowania[BLAKE2,CRC32] dla sum kontrolnych plików
+; \n  ht[b|c]       Select hash type [BLAKE2,CRC32] for file checksum
+;
+MSG_MCHelpSwIDP
+\n  id[c,d,p,q]   Wy³±cz wy¶wietlanie komunikatów
+; \n  id[c,d,p,q]   Disable messages
+;
+MSG_MCHelpSwIEML
+\n  ieml[addr]    Prze¶lij archiwum na adres email
+; \n  ieml[addr]    Send archive by email
+;
+MSG_MCHelpSwIERR
+\n  ierr          Wy¶lij wszystkie komunikaty do stderr
+; \n  ierr          Send all messages to stderr
+;
+MSG_MCHelpSwILOG
+\n  ilog[name]    Zapisuj b³êdy do pliku logu
+; \n  ilog[name]    Log errors to file
+;
+MSG_MCHelpSwINUL
+\n  inul          Wy³±cz wy¶wietlanie wszystkich komunikatów
+; \n  inul          Disable all messages
+;
+MSG_MCHelpSwIOFF
+\n  ioff[n]       Wy³±cz komputer po zakoñczeniu operacji
+; \n  ioff[n]       Turn PC off after completing an operation
+;
+MSG_MCHelpSwISND
+\n  isnd[-]       Kontrola d¼wiêku powiadomienia
+; \n  isnd[-]       Control notification sounds
+;
+MSG_MCHelpSwIVER
+\n  iver          Wy¶wietl numer wersji
+; \n  iver          Display the version number
+;
+MSG_MCHelpSwK
+\n  k             Zamknij archiwum
+; \n  k             Lock archive
+;
+MSG_MCHelpSwKB
+\n  kb            Nie kasuj uszkodzonych plików
+; \n  kb            Keep broken extracted files
+;
+MSG_MCHelpSwLog
+\n  log[f][=name] Zapisz nazwy do pliku logu
+; \n  log[f][=name] Write names to log file
+;
+MSG_MCHelpSwMn
+\n  m<0..5>       Ustaw poziom kompresji (0-brak...3-domy¶lny...5-maksymalny)
+; \n  m<0..5>       Set compression level (0-store...3-default...5-maximal)
+;
+MSG_MCHelpSwMA
+\n  ma[4|5]       Okre¶l wersje formatu kompresji
+; \n  ma[4|5]       Specify a version of archiving format
+;
+MSG_MCHelpSwMC
+\n  mc<par>       Ustaw zaawansowane parametry kompresji
+; \n  mc<par>       Set advanced compression parameters
+;
+MSG_MCHelpSwMD
+\n  md<n>[k,m,g]  Rozmiar s³ownika w KB, MB lub GB
+; \n  md<n>[k,m,g]  Dictionary size in KB, MB or GB
+;
+MSG_MCHelpSwMS
+\n  ms[ext;ext]   Okre¶l typu plików które maj± byæ uwzglêdnione
+; \n  ms[ext;ext]   Specify file types to store
+;
+MSG_MCHelpSwMT
+\n  mt<threads>   Ustaw liczbê w±tków
+; \n  mt<threads>   Set the number of threads
+;
+MSG_MCHelpSwN
+\n  n<plik>       Dodatkowy filtr na pliki do uwzglêdnienia
+; \n  n<file>       Additionally filter included files
+;
+MSG_MCHelpSwNa
+\n  n@            Odczytaj dodatkowe filtry ze standardowego wej¶cia
+; \n  n@            Read additional filter masks from stdin
+;
+MSG_MCHelpSwNal
+\n  n@<lista>     Odczytaj dodatkowe filtry z pliku
+; \n  n@<list>      Read additional filter masks from list file
+;
+MSG_MCHelpSwO
+\n  o[+|-]        Ustaw tryb nadpisywania
+; \n  o[+|-]        Set the overwrite mode
+;
+MSG_MCHelpSwOC
+\n  oc            Ustaw parametry kompresji NTFS
+; \n  oc            Set NTFS Compressed attribute
+;
+MSG_MCHelpSwOH
+\n  oh            Zapisz twarde linki jako linki zamiast plików
+; \n  oh            Save hard links as the link instead of the file
+;
+MSG_MCHelpSwOI
+\n  oi[0-4][:min] Zapisz takie same pliki jako odno¶niki
+; \n  oi[0-4][:min] Save identical files as references
+;
+MSG_MCHelpSwOL
+\n  ol[a]         Odtwarzaj symboliczne linki jako linki [¶cie¿ka absolutna]
+; \n  ol[a]         Process symbolic links as the link [absolute paths]
+;
+MSG_MCHelpSwONI
+\n  oni           Pozwalaj na potencjalnie niebezpieczne nazwy
+; \n  oni           Allow potentially incompatible names
+;
+MSG_MCHelpSwOR
+\n  or            Automatycznie zmieniaj nazwy plików
+; \n  or            Rename files automatically
+;
+MSG_MCHelpSwOS
+\n  os            Zapisz strumienie NTFS
+; \n  os            Save NTFS streams
+;
+MSG_MCHelpSwOW
+\n  ow            Zapisuj/przywracaj informacje o w³a¶cicielu i grupie pliku
+; \n  ow            Save or restore file owner and group
+;
+MSG_MCHelpSwP
+\n  p[has³o]      Ustaw has³o
+; \n  p[password]   Set password
+;
+MSG_MCHelpSwPm
+\n  p-            Nie pytaj o has³o
+; \n  p-            Do not query password
+;
+MSG_MCHelpSwQO
+\n  qo[-|+]       Dodaj informacje potrzebne do szybkiego otwierania [brak|wymu¶]
+; \n  qo[-|+]       Add quick open information [none|force]
+;
+MSG_MCHelpSwR
+\n  r             Uwzglêdniaj podkatalogi
+; \n  r             Recurse subdirectories
+;
+MSG_MCHelpSwRm
+\n  r-            Nie uwzglêdniaj podkatalogów
+; \n  r-            Disable recursion
+;
+MSG_MCHelpSwR0
+\n  r0            Uwzglêdniaj podkatalogi tylko dla nazw pasuj±cych do wzorca
+; \n  r0            Recurse subdirectories for wildcard names only
+;
+MSG_MCHelpSwRI
+\n  ri<P>[:<S>]   Ustaw priorytet (0-domy¶lny,1-minimalny..15-maksymalny) i czas czekania w ms
+; \n  ri<P>[:<S>]   Set priority (0-default,1-min..15-max) and sleep time in ms
+;
+MSG_MCHelpSwRR
+\n  rr[N]         Dodaj dane odzyskiwania
+; \n  rr[N]         Add data recovery record
+;
+MSG_MCHelpSwRV
+\n  rv[N]         Ustaw wolumen odzyskiwania
+; \n  rv[N]         Create recovery volumes
+;
+MSG_MCHelpSwS
+\n  s[<N>,v[-],e] Utwórz archiwum typu solid
+; \n  s[<N>,v[-],e] Create solid archive
+;
+MSG_MCHelpSwSm
+\n  s-            Wy³±cz archiwizowanie typu 'solid'
+; \n  s-            Disable solid archiving
+;
+MSG_MCHelpSwSC
+\n  sc<chr>[obj]  Ustaw zestaw znaków
+; \n  sc<chr>[obj]  Specify the character set
+;
+MSG_MCHelpSwSFX
+\n  sfx[name]     Utwórz archiwum SFX
+; \n  sfx[name]     Create SFX archive
+;
+MSG_MCHelpSwSI
+\n  si[name]      Czytaj dane ze standardowego wej¶cia (stdin)
+; \n  si[name]      Read data from standard input (stdin)
+;
+MSG_MCHelpSwSL
+\n  sl<rozmiar>   Uwzglêdniaj pliki o rozmiarze mniejszym ni¿ podany
+; \n  sl<size>      Process files with size less than specified
+;
+MSG_MCHelpSwSM
+\n  sm<rozmiar>   Uwzglêdniaj pliki o rozmiarze wiêkszym ni¿ podany
+; \n  sm<size>      Process files with size more than specified
+;
+MSG_MCHelpSwT
+\n  t             Przetestuj archiwum po utworzeniu
+; \n  t             Test files after archiving
+;
+MSG_MCHelpSwTK
+\n  tk            Zachowaj oryginalny czas modyfikacji archiwum
+; \n  tk            Keep original archive time
+;
+MSG_MCHelpSwTL
+\n  tl            Ustaw czas modyfikacji archiwum na ostatni czas pliku
+; \n  tl            Set archive time to latest file
+;
+MSG_MCHelpSwTN
+\n  tn[mcao]<t>   Uwzglêdniaj pliki nowsze ni¿ <t>
+; \n  tn[mcao]<t>   Process files newer than <t> time
+;
+MSG_MCHelpSwTO
+\n  to[mcao]<t>   Uwzglêdniaj pliki starsze ni¿ <t>
+; \n  to[mcao]<t>   Process files older than <t> time
+;
+MSG_MCHelpSwTA
+\n  ta[mcao]<d>   Uwzglêdniaj pliki zmodyfikowane po dacie <d> YYYYMMDDHHMMSS
+; \n  ta[mcao]<d>   Process files modified after <d> YYYYMMDDHHMMSS date
+;
+MSG_MCHelpSwTB
+\n  tb[mcao]<d>   Uwzglêdniaj pliki zmodyfikowane przed dat± <d> YYYYMMDDHHMMSS
+; \n  tb[mcao]<d>   Process files modified before <d> YYYYMMDDHHMMSS date
+;
+MSG_MCHelpSwTS
+\n  ts[m,c,a,p]   Zapisz/odtwórz czas pliku (modyfikacji, utworzenia, dostêpu, zachowaj)
+; \n  ts[m,c,a,p]   Save or restore time (modification, creation, access, preserve)
+;
+MSG_MCHelpSwU
+\n  u             Uaktualnij pliki
+; \n  u             Update files
+;
+MSG_MCHelpSwV
+\n  v             Twórz wolumeny z automatycznym rozmiarem lub wy¶wietl listê wolumenów
+; \n  v             Create volumes with size autodetection or list all volumes
+;
+MSG_MCHelpSwVUnr
+\n  v             Wy¶wietl wszystkie wolumeny
+; \n  v             List all volumes
+;
+MSG_MCHelpSwVn
+\n  v<rozm>[k,b]  Twórz wolumeny o rozmiarze=<rozm>*1000 [*1024, *1]
+; \n  v<size>[k,b]  Create volumes with size=<size>*1000 [*1024, *1]
+;
+MSG_MCHelpSwVD
+\n  vd            Skasuj zawarto¶æ dysku przed utworzeniem wolumeny
+; \n  vd            Erase disk contents before creating volume
+;
+MSG_MCHelpSwVER
+\n  ver[n]        Kontrola wersji pliku
+; \n  ver[n]        File version control
+;
+MSG_MCHelpSwVN
+\n  vn            U¿ywaj starego schematu nazewnictwa wolumenów
+; \n  vn            Use the old style volume naming scheme
+;
+MSG_MCHelpSwVP
+\n  vp            Zatrzymaj przed ka¿dym wolumenem
+; \n  vp            Pause before each volume
+;
+MSG_MCHelpSwW
+\n  w<path>       Okre¶l katalog roboczy
+; \n  w<path>       Assign work directory
+;
+MSG_MCHelpSwX
+\n  x<plik>       Pomiñ podany plik
+; \n  x<file>       Exclude specified file
+;
+MSG_MCHelpSwXa
+\n  x@            Odczytaj nazwy plików do pominiêcia ze standardowego wej¶cia
+; \n  x@            Read file names to exclude from stdin
+;
+MSG_MCHelpSwXal
+\n  x@<lista>     Pomiñ pliki których nazwy zawarte s± w podanym pliku
+; \n  x@<list>      Exclude files listed in specified list file
+;
+MSG_MCHelpSwY
+\n  y             Odpowiadaj Tak na wszystkie pytania
+; \n  y             Assume Yes on all queries
+;
+MSG_MCHelpSwZ
+\n  z[file]       Odczytaj komentarz z pliku
+; \n  z[file]       Read archive comment from file
+;
+MSG_MBadArc
+\nB£¡D: Niew³a¶ciwe archiwum %s\n
+; \nERROR: Bad archive %s\n
+;
+MSG_MAskPsw
+Podaj has³o (nie bêdzie wy¶wietlane)
+; Enter password (will not be echoed)
+;
+MSG_MAskPswFor
+\nPodaj has³o (nie bêdzie wy¶wietlane) do %s: 
+; \nEnter password (will not be echoed) for %s: 
+;
+MSG_MReAskPsw
+\nPodaj ponownie has³o: 
+; \nReenter password: 
+;
+MSG_MNotMatchPsw
+\nB£¡D: Niew³a¶ciwe has³o\n
+; \nERROR: Passwords do not match\n
+;
+MSG_MErrWrite
+B³±d zapisu do pliku %s
+; Write error in the file %s
+;
+MSG_MErrRead
+B³±d odczytu z pliku %s
+; Read error in the file %s
+;
+MSG_MErrSeek
+B³±d przeszukiwania pliku %s
+; Seek error in the file %s
+;
+MSG_MErrFClose
+Nie mo¿na zamkn±æ pliku %s
+; Cannot close the file %s
+;
+MSG_MErrOutMem
+Brak pamiêci
+; Not enough memory
+;
+MSG_MErrBrokenArc
+Uszkodzone archiwum - u¿yj polecenia 'Repair'
+; Corrupt archive - use 'Repair' command
+;
+MSG_MProgAborted
+Program przerwany
+; Program aborted
+;
+MSG_MErrRename
+\nNie mo¿na zmieniæ nazwy %s na %s
+; \nCannot rename %s to %s
+;
+MSG_MAbsNextVol
+\nNie mo¿na znale¼æ %s
+; \nCannot find volume %s
+;
+MSG_MBreak
+\nPrzerwane przez u¿ytkownika\n
+; \nUser break\n
+;
+MSG_MAskCreatVol
+\nUtworzyæ nastêpny plik ?
+; \nCreate next volume ?
+;
+MSG_MAskNextDisk
+\nDysk pe³ny. W³ó¿ nastêpny
+; \nDisk full. Insert next
+;
+MSG_MCreatVol
+\n\nTworzenie %sarchiwum %s\n
+; \n\nCreating %sarchive %s\n
+;
+MSG_MAskNextVol
+\nW³ó¿ dysk z %s
+; \nInsert disk with %s
+;
+MSG_MTestVol
+\n\nTestowanie archiwum %s\n
+; \n\nTesting archive %s\n
+;
+MSG_MExtrVol
+\n\nRozpakowywanie %s\n
+; \n\nExtracting from %s\n
+;
+MSG_MConverting
+\nKonwersja %s
+; \nConverting %s
+;
+MSG_MCvtToSFX
+\nKonwersja archiwum do SFX
+; \nConvert archives to SFX
+;
+MSG_MCvtFromSFX
+\nUsuwanie modu³u SFX
+; \nRemoving SFX module
+;
+MSG_MNotSFX
+\n%s nie jest archiwum SFX
+; \n%s is not SFX archive
+;
+MSG_MNotRAR
+\n%s nie jest archiwum RAR
+; \n%s is not RAR archive
+;
+MSG_MNotFirstVol
+\n%s nie jest pierwsz± czê¶ci±
+; \n%s is not the first volume
+;
+MSG_MCvtOldFormat
+\n%s - nie mo¿na skonwertowaæ archiwum SFX starego formatu
+; \n%s - cannot convert to SFX archive with old format
+;
+MSG_MCannotCreate
+\nNie mo¿na utworzyæ %s
+; \nCannot create %s
+;
+MSG_MCannotOpen
+\nNie mo¿na otworzyæ %s
+; \nCannot open %s
+;
+MSG_MUnknownMeth
+\nNieznana metoda kompresji w %s
+; \nUnknown method in %s
+;
+MSG_MNewRarFormat
+\nNiewspierany format archiwum. U¿yj nowszej wersji programu RAR.
+; \nUnsupported archive format. Please update RAR to a newer version.
+;
+MSG_MOk
+ OK
+;  OK
+;
+MSG_MDone
+\nZrobione
+; \nDone
+;
+MSG_MLockingArc
+\nZabezpieczanie archiwum
+; \nLocking archive
+;
+MSG_MNotMdfOld
+\n\nB£¡D: Nie mo¿na modyfikowaæ archiwum w starym formacie
+; \n\nERROR: Cannot modify old format archive
+;
+MSG_MNotMdfLock
+\n\nB£¡D: Archiwum zabezpieczone
+; \n\nERROR: Locked archive
+;
+MSG_MNotMdfVol
+\n\nB£¡D: Nie mo¿na modyfikowaæ wolumenu
+; \n\nERROR: Cannot modify volume
+;
+MSG_MPackAskReg
+\nWersja testowa. Proszê zarejestrowaæ.\n
+; \nEvaluation copy. Please register.\n
+;
+MSG_MCreateArchive
+\nTworzenie %sarchiwum %s\n
+; \nCreating %sarchive %s\n
+;
+MSG_MUpdateArchive
+\nUaktualnianie %sarchiwum %s\n
+; \nUpdating %sarchive %s\n
+;
+MSG_MAddSolid
+solid
+; solid 
+;
+MSG_MAddFile
+\nDodawanie    %-58s     
+; \nAdding    %-58s     
+;
+MSG_MUpdFile
+\nUaktualnianie  %-58s     
+; \nUpdating  %-58s     
+;
+MSG_MAddPoints
+\n...       %-58s     
+; \n...       %-58s     
+;
+MSG_MMoveDelFiles
+\n\nUsuwanie plików %s...
+; \n\nDeleting files %s...
+;
+MSG_MMoveDelDirs
+oraz katalogów
+; and directories
+;
+MSG_MMoveDelFile
+\nUsuwanie %-30s
+; \nDeleting %-30s
+;
+MSG_MMoveDeleted
+    usuniêty
+;     deleted
+;
+MSG_MMoveNotDeleted
+    NIE ZOSTA£ USUNIÊTY
+;     NOT DELETED
+;
+MSG_MClearAttrib
+\n\nCzyszczenie atrybutów...
+; \n\nClearing attributes...
+;
+MSG_MMoveDelDir
+\nUsuwanie katalogu %-30s
+; \nDeleting directory %-30s
+;
+MSG_MWarErrFOpen
+\nUWAGA: Nie mo¿na otworzyæ %d %s
+; \nWARNING: Cannot open %d %s
+;
+MSG_MErrOpenFiles
+pliki
+; files
+;
+MSG_MErrOpenFile
+plik
+; file
+;
+MSG_MAddNoFiles
+\nUWAGA: Brak plików
+; \nWARNING: No files
+;
+MSG_MMdfEncrSol
+\n%s: zaszyfrowany
+; \n%s: encrypted
+;
+MSG_MAddAnalyze
+\nAnalizowanie plików w archiwum: 
+; \nAnalyzing archived files: 
+;
+MSG_MRepacking
+\nPrzepakowywanie plików archiwum: 
+; \nRepacking archived files: 
+;
+MSG_MCRCFailed
+\n%-20s - b³±d sumy kontrolnej
+; \n%-20s - checksum error
+;
+MSG_MExtrTest
+\n\nTestowanie archiwum %s\n
+; \n\nTesting archive %s\n
+;
+MSG_MExtracting
+\n\nRozpakowywanie %s\n
+; \n\nExtracting from %s\n
+;
+MSG_MUseCurPsw
+\n%s - u¿yæ aktualnego has³a ?
+; \n%s - use current password ?
+;
+MSG_MCreatDir
+\nTworzenie       %-56s
+; \nCreating    %-56s
+;
+MSG_MExtrSkipFile
+\nPomijanie       %-56s
+; \nSkipping    %-56s
+;
+MSG_MExtrTestFile
+\nTestowanie      %-56s
+; \nTesting     %-56s
+;
+MSG_MExtrFile
+\nRozpakowywanie  %-56s
+; \nExtracting  %-56s
+;
+MSG_MExtrPoints
+\n...         %-56s
+; \n...         %-56s
+;
+MSG_MExtrErrMkDir
+\nNie mo¿na utworzyæ katalogu %s
+; \nCannot create directory %s
+;
+MSG_MExtrPrinting
+\n------ Drukowanie %s\n\n
+; \n------ Printing %s\n\n
+;
+MSG_MEncrBadCRC
+\nB³±d sumy kontrolnej w zaszyfrowanym archiwum %s. Uszkodzony plik lub z³e has³o.
+; \nChecksum error in the encrypted file %s. Corrupt file or wrong password.
+;
+MSG_MExtrNoFiles
+\nBrak plików do rozpakowania
+; \nNo files to extract
+;
+MSG_MExtrAllOk
+\nWszystko OK
+; \nAll OK
+;
+MSG_MExtrTotalErr
+\nB³êdy: %ld
+; \nTotal errors: %ld
+;
+MSG_MAskReplace
+\n\nCzy chcesz zamieniæ istniej±cy plik %s\n%6s bajtów, zmodyfikowany %s\nna nowy plik\n%6s bajtów, zmodyfikowany %s\n
+; \n\nWould you like to replace the existing file %s\n%6s bytes, modified on %s\nwith a new one\n%6s bytes, modified on %s\n
+;
+MSG_MAskOverwrite
+\nNadpisaæ %s ?
+; \nOverwrite %s ?
+;
+MSG_MAskNewName
+\nWprowad¼ now± nazwê: 
+; \nEnter new name: 
+;
+MSG_MHeaderBroken
+\nUszkodzony nag³ówek
+; \nCorrupt header is found
+;
+MSG_MMainHeaderBroken
+\nUszkodzony nag³ówek g³ównego archiwum
+; \nMain archive header is corrupt
+;
+MSG_MLogFileHead
+\n%s - nag³ówek pliku jest uszkodzony
+; \n%s - the file header is corrupt
+;
+MSG_MLogProtectHead
+Nag³ówek odzyskiwania jest uszkodzony
+; The data recovery header is corrupt
+;
+MSG_MReadStdinCmt
+\nOdczytywanie komentarza ze standardowego wej¶cia\n
+; \nReading comment from stdin\n
+;
+MSG_MReadCommFrom
+\nOdczytywanie komentarza z %s
+; \nReading comment from %s
+;
+MSG_MDelComment
+\nUsuwanie komentarza z %s
+; \nDeleting comment from %s
+;
+MSG_MAddComment
+\nDodawanie komentarza do %s
+; \nAdding comment to %s
+;
+MSG_MFCommAdd
+\nDodawanie komentarza pliku
+; \nAdding file comments
+;
+MSG_MAskFComm
+\n\nOdczytywanie komentarza dla %s : %s ze standardowego wej¶cia\n
+; \n\nReading comment for %s : %s from stdin\n
+;
+MSG_MLogCommBrk
+\nKomentarz archiwum jest uszkodzony
+; \nThe archive comment is corrupt
+;
+MSG_MCommAskCont
+\nNaci¶nij 'Enter' aby kontynuowaæ lub 'Q' aby przerwaæ:
+; \nPress 'Enter' to continue or 'Q' to quit:
+;
+MSG_MWriteCommTo
+\nZapisywanie komentarza do %s
+; \nWrite comment to %s
+;
+MSG_MCommNotPres
+\nBrak komentarza
+; \nComment is not present
+;
+MSG_MDelFrom
+\nUsuwanie z %s
+; \nDeleting from %s
+;
+MSG_MDeleting
+\nUsuwanie %s
+; \nDeleting %s
+;
+MSG_MEraseArc
+\nUsuwanie pustych plików archiwum %s
+; \nErasing empty archive %s
+;
+MSG_MNoDelFiles
+\nBrak plików do usuniêcia
+; \nNo files to delete
+;
+MSG_MLogTitle
+--------  %2d %s %d, archiwum %s
+; --------  %2d %s %d, archive %s
+;
+MSG_MPathTooLong
+\nB£¡D: ¦cie¿ka za d³uga\n
+; \nERROR: Path too long\n
+;
+MSG_MListArchive
+Archiwum
+; Archive
+;
+MSG_MListDetails
+Szczegó³y
+; Details
+;
+MSG_MListSolid
+solid
+; solid
+;
+MSG_MListSFX
+SFX
+; SFX
+;
+MSG_MListVolume
+wolumen
+; volume
+;
+MSG_MListRR
+dane odzyskiwania
+; recovery record
+;
+MSG_MListLock
+zamknij
+; lock
+;
+MSG_MListEnc
+zaszyfrowane
+; encrypted
+;
+MSG_MListEncHead
+zaszyfrowane nag³ówki
+; encrypted headers
+;
+MSG_MListTitleL
+   Atrybuty   Rozmiar        Data  Czas  Nazwa
+;  Attributes      Size     Date    Time   Name
+;
+MSG_MListTitleV
+   Atrybuty   Rozmiar    Spakowany          Data  Czas      Suma  Nazwa
+;  Attributes      Size    Packed Ratio    Date    Time   Checksum  Name
+;
+MSG_MListName
+Nazwa
+; Name
+;
+MSG_MListType
+Typ
+; Type
+;
+MSG_MListFile
+Plik
+; File
+;
+MSG_MListDir
+Katalog
+; Directory
+;
+MSG_MListUSymlink
+Link symboliczny (Unix)
+; Unix symbolic link
+;
+MSG_MListWSymlink
+Link symboliczny (Windows)
+; Windows symbolic link
+;
+MSG_MListJunction
+NTFS junction point
+; NTFS junction point
+;
+MSG_MListHardlink
+Twardy link
+; Hard link
+;
+MSG_MListCopy
+Odno¶nik do pliku
+; File reference
+;
+MSG_MListStream
+NTFS dodatkowy strumie
+; NTFS alternate data stream
+;
+MSG_MListTarget
+Cel
+; Target
+;
+MSG_MListSize
+Rozmiar
+; Size
+;
+MSG_MListPacked
+Spakowany
+; Packed size
+;
+MSG_MListRatio
+Wspó³czynnik
+; Ratio
+;
+MSG_MListMtime
+mtime
+; mtime
+;
+MSG_MListCtime
+ctime
+; ctime
+;
+MSG_MListAtime
+atime
+; atime
+;
+MSG_MListAttr
+Atrybuty
+; Attributes
+;
+MSG_MListFlags
+Flagi
+; Flags
+;
+MSG_MListCompInfo
+Kompresja
+; Compression
+;
+MSG_MListHostOS
+Host OS
+; Host OS
+;
+MSG_MListFileVer
+Wersja pliku
+; File version
+;
+MSG_MListService
+Us³uga
+; Service
+;
+MSG_MListUOHead
+\n   W³a¶ciciel/Grupa:    %-14s %-14s
+; \n   Unix Owner/Group data:    %-14s %-14s
+;
+MSG_MListNTACLHead
+\n   dane zabezpieczeñ
+; \n   NTFS security data
+;
+MSG_MListStrmHead
+\n   dane zabezpieczeñ NTFS
+; \n   NTFS stream: %s
+;
+MSG_MListUnkHead
+\n   Nieznany nag³ówek typu: 0x%04x
+; \n   Unknown subheader type: 0x%04x
+;
+MSG_MFileComment
+\nKomentarz: 
+; \nComment: 
+;
+MSG_MYes
+Tak
+; Yes
+;
+MSG_MNo
+Nie
+; No
+;
+MSG_MListNoFiles
+  0 plików\n
+;   0 files\n
+;
+MSG_MRprReconstr
+\nRekonstrukcja %s
+; \nReconstructing %s
+;
+MSG_MRprBuild
+\nBudowanie %s
+; \nBuilding %s
+;
+MSG_MRprOldFormat
+\nNie mo¿na naprawiaæ plików archiwum starego typu
+; \nCannot repair archive with old format
+;
+MSG_MRprFind
+\nZnaleziono %s
+; \nFound  %s
+;
+MSG_MRprAskIsSol
+\nNag³ówek archiwum jest uszkodzony. Oznaczyæ archiwum jako solid ?
+; \nThe archive header is corrupt. Mark archive as solid ?
+;
+MSG_MRprNoFiles
+\nNie znaleziono plików
+; \nNo files found
+;
+MSG_MLogUnexpEOF
+\nNieoczekiwany koniec pliku archiwum
+; \nUnexpected end of archive
+;
+MSG_MRepAskReconst
+\nZrekonstruowaæ strukturê archiwum?
+; \nReconstruct archive structure ?
+;
+MSG_MRRSearch
+\nSzukanie danych odzyskiwania
+; \nSearching for recovery record
+;
+MSG_MAnalyzeFileData
+\nAnalizowanie pliku
+; \nAnalyzing file data
+;
+MSG_MRecRNotFound
+\nNie znaleziono danych odzyskiwania
+; \nData recovery record not found
+;
+MSG_MRecRFound
+\nZnaleziono dane odzyskiwania
+; \nData recovery record found
+;
+MSG_MRecSecDamage
+\nSektor %ld (ofsety %lX...%lX) uszkodzony
+; \nSector %ld (offsets %lX...%lX) damaged
+;
+MSG_MRecCorrected
+ - dane odzyskane
+;  - data recovered
+;
+MSG_MRecFailed
+ - nie mo¿na odzyskaæ danych
+;  - cannot recover data
+;
+MSG_MAddRecRec
+\nDodawanie danych odzyskiwania
+; \nAdding data recovery record
+;
+MSG_MEraseForVolume
+\n\nKasowanie zawarto¶ci dysku %c:\n
+; \n\nErasing contents of drive %c:\n
+;
+MSG_MGetOwnersError
+\nUWAGA: Nie mo¿na odczytaæ %s w³a¶ciciela i grupy\n
+; \nWARNING: Cannot get %s owner and group\n
+;
+MSG_MErrGetOwnerID
+\nUWAGA: Nie mo¿na odczytaæ ID u¿ytkownika %s\n
+; \nWARNING: Cannot get owner %s ID\n
+;
+MSG_MErrGetGroupID
+\nUWAGA: Nie mo¿na odczytaæ ID groupy %s\n
+; \nWARNING: Cannot get group %s ID\n
+;
+MSG_MOwnersBroken
+\nB£¡D: %s dane o grupie i w³a¶cicielu s± uszkodzone\n
+; \nERROR: %s group and owner data are corrupt\n
+;
+MSG_MSetOwnersError
+\nUWAGA: Nie mo¿na ustawiæ w³a¶ciciela i grupy %s\n
+; \nWARNING: Cannot set %s owner and group\n
+;
+MSG_MErrLnkRead
+\nUWAGA: Nie mo¿na odczytaæ linku symbolicznego %s
+; \nWARNING: Cannot read symbolic link %s
+;
+MSG_MSymLinkExists
+\nUWAGA: Link symboliczny %s ju¿ istnieje
+; \nWARNING: Symbolic link %s already exists
+;
+MSG_MAskRetryCreate
+\nNie mo¿na utworzyæ %s. Ponowiæ?
+; \nCannot create %s. Retry ?
+;
+MSG_MDataBadCRC
+\n%-20s : b³±d sumy kontrolnej dla pliku %s
+; \n%-20s : packed data checksum error in volume %s
+;
+MSG_MFileRO
+\n%s jest tylko do odczytu
+; \n%s is read-only
+;
+MSG_MACLGetError
+\nUWAGA: Nie mo¿na odczytaæ dany bezpieczeñstwa %s\n
+; \nWARNING: Cannot get %s security data\n
+;
+MSG_MACLSetError
+\nUWAGA: Nie mo¿na ustawiæ danych bezpieczeñstwa %s\n
+; \nWARNING: Cannot set %s security data\n
+;
+MSG_MACLBroken
+\nB£¡D: %s dane bezpieczeñstwa uszkodzone\n
+; \nERROR: %s security data are corrupt\n
+;
+MSG_MACLUnknown
+\nUWAGA: Nieznany format danych bezpieczeñstwa %s\n
+; \nWARNING: Unknown format of %s security data\n
+;
+MSG_MStreamBroken
+\nB£¡D: %s uszkodzony strumieñ\n
+; \nERROR: %s stream data are corrupt\n
+;
+MSG_MStreamUnknown
+\nUWAGA: Nieznany format strumienia danych %s\n
+; \nWARNING: Unknown format of %s stream data\n
+;
+MSG_MInvalidName
+\nB£¡D: Z³a nazwa pliku %s
+; \nERROR: Invalid file name %s
+;
+MSG_MProcessArc
+\n\nPrzetwarzanie archiwum %s
+; \n\nProcessing archive %s
+;
+MSG_MCorrectingName
+\nUWAGA: Korygowanie uszkodzonej nazwy pliku
+; \nWARNING: Attempting to correct the invalid file name
+;
+MSG_MUnpCannotMerge
+\nUWAGA: Musisz rozpocz±æ rozpakowywanie od poprzedniego wolumenu ¿eby rozpakowaæ %s
+; \nWARNING: You need to start extraction from a previous volume to unpack %s
+;
+MSG_MUnknownOption
+\nB£¡D: Nieznana opcja: %s
+; \nERROR: Unknown option: %s
+;
+MSG_MSubHeadCorrupt
+\nB£¡D: Znaleziono uszkodzony nag³ówek danych, zignorowane
+; \nERROR: Corrupt data header found, ignored
+;
+MSG_MSubHeadUnknown
+\nUWAGA: Nieznany format nag³ówka danych, zignorowany
+; \nWARNING: Unknown data header format, ignored
+;
+MSG_MSubHeadDataCRC
+\nB£¡D: Uszkodzony %s blok danych
+; \nERROR: Corrupt %s data block
+;
+MSG_MSubHeadType
+\nType nag³ówka danych: %s
+; \nData header type: %s
+;
+MSG_MScanError
+\nNie mo¿na odczytaæ zawarto¶ci %s
+; \nCannot read contents of %s
+;
+MSG_MNotVolume
+\n%s nie jest wolumenem
+; \n%s is not volume
+;
+MSG_MRecVolDiffSets
+\nB£¡D: %s i %s nale¿± do innych zbiorów
+; \nERROR: %s and %s belong to different sets
+;
+MSG_MRecVolMissing
+\nBrakuj±cy %d wolumen
+; \n%d volumes missing
+;
+MSG_MRecVolFound
+\nZnaleziono %d wolumenów odzyskiwania
+; \n%d recovery volumes found
+;
+MSG_MRecVolAllExist
+\nNie ma niczego do odtworzenia
+; \nNothing to reconstruct
+;
+MSG_MRecVolCannotFix
+\nOdtworzenie nie jest mo¿liwe
+; \nReconstruction impossible
+;
+MSG_MReconstructing
+\nOdtwarzanie...
+; \nReconstructing...
+;
+MSG_MCreating
+\nTworzenie %s
+; \nCreating %s
+;
+MSG_MRenaming
+\nZmiana nazwy %s na %s
+; \nRenaming %s to %s
+;
+MSG_MNTFSRequired
+\nB³±d zapisu: tylko NTFS wspiera pliki o rozmiarze powy¿ej 4 GB
+; \nWrite error: only NTFS file system supports files larger than 4 GB
+;
+MSG_MFAT32Size
+\nUWAGA: FAT32 nie wspiera plików o rozmiarze ponad 4 GB
+; \nWARNING: FAT32 file system does not support 4 GB or larger files
+;
+MSG_MErrChangeAttr
+\nUWAGA: Nie mo¿na zmieniæ atrybutu %s
+; \nWARNING: Cannot change attributes of %s
+;
+MSG_MWrongSFXVer
+\nB£¡D: domy¶lny modu³ SFX nie wspiera plików RAR %d.%d
+; \nERROR: default SFX module does not support RAR %d.%d archives
+;
+MSG_MHeadEncMismatch
+\nNie mo¿na zmieniæ trybu szyfrowania nag³owka dla archiwum które ju¿ jest zaszyfrowane
+; \nCannot change the header encryption mode in already encrypted archive
+;
+MSG_MCannotEmail
+\nNie mo¿na wys³aæ na adres email pliku %s
+; \nCannot email the file %s
+;
+MSG_MCopyrightS
+\narchiwum RAR SFX"
+; \nRAR SFX archive"
+;
+MSG_MSHelpCmd
+\n\n<Polecenia>"
+; \n\n<Commands>"
+;
+MSG_MSHelpCmdE
+\n  -x      Rozpakuj pliki (domy¶lne)"
+; \n  -x      Extract from archive (default)"
+;
+MSG_MSHelpCmdT
+\n  -t      Testuj archiwum"
+; \n  -t      Test archive files"
+;
+MSG_MSHelpCmdV
+\n  -v     Wy¶wietl wiêcej informacji o zawarto¶ci archiwum"
+; \n  -v      Verbosely list contents of archive"
+;
+MSG_MRecVolLimit
+\nCa³kowita liczna wolumenów (zwyk³ych i odzyskiwania) nie mo¿e przekroczyæ %d
+; \nTotal number of usual and recovery volumes must not exceed %d
+;
+MSG_MVolumeNumber
+wolumen %d
+; volume %d
+;
+MSG_MCannotDelete
+\nNie mo¿na usun±æ %s
+; \nCannot delete %s
+;
+MSG_MRecycleFailed
+\nNie mo¿na przenie¶æ niektórych plików i katalogów do Recycle Bin
+; \nCannot move some files and folders to Recycle Bin
+;
+MSG_MCalcCRC
+\nObliczanie sumy kontrolnej
+; \nCalculating the checksum
+;
+MSG_MTooLargeSFXArc
+\nZa du¿e archiwum SFX. Windows nie mo¿e uruchamiaæ plików wykonywalnych o rozmiarze ponad 4 GB.
+; \nToo large SFX archive. Windows cannot run the executable file exceeding 4 GB.
+;
+MSG_MCalcCRCAllVol
+\nObliczanie sum kontrolnych wszystkich wolumenów.
+; \nCalculating checksums of all volumes.
+;
+MSG_MNotEnoughDisk
+\nB£¡D: Za ma³o miejsca na dysku dla %s.
+; \nERROR: Not enough disk space for %s.
+;
+MSG_MNewerRAR
+\nPotrzebujesz nowej wersji programu RAR.
+; \nYou may need a newer version of RAR.
+;
+MSG_MUnkEncMethod
+\nNieznana metoda szyfrowania w %s
+; \nUnknown encryption method in %s
+;
+MSG_MWrongPassword
+\nPodane has³o jest niew³a¶ciwe.
+; \nThe specified password is incorrect.
+;
+MSG_MWrongFilePassword
+\nZ³e has³o do %s
+; \nIncorrect password for %s
+;
+MSG_MAreaDamaged
+\nUszkodzonych %d bajtów w %08x %08x
+; \nCorrupt %d bytes at %08x %08x
+;
+MSG_MBlocksRecovered
+\n%u bloków zosta³o odzyskanych, %u bloków zosta³o przeniesionych
+; \n%u blocks are recovered, %u blocks are relocated
+;
+MSG_MRRDamaged
+\nDane odzyskiwania s± uszkodzone.
+; \nRecovery record is corrupt.
+;
+MSG_MTestingRR
+\nSprawdzanie danych odzyskiwania
+; \nTesting the recovery record
+;
+MSG_MFailed
+Nieudane
+; Failed
+;
+MSG_MIncompatSwitch
+\n%s nie jest wspierany dla plików w formacie RAR %d.x.
+; \n%s switch is not supported for RAR %d.x archive format.
+;
+MSG_MSearchDupFiles
+\nWyszukiwanie identycznych plików
+; \nSearching for identical files
+;
+MSG_MNumFound
+%d znaleziono.
+; %d found.
+;
+MSG_MUnknownExtra
+\nNieznane dodatkowe pola w %s.
+; \nUnknown extra field in %s.
+;
+MSG_MCorruptExtra
+\nUszkodzone %s dodatkowe pole w %s.
+; \nCorrupt %s extra field in %s.
+;
+MSG_MCopyError
+\nNie mo¿na skopiowaæ %s do %s.
+; \nCannot copy %s to %s.
+;
+MSG_MCopyErrorHint
+\nNale¿y rozpakowaæ ca³e archiwum aby utworzyæ odno¶niki do plików.
+; \nYou need to unpack the entire archive to create file reference entries.
+;
+MSG_MCopyingData
+\nKopiowanie danych
+; \nCopying data
+;
+MSG_MErrCreateLnkS
+\nNie uda³o siê utworzyæ linku symbolicznego %s
+; \nCannot create symbolic link %s
+;
+MSG_MErrCreateLnkH
+\nNie uda³o siê utworzyæ linku twardego %s
+; \nCannot create hard link %s
+;
+MSG_MErrLnkTarget
+\nMusisz najpierw rozpakowaæ cel linku
+; \nYou need to unpack the link target first
+;
+MSG_MNeedAdmin
+\nMusisz uruchomiæ polecenie RAR jako administrator
+; \nYou may need to run RAR as administrator
+;
+MSG_MDictOutMem
+\nZa ma³o pamiêci na %d MB s³ownik kompresji, zmieniono na %d MB.
+; \nNot enough memory for %d MB compression dictionary, changed to %d MB.
+;
+MSG_MUseSmalllerDict
+\nU¿yj mniejszego s³ownika kompresji.
+; \nPlease use a smaller compression dictionary.
+;
+MSG_MAmigaPortBy
+\nWersja dla %s przygotowana przez Marcina £abeñskiego\n
+; \n%s port by Marcin Labenski\n
