@@ -1,7 +1,22 @@
 #
 # Makefile for UNIX - unrar
 
-# MorphOS
+ifeq ($(shell uname),AROS)
+
+# AROS
+CXX=c++
+CXXFLAGS=-O2 -Wno-switch -D_AMIGA -I../utf8proc -I../locale -fshort-wchar
+LIBFLAGS=-fPIC
+DEFINES=
+STRIP=strip --strip-unneeded
+AR=ar
+LDFLAGS=-L../utf8proc -L../wstdio -L../locale
+LIBS= -lutf8proc -lwstdio -lunrarlocale -liconv
+DESTDIR=/usr
+
+else
+
+# MorphOS and AmigaOS4
 CXX=c++
 CXXFLAGS=-O2 -Wno-switch -D_AMIGA -I../utf8proc -I../locale -noixemul
 LIBFLAGS=-fPIC
@@ -9,8 +24,10 @@ DEFINES=
 STRIP=strip
 AR=ar
 LDFLAGS=-L../utf8proc -L../wstdio -L../locale -noixemul
-LIBS=-lutf8proc -lwstdio -lunrarlocale
+LIBS= -lutf8proc -lwstdio -lunrarlocale
 DESTDIR=/usr
+
+endif
 
 # Linux using GCC
 #CXX=c++

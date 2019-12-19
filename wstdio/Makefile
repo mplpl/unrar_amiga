@@ -1,16 +1,23 @@
 
 CC=gcc
-CFLAGS=-Wno-switch -D_AMIGA
 LIBFLAGS=-fPIC
 DEFINES=
-LDFLAGS=-noixemul
+LDFLAGS=
 
-all: vfwprintf.o vswprintf.o others.o
-	$(AR) rs libwstdio.a vfwprintf.o vswprintf.o others.o
+ifeq ($(shell uname),AROS)
+CFLAGS=-Wno-switch -D_AMIGA -I. -D_STDC_NOINLINE_WCTOMB -fshort-wchar
+OBJECTS=vfwprintf.o vswprintf.o others.o fake_file.o wcrtomb.o wcschr.o wcscmp.o wcscpy.o wcslen.o wcsncmp.o wcsncpy.o wcspbrk.o wcsrchr.o wmemchr.o wmemset.o wmemmove.o wctomb.o btowc.o fwide.o fputwc.o towupper.o towlower.o
+else
+CFLAGS=-Wno-switch -D_AMIGA -I.
+OBJECTS=vfwprintf.o vswprintf.o others.o fake_file.o
+endif
 
-test: test.o vfwprintf.o vswprintf.o others.o
+all: $(OBJECTS)
+	$(AR) rs libwstdio.a $(OBJECTS)	
+
+test: test.o $(OBJECTS)
 
 
 clean:
-	@delete test test.o vfwprintf.o vswprintf.o others.o libwstdio.a
+	@delete test test.o libwstdio.a $(OBJECTS)
 	

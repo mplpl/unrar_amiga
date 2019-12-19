@@ -133,7 +133,7 @@
 
 #ifdef _UNIX
 
-#define NM  2048
+#define  NM  2048
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -153,7 +153,9 @@
 #include <pwd.h>
 #include <grp.h>
 #include <wchar.h>
+#if !defined(__AROS__)
 #include <wctype.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -167,6 +169,9 @@
 #include <utime.h>
 #include <locale.h>
 
+#if defined(__amigaos4__) || defined(__AROS__)
+#include "../wstdio/wstdio.h"
+#endif
 
 #if defined(S_IFLNK)
 #define SAVE_LINKS

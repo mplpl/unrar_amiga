@@ -1,9 +1,16 @@
 CXX=c++
-CXXFLAGS=-Wno-switch -D_AMIGA
 LIBFLAGS=-fPIC
 DEFINES=
+
+ifeq ($(shell uname),AROS)
+CXXFLAGS=-O2 -Wno-switch -D_AMIGA -fshort-wchar
+LDFLAGS=-L../wstdio  -L../utf8proc
+LIBS=../unrarsrc/unicode.o -lwstdio -lutf8proc -liconv
+else
+CXXFLAGS=-O2 -Wno-switch -D_AMIGA
 LDFLAGS=-noixemul -L../wstdio  -L../utf8proc
 LIBS=../unrarsrc/unicode.o -lwstdio -lutf8proc
+endif
 
 LINK=$(CXX)
 	

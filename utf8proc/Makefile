@@ -8,7 +8,11 @@ FIND=find
 
 # compiler settings
 CFLAGS ?= -O2
+ifeq ($(shell uname),AROS)
+PICFLAG = 
+else
 PICFLAG = -fPIC
+endif
 C99FLAG = -std=c99
 WCFLAGS = -Wall -pedantic
 UCFLAGS = $(CFLAGS) $(PICFLAG) $(C99FLAG) $(WCFLAGS) -DUTF8PROC_EXPORTS $(UTF8PROC_DEFINES)
