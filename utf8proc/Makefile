@@ -8,10 +8,12 @@ FIND=find
 
 # compiler settings
 CFLAGS ?= -O2
+PICFLAG = -fPIC
 ifeq ($(shell uname),AROS)
 PICFLAG = 
-else
-PICFLAG = -fPIC
+endif
+ifeq ($(shell uname),MorphOS)
+PICFLAG = 
 endif
 C99FLAG = -std=c99
 WCFLAGS = -Wall -pedantic
