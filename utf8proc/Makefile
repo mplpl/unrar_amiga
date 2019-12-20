@@ -14,6 +14,7 @@ PICFLAG =
 endif
 ifeq ($(shell uname),MorphOS)
 PICFLAG = 
+CC=ppc-morphos-gcc-4
 endif
 C99FLAG = -std=c99
 WCFLAGS = -Wall -pedantic

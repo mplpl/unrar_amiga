@@ -1,4 +1,7 @@
 CXX=c++
+ifeq ($(shell uname),MorphOS)
+CXX=ppc-morphos-g++-4
+endif
 LIBFLAGS=-fPIC
 DEFINES=
 

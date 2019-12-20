@@ -1,5 +1,8 @@
 
 CC=gcc
+ifeq ($(shell uname),MorphOS)
+CC=ppc-morphos-gcc-4
+endif
 LIBFLAGS=-fPIC
 DEFINES=
 LDFLAGS=

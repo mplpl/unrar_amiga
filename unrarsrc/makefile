@@ -18,6 +18,9 @@ else
 
 # MorphOS and AmigaOS4
 CXX=c++
+ifeq ($(shell uname),MorphOS)
+CXX=ppc-morphos-g++-4
+endif
 CXXFLAGS=-O2 -Wno-switch -D_AMIGA -I../utf8proc -I../locale -noixemul
 LIBFLAGS=-fPIC
 DEFINES=
