@@ -75,7 +75,7 @@
 #include <limits.h>
 #include <stdint.h>
 #include <wchar.h>
-#include <wctype.h>
+//#include <wctype.h>
 //#include <sys/lock.h>
 #include <stdarg.h>
 //#include "local.h"
@@ -84,6 +84,7 @@
 #ifdef __HAVE_LOCALE_INFO_EXTENDED__
 #include "../locale/setlocale.h"
 #endif
+#include "fake_file.h"
 
 /* Currently a test is made to see if long double processing is warranted.
    This could be changed in the future should the _ldtoa_r code be
@@ -123,7 +124,7 @@ int __SPRINT (FILE *fp, const char *buf, size_t len)
     {
         for (i = 0; i < len; i++)
         {
-            if (fp->_file != -1 || fp == stdout || fp == stderr)
+            if (!is_fake_file(fp) || fp == stdout || fp == stderr)
             {
                 // fp is a real file or one of standard streams
               if (fputc ((unsigned char)buf[i], fp) == EOF)
@@ -132,12 +133,12 @@ int __SPRINT (FILE *fp, const char *buf, size_t len)
             else
             {
               // fp is fake file that I made in vswprintf
-              if (fp->_w == -1)
+              if (((FAKE_FILE *)fp)->_w == -1)
                 return -1;
 
-              *fp->_p = (unsigned char)buf[i];
-              fp->_p++;
-              fp->_w--;
+              *((FAKE_FILE *)fp)->_p = (unsigned char)buf[i];
+              ((FAKE_FILE *)fp)->_p++;
+              ((FAKE_FILE *)fp)->_w--;
             }
         }
     }
@@ -304,7 +305,7 @@ vfwprintf(FILE * fp,
        const wchar_t *fmt0,
        va_list ap)
 {
-	
+	int serr = 0;
 	register wchar_t *fmt;	/* format string */
 	register wint_t ch;	/* character from fmt */
 	register int n, m;	/* handy integers (short term usage) */
@@ -442,6 +443,7 @@ vfwprintf(FILE * fp,
 	 * To extend shorts properly, we need both signed and unsigned
 	 * argument extraction methods.
 	 */
+
 #ifndef _NO_LONGLONG
 #define	SARG() \
 	(flags&QUADINT ? GET_ARG (N, ap, quad_t) : \
@@ -451,10 +453,10 @@ vfwprintf(FILE * fp,
 	    (long)GET_ARG (N, ap, int))
 #define	UARG() \
 	(flags&QUADINT ? GET_ARG (N, ap, u_quad_t) : \
-	    flags&LONGINT ? GET_ARG (N, ap, u_long) : \
-	    flags&SHORTINT ? (u_long)(u_short)GET_ARG (N, ap, int) : \
-	    flags&CHARINT ? (u_long)(unsigned char)GET_ARG (N, ap, int) : \
-	    (u_long)GET_ARG (N, ap, u_int))
+	    flags&LONGINT ? GET_ARG (N, ap, unsigned long) : \
+	    flags&SHORTINT ? (unsigned long)(u_short)GET_ARG (N, ap, int) : \
+	    flags&CHARINT ? (unsigned long)(unsigned char)GET_ARG (N, ap, int) : \
+	    (unsigned long)GET_ARG (N, ap, unsigned int))
 #else
 #define	SARG() \
 	(flags&LONGINT ? GET_ARG (N, ap, long) : \
@@ -462,10 +464,10 @@ vfwprintf(FILE * fp,
 	    flags&CHARINT ? (long)(signed char)GET_ARG (N, ap, int) : \
 	    (long)GET_ARG (N, ap, int))
 #define	UARG() \
-	(flags&LONGINT ? GET_ARG (N, ap, u_long) : \
-	    flags&SHORTINT ? (u_long)(u_short)GET_ARG (N, ap, int) : \
-	    flags&CHARINT ? (u_long)(unsigned char)GET_ARG (N, ap, int) : \
-	    (u_long)GET_ARG (N, ap, u_int))
+	(flags&LONGINT ? GET_ARG (N, ap, unsigned long) : \
+	    flags&SHORTINT ? (unsigned long)(unsigned short)GET_ARG (N, ap, int) : \
+	    flags&CHARINT ? (unsigned long)(unsigned char)GET_ARG (N, ap, int) : \
+	    (unsigned long)GET_ARG (N, ap, unsigned int))
 #endif
 
 	/* Initialize std streams if not dealing with sprintf family.  */
@@ -758,7 +760,8 @@ reswitch:	switch (ch) {
 			if (ch == L'c' && !(flags & LONGINT)) {
 				wint_t wc = btowc ((int) GET_ARG (N, ap, int));
 				if (wc == WEOF) {
-				    fp->_flags |= __SERR;
+				    //fp->_flags |= __SERR;  //ML
+				    serr = 1;
 				    goto error;
 				}
 				cp[0] = (wchar_t) wc;
@@ -908,7 +911,8 @@ reswitch:	switch (ch) {
 				    (wchar_t *)malloc (ndig * sizeof (wchar_t)))
 				    == NULL)
 				  {
-				    fp->_flags |= __SERR;
+				    //fp->_flags |= __SERR;  //ML
+				    serr = 1;
 				    goto error;
 				  }
 				cp = wcvt (_fpvalue, prec, flags, &softsign,
@@ -1108,7 +1112,8 @@ string:
 				if (insize >= BUF) {
 				    if ((malloc_buf = (wchar_t *) malloc ((insize + 1) * sizeof (wchar_t)))
 					== NULL) {
-						fp->_flags |= __SERR;
+						//fp->_flags |= __SERR; //ML
+						serr = 1;
 						goto error;
 					}
 					cp = malloc_buf;
@@ -1388,7 +1393,8 @@ error:
 	if (malloc_buf != NULL)
 		free (malloc_buf);
 	//_newlib_flockfile_end (fp); ML
-	return (__sferror (fp) ? EOF : ret);
+	//return (__sferror (fp) ? EOF : ret); //ML
+	return (serr ? EOF : ret);
 	/* NOTREACHED */
 }
 
@@ -1892,7 +1898,7 @@ wcstol (const wchar_t *nptr, wchar_t **endptr,
 	 */
 	do {
 		c = *s++;
-	} while (iswspace(c));
+	} while (c < 0x100 && isspace(c));
 	if (c == L'-') {
 		neg = 1;
 		c = *s++;

@@ -77,9 +77,6 @@
 
 #include "rs.hpp"
 #include "rs16.hpp"
-
-
-
 #include "recvol.hpp"
 #include "volume.hpp"
 #include "smallfn.hpp"
@@ -89,10 +86,5 @@
 #if 0
 #include "benchmark.hpp"
 #endif
-
-#ifdef __amigaos4__
-#include "../wstdio/wstdio.h"
-#endif
-
 
 #endif

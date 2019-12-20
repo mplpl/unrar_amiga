@@ -28,6 +28,7 @@ static char sccsid[] = "%W% (Berkeley) %G%";
 #include <errno.h>
 
 #include "local.h"
+#include "fake_file.h"
 
 int
 vswprintf (
@@ -37,16 +38,14 @@ vswprintf (
        va_list ap)
 {
   int ret;
-  FILE f;
+  FAKE_FILE f;
 
   if (size > INT_MAX / sizeof (wchar_t))
     {
       return EOF;
     }
-  f._flags = __SWR | __SSTR;
-  f._bf._base = f._p = (unsigned char *) str;
-  f._bf._size = f._w = (size > 0 ? (size - 1) * sizeof (wchar_t) : 0);
-  f._file = -1;  /* No file. */
+    
+  init_fake_file(&f, str, (size > 0 ? (size - 1) * sizeof (wchar_t) : 0)); 
   ret = vfwprintf (&f, fmt, ap);
   /* _svfwprintf_r() does not put in a terminating NUL, so add one if
    * appropriate, which is whenever size is > 0.  _svfwprintf_r() stops

@@ -14,8 +14,9 @@
 #include <proto/locale.h>
 #include <proto/exec.h>
 
-#define CATCOMP_BLOCK 1
+#define CATCOMP_BLOCK 0
 #define CATCOMP_NUMBERS 1
+#define CATCOMP_ARRAY 1
 #include "unrar_locale.h"
 
 #include <string.h>
@@ -27,7 +28,7 @@
 #ifdef __amigaos4__
 struct Library     *LocaleBase;
 struct LocaleIFace *ILocale;
-#else
+#elif !defined(__AROS__)
 struct Library     *LocaleBase;
 #endif
 
@@ -42,8 +43,11 @@ static wchar_t *CACHE[CATCOMP_LASTID + 1];
 BOOL Locale_Open(const char *catname)
 {
   memset(CACHE, 0, sizeof(wchar_t) * (CATCOMP_LASTID + 1));
-  
+#ifdef __AROS__  
+  if( (LocaleBase = (struct LocaleBase *)OpenLibrary("locale.library", 0)) )
+#else
   if( (LocaleBase = OpenLibrary("locale.library", 0)) )
+#endif
   {
 #ifdef __amigaos4__
     if((ILocale = (struct LocaleIFace *)GetInterface(LocaleBase, "main", 1, NULL)))
@@ -62,7 +66,11 @@ BOOL Locale_Open(const char *catname)
       DropInterface((struct Interface *)ILocale);
     }
 #endif
+#ifdef __AROS__
+    CloseLibrary((struct Library *)LocaleBase);
+#else
     CloseLibrary(LocaleBase);
+#endif
     LocaleBase = NULL;
   }
   return(FALSE);
@@ -93,7 +101,11 @@ void Locale_Close()
 #ifdef __amigaos4__
     DropInterface((struct Interface *)ILocale);
 #endif
+#ifdef __AROS__
+    CloseLibrary((struct Library *)LocaleBase);
+#else
     CloseLibrary(LocaleBase);
+#endif
     LocaleBase = NULL;
   }
 }
@@ -106,15 +118,19 @@ STRPTR GetString(long id)
 LONG   *l;
 UWORD  *w;
 STRPTR  builtin;
+int row = 0;
+LONG tid;
 
-  l = (LONG *)CatCompBlock;
-
-  while (*l != id ) 
+  while (id != CatCompArray[row].cca_ID)
   {
-    w = (UWORD *)((ULONG)l + 4);
-    l = (LONG *)((ULONG)l + (ULONG)*w + 6);
+     tid = CatCompArray[row].cca_ID;
+     if (tid == CATCOMP_LASTID)
+     {
+     	return (STRPTR)"x";
+     }
+     row++;
   }
-  builtin = (STRPTR)((ULONG)l + 6);
+  builtin = CatCompArray[row].cca_Str;
 
   if (locale_catalog && LocaleBase)
   {
@@ -122,7 +138,6 @@ STRPTR  builtin;
   }
   return(builtin);
 }
-
 
 /*************************************************************************/
 

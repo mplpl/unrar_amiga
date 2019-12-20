@@ -67,3 +67,11 @@ putwchar(wchar_t c)
 }
 #endif
 
+#ifdef __AROS__
+int
+putwchar(wchar_t c)
+{
+  char ch = ((unsigned char)c);
+  return putchar(ch);
+}
+#endif

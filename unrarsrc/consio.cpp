@@ -177,6 +177,8 @@ static void GetPasswordText(wchar *Str,uint MaxLength)
     fgets(StrA,ASIZE(StrA)-1,stdin);
 #elif defined(__sun)
     strncpyz(StrA,getpassphrase(""),ASIZE(StrA));
+#elif defined(__AROS__)
+    fgets(StrA,ASIZE(StrA)-1,stdin);
 #else
     strncpyz(StrA,getpass(""),ASIZE(StrA));
 #endif
