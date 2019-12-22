@@ -1,23 +1,58 @@
 # libutf8proc Makefile
 
 # programs
-AR?=ar
-CC=gcc
 INSTALL=install
 FIND=find
 
 # compiler settings
 CFLAGS ?= -O2
 PICFLAG = -fPIC
-ifeq ($(shell uname),AROS)
-PICFLAG = 
-endif
-ifeq ($(shell uname),MorphOS)
-PICFLAG = 
-CC=ppc-morphos-gcc-4
-endif
 C99FLAG = -std=c99
 WCFLAGS = -Wall -pedantic
+
+ifeq ($(PLATFORM),)
+PLATFORM=$(shell uname)
+endif
+
+ifeq ($(PLATFORM),AmigaOS)
+ifeq ($(shell uname -m),ppc)
+PLATFORM=AmigaOS4
+else
+PLATFORM=AmigaOS3
+endif
+endif
+
+ifeq ($(PLATFORM),MorphOS)
+AR=ppc-morphos-ar
+CC=ppc-morphos-gcc-4
+AMIGA=1
+endif
+
+ifeq ($(PLATFORM),AmigaOS4)
+AR=ppc-amigaos-ar
+CC=ppc-amigaos-gcc
+AMIGA=1
+endif
+
+ifeq ($(PLATFORM),AROS)
+AR=i386-aros-ar
+CC=i386-aros-gcc
+PICFLAG=
+AMIGA=1
+endif
+
+ifeq ($(PLATFORM),AmigaOS3)
+AR=m68k-amigaos-ar
+CC=m68k-amigaos-gcc
+CFLAGS+=  -I../wstdio -I../wstdio/amigaos3
+PICFLAG=
+AMIGA=1
+endif
+
+ifeq ($(AMIGA),)
+$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3)
+endif
+
 UCFLAGS = $(CFLAGS) $(PICFLAG) $(C99FLAG) $(WCFLAGS) -DUTF8PROC_EXPORTS $(UTF8PROC_DEFINES)
 
 # shared-library version MAJOR.MINOR.PATCH ... this may be *different*

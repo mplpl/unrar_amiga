@@ -1,7 +1,7 @@
 #include "loclangamiga.hpp"
 #include <stdio.h>
 
-#if defined(__amigaos4__) || defined(__AROS__)
+#if defined(__amigaos4__) || defined(__AROS__) || defined(amigaos)
 #include "../wstdio/wstdio.h"
 #endif
 

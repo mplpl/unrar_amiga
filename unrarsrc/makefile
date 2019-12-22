@@ -1,35 +1,72 @@
 #
 # Makefile for UNIX - unrar
 
-ifeq ($(shell uname),AROS)
-
-# AROS
-CXX=c++
-CXXFLAGS=-O2 -Wno-switch -D_AMIGA -I../utf8proc -I../locale -fshort-wchar
-LIBFLAGS=-fPIC
-DEFINES=
-STRIP=strip --strip-unneeded
-AR=ar
-LDFLAGS=-L../utf8proc -L../wstdio -L../locale
-LIBS= -lutf8proc -lwstdio -lunrarlocale -liconv
-DESTDIR=/usr
-
-else
-
-# MorphOS and AmigaOS4
-CXX=c++
-ifeq ($(shell uname),MorphOS)
-CXX=ppc-morphos-g++-4
+ifeq ($(PLATFORM),)
+PLATFORM=$(shell uname)
 endif
+
+ifeq ($(PLATFORM),AmigaOS)
+ifeq ($(shell uname -m),ppc)
+PLATFORM=AmigaOS4
+else
+PLATFORM=AmigaOS3
+endif
+endif
+
+ifeq ($(PLATFORM),MorphOS)
+CXX=ppc-morphos-g++-4
 CXXFLAGS=-O2 -Wno-switch -D_AMIGA -I../utf8proc -I../locale -noixemul
 LIBFLAGS=-fPIC
 DEFINES=
 STRIP=strip
 AR=ar
-LDFLAGS=-L../utf8proc -L../wstdio -L../locale -noixemul
+LDFLAGS=-L../utf8proc -L../wstdio -L../locale 
 LIBS= -lutf8proc -lwstdio -lunrarlocale
 DESTDIR=/usr
+AMIGA=1
+endif
 
+ifeq ($(PLATFORM),AmigaOS4)
+CXX=ppc-amigaos-c++
+CXXFLAGS=-O2 -Wno-switch -D_AMIGA -I../utf8proc -I../locale -noixemul
+LIBFLAGS=-fPIC
+DEFINES=
+STRIP=ppc-amigaos-strip
+AR=ppc-amigaos-ar
+LDFLAGS=-L../utf8proc -L../wstdio -L../locale 
+LIBS= -lutf8proc -lwstdio -lunrarlocale
+DESTDIR=/usr
+AMIGA=1
+endif
+
+ifeq ($(PLATFORM),AROS)
+CXX=i386-aros-g++
+CXXFLAGS=-O2 -Wno-switch -D_AMIGA -I../utf8proc -I../locale -fshort-wchar
+LIBFLAGS=-fPIC
+DEFINES=
+STRIP=i386-aros-strip --strip-unneeded
+AR=i386-aros-ar
+LDFLAGS=-L../utf8proc -L../wstdio -L../locale
+LIBS= -lutf8proc -lwstdio -lunrarlocale -liconv
+DESTDIR=/usr
+AMIGA=1
+endif
+
+ifeq ($(PLATFORM),AmigaOS3)
+CXX=m68k-amigaos-g++
+CXXFLAGS=-O2 -Wno-switch -D_AMIGA -D__amigaos3__ -I../utf8proc -I../locale -I../wstdio -I../wstdio/amigaos3
+LIBFLAGS=-fPIC
+DEFINES=
+STRIP=m68k-amigaos-strip
+AR=m68k-amigaos-ar
+LDFLAGS=-L../utf8proc -L../wstdio -L../locale -L../wstdio/amigaos3
+LIBS= -lutf8proc -lwstdio -lunrarlocale -liconv
+DESTDIR=/usr
+AMIGA=1
+endif
+
+ifeq ($(AMIGA),)
+$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3)
 endif
 
 # Linux using GCC

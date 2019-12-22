@@ -2,6 +2,10 @@ MAKEDIR=makedir
 COPY=copy
 RM=delete
 
+ifneq ($(PLATFORM),)
+export PLATFORM=$(PLATFORM)
+endif
+
 TOPTARGETS := all clean
 
 SUBDIRS := utf8proc wstdio locale unrarsrc

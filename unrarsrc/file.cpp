@@ -1,3 +1,7 @@
+#ifdef __amigaos3__
+#include <devices/timer.h>
+#endif
+
 #include "rar.hpp"
 
 #ifdef _AMIGA
@@ -16,6 +20,8 @@ int fsync(int fd) {return 0;}
 // flock is only used below when updating rar - not in urar
 int flock(int fs, int op) {return 0;}
 #endif
+
+#include <sys/types.h>
 
 File::File()
 {
