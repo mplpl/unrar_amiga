@@ -35,7 +35,7 @@ AMIGA=1
 endif
 
 ifeq ($(PLATFORM),AROS)
-AR=i386-aros-ar
+AR=ar
 CC=i386-aros-gcc
 PICFLAG=
 AMIGA=1

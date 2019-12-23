@@ -21,7 +21,7 @@ int vwprintf(const wchar_t *format,va_list arg);
 int vswprintf(wchar_t *s, size_t, const wchar_t *format,va_list arg);
 long wcstol (const wchar_t *nptr, wchar_t **endptr,int base);
 
-#if defined(__amigaos4__)
+#if defined(__amigaos4__) || defined(AROS)
 int putwchar(wchar_t wc);
 #endif
 

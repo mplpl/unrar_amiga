@@ -21,8 +21,6 @@ int fsync(int fd) {return 0;}
 int flock(int fs, int op) {return 0;}
 #endif
 
-#include <sys/types.h>
-
 File::File()
 {
   hFile=FILE_BAD_HANDLE;
