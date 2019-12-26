@@ -32,7 +32,7 @@ endif
 
 ifeq ($(PLATFORM),AROS)
 CXX=i386-aros-g++
-AR=i386-aros-ar
+AR=ar
 CXXFLAGS+= -fshort-wchar
 LIBS+= -liconv
 AMIGA=1
