@@ -25,6 +25,7 @@ endif
 ifeq ($(PLATFORM),MorphOS)
 AR=ppc-morphos-ar
 CC=ppc-morphos-gcc-4
+PICFLAG=
 AMIGA=1
 endif
 
