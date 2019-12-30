@@ -1,4 +1,4 @@
-# Port of unrar for MorphOS and AmigaOS4
+# Port of unrar for MorphOS, AROS, AmigaOS4 and AmigaOS3
 
 <h2>Features</h2>
 
@@ -31,8 +31,12 @@ All the basic functions like listing (verbose, base, technical), unpacking (w/ o
 RAR stores data in UTF-8 in an archive file, then reads it into Unicode (wchar_t) and finally it uses it (print, create files, find files, ...) in UTF-8. Unfortunately, no Amiga operating system supports UTF-8 today, therefore in order to handle national characters in file names, comments, etc. it needs to be converted to OS local encoding set in OS prefs. Unrar reads what was set using environment variables:
 * on MorphOS: CODEPAGE
 * on AmigaOS4: Charset
+* on AROS: CHARSET
+* on AmigaOS3: there is no (read below)
 
 Characters that cannot be converted, because are not present in selected codepage, are replaced with '?'. That means that national characters are fully supported but only for selected locale, i.e. if I have Polish locale with ISO-8859-2 encoding and have a rar archive with Spanish characters, they will not appear and will be replaced by '?'. That in turns mean that some files may have the same names even if they are different files. In that case only one will be unpacked. To deal with this, you can use special environment variable RAR_CODEPAGE that allows overriding codepage (for both MorphOS and AmigaOS4) without changing system prefs. For an example above, if you set RAR_CODEPAGE, you will still not see Spanish characters (unless you have the right font) but at least you should get all the files unpacked.
+
+On AmigaOS3, since there is no buit-in variable to determine system character encoding, you have to always use RAR_CODEPAGE.
 
 
 <h4>National characters in file names</h4>
@@ -122,17 +126,23 @@ This unrar port complies with localization rules of MorphOS and AmigaOS. You can
 
 <h2>Notes about porting</h2>
 
-This port is based directly on unrar source code version 5.7.3 (unrarsrc-5.7.3.tar.gz) from rarlab.com:
-https://www.rarlab.com/rar/unrarsrc-5.7.3.tar.gz
+This port is based directly on unrar source code version 5.8.5 (unrarsrc-5.8.5.tar.gz) from rarlab.com:
+https://www.rarlab.com/rar/unrarsrc-5.8.5.tar.gz
 
 For normalizing UTF, I used utf8proc. I did not need to port it to Amiga - it compiles without any change:
 https://juliastrings.github.io/utf8proc/
 
-For vfwprintf-like functions from libc, that are not implemented on Amiga at all, I ported the code I took from newlib 3.1.0:
+For vfwprintf-like functions and multiple other wide characters related functions (wc*, mb*, bt*, wmem*) from libc, that are not implemented on Amiga at all, I ported the code I took from newlib 3.1.0:
 http://sourceware.org/newlib/
 
 ftp://sourceware.org/pub/newlib/newlib-3.1.0.tar.gz
 
-MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.12).
+For getpass() function missing in AROS I took the code from libnix 3.0 by Diego Cassoran:
+https://github.com/adtools/libnix
+
+MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.14).
 AmigaOS4 version of unrar has been compiled using gcc 4.2.4 (part of SDK 53.20).
+AROS version of unrar has been compoled using gcc 4.6.4 (part of Icaros 2.2).
+AmigaOS3 version of unrar has been compiled using gcc 3.3 (part of Cubic IDE).
+
 
