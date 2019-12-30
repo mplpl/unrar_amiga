@@ -15,9 +15,9 @@ endif
 
 ifeq ($(PLATFORM),MorphOS)
 CXX=ppc-morphos-g++-4
-CXXFLAGS=-O2 -Wno-switch -D_AMIGA -I../utf8proc -I../locale -noixemul
+CXXFLAGS=-O2 -Wno-switch -I../utf8proc -I../locale -noixemul
 LIBFLAGS=-fPIC
-DEFINES=
+DEFINES=-D_AMIGA -D_LARGEFILE64_SOURCE
 STRIP=strip
 AR=ar
 LDFLAGS=-L../utf8proc -L../wstdio -L../locale -noixemul
@@ -28,9 +28,9 @@ endif
 
 ifeq ($(PLATFORM),AmigaOS4)
 CXX=ppc-amigaos-c++
-CXXFLAGS=-O2 -Wno-switch -D_AMIGA -I../utf8proc -I../locale -noixemul
+CXXFLAGS=-O2 -Wno-switch -I../utf8proc -I../locale -noixemul
 LIBFLAGS=-fPIC
-DEFINES=
+DEFINES=-D_AMIGA 
 STRIP=ppc-amigaos-strip
 AR=ppc-amigaos-ar
 LDFLAGS=-L../utf8proc -L../wstdio -L../locale -noixemul
@@ -41,9 +41,9 @@ endif
 
 ifeq ($(PLATFORM),AROS)
 CXX=i386-aros-g++
-CXXFLAGS=-O2 -Wno-switch -D_AMIGA -I../utf8proc -I../locale -fshort-wchar
+CXXFLAGS=-O2 -Wno-switch -I../utf8proc -I../locale -fshort-wchar
 LIBFLAGS=-fPIC
-DEFINES=
+DEFINES=-D_AMIGA 
 STRIP=strip --strip-unneeded
 AR=ar
 LDFLAGS=-L../utf8proc -L../wstdio -L../locale
@@ -54,9 +54,9 @@ endif
 
 ifeq ($(PLATFORM),AmigaOS3)
 CXX=m68k-amigaos-g++
-CXXFLAGS=-O2 -Wno-switch -D_AMIGA -D__amigaos3__ -I../utf8proc -I../locale -I../wstdio -I../wstdio/amigaos3
+CXXFLAGS=-O2 -Wno-switch -I../utf8proc -I../locale -I../wstdio -I../wstdio/amigaos3
 LIBFLAGS=-fPIC
-DEFINES=
+DEFINES=-D_AMIGA -D__amigaos3__
 STRIP=m68k-amigaos-strip
 AR=m68k-amigaos-ar
 LDFLAGS=-L../utf8proc -L../wstdio -L../locale -L../wstdio/amigaos3

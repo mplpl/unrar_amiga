@@ -515,8 +515,13 @@ bool File::RawSeek(int64 Offset,int Method)
 #else
   LastWrite=false;
 #ifdef FILE_USE_OPEN
+#if defined(_LARGEFILE64_SOURCE)
+  if (lseek64(hFile,(off64_t)Offset,Method)==-1)
+    return false;
+#else
   if (lseek(hFile,(off_t)Offset,Method)==-1)
     return false;
+#endif
 #elif defined(_LARGEFILE_SOURCE) && !defined(_OSF_SOURCE) && !defined(__VMS)
   if (fseeko(hFile,Offset,Method)!=0)
     return false;
@@ -547,7 +552,11 @@ int64 File::Tell()
   return INT32TO64(HighDist,LowDist);
 #else
 #ifdef FILE_USE_OPEN
+#if defined(_LARGEFILE64_SOURCE)
+  return lseek64(hFile,0,SEEK_CUR);
+#else
   return lseek(hFile,0,SEEK_CUR);
+#endif
 #elif defined(_LARGEFILE_SOURCE) && !defined(_OSF_SOURCE)
   return ftello(hFile);
 #else
