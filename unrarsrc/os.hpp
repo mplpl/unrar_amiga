@@ -173,6 +173,10 @@
 #include "../wstdio/wstdio.h"
 #endif
 
+#if defined(__amigaos4__)
+typedef _off64_t off64_t;
+#endif
+
 #if defined(S_IFLNK)
 #define SAVE_LINKS
 #endif

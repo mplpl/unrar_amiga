@@ -30,7 +30,7 @@ ifeq ($(PLATFORM),AmigaOS4)
 CXX=ppc-amigaos-c++
 CXXFLAGS=-O2 -Wno-switch -I../utf8proc -I../locale -noixemul
 LIBFLAGS=-fPIC
-DEFINES=-D_AMIGA 
+DEFINES=-D_AMIGA -D_LARGEFILE64_SOURCE
 STRIP=ppc-amigaos-strip
 AR=ppc-amigaos-ar
 LDFLAGS=-L../utf8proc -L../wstdio -L../locale -noixemul
