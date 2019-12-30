@@ -8,12 +8,35 @@ static const char __attribute((used)) min_stack[] = "$STACK:400000";
 static const char __attribute((used)) vers[] = "\\0$VER: UnRAR "
 		QUOTE(RARVER_MAJOR)"."QUOTE(RARVER_MINOR)
         " (12.4.2019)";
+ 
+#include <proto/exec.h>       
+int Check_Stack()
+{
+#ifdef __amigaos4__
+	return 0;
+#elif __MORPHOS__
+	return 0;
+#else
+    struct Task *task = FindTask(NULL);
+	int sz = (int)task->tc_SPUpper - (int)task->tc_SPLower;
+	if (sz < __stack)
+	{
+		printf("Stack too small %d - %d bytes is needed\n", 
+			sz,
+			__stack);
+		return 1;
+	}
+	return 0;
+#endif
+}
+        
 #endif
 
 #if !defined(RARDLL)
 int main(int argc, char *argv[])
 {
 #ifdef _AMIGA
+  if (Check_Stack()) return 100;
   Locale_Open("unrar.catalog");
 #endif
   
