@@ -42,7 +42,6 @@ effects vary with the locale.
 
 #include <newlib.h>
 #include <stdlib.h>
-#include <errno.h>
 #include "local.h"
 #include <wchar.h>
 
@@ -152,30 +151,5 @@ wctomb (char *s,
   mbstate0_t state;
   memset(&state, 0, sizeof(state));
   return __utf8_wctomb (s, wchar, &state);
-}
-
-int
-wctombx (char *s,
-        wchar_t wchar)
-{
-#ifdef _MB_CAPABLE
-	struct _reent *reent = _REENT;
-
-        _REENT_CHECK_MISC(reent);
-
-        return __WCTOMB (reent, s, wchar, &(_REENT_WCTOMB_STATE(reent)));
-#else /* not _MB_CAPABLE */
-        if (s == NULL)
-                return 0;
-
-	/* Verify that wchar is a valid single-byte character.  */
-	if ((size_t)wchar >= 0x100) {
-		errno = EILSEQ;
-		return -1;
-	}
-        *s = (char) wchar;
-        return 1;
-#endif /* not _MB_CAPABLE */
-
 }
 

@@ -1,17 +1,18 @@
-/*
- * wstdio for MorphOS/AmigaOS4
- * Copyright (c) 2019 Marcin Labenski.
- * MIT License
- */
- 
-#ifndef __VFWPRINTF_H__
-#define __VFWPRINTF_H__
+#ifndef _WCHAR_H
+#define _WCHAR_H
 
-#if !defined(__amigaos3__)
+
+#include <stddef.h>
+#include <stdio.h>
+#include <stdarg.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#define WEOF (-1)
+typedef unsigned int wint_t;
+typedef long mbstate_t;
 
 int fwprintf(FILE *stream,const wchar_t *format,...);
 int wprintf(const wchar_t *format, ...);
@@ -20,12 +21,7 @@ int vfwprintf(FILE *stream,const wchar_t *format,va_list arg);
 int vwprintf(const wchar_t *format,va_list arg);
 int vswprintf(wchar_t *s, size_t, const wchar_t *format,va_list arg);
 long wcstol (const wchar_t *nptr, wchar_t **endptr,int base);
-
-#if defined(__amigaos4__) || defined(AROS)
 int putwchar(wchar_t wc);
-#endif
-
-#if defined(__AROS__)
 int wcscmp(const wchar_t *s1, const wchar_t *s2);
 size_t wcslen(const wchar_t *s);
 wchar_t *wcscpy(wchar_t *s1, const wchar_t *s2);
@@ -40,14 +36,9 @@ size_t wcrtomb(char *s, wchar_t wc, mbstate_t *ps);
 size_t mbrtowc(wchar_t *pwc, const char *s, size_t n, mbstate_t *ps);
 wint_t towupper(wint_t x);
 wint_t towlower(wint_t c);
-char *getpass(const char *prompt);
-#endif
 
 #ifdef __cplusplus
 }
-#endif
+#endif 
 
 #endif
-
-#endif
-

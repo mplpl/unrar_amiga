@@ -169,7 +169,7 @@
 #include <utime.h>
 #include <locale.h>
 
-#if defined(__amigaos4__) || defined(__AROS__)
+#if defined(__amigaos4__) || defined(__AROS__) || defined(__amigaos3__)
 #include "../wstdio/wstdio.h"
 #endif
 
