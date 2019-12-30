@@ -32,7 +32,7 @@ ifeq ($(PLATFORM),AROS)
 CC=i386-aros-gcc
 AR=ar
 CFLAGS+= -D_STDC_NOINLINE_WCTOMB -fshort-wchar
-OBJECTS+= wcrtomb.o wcschr.o wcscmp.o wcscpy.o wcslen.o wcsncmp.o wcsncpy.o wcspbrk.o wcsrchr.o wmemchr.o wmemset.o wmemmove.o wctomb.o btowc.o fwide.o fputwc.o towupper.o towlower.o
+OBJECTS+= wcrtomb.o wcschr.o wcscmp.o wcscpy.o wcslen.o wcsncmp.o wcsncpy.o wcspbrk.o wcsrchr.o wmemchr.o wmemset.o wmemmove.o wctomb.o btowc.o fwide.o fputwc.o towupper.o towlower.o getpass.o readpassphrase.o
 AMIGA=1
 endif
 
