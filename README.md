@@ -133,8 +133,8 @@ On MorphOS and AmigaOS4 large files are supported in the following way:
 * a file expanded from a rar file may be bigger than 4GiB
 
 The above is true provided that file system used for unpacking supports files with size >4GiB. 
-OFS, FFS, PFS3 and SFS do not support such files.
-NTFS (on MorphOS) and SFS2 (AmigaOS4) support large files.
+OFS, FFS, PFS3, SFS and FAT32 do not support such files.
+NTFS, exFAT and ext2/3/4 (on MorphOS) and SFS2 (on AmigaOS4) support large files.
 
 In case of AROS, it does not have functions for 64-bit I/O and in general it does not support files >2GiB.
 
