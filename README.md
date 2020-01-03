@@ -152,7 +152,7 @@ http://sourceware.org/newlib/
 ftp://sourceware.org/pub/newlib/newlib-3.1.0.tar.gz
 
 For getpass() function missing in AROS I took the code from libnix 3.0 by Diego Cassoran:
-https://github.com/adtools/libnix
+https://github.com/diegocr/libnix
 
 MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.14).
 
