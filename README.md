@@ -17,6 +17,8 @@ in the archive, passwords, comments and list files
 * can read switches from configuration file s:rar.conf or RAR environment 
 variable
 
+* large files support (>4GiB) on MorphOS and AmigsOS4
+
 * support AmigaOS localization via locale.library
 
 
@@ -124,6 +126,18 @@ There is also "RAR" environment variable that can have switches to use (like a v
 
 This unrar port complies with localization rules of MorphOS and AmigaOS. You can find cs/cd file for making additional translations on GitHub.
 
+<h3>Large files support</h3>
+
+On MorphOS and AmigaOS4 large files are supported in the following way:
+* rar file can have size >4GiB
+* a file expanded from a rar file may be bigger than 4GiB
+
+The above is true provided that file system used for unpacking supports files with size >4GiB. 
+OFS, FFS, PFS3 and SFS do not support such files.
+NTFS (on MorphOS) and SFS2 (AmigaOS4) support large files.
+
+In case of AROS, it does not have functions for 64-bit I/O and in general it does not support files >2GiB.
+
 <h2>Notes about porting</h2>
 
 This port is based directly on unrar source code version 5.8.5 (unrarsrc-5.8.5.tar.gz) from rarlab.com:
@@ -141,8 +155,11 @@ For getpass() function missing in AROS I took the code from libnix 3.0 by Diego 
 https://github.com/adtools/libnix
 
 MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.14).
+
 AmigaOS4 version of unrar has been compiled using gcc 4.2.4 (part of SDK 53.20).
+
 AROS version of unrar has been compoled using gcc 4.6.4 (part of Icaros 2.2).
+
 AmigaOS3 version of unrar has been compiled using gcc 3.3 (part of Cubic IDE).
 
 
