@@ -1,6 +1,7 @@
 MAKEDIR=makedir
 COPY=copy
 RM=delete
+VERSION=5.80
 
 ifneq ($(PLATFORM),)
 export PLATFORM=$(PLATFORM)
@@ -20,18 +21,19 @@ $(SUBDIRS):
 dist:
 	-@$(RM) dist all
 	@$(MAKEDIR) dist
-	@$(MAKEDIR) dist/unrar_5.70
-	$(COPY) UnRAR.readme dist/unrar_5.70
-	$(COPY) unrar dist/unrar_5.70/unrar_mos
-	$(COPY) unrar_aos4 dist/unrar_5.70/unrar_aos4
-	$(COPY) catalogs dist/unrar_5.70/catalogs all
-	$(COPY) license.txt dist/unrar_5.70
-	$(COPY) license_newlib.txt dist/unrar_5.70
-	$(COPY) license_utf8proc.txt dist/unrar_5.70
-	@$(COPY) Makefile.dist dist/Makefile
-	make -C dist
+	@$(MAKEDIR) dist/unrar_$(VERSION)
+	$(COPY) UnRAR.readme dist/unrar_$(VERSION)
+	$(COPY) unrar dist/unrar_$(VERSION)/unrar_mos
+	$(COPY) unrar_aos4 dist/unrar_$(VERSION)/unrar_aos4
+	$(COPY) unrar_aros dist/unrar_$(VERSION)/unrar_aros
+	$(COPY) unrar_aos3 dist/unrar_$(VERSION)/unrar_aos3
+	$(COPY) catalogs dist/unrar_$(VERSION)/catalogs all
+	$(COPY) license.txt dist/unrar_$(VERSION)
+	$(COPY) license_newlib.txt dist/unrar_$(VERSION)
+	$(COPY) license_utf8proc.txt dist/unrar_$(VERSION)
+	@cd dist; lha -r a UnRAR-5.80.lha unrar_5.80
 	$(RM) dist/Makefile
-	$(RM) dist/unrar_5.70 all
-	$(COPY) UnRAR.readme dist/UnRAR-5.70.readme
+	$(RM) dist/unrar_$(VERSION) all
+	$(COPY) UnRAR.readme dist/UnRAR-$(VERSION).readme
 
 .PHONY: $(TOPTARGETS) $(SUBDIRS) dist
