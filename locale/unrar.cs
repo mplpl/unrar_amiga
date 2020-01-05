@@ -1,4 +1,4 @@
-## Version $VER: xxxxxx.catalog 1.00 (19.12.2019)
+## Version $VER: xxxxxx.catalog 1.00 (05.01.2020)
 ## Languages english
 ## Codeset english 0
 ## SimpleCatConfig CharsPerLine 200
@@ -1039,19 +1039,19 @@ MSG_MCannotEmail
 \nCannot email the file %s
 ;
 MSG_MCopyrightS
-\nRAR SFX archive"
+\nRAR SFX archive
 ;
 MSG_MSHelpCmd
-\n\n<Commands>"
+\n\n<Commands>
 ;
 MSG_MSHelpCmdE
-\n  -x      Extract from archive (default)"
+\n  -x      Extract from archive (default)
 ;
 MSG_MSHelpCmdT
-\n  -t      Test archive files"
+\n  -t      Test archive files
 ;
 MSG_MSHelpCmdV
-\n  -v      Verbosely list contents of archive"
+\n  -v      Verbosely list contents of archive
 ;
 MSG_MRecVolLimit
 \nTotal number of usual and recovery volumes must not exceed %d

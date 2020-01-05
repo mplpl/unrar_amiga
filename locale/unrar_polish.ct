@@ -1383,24 +1383,24 @@ MSG_MCannotEmail
 ; \nCannot email the file %s
 ;
 MSG_MCopyrightS
-\narchiwum RAR SFX"
-; \nRAR SFX archive"
+\narchiwum RAR SFX
+; \nRAR SFX archive
 ;
 MSG_MSHelpCmd
-\n\n<Polecenia>"
-; \n\n<Commands>"
+\n\n<Polecenia>
+; \n\n<Commands>
 ;
 MSG_MSHelpCmdE
-\n  -x      Rozpakuj pliki (domy¶lne)"
-; \n  -x      Extract from archive (default)"
+\n  -x      Rozpakuj pliki (domy¶lne)
+; \n  -x      Extract from archive (default)
 ;
 MSG_MSHelpCmdT
-\n  -t      Testuj archiwum"
-; \n  -t      Test archive files"
+\n  -t      Testuj archiwum
+; \n  -t      Test archive files
 ;
 MSG_MSHelpCmdV
-\n  -v     Wy¶wietl wiêcej informacji o zawarto¶ci archiwum"
-; \n  -v      Verbosely list contents of archive"
+\n  -v     Wy¶wietl wiêcej informacji o zawarto¶ci archiwum
+; \n  -v      Verbosely list contents of archive
 ;
 MSG_MRecVolLimit
 \nCa³kowita liczna wolumenów (zwyk³ych i odzyskiwania) nie mo¿e przekroczyæ %d

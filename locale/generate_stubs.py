@@ -12,7 +12,6 @@ and generated two file in this dir:
 uses GetWString function to get localized string
 2) unrar.cd - catalog definion file
 
-Next, you can import unrar.cd into SimpleCat tool and create unrar.cs.
 From that file in SimpleCat the following files can be generated:
 1) unrar.cs 
 2) localized catalog files (unrar.catalog).
@@ -39,7 +38,7 @@ with open("unrar.cd", "w") as f0:
 			name = tokens[1]
 			msg = "MSG_%s" % name
 			tokens = line.split('L"')
-			str = tokens[1][:-2]
+			str = tokens[1].rstrip()[:-1]
 
 			f0.write(";\n")
 			f0.write("%s (//)\n" % msg)
