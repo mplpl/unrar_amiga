@@ -1,17 +1,7 @@
-## version $VER: UnRAR.catalog 5.85 (3.01.2020)
+## version $VER: UnRAR.catalog 5.80 (3.01.2020)
 ## codeset 0
 ## language italiano
 ## chunk AUTH Translated by Samir Hawamdeh (http://www.betatesting.it/backforthefuture)
-;
-; ATO Italia
-; Compiled with FlexCat 2.18 PPC (AmigaOS4)
-; flexcat UnRAR.cd UnRAR.ct catalog=UnRAR.catalog
-; 
-; Italian translation of UnRAR
-;
-; Traduzione italiana di UnRAR
-;
-; $VER: unrar 5.85 (3.01.2020)
 ;
 MSG_MYesNo
 _Si_No
@@ -22,7 +12,7 @@ _Si_No_Tutti
 ; _Yes_No_All
 ;
 MSG_MYesNoAllQ
-_Si_No_Tutti_Mai_Rinomina_Chiudi
+_Si_No_Tutti_Mai_Chiudi
 ; _Yes_No_All_nEver_Rename_Quit
 ;
 MSG_MYesNoAllRenQ
@@ -38,8 +28,8 @@ _Riprova_Annulla
 ; _Retry_Abort
 ;
 MSG_MCopyright
-\nRAR %s    Copyright (c) 1993-%d di Eugene e Alexander Roshal    %d %s %d
-; \nRAR %s    Copyright (c) 1993-%d Alexander Roshal    %d %s %d
+\nRAR %s   Copyright (c) 1993-%d di Eugene e Alexander Roshal    %d %s %d
+; \nRAR %s   Copyright (c) 1993-%d Alexander Roshal   %d %s %d
 ;
 MSG_MRegTo
 \nRegistrato a nome di %s\n
@@ -358,12 +348,12 @@ MSG_MCHelpSwINUL
 ; \n  inul          Disable all messages
 ;
 MSG_MCHelpSwIOFF
-\n  ioff          Spegni computer al termine dell'operazione
-; \n  ioff          Turn PC off after completing an operation
+\n  ioff[n]       Spegni computer al termine dell'operazione
+; \n  ioff[n]       Turn PC off after completing an operation
 ;
 MSG_MCHelpSwISND
-\n  isnd          Attiva sonoro
-; \n  isnd          Enable sound
+\n  isnd[-]       Attiva sonoro
+; \n  isnd[-]       Control notification sounds
 ;
 MSG_MCHelpSwIVER
 \n  iver          Mostra numero di versione
@@ -530,24 +520,24 @@ MSG_MCHelpSwTL
 ; \n  tl            Set archive time to latest file
 ;
 MSG_MCHelpSwTN
-\n  tn<time>      Processa file più nuovi di <time>
-; \n  tn<time>      Process files newer than <time>
+\n  tn[mcao]<t>   Processa file più nuovi di <t>
+; \n  tn[mcao]<t>   Process files newer than <t> time
 ;
 MSG_MCHelpSwTO
-\n  to<time>      Processa file più vecchi di <time>
-; \n  to<time>      Process files older than <time>
+\n  to[mcao]<t>   Processa file più vecchi di <t>
+; \n  to[mcao]<t>   Process files older than <t> time
 ;
 MSG_MCHelpSwTA
-\n  ta<date>      Processa file modificati dopo il <date> nel formato YYYYMMDDHHMMSS
-; \n  ta<date>      Process files modified after <date> in YYYYMMDDHHMMSS format
+\n  ta[mcao]<d>   Processa file modificati dopo il <d> nel formato YYYYMMDDHHMMSS
+; \n  ta[mcao]<d>   Process files modified after <d> YYYYMMDDHHMMSS date
 ;
 MSG_MCHelpSwTB
-\n  tb<date>      Processa file modificati prima di <date> nel formato YYYYMMDDHHMMSS
-; \n  tb<date>      Process files modified before <date> in YYYYMMDDHHMMSS format
+\n  tb[mcao]<d>   Processa file modificati prima di <d> nel formato YYYYMMDDHHMMSS
+; \n  tb[mcao]<d>   Process files modified before <d> YYYYMMDDHHMMSS date
 ;
 MSG_MCHelpSwTS
-\n  ts[m|c|a]     Salva o ripristina data del file (modifica, creazione, accesso)
-; \n  ts[m|c|a]     Save or restore file time (modification, creation, access)
+\n  ts[m,c,a,p]   Salva o ripristina ora (modifica, crea, accedi, preserva)
+; \n  ts[m,c,a,p]   Save or restore time (modification, creation, access, preserve)
 ;
 MSG_MCHelpSwU
 \n  u             Aggiorna i file
@@ -832,10 +822,6 @@ MSG_MAddNoFiles
 MSG_MMdfEncrSol
 \n%s: cifrato
 ; \n%s: encrypted
-;
-MSG_MCannotMdfEncrSol
-\nImpossibile modificare archivi solidi contenenti file cifrati
-; \nCannot modify solid archive containing encrypted files
 ;
 MSG_MAddAnalyze
 \nAnalisi dei file archiviati: 
@@ -1389,9 +1375,9 @@ MSG_MWrongSFXVer
 \nERRORE: Il modulo SFX predefinito non supporta gli archivi RAR %d.%d
 ; \nERROR: default SFX module does not support RAR %d.%d archives
 ;
-MSG_MCannotEncName
-\nImpossibile cifrare archivi che già contengano file cifrati
-; \nCannot encrypt archive already containing encrypted files
+MSG_MHeadEncMismatch
+\nImpossibile modificare l'intestazione del metodo di criptazione di un archivio già criptato
+; \nCannot change the header encryption mode in already encrypted archive
 ;
 MSG_MCannotEmail
 \nImpossibile inviare per posta il file %s
@@ -1438,8 +1424,8 @@ MSG_MCalcCRC
 ; \nCalculating the checksum
 ;
 MSG_MTooLargeSFXArc
-\nATTENZIONE: Archivio SFX troppo grande. Windows non è in grado di avviare eseguibili che eccedano i 4 GB
-; \nWARNING: Too large SFX archive. Windows cannot run the executable file exceeding 4 GB.
+\nArchivio SFX troppo grande. Windows non è in grado di avviare eseguibili che eccedano i 4 GB
+; \nToo large SFX archive. Windows cannot run the executable file exceeding 4 GB.
 ;
 MSG_MCalcCRCAllVol
 \nCalcolo dei checksum per tutti i volumi
@@ -1460,6 +1446,10 @@ MSG_MUnkEncMethod
 MSG_MWrongPassword
 \nLa password specificata non è corretta.\n
 ; \nThe specified password is incorrect.
+;
+MSG_MWrongFilePassword
+\nPassword non corretta per %s
+; \nIncorrect password for %s
 ;
 MSG_MAreaDamaged
 \nCorrotti %d byte su %08x %08x
@@ -1521,7 +1511,7 @@ MSG_MErrCreateLnkH
 \nImpossibile creare l'hard link %s
 ; \nCannot create hard link %s
 ;
-MSG_MErrLnkTarget 
+MSG_MErrLnkTarget
 \nPrima è necessario scompattare il link target
 ; \nYou need to unpack the link target first
 ;
@@ -1540,4 +1530,3 @@ MSG_MUseSmalllerDict
 MSG_MAmigaPortBy
 \nPort su %s a cura di Marcin Labenski\n
 ; \n%s port by Marcin Labenski\n
-;
