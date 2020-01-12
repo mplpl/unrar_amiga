@@ -32,7 +32,6 @@ dist:
 	$(COPY) license_newlib.txt dist/unrar_$(VERSION)
 	$(COPY) license_utf8proc.txt dist/unrar_$(VERSION)
 	@cd dist; lha -r a UnRAR-5.80.lha unrar_5.80
-	$(RM) dist/Makefile
 	$(RM) dist/unrar_$(VERSION) all
 	$(COPY) UnRAR.readme dist/UnRAR-$(VERSION).readme
 
