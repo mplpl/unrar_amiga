@@ -154,6 +154,9 @@ ftp://sourceware.org/pub/newlib/newlib-3.1.0.tar.gz
 For getpass() function missing in AROS I took the code from libnix 3.0 by Diego Cassoran:
 https://github.com/diegocr/libnix
 
+As libiconv is missing in AmigaOS3, I use one from Aminet ported by Bruno Haible & Diego Casorran (LGPL):
+http://aminet.net/package/dev/gg/libiconv-1.8
+
 MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.14).
 
 AmigaOS4 version of unrar has been compiled using gcc 4.2.4 (part of SDK 53.20).

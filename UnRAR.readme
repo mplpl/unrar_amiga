@@ -1,13 +1,13 @@
-Short: UnRAR 5.70
+Short: UnRAR 5.80
 Author: Alexander Roshal, Marcin Labenski (Amiga Port)
 Uploader: marcin.labenski@gmail.com
 Type: util/arc
-Version: 5.70
-Architecture: ppc-amigaos >=4.1; ppc-morphos >=3
+Version: 5.80
+Architecture: ppc-amigaos >=4.1; ppc-morphos >=3; m68k-amigaos >=3.0; i386-aros
 Distribution: aminet
 
-This is a brand new UnRAR port for AmigaOS4 and MorphOS based on source code
-version 5.7.3.
+This is UnRAR port for AmigaOS4, MorphOS, AROS and AmigaOS3 based on source code
+version 5.8.5.
 
 UnRAR license is available in license.txt file in this archive.
 This port uses also code from newlib 3.1.0 and utf8proc.
@@ -16,6 +16,27 @@ Utf8proc license is available in license_utf8proc.txt file in this archive.
 
 Source code of this program is available on github:
 https://github.com/mplpl/unrar_amiga
+
+Polish locale made by Marcin Labenski.
+Italian locale made by Samir Hawamdeh.
+
+
+History:
+========
+
+5.80:
+* based on unrar source code 5.8.5
+* added support for AROS (i386) and AmigaOS3
+* added support for large files (>4GiB) on MorphOS and AmigaOS4
+* Italian locale added
+
+5.70:
+* based on unrar source code 5.7.3
+* support for MorphOS and AmigaOS4
+* national language support in file names and passwords 
+* support for symbolic (soft) and hard links
+* English and Polish locale
+
 
 Features:
 =========
@@ -35,6 +56,8 @@ in the archive, passwords, comments and list files
 * can read switches from configuration file s:rar.conf or RAR environment
 variable
 
+* large files support (>4GiB) on MorphOS and AmigsOS4
+
 * support AmigaOS localization via locale.library
 
 
@@ -43,7 +66,9 @@ Content
 
 unrar_mos             - unrar version for MorphOS 3
 unrar_aos4            - unrar version for AmigaOS 4.1
-catalogs              - unrar translations - currently Polish translation only
+unrar_aros            - unrar version for AROS i386
+unrar_aos3            - unrar version for AmigaOS3
+catalogs              - unrar translations (Polish and Italian)
 license.txt           - UnRAR license
 license_newlib.txt    - newlib license
 license_utf8proc.txt  - utf8proc license
@@ -72,15 +97,26 @@ unrar5 l my_archive.rar
 
 AmigaOS4:
 ---------
-
 copy unrar_aos4 to c:unrar
+copy catalogs to locale:catalogs all
+
+AROS:
+-----
+copy unrar_aros to c:unrar
+copy catalogs to locale:catalogs all
+
+AmigaOS3:
+---------
+copy unrar_aos3 to c:unrar
 copy catalogs to locale:catalogs all
 
 
 
-Note (for both MorphOS and AmigaOS4): if you have Polish locale set and you
-don't like my Polish translation, do not copy it to locale: and you will get 
+Note 1: if you have Polish or Italian locale set and you don't like included 
+Polish/Italian translation, do not copy it to locale: and you will get 
 English only version.
+
+Note 2: on AmigaOS3 Polish translation uses ISO-8859-2 encoding (not AmigaPL!).
 
 
 Detailed port description
@@ -105,6 +141,8 @@ comments, etc. it needs to be converted to OS local encoding set in OS
 prefs. Unrar reads what was set using environment variables:
 * on MorphOS: CODEPAGE
 * on AmigaOS4: Charset
+* on AROS: CHARSET
+* on AmigaOS3: there is no (read below)
 
 Characters that cannot be converted, because are not present in selected
 codepage, are replaced with '?'. That means that national characters are
@@ -118,6 +156,9 @@ overriding codepage (for both MorphOS and AmigaOS4) without changing
 system prefs. For an example above, if you set RAR_CODEPAGE, you will
 still not see Spanish characters (unless you have the right font) but at
 least you should get all the files unpacked.
+
+On AmigaOS3, since there is no buit-in variable to determine system 
+character encoding, you have to always use RAR_CODEPAGE.
 
 National characters in file names
 ---------------------------------
@@ -272,23 +313,50 @@ You can find cs/cd file for making additional translations on GitHub
 in "locale" directory.
 
 
+Large files support
+-------------------
+
+On MorphOS and AmigaOS4 large files are supported in the following way:
+* rar file can have size >4GiB
+* a file expanded from a rar file may be bigger than 4GiB
+
+The above is true provided that file system used for unpacking supports files
+with size >4GiB. 
+OFS, FFS, PFS3, SFS and FAT32 do not support such files.
+NTFS, exFAT and ext2/3/4 (on MorphOS) and SFS2 (on AmigaOS4) support large 
+files.
+
+In case of AROS, it does not have functions for 64-bit I/O and in general it
+does not support files >2GiB.
+
+
 Notes about porting
 ===================
 
-This port is based directly on unrar source code version 5.7.3
-(unrarsrc-5.7.3.tar.gz) from rarlab.com:
-https://www.rarlab.com/rar/unrarsrc-5.7.3.tar.gz
+This port is based directly on unrar source code version 5.8.5
+(unrarsrc-5.8.5.tar.gz) from rarlab.com:
+https://www.rarlab.com/rar/unrarsrc-5.8.5.tar.gz
 
 For normalizing UTF, I used utf8proc. I did not need to port it to Amiga
 - it compiles without any change:
 https://juliastrings.github.io/utf8proc/
 
-For vfwprintf-like functions from libc, that are not implemented on
+For vfwprintf-like functions and multiple other wide characters related 
+functions (wc*, mb*, bt*, wmem*) from libc, that are not implemented on
 Amiga at all, I ported the code I took from newlib 3.1.0:
 http://sourceware.org/newlib/
 
 ftp://sourceware.org/pub/newlib/newlib-3.1.0.tar.gz
 
-MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK
-3.12). AmigaOS4 version of unrar has been compiled using gcc 4.2.4 (part
-of SDK 53.20).
+For getpass() function missing in AROS I took the code from libnix 3.0 
+by Diego Cassoran:
+https://github.com/diegocr/libnix
+
+MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.14).
+
+AmigaOS4 version of unrar has been compiled using gcc 4.2.4 (part of SDK 53.20).
+
+AROS version of unrar has been compoled using gcc 4.6.4 (part of Icaros 2.2).
+
+AmigaOS3 version of unrar has been compiled using gcc 3.3 (part of Cubic IDE).
+
