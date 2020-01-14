@@ -151,7 +151,7 @@ http://sourceware.org/newlib/
 
 ftp://sourceware.org/pub/newlib/newlib-3.1.0.tar.gz
 
-For getpass() function missing in AROS I took the code from libnix 3.0 by Diego Cassoran:
+For getpass() function missing in AROS I took the code from libnix 3.0 by Diego Casorran:
 https://github.com/diegocr/libnix
 
 As libiconv is missing in AmigaOS3, I use one from Aminet ported by Bruno Haible & Diego Casorran (LGPL):
