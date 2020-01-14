@@ -14,7 +14,7 @@ LIBFLAGS=-fPIC
 DEFINES=
 LDFLAGS=
 CFLAGS=-Wno-switch -D_AMIGA -I.
-OBJECTS=vfwprintf.o vswprintf.o others.o fake_file.o 
+OBJECTS=vfwprintf.o vswprintf.o others.o fake_file.o
 
 ifeq ($(PLATFORM),MorphOS)
 CC=ppc-morphos-gcc-4
@@ -40,7 +40,7 @@ ifeq ($(PLATFORM),AmigaOS3)
 CC=m68k-amigaos-gcc
 AR=m68k-amigaos-ar
 CFLAGS+= -D__amigaos3__ -Iamigaos3
-OBJECTS+= wcrtomb.o wcschr.o wcscmp.o wcscpy.o wcslen.o wcsncmp.o wcsncpy.o wcspbrk.o wcsrchr.o wmemchr.o wmemset.o wmemmove.o wctomb.o btowc.o fwide.o fputwc.o towupper.o towlower.o
+OBJECTS+= wcrtomb.o wcschr.o wcscmp.o wcscpy.o wcslen.o wcsncmp.o wcsncpy.o wcspbrk.o wcsrchr.o wmemchr.o wmemset.o wmemmove.o wctomb.o btowc.o fwide.o fputwc.o towupper.o towlower.o mbrtowc.o
 AMIGA=1
 endif
 
@@ -49,10 +49,9 @@ $(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: 
 endif
 
 all: $(OBJECTS)
-	$(AR) rs libwstdio.a $(OBJECTS)	
+	$(AR) rs libwstdio.a $(OBJECTS)
 
 test: test.o $(OBJECTS)
 
 clean:
 	-@rm test test.o libwstdio.a $(OBJECTS)
-	

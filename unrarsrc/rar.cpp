@@ -7,9 +7,9 @@ static const char __attribute((used)) min_stack[] = "$STACK:400000";
 #define QUOTE(x) Q(x)
 static const char __attribute((used)) vers[] = "\\0$VER: UnRAR "
 		QUOTE(RARVER_MAJOR)"."QUOTE(RARVER_MINOR)
-        " (12.4.2019)";
- 
-#include <proto/exec.h>       
+        " (15.1.2020)";
+
+#include <proto/exec.h>
 int Check_Stack()
 {
 #ifdef __amigaos4__
@@ -21,7 +21,7 @@ int Check_Stack()
 	int sz = (int)task->tc_SPUpper - (int)task->tc_SPLower;
 	if (sz < __stack)
 	{
-		printf("Stack too small %d - %d bytes is needed\n", 
+		printf("Stack too small %d - %d bytes is needed\n",
 			sz,
 			__stack);
 		return 1;
@@ -29,7 +29,7 @@ int Check_Stack()
 	return 0;
 #endif
 }
-        
+
 #endif
 
 #if !defined(RARDLL)
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
   if (Check_Stack()) return 100;
   Locale_Open("unrar.catalog");
 #endif
-  
+
 #ifdef _UNIX
   setlocale(LC_ALL,"");
 #endif
@@ -68,9 +68,9 @@ int main(int argc, char *argv[])
   POWER_MODE ShutdownOnClose=POWERMODE_KEEP;
 #endif
 
-  try 
+  try
   {
-  
+
     CommandData *Cmd=new CommandData;
 #ifdef SFX_MODULE
     wcsncpyz(Cmd->Command,L"X",ASIZE(Cmd->Command));
@@ -142,5 +142,3 @@ int main(int argc, char *argv[])
   return ErrHandler.GetErrorCode();
 }
 #endif
-
-
