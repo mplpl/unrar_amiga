@@ -128,7 +128,7 @@ Basic functions
 All the basic functions like listing (verbose, base, technical),
 unpacking (w/ or w/o path, selected files or all), testing or printing
 works fine. Note, that wherever a path is needed it has to be in amiga
-format not POSIX i.e. //test.rar not ../../test.rar.
+format not POSIX i.e.Â //test.rar not ../../test.rar.
 
 National characters support
 ---------------------------
@@ -146,7 +146,7 @@ prefs. Unrar reads what was set using environment variables:
 
 Characters that cannot be converted, because are not present in selected
 codepage, are replaced with '?'. That means that national characters are
-fully supported but only for selected locale, i.e. if I have Polish
+fully supported but only for selected locale, i.e.Â if I have Polish
 locale with ISO-8859-2 encoding and have a rar archive with Spanish
 characters, they will not appear and will be replaced by '?'. That in
 turns mean that some files may have the same names even if they are
@@ -349,7 +349,7 @@ http://sourceware.org/newlib/
 ftp://sourceware.org/pub/newlib/newlib-3.1.0.tar.gz
 
 For getpass() function missing in AROS I took the code from libnix 3.0 
-by Diego Cassoran:
+by Diego Casorran:
 https://github.com/diegocr/libnix
 
 MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.14).
