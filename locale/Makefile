@@ -59,5 +59,5 @@ test: test.o unrar_locale.o
 
 
 clean:
-	-@rm test test.o unrar_locale.o libunrarlocale.a
+	-@rm -f test test.o unrar_locale.o libunrarlocale.a
 	

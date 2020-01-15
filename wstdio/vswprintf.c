@@ -45,8 +45,9 @@ vswprintf (
       return EOF;
     }
     
-  init_fake_file(&f, str, (size > 0 ? (size - 1) * sizeof (wchar_t) : 0)); 
-  ret = vfwprintf (&f, fmt, ap);
+  init_fake_file(&f, (unsigned char *)str, 
+    (size > 0 ? (size - 1) * sizeof (wchar_t) : 0)); 
+  ret = vfwprintf ((FILE *)&f, fmt, ap);
   /* _svfwprintf_r() does not put in a terminating NUL, so add one if
    * appropriate, which is whenever size is > 0.  _svfwprintf_r() stops
    * after n-1, so always just put at the end.  */

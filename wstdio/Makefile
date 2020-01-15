@@ -54,4 +54,4 @@ all: $(OBJECTS)
 test: test.o $(OBJECTS)
 
 clean:
-	-@rm test test.o libwstdio.a $(OBJECTS)
+	-@rm -f test test.o libwstdio.a $(OBJECTS)
