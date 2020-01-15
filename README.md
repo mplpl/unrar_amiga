@@ -1,5 +1,7 @@
 # Port of unrar for MorphOS, AROS, AmigaOS4 and AmigaOS3
 
+Note: Automatic test package for this unrar port is available at https://github.com/mplpl/unrar_test
+
 <h2>Features</h2>
 
 * support all the basic unrar commands and switches, including listing, 
@@ -164,5 +166,4 @@ AmigaOS4 version of unrar has been compiled using gcc 4.2.4 (part of SDK 53.20).
 AROS version of unrar has been compoled using gcc 4.6.4 (part of Icaros 2.2).
 
 AmigaOS3 version of unrar has been compiled using gcc 3.3 (part of Cubic IDE).
-
 
