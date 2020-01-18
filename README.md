@@ -23,7 +23,7 @@ variable
 
 * support AmigaOS localization via locale.library
 
-<h2>Requirements<h2>
+<h2>Requirements</h2>
 
 There are no special requirements for MorphOS and AmigaOS4. It should work on any system provided that is has relatively fresh version of operating system (I test on MorphOS 3.12 and AmigaOS 4.1 FE Update 1).
 
