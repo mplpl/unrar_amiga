@@ -60,7 +60,7 @@ DEFINES=-D_AMIGA -D__amigaos3__
 STRIP=m68k-amigaos-strip
 AR=m68k-amigaos-ar
 LDFLAGS=-L../utf8proc -L../wstdio -L../locale -L../wstdio/amigaos3
-LIBS= -lutf8proc -lwstdio -lunrarlocale -liconv
+LIBS= -lwstdio -lunrarlocale 
 DESTDIR=/usr
 AMIGA=1
 endif

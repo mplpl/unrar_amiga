@@ -40,7 +40,7 @@ ifeq ($(PLATFORM),AmigaOS3)
 CC=m68k-amigaos-gcc
 AR=m68k-amigaos-ar
 CFLAGS+= -D__amigaos3__ -Iamigaos3
-OBJECTS+= wcrtomb.o wcschr.o wcscmp.o wcscpy.o wcslen.o wcsncmp.o wcsncpy.o wcspbrk.o wcsrchr.o wmemchr.o wmemset.o wmemmove.o wctomb.o btowc.o fwide.o fputwc.o towupper.o towlower.o mbrtowc.o
+OBJECTS+= wcrtomb.o wcschr.o wcscmp.o wcscpy.o wcslen.o wcsncmp.o wcsncpy.o wcspbrk.o wcsrchr.o wmemchr.o wmemset.o wmemmove.o wctomb.o btowc.o fwide.o fputwc.o towupper.o towlower.o mbrtowc.o utf8proc_mock.o iconv_mock.o
 AMIGA=1
 endif
 

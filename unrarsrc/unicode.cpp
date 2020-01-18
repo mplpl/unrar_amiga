@@ -84,7 +84,6 @@ bool WideToChar(const wchar *Src,char *Dest,size_t DestSize)
   // of string and passed DestSize smaller than required for fully converted
   // string. Such call is the valid behavior in RAR code and we do not expect
   // the empty string in this case.
-
   return RetCode;
 }
 
@@ -691,12 +690,6 @@ const char *GetCodePage()
 
 bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
 {
-  // buffer for UTF-8 version of Src
-  unsigned char utf8Buf[NM];
-  WideToUtf(Src,(char *)utf8Buf,ASIZE(utf8Buf));
-
-  // normalizing UTF-8
-  unsigned char *lineBufNorm = utf8proc_NFC(utf8Buf);
   // converting normalized UTF-8 to local encoding
   iconv_t convBase=iconv_open(GetCodePage(), "UTF-8");
   if (convBase == (iconv_t)-1)
@@ -709,6 +702,14 @@ bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
       return true;
     }
   }
+  
+  // buffer for UTF-8 version of Src
+  unsigned char utf8Buf[NM];
+  WideToUtf(Src,(char *)utf8Buf,ASIZE(utf8Buf));
+
+  // normalizing UTF-8
+  unsigned char *lineBufNorm = utf8proc_NFC(utf8Buf);
+  
 #if defined(__AROS__)
   char *inPtr = (char *)lineBufNorm;
 #else
