@@ -1,4 +1,4 @@
-# Port of unrar for MorphOS, AROS, AmigaOS4 and AmigaOS3
+# Port of unrar for MorphOS, AROS, AmigaOS4, AmigaOS3 and AmigaOS2
 
 Note: Automatic test package for this unrar port is available at https://github.com/mplpl/unrar_test
 
@@ -23,6 +23,19 @@ variable
 
 * support AmigaOS localization via locale.library
 
+<h2>Requirements<h2>
+
+There are no special requirements for MorphOS and AmigaOS4. It should work on any system provided that is has relatively fresh version of operating system (I test on MorphOS 3.12 and AmigaOS 4.1 FE Update 1).
+
+AROS version requires i386 and ABI-v0.
+
+Classic AmigaOS version requires a system with:
+* CPU Motorola 68000 - no FPU is needed
+* Kickstart 2.04 or newer
+* ixemul V48 (http://aminet.net/package/util/libs/ixemul-48.0)
+* 4MB RAM (unrar needs 2.6MB on its own)
+
+Exact memory utilization depends on
 
 <h2>Details</h2>
 
@@ -36,11 +49,11 @@ RAR stores data in UTF-8 in an archive file, then reads it into Unicode (wchar_t
 * on MorphOS: CODEPAGE
 * on AmigaOS4: Charset
 * on AROS: CHARSET
-* on AmigaOS3: there is no (read below)
+* on AmigaOS3 and AmigaOS2: there is no (read below)
 
 Characters that cannot be converted, because are not present in selected codepage, are replaced with '?'. That means that national characters are fully supported but only for selected locale, i.e. if I have Polish locale with ISO-8859-2 encoding and have a rar archive with Spanish characters, they will not appear and will be replaced by '?'. That in turns mean that some files may have the same names even if they are different files. In that case only one will be unpacked. To deal with this, you can use special environment variable RAR_CODEPAGE that allows overriding codepage (for both MorphOS and AmigaOS4) without changing system prefs. For an example above, if you set RAR_CODEPAGE, you will still not see Spanish characters (unless you have the right font) but at least you should get all the files unpacked.
 
-On AmigaOS3, since there is no buit-in variable to determine system character encoding, you have to always use RAR_CODEPAGE.
+On AmigaOS3 and AmigaOS2, since there is no buit-in variable to determine system character encoding, you have to always use RAR_CODEPAGE.
 
 
 <h4>National characters in file names</h4>
@@ -138,7 +151,7 @@ The above is true provided that file system used for unpacking supports files wi
 OFS, FFS, PFS3, SFS and FAT32 do not support such files.
 NTFS, exFAT and ext2/3/4 (on MorphOS) and SFS2 (on AmigaOS4) support large files.
 
-In case of AROS, it does not have functions for 64-bit I/O and in general it does not support files >2GiB.
+Support for files >4GiB is currently not available on AROS, AmigaOS3 and AmigaOS2.
 
 <h2>Notes about porting</h2>
 
@@ -156,7 +169,7 @@ ftp://sourceware.org/pub/newlib/newlib-3.1.0.tar.gz
 For getpass() function missing in AROS I took the code from libnix 3.0 by Diego Casorran:
 https://github.com/diegocr/libnix
 
-As libiconv is missing in AmigaOS3, I use one from Aminet ported by Bruno Haible & Diego Casorran (LGPL):
+As libiconv is missing in AmigaOS3/AmigaOS2, I use one from Aminet ported by Bruno Haible & Diego Casorran (LGPL):
 http://aminet.net/package/dev/gg/libiconv-1.8
 
 MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.14).
@@ -165,5 +178,7 @@ AmigaOS4 version of unrar has been compiled using gcc 4.2.4 (part of SDK 53.20).
 
 AROS version of unrar has been compoled using gcc 4.6.4 (part of Icaros 2.2).
 
-AmigaOS3 version of unrar has been compiled using gcc 3.3 (part of Cubic IDE).
+AmigaOS3/AmigaOS2 version of unrar has been compiled using gcc 3.3 (part of Cubic IDE).
+
+All AmigaOS versions can also be created by crosscompiling using the same compile versions as above from AmiDevCpp package.
 
