@@ -35,7 +35,7 @@ Classic AmigaOS version requires a system with:
 * ixemul V48 (http://aminet.net/package/util/libs/ixemul-48.0)
 * 4MB RAM (unrar needs 2.6MB on its own)
 
-Exact memory utilization depends on
+Exact memory utilization depends on size of the compressed files. For insance my test archive with one 2.0GB file in it, needs 32MB of RAM to unpack.
 
 <h2>Details</h2>
 
