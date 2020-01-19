@@ -13,7 +13,7 @@ UnRAR license is available in license.txt file in this archive.
 This port uses also code from newlib 3.1.0, utf8proc, libnix and iconv.
 Newlib license is available in license_newlib.txt file in this archive.
 Utf8proc license is available in license_utf8proc.txt file in this archive.
-iconv license is available in license_iconv.txt file in this archive.
+iconv license is available in license_libiconv.txt file in this archive.
 libnix license is available in license_getpass.txt file in this archive.
 
 Source code of this program is available on github:
