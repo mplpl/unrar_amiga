@@ -58,7 +58,7 @@ wprintf(const wchar_t *fmt0,
   return ret;
 }
 
-#ifdef __amigaos4__
+#if defined(__amigaos4__) || defined(__amigaos3__)
 int
 putwchar(wchar_t c)
 {
@@ -67,3 +67,11 @@ putwchar(wchar_t c)
 }
 #endif
 
+#ifdef __AROS__
+int
+putwchar(wchar_t c)
+{
+  char ch = ((unsigned char)c);
+  return putchar(ch);
+}
+#endif

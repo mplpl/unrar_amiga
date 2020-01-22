@@ -268,13 +268,13 @@ size_t Archive::ReadHeader15()
         uint FileTime=Raw.Get4();
         hd->UnpVer=Raw.Get1();
 
-        // RAR15 did not use the special dictionary size to mark dirs.
-        if (hd->UnpVer<20 && (hd->FileAttr & 0x10)!=0)
-          hd->Dir=true;
-
         hd->Method=Raw.Get1()-0x30;
         size_t NameSize=Raw.Get2();
         hd->FileAttr=Raw.Get4();
+
+        // RAR15 did not use the special dictionary size to mark dirs.
+        if (hd->UnpVer<20 && (hd->FileAttr & 0x10)!=0)
+          hd->Dir=true;
 
         hd->CryptMethod=CRYPT_NONE;
         if (hd->Encrypted)
@@ -402,8 +402,8 @@ size_t Archive::ReadHeader15()
             if (rmode & 4)
               rlt.Second++;
             rlt.Reminder=0;
-            int count=rmode&3;
-            for (int J=0;J<count;J++)
+            uint count=rmode&3;
+            for (uint J=0;J<count;J++)
             {
               byte CurByte=Raw.Get1();
               rlt.Reminder|=(((uint)CurByte)<<((J+3-count)*8));
@@ -584,7 +584,7 @@ size_t Archive::ReadHeader50()
         {
           // This message is used by Android GUI to reset cached passwords.
           // Update appropriate code if changed.
-          uiMsg(UIERROR_BADPSW,FileName);
+          uiMsg(UIERROR_BADPSW,FileName,FileName);
           FailedHeaderDecryption=true;
           ErrHandler.SetErrorCode(RARX_BADPWD);
           return 0;
@@ -593,7 +593,7 @@ size_t Archive::ReadHeader50()
         {
           // This message is used by Android GUI and Windows GUI and SFX to
           // reset cached passwords. Update appropriate code if changed.
-          uiMsg(UIWAIT_BADPSW,FileName);
+          uiMsg(UIWAIT_BADPSW,FileName,FileName);
           Cmd->Password.Clean();
         }
 
@@ -720,6 +720,7 @@ size_t Archive::ReadHeader50()
           UnkEncVerMsg(FileName,Info);
           return 0;
         }
+
         Raw.GetB(CryptHead.Salt,SIZE_SALT50);
         if (CryptHead.UsePswCheck)
         {
@@ -1260,8 +1261,9 @@ size_t Archive::ReadHeader14()
     Raw.Read(NameSize);
 
     char FileName[NM];
-    Raw.GetB((byte *)FileName,Min(NameSize,ASIZE(FileName)));
-    FileName[NameSize]=0;
+    size_t ReadNameSize=Min(NameSize,ASIZE(FileName)-1);
+    Raw.GetB((byte *)FileName,ReadNameSize);
+    FileName[ReadNameSize]=0;
     IntToExt(FileName,FileName,ASIZE(FileName));
     CharToWide(FileName,FileHead.FileName,ASIZE(FileHead.FileName));
     ConvertNameCase(FileHead.FileName);
@@ -1418,7 +1420,7 @@ int64 Archive::GetStartPos()
 }
 
 
-bool Archive::ReadSubData(Array<byte> *UnpData,File *DestFile)
+bool Archive::ReadSubData(Array<byte> *UnpData,File *DestFile,bool TestMode)
 {
   if (BrokenHeader)
   {
@@ -1466,6 +1468,7 @@ bool Archive::ReadSubData(Array<byte> *UnpData,File *DestFile)
   SubDataIO.SetPackedSizeToRead(SubHead.PackSize);
   SubDataIO.EnableShowProgress(false);
   SubDataIO.SetFiles(this,DestFile);
+  SubDataIO.SetTestMode(TestMode);
   SubDataIO.UnpVolume=SubHead.SplitAfter;
   SubDataIO.SetSubHeader(&SubHead,NULL);
   Unpack.SetDestSize(SubHead.UnpSize);

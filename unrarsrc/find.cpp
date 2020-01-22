@@ -63,12 +63,12 @@ bool FindFile::Next(FindData *fd,bool GetSymLink)
   }
   while (1)
   {
+    wchar Name[NM];
     struct dirent *ent=readdir(dirp);
     if (ent==NULL)
       return false;
     if (strcmp(ent->d_name,".")==0 || strcmp(ent->d_name,"..")==0)
       continue;
-    wchar Name[NM];
     if (!CharToWide(ent->d_name,Name,ASIZE(Name)))
       uiMsg(UIERROR_INVALIDNAME,UINULL,Name);
 
@@ -120,12 +120,19 @@ bool FindFile::FastFind(const wchar *FindMask,FindData *fd,bool GetSymLink)
 #else
   char FindMaskA[NM];
   WideToChar(FindMask,FindMaskA,ASIZE(FindMaskA));
-  
+#if defined(_LARGEFILE64_SOURCE)
+  struct stat64 st;
+#else
   struct stat st;
+#endif
   if (GetSymLink)
   {
 #ifdef SAVE_LINKS
+#if defined(_LARGEFILE64_SOURCE)
+    if (lstat64(FindMaskA,&st)!=0)
+#else
     if (lstat(FindMaskA,&st)!=0)
+#endif
 #else
     if (stat(FindMaskA,&st)!=0)
 #endif
@@ -135,7 +142,11 @@ bool FindFile::FastFind(const wchar *FindMask,FindData *fd,bool GetSymLink)
     }
   }
   else
+#if defined(_LARGEFILE64_SOURCE)
+    if (stat64(FindMaskA,&st)!=0)
+#else
     if (stat(FindMaskA,&st)!=0)
+#endif
     {
       fd->Error=(errno!=ENOENT);
       return false;

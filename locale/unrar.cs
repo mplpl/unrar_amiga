@@ -1,4 +1,4 @@
-## Version $VER: xxxxxx.catalog 1.00 (01.04.2019)
+## Version $VER: xxxxxx.catalog 1.00 (05.01.2020)
 ## Languages english
 ## Codeset english 0
 ## SimpleCatConfig CharsPerLine 200
@@ -265,7 +265,7 @@ MSG_MCHelpSwIOFF
 \n  ioff[n]       Turn PC off after completing an operation
 ;
 MSG_MCHelpSwISND
-\n  isnd          Control notification sounds
+\n  isnd[-]       Control notification sounds
 ;
 MSG_MCHelpSwIVER
 \n  iver          Display the version number
@@ -403,7 +403,7 @@ MSG_MCHelpSwTB
 \n  tb[mcao]<d>   Process files modified before <d> YYYYMMDDHHMMSS date
 ;
 MSG_MCHelpSwTS
-\n  ts[m,c,a]     Save or restore file time (modification, creation, access)
+\n  ts[m,c,a,p]   Save or restore time (modification, creation, access, preserve)
 ;
 MSG_MCHelpSwU
 \n  u             Update files
@@ -617,9 +617,6 @@ MSG_MAddNoFiles
 ;
 MSG_MMdfEncrSol
 \n%s: encrypted
-;
-MSG_MCannotMdfEncrSol
-\nCannot modify solid archive containing encrypted files
 ;
 MSG_MAddAnalyze
 \nAnalyzing archived files: 
@@ -1035,26 +1032,26 @@ MSG_MErrChangeAttr
 MSG_MWrongSFXVer
 \nERROR: default SFX module does not support RAR %d.%d archives
 ;
-MSG_MCannotEncName
-\nCannot encrypt archive already containing encrypted files
+MSG_MHeadEncMismatch
+\nCannot change the header encryption mode in already encrypted archive
 ;
 MSG_MCannotEmail
 \nCannot email the file %s
 ;
 MSG_MCopyrightS
-\nRAR SFX archive"
+\nRAR SFX archive
 ;
 MSG_MSHelpCmd
-\n\n<Commands>"
+\n\n<Commands>
 ;
 MSG_MSHelpCmdE
-\n  -x      Extract from archive (default)"
+\n  -x      Extract from archive (default)
 ;
 MSG_MSHelpCmdT
-\n  -t      Test archive files"
+\n  -t      Test archive files
 ;
 MSG_MSHelpCmdV
-\n  -v      Verbosely list contents of archive"
+\n  -v      Verbosely list contents of archive
 ;
 MSG_MRecVolLimit
 \nTotal number of usual and recovery volumes must not exceed %d
@@ -1088,6 +1085,9 @@ MSG_MUnkEncMethod
 ;
 MSG_MWrongPassword
 \nThe specified password is incorrect.
+;
+MSG_MWrongFilePassword
+\nIncorrect password for %s
 ;
 MSG_MAreaDamaged
 \nCorrupt %d bytes at %08x %08x

@@ -87,9 +87,4 @@
 #include "benchmark.hpp"
 #endif
 
-#ifdef __amigaos4__
-#include "../wstdio/wstdio.h"
-#endif
-
-
 #endif

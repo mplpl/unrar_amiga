@@ -505,6 +505,8 @@ const wchar_t* wcscasestr(const wchar_t *str, const wchar_t *search)
 wchar* wcslower(wchar *s)
 {
 #ifdef _WIN_ALL
+  // _wcslwr requires setlocale and we do not want to depend on setlocale
+  // in Windows. Also CharLower involves less overhead.
   CharLower(s);
 #else
   for (wchar *c=s;*c!=0;c++)
@@ -519,6 +521,8 @@ wchar* wcslower(wchar *s)
 wchar* wcsupper(wchar *s)
 {
 #ifdef _WIN_ALL
+  // _wcsupr requires setlocale and we do not want to depend on setlocale
+  // in Windows. Also CharUpper involves less overhead.
   CharUpper(s);
 #else
   for (wchar *c=s;*c!=0;c++)
@@ -536,8 +540,9 @@ int toupperw(int ch)
 #if defined(_WIN_ALL)
   // CharUpper is more reliable than towupper in Windows, which seems to be
   // C locale dependent even in Unicode version. For example, towupper failed
-  // to convert lowercase Russian characters.
-  return (int)(INT_PTR)CharUpper((wchar *)(INT_PTR)ch);
+  // to convert lowercase Russian characters. Use 0xffff mask to prevent crash
+  // if value larger than 0xffff is passed to this function.
+  return (int)(INT_PTR)CharUpper((wchar *)(INT_PTR)(ch&0xffff));
 #else
   return towupper(ch);
 #endif
@@ -548,8 +553,9 @@ int tolowerw(int ch)
 {
 #if defined(_WIN_ALL)
   // CharLower is more reliable than towlower in Windows.
-  // See comment for towupper above.
-  return (int)(INT_PTR)CharLower((wchar *)(INT_PTR)ch);
+  // See comment for towupper above. Use 0xffff mask to prevent crash
+  // if value larger than 0xffff is passed to this function.
+  return (int)(INT_PTR)CharLower((wchar *)(INT_PTR)(ch&0xffff));
 #else
   return towlower(ch);
 #endif
@@ -674,6 +680,8 @@ const char *GetCodePage()
   static char *rar_codepage = getenv("RAR_CODEPAGE");
 #ifdef __amigaos4__
   static char *codepage = getenv("Charset");
+#elif defined __AROS__
+  static char *codepage = getenv("CHARSET");
 #else
   static char *codepage = getenv("CODEPAGE");
 #endif
@@ -701,7 +709,11 @@ bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
       return true;
     }
   }
+#if defined(__AROS__)
+  char *inPtr = (char *)lineBufNorm;
+#else
   const char *inPtr = (const char *)lineBufNorm;
+#endif
   char *outPtr = Dest;
   size_t inSize = strlen((char *)lineBufNorm);
   size_t outSize = DestSize;
@@ -754,7 +766,11 @@ bool LocalToWide(const char *Src,wchar *Dest,size_t DestSize)
     }
   }
   char buf[4 * DestSize + 1];
+#if defined(__AROS__)
+  char *inPtr = (char *)Src;
+#else
   const char *inPtr = Src;
+#endif
   char *outPtr = (char *)buf;
   size_t inSize = strlen((char *)Src);
   size_t outSize = 4 * DestSize;

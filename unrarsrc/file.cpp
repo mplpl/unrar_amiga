@@ -1,3 +1,7 @@
+#ifdef __amigaos3__
+#include <devices/timer.h>
+#endif
+
 #include "rar.hpp"
 
 #ifdef _AMIGA
@@ -30,6 +34,7 @@ File::File()
   OpenShared=false;
   AllowDelete=true;
   AllowExceptions=true;
+  PreserveAtime=false;
 #ifdef _WIN_ALL
   NoSequentialRead=false;
   CreateMode=FMF_UNDEFINED;
@@ -73,6 +78,9 @@ bool File::Open(const wchar *Name,uint Mode)
   if (OpenShared)
     ShareMode|=FILE_SHARE_WRITE;
   uint Flags=NoSequentialRead ? 0:FILE_FLAG_SEQUENTIAL_SCAN;
+  FindData FD;
+  if (PreserveAtime)
+    Access|=FILE_WRITE_ATTRIBUTES; // Needed to preserve atime.
   hNewFile=CreateFile(Name,Access,ShareMode,NULL,OPEN_EXISTING,Flags,NULL);
 
   DWORD LastError;
@@ -103,6 +111,12 @@ bool File::Open(const wchar *Name,uint Mode)
   }
   if (hNewFile==FILE_BAD_HANDLE && LastError==ERROR_FILE_NOT_FOUND)
     ErrorType=FILE_NOTFOUND;
+  if (PreserveAtime && hNewFile!=FILE_BAD_HANDLE)
+  {
+    FILETIME ft={0xffffffff,0xffffffff}; // This value prevents atime modification.
+    SetFileTime(hNewFile,NULL,&ft,NULL);
+  }
+
 #else
   int flags=UpdateMode ? O_RDWR:(WriteMode ? O_WRONLY:O_RDONLY);
 #ifdef O_BINARY
@@ -110,6 +124,11 @@ bool File::Open(const wchar *Name,uint Mode)
 #if defined(_AIX) && defined(_LARGE_FILE_API)
   flags|=O_LARGEFILE;
 #endif
+#endif
+  // NDK r20 has O_NOATIME, but fails to create files with it in Android 7+.
+#if defined(O_NOATIME)
+  if (PreserveAtime)
+    flags|=O_NOATIME;
 #endif
   char NameA[NM];
   WideToChar(Name,NameA,ASIZE(NameA));
@@ -244,7 +263,7 @@ bool File::Close()
     {
 #ifdef _WIN_ALL
       // We use the standard system handle for stdout in Windows
-      // and it must not  be closed here.
+      // and it must not be closed here.
       if (HandleType==FILE_HANDLENORMAL)
         Success=CloseHandle(hFile)==TRUE;
 #else
@@ -496,8 +515,13 @@ bool File::RawSeek(int64 Offset,int Method)
 #else
   LastWrite=false;
 #ifdef FILE_USE_OPEN
+#if defined(_LARGEFILE64_SOURCE)
+  if (lseek64(hFile,(off64_t)Offset,Method)==-1)
+    return false;
+#else
   if (lseek(hFile,(off_t)Offset,Method)==-1)
     return false;
+#endif
 #elif defined(_LARGEFILE_SOURCE) && !defined(_OSF_SOURCE) && !defined(__VMS)
   if (fseeko(hFile,Offset,Method)!=0)
     return false;
@@ -528,7 +552,11 @@ int64 File::Tell()
   return INT32TO64(HighDist,LowDist);
 #else
 #ifdef FILE_USE_OPEN
+#if defined(_LARGEFILE64_SOURCE)
+  return lseek64(hFile,0,SEEK_CUR);
+#else
   return lseek(hFile,0,SEEK_CUR);
+#endif
 #elif defined(_LARGEFILE_SOURCE) && !defined(_OSF_SOURCE)
   return ftello(hFile);
 #else

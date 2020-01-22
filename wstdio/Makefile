@@ -1,16 +1,57 @@
+ifeq ($(PLATFORM),)
+PLATFORM=$(shell uname)
+endif
 
-CC=gcc
-CFLAGS=-Wno-switch -D_AMIGA
+ifeq ($(PLATFORM),AmigaOS)
+ifeq ($(shell uname -m),ppc)
+PLATFORM=AmigaOS4
+else
+PLATFORM=AmigaOS3
+endif
+endif
+
 LIBFLAGS=-fPIC
 DEFINES=
-LDFLAGS=-noixemul
+LDFLAGS=
+CFLAGS=-Wno-switch -D_AMIGA -I.
+OBJECTS=vfwprintf.o vswprintf.o others.o fake_file.o
 
-all: vfwprintf.o vswprintf.o others.o
-	$(AR) rs libwstdio.a vfwprintf.o vswprintf.o others.o
+ifeq ($(PLATFORM),MorphOS)
+CC=ppc-morphos-gcc-4
+AR=ppc-morphos-ar
+AMIGA=1
+endif
 
-test: test.o vfwprintf.o vswprintf.o others.o
+ifeq ($(PLATFORM),AmigaOS4)
+CC=ppc-amigaos-gcc
+AR=ppc-amigaos-ar
+AMIGA=1
+endif
 
+ifeq ($(PLATFORM),AROS)
+CC=i386-aros-gcc
+AR=ar
+CFLAGS+= -D_STDC_NOINLINE_WCTOMB -fshort-wchar
+OBJECTS+= wcrtomb.o wcschr.o wcscmp.o wcscpy.o wcslen.o wcsncmp.o wcsncpy.o wcspbrk.o wcsrchr.o wmemchr.o wmemset.o wmemmove.o wctomb.o btowc.o fwide.o fputwc.o towupper.o towlower.o getpass.o readpassphrase.o
+AMIGA=1
+endif
+
+ifeq ($(PLATFORM),AmigaOS3)
+CC=m68k-amigaos-gcc
+AR=m68k-amigaos-ar
+CFLAGS+= -D__amigaos3__ -Iamigaos3
+OBJECTS+= wcrtomb.o wcschr.o wcscmp.o wcscpy.o wcslen.o wcsncmp.o wcsncpy.o wcspbrk.o wcsrchr.o wmemchr.o wmemset.o wmemmove.o wctomb.o btowc.o fwide.o fputwc.o towupper.o towlower.o mbrtowc.o
+AMIGA=1
+endif
+
+ifeq ($(AMIGA),)
+$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3)
+endif
+
+all: $(OBJECTS)
+	$(AR) rs libwstdio.a $(OBJECTS)
+
+test: test.o $(OBJECTS)
 
 clean:
-	@delete test test.o vfwprintf.o vswprintf.o others.o libwstdio.a
-	
+	-@rm -f test test.o libwstdio.a $(OBJECTS)
