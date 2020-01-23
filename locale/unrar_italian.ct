@@ -1,4 +1,4 @@
-## version $VER: UnRAR.catalog 5.80 (5.01.2020)
+## version $VER: UnRAR.catalog 5.80 (20.01.2020)
 ## codeset 0
 ## language italiano
 ## chunk AUTH Translated by Samir Hawamdeh (http://www.betatesting.it/backforthefuture)
@@ -116,7 +116,7 @@ MSG_MUNRARTitle1
 ; \nUsage:     unrar <command> -<switch 1> -<switch N> <archive> <files...>
 ;
 MSG_MRARTitle2
-\n                <@listafile...> <percorso_da_estrarre\\>
+\n                <@elencofile...> <percorso_da_estrarre\\>
 ; \n               <@listfiles...> <path_to_extract\\>
 ;
 MSG_MCHelpCmd
@@ -160,7 +160,7 @@ MSG_MCHelpCmdK
 ; \n  k             Lock archive
 ;
 MSG_MCHelpCmdL
-\n  l[t[a],b]     Lista contenuti dell'archivio [technical[all], bare]
+\n  l[t[a],b]     Elenca contenuti dell'archivio [technical[all], bare]
 ; \n  l[t[a],b]     List archive contents [technical[all], bare]
 ;
 MSG_MCHelpCmdM
@@ -204,7 +204,7 @@ MSG_MCHelpCmdU
 ; \n  u             Update files in archive
 ;
 MSG_MCHelpCmdV
-\n  v[t[a],b]     Lista verbosa dei contenuti dell'archivio [technical[all],bare]
+\n  v[t[a],b]     Elenco verboso dei contenuti dell'archivio [technical[all],bare]
 ; \n  v[t[a],b]     Verbosely list archive contents [technical[all],bare]
 ;
 MSG_MCHelpCmdX
@@ -220,7 +220,7 @@ MSG_MCHelpSwm
 ; \n  -             Stop switches scanning
 ;
 MSG_MCHelpSwAT
-\n  @[+]          Disattiva [attiva] lista dei file
+\n  @[+]          Disattiva [attiva] elenco dei file
 ; \n  @[+]          Disable [enable] file lists
 ;
 MSG_MCHelpSwAC
@@ -364,7 +364,7 @@ MSG_MCHelpSwK
 ; \n  k             Lock archive
 ;
 MSG_MCHelpSwKB
-\n  kb            Mantieni file estratti rovinati
+\n  kb            Mantieni file estratti corrotti
 ; \n  kb            Keep broken extracted files
 ;
 MSG_MCHelpSwLog
@@ -396,7 +396,7 @@ MSG_MCHelpSwMT
 ; \n  mt<threads>   Set the number of threads
 ;
 MSG_MCHelpSwN
-\n  n<file>       Filtri addizionali inclusi file
+\n  n<file>       Filtra inoltre i file inclusi
 ; \n  n<file>       Additionally filter included files
 ;
 MSG_MCHelpSwNa
@@ -404,7 +404,7 @@ MSG_MCHelpSwNa
 ; \n  n@            Read additional filter masks from stdin
 ;
 MSG_MCHelpSwNal
-\n  n@<list>      Leggi maschere filtro addizionali dalla lista file
+\n  n@<list>      Leggi maschere filtro addizionali dall'elenco file
 ; \n  n@<list>      Read additional filter masks from list file
 ;
 MSG_MCHelpSwO
@@ -444,7 +444,7 @@ MSG_MCHelpSwOW
 ; \n  ow            Save or restore file owner and group
 ;
 MSG_MCHelpSwP
-\n  p[password]   Imposta password
+\n  p[password]   Imposta una password
 ; \n  p[password]   Set password
 ;
 MSG_MCHelpSwPm
@@ -560,7 +560,7 @@ MSG_MCHelpSwVD
 ; \n  vd            Erase disk contents before creating volume
 ;
 MSG_MCHelpSwVER
-\n  ver[n]        Controllo versione del file
+\n  ver[n]        Controlla versione del file
 ; \n  ver[n]        File version control
 ;
 MSG_MCHelpSwVN
@@ -584,7 +584,7 @@ MSG_MCHelpSwXa
 ; \n  x@            Read file names to exclude from stdin
 ;
 MSG_MCHelpSwXal
-\n  x@<list>      Escludi file da una lista file specifica
+\n  x@<list>      Escludi file da un elenco dei file specifico
 ; \n  x@<list>      Exclude files listed in specified list file
 ;
 MSG_MCHelpSwY
@@ -600,11 +600,11 @@ MSG_MBadArc
 ; \nERROR: Bad archive %s\n
 ;
 MSG_MAskPsw
-Inserisci password (non verrà mostrata)
+\nInserisci una password (non verrà mostrata)
 ; Enter password (will not be echoed)
 ;
 MSG_MAskPswFor
-Inserisci password (non verrà mostrata) per %s: 
+\nInserisci una password (non verrà mostrata) per %s: 
 ; \nEnter password (will not be echoed) for %s: 
 ;
 MSG_MReAskPsw
@@ -1400,7 +1400,7 @@ MSG_MSHelpCmdT
 ; \n  -t      Test archive files
 ;
 MSG_MSHelpCmdV
-\n  -v      Lista verbosa dei contenuti dell'archivio
+\n  -v      Elenco verboso dei contenuti dell'archivio
 ; \n  -v      Verbosely list contents of archive
 ;
 MSG_MRecVolLimit
@@ -1444,7 +1444,7 @@ MSG_MUnkEncMethod
 ; \nUnknown encryption method in %s
 ;
 MSG_MWrongPassword
-\nLa password specificata non è corretta\n
+\nLa password specificata non è corretta!\n
 ; \nThe specified password is incorrect.
 ;
 MSG_MWrongFilePassword
@@ -1528,6 +1528,5 @@ MSG_MUseSmalllerDict
 ; \nPlease use a smaller compression dictionary.
 ;
 MSG_MAmigaPortBy
-\nPort su %s a cura di Marcin Labenski\n
+\nPorting su %s a cura di Marcin Labenski\n
 ; \n%s port by Marcin Labenski\n
-;
