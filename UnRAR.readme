@@ -6,8 +6,8 @@ Version: 5.80
 Architecture: ppc-amigaos >=4.1; ppc-morphos >=3; m68k-amigaos >=2.0; i386-aros
 Distribution: aminet
 
-This is UnRAR port for MorphOS, AROS AmigaOS4, AmigaOS3 and AmigaOS2 based on
-source code version 5.8.5.
+This is UnRAR port for MorphOS, AmigaOS and AROS based on source code 
+version 5.8.5.
 
 UnRAR license is available in license.txt file in this archive.
 This port uses also code from newlib 3.1.0, utf8proc, libnix and iconv.
@@ -47,7 +47,7 @@ History:
 
 5.80:
 * based on unrar source code 5.8.5
-* added support for AROS (i386) and AmigaOS3
+* added support for AROS (i386), AmigaOS3 and AmigaOS2
 * added support for large files (>4GiB) on MorphOS and AmigaOS4
 * Italian locale added
 
