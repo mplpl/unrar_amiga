@@ -1,4 +1,4 @@
-# Port of unrar for MorphOS, AROS, AmigaOS4, AmigaOS3 and AmigaOS2
+# Port of unrar for MorphOS, AmigaOS and AROS
 
 Note: Automatic test package for this unrar port is available at https://github.com/mplpl/unrar_test
 
