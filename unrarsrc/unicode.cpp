@@ -789,4 +789,3 @@ bool LocalToWide(const char *Src,wchar *Dest,size_t DestSize)
   return UtfToWide(buf, Dest, DestSize);
 }
 
-#endif

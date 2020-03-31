@@ -380,3 +380,4 @@
 #define   MDictOutMem        L"\nNot enough memory for %d MB compression dictionary, changed to %d MB."
 #define   MUseSmalllerDict   L"\nPlease use a smaller compression dictionary."
 #define   MAmigaPortBy       L"\n%s port by Marcin Labenski\n"
+#define   MOpenErrAtime      L"\nYou may need to remove -tsp switch to open this file."
