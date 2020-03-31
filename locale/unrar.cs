@@ -1,4 +1,4 @@
-## Version $VER: xxxxxx.catalog 1.00 (05.01.2020)
+## Version $VER: xxxxxx.catalog 1.00 (31.03.2020)
 ## Languages english
 ## Codeset english 0
 ## SimpleCatConfig CharsPerLine 200
@@ -1148,3 +1148,6 @@ MSG_MUseSmalllerDict
 ;
 MSG_MAmigaPortBy
 \n%s port by Marcin Labenski\n
+;
+MSG_MOpenErrAtime
+\nYou may need to remove -tsp switch to open this file.

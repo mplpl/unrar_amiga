@@ -1144,3 +1144,6 @@ MSG_MUseSmalllerDict (//)
 ;
 MSG_MAmigaPortBy (//)
 \n%s port by Marcin Labenski\n
+;
+MSG_MOpenErrAtime (//)
+\nYou may need to remove -tsp switch to open this file.
