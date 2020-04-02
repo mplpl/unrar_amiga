@@ -1,8 +1,8 @@
 #include "rar.hpp"
 
 #ifdef _AMIGA
-size_t __stack  = 400000;
-static const char __attribute((used)) min_stack[] = "$STACK:400000";
+size_t __stack  = 800000;
+static const char __attribute((used)) min_stack[] = "$STACK:800000";
 #define Q(x) #x
 #define QUOTE(x) Q(x)
 static const char __attribute((used)) vers[] = "\\0$VER: UnRAR "
