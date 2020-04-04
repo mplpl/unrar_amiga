@@ -3,6 +3,7 @@
 #ifdef _AMIGA
 #include <iconv.h>
 #include <utf8proc.h>
+int iconv_conversion_error = 0;
 #endif
 
 #define MBFUNCTIONS
@@ -688,6 +689,17 @@ const char *GetCodePage()
   return (rar_codepage)?rar_codepage:(codepage)?codepage:DEFAULT_CODEPAGE;
 }
 
+const wchar_t *GetCodePageW()
+{
+  static wchar_t *rar_codepage = 0;
+  if (!rar_codepage) 
+  {
+    rar_codepage = (wchar *)malloc(256);
+    swprintf(rar_codepage, 255, L"%s", GetCodePage());
+  }
+  return rar_codepage;
+}
+
 
 bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
 {
@@ -720,6 +732,7 @@ bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
   while (iconv(convBase, &inPtr, &inSize, &outPtr, &outSize) == (size_t)-1)
   {
     if (!outSize || !inSize) break;
+    iconv_conversion_error = 1;
     *outPtr = '?';
     outPtr++;
     outSize--;
@@ -777,6 +790,7 @@ bool LocalToWide(const char *Src,wchar *Dest,size_t DestSize)
   while (iconv(convBase, &inPtr, &inSize, &outPtr, &outSize) == (size_t)-1)
   {
     if (!outSize || !inSize) break;
+    iconv_conversion_error = 1;
     *outPtr = '?';
     outPtr++;
     outSize--;
