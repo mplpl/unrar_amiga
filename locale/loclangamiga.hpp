@@ -385,3 +385,5 @@
 #define MDictOutMem GetWString(MSG_MDictOutMem)
 #define MUseSmalllerDict GetWString(MSG_MUseSmalllerDict)
 #define MAmigaPortBy GetWString(MSG_MAmigaPortBy)
+#define MOpenErrAtime GetWString(MSG_MOpenErrAtime)
+#define MAmigaEncodingErr GetWString(MSG_MAmigaEncodingErr)

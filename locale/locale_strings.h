@@ -420,8 +420,10 @@
 #define MSG_MDictOutMem 379
 #define MSG_MUseSmalllerDict 380
 #define MSG_MAmigaPortBy 381
+#define MSG_MOpenErrAtime 382
+#define MSG_MAmigaEncodingErr 383
 
-#define CATCOMP_LASTID 381
+#define CATCOMP_LASTID 383
 
 #endif /* CATCOMP_NUMBERS */
 
@@ -813,6 +815,8 @@
 #define MSG_MDictOutMem_STR "\nNot enough memory for %d MB compression dictionary, changed to %d MB."
 #define MSG_MUseSmalllerDict_STR "\nPlease use a smaller compression dictionary."
 #define MSG_MAmigaPortBy_STR "\n%s port by Marcin Labenski\n"
+#define MSG_MOpenErrAtime_STR "\nYou may need to remove -tsp switch to open this file."
+#define MSG_MAmigaEncodingErr_STR "WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding."
 
 #endif /* CATCOMP_STRINGS */
 
@@ -1212,6 +1216,8 @@ static const struct CatCompArrayType CatCompArray[] =
     {MSG_MDictOutMem,(STRPTR)MSG_MDictOutMem_STR},
     {MSG_MUseSmalllerDict,(STRPTR)MSG_MUseSmalllerDict_STR},
     {MSG_MAmigaPortBy,(STRPTR)MSG_MAmigaPortBy_STR},
+    {MSG_MOpenErrAtime,(STRPTR)MSG_MOpenErrAtime_STR},
+    {MSG_MAmigaEncodingErr,(STRPTR)MSG_MAmigaEncodingErr_STR},
 };
 
 #endif /* CATCOMP_ARRAY */
@@ -1915,15 +1921,15 @@ static const char CatCompBlock[] =
     "\x00\x00\x01\x58\x00\x1A"
     MSG_MCannotEmail_STR "\x00"
     "\x00\x00\x01\x59\x00\x12"
-    MSG_MCopyrightS_STR "\x00"
+    MSG_MCopyrightS_STR "\x00\x00"
     "\x00\x00\x01\x5A\x00\x0E"
-    MSG_MSHelpCmd_STR "\x00"
-    "\x00\x00\x01\x5B\x00\x2C"
-    MSG_MSHelpCmdE_STR "\x00\x00"
-    "\x00\x00\x01\x5C\x00\x20"
-    MSG_MSHelpCmdT_STR "\x00\x00"
-    "\x00\x00\x01\x5D\x00\x30"
-    MSG_MSHelpCmdV_STR "\x00\x00"
+    MSG_MSHelpCmd_STR "\x00\x00"
+    "\x00\x00\x01\x5B\x00\x2A"
+    MSG_MSHelpCmdE_STR "\x00"
+    "\x00\x00\x01\x5C\x00\x1E"
+    MSG_MSHelpCmdT_STR "\x00"
+    "\x00\x00\x01\x5D\x00\x2E"
+    MSG_MSHelpCmdV_STR "\x00"
     "\x00\x00\x01\x5E\x00\x40"
     MSG_MRecVolLimit_STR "\x00\x00"
     "\x00\x00\x01\x5F\x00\x0A"
@@ -1988,6 +1994,10 @@ static const char CatCompBlock[] =
     MSG_MUseSmalllerDict_STR "\x00"
     "\x00\x00\x01\x7D\x00\x1E"
     MSG_MAmigaPortBy_STR "\x00\x00"
+    "\x00\x00\x01\x7E\x00\x38"
+    MSG_MOpenErrAtime_STR "\x00\x00"
+    "\x00\x00\x01\x7F\x00\xC8"
+    MSG_MAmigaEncodingErr_STR "\x00\x00"
 };
 
 #endif /* CATCOMP_BLOCK */

@@ -21,6 +21,7 @@ https://github.com/mplpl/unrar_amiga
 
 Polish locale made by Marcin Labenski.
 Italian locale made by Samir Hawamdeh.
+Russian locale made by Mikhail Malyshev.
 
 
 Requirements
@@ -44,6 +45,8 @@ my test archive with one 2.0GB file in it, needs 32MB of RAM to unpack.
 
 History:
 ========
+5.80 next:
+* Russian locale added
 
 5.80:
 * based on unrar source code 5.8.5
@@ -89,7 +92,7 @@ unrar_mos             - unrar version for MorphOS 3
 unrar_aos4            - unrar version for AmigaOS 4.1
 unrar_aros            - unrar version for AROS i386
 unrar_aos             - unrar version for AmigaOS3 and AmigaOS2
-catalogs              - unrar translations (Polish and Italian)
+catalogs              - unrar translations
 license.txt           - UnRAR license
 license_newlib.txt    - newlib license
 license_utf8proc.txt  - utf8proc license
@@ -136,11 +139,7 @@ AmigaOS2.0 (no support for locale):
 copy unrar_aos to c:unrar
 
 
-Note 1: if you have Polish or Italian locale set and you don't like included
-Polish/Italian translation, do not copy it to locale: and you will get
-English only version.
-
-Note 2: on AmigaOS3 and AmigaOS2.1 Polish translation uses ISO-8859-2 encoding
+Note: on AmigaOS3 and AmigaOS2.1 Polish translation uses ISO-8859-2 encoding
 (not AmigaPL!).
 
 

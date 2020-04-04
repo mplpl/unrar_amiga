@@ -171,18 +171,21 @@ void AddEndSlash(wchar *Path,size_t MaxLength)
 {
   size_t Length=wcslen(Path);
 #ifdef _AMIGA
-  if (Length>0 && Path[Length-1]!=CPATHDIVIDER && \
+  if (Length>0 && Path[Length-1]!=CPATHDIVIDER && Length+1<MaxLength && \
     !IsDriveDiv(Path[Length-1]))
 #else
-  if (Length>0 && Path[Length-1]!=CPATHDIVIDER)
+  if (Length>0 && Path[Length-1]!=CPATHDIVIDER && Length+1<MaxLength)
 #endif
-    wcsncatz(Path,SPATHDIVIDER,MaxLength);
+  {
+    Path[Length]=CPATHDIVIDER;
+    Path[Length+1]=0;
+  }
 }
 
 
 void MakeName(const wchar *Path,const wchar *Name,wchar *Pathname,size_t MaxSize)
 {
-  // 'Name' and 'Pathname' can point to same memory area. This is why we use
+  // 'Path', 'Name' and 'Pathname' can point to same memory area. So we use
   // the temporary buffer instead of constructing the name in 'Pathname'.
   wchar OutName[NM];
   wcsncpyz(OutName,Path,ASIZE(OutName));

@@ -1,8 +1,8 @@
 #include "rar.hpp"
 
 #ifdef _AMIGA
-size_t __stack  = 400000;
-static const char __attribute((used)) min_stack[] = "$STACK:400000";
+size_t __stack  = 800000;
+static const char __attribute((used)) min_stack[] = "$STACK:800000";
 #define Q(x) #x
 #define QUOTE(x) Q(x)
 static const char __attribute((used)) vers[] = "\\0$VER: UnRAR "
@@ -136,6 +136,15 @@ int main(int argc, char *argv[])
     Shutdown(ShutdownOnClose);
 #endif
 #ifdef _AMIGA
+  
+  extern int iconv_conversion_error;
+  extern const wchar_t *GetCodePageW();
+  if (iconv_conversion_error) 
+  {
+    mprintf(St(MAmigaEncodingErr), GetCodePageW());
+    mprintf(L"\n\n");
+  }
+  
   Locale_Close();
 #endif
   ErrHandler.MainExit=true;
