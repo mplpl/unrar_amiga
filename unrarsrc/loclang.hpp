@@ -381,4 +381,5 @@
 #define   MUseSmalllerDict   L"\nPlease use a smaller compression dictionary."
 #define   MAmigaPortBy       L"\n%s port by Marcin Labenski\n"
 #define   MOpenErrAtime      L"\nYou may need to remove -tsp switch to open this file."
-#define   MAmigaEncodingErr  L"WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding."
+#define   MAmigaConvErr      L"WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding."
+#define   MAmigaConvInitErr  L"WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable."

@@ -4,6 +4,7 @@
 #include <iconv.h>
 #include <utf8proc.h>
 int iconv_conversion_error = 0;
+int iconv_open_error = 0;
 #endif
 
 #define MBFUNCTIONS
@@ -713,6 +714,7 @@ bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
   iconv_t convBase=iconv_open(GetCodePage(), "UTF-8");
   if (convBase == (iconv_t)-1)
   {
+	iconv_open_error = 1;
     convBase=iconv_open(DEFAULT_CODEPAGE, "UTF-8");
     if (convBase == (iconv_t)-1)
     {
@@ -771,6 +773,7 @@ bool LocalToWide(const char *Src,wchar *Dest,size_t DestSize)
   iconv_t convBase=iconv_open("UTF-8", GetCodePage());
   if (convBase == (iconv_t)-1)
   {
+	iconv_open_error = 1;
     convBase=iconv_open("UTF-8", DEFAULT_CODEPAGE);
     if (convBase == (iconv_t)-1)
     {

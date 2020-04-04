@@ -137,11 +137,18 @@ int main(int argc, char *argv[])
 #endif
 #ifdef _AMIGA
   
-  extern int iconv_conversion_error;
+  extern int iconv_conversion_error, iconv_open_error;
   extern const wchar_t *GetCodePageW();
-  if (iconv_conversion_error) 
+  if (iconv_open_error)
   {
-    mprintf(St(MAmigaEncodingErr), GetCodePageW());
+    mprintf(L"\n");
+    mprintf(St(MAmigaConvInitErr), GetCodePageW());
+    mprintf(L"\n\n");
+  }
+  else if (iconv_conversion_error) 
+  {
+    mprintf(L"\n");
+    mprintf(St(MAmigaConvErr), GetCodePageW());
     mprintf(L"\n\n");
   }
   
