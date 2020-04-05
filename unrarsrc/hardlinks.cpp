@@ -2,51 +2,6 @@
 #define __USE_INLINE__
 #include <proto/dos.h>
 
-void UnixPathToAmiga(const char *upath, char *apath)
-{
-  // this function translates unix path into amiga path
-  // it does the following transformations:
-  // 1) trailing '/' is replaced with ':'
-  // 2) each '../' substring is replaced with '/'
-  // 3) remove './' when there is just one '.'
-  
-  int a = 0;  // amiga pointer
-  int u = 0;  // unix pointer 
-  while (upath[u])
-  {
-    if (u == 0 && upath[0] ==  '/')
-    {
-      apath[0] = ':';
-    }
-    else if (upath[u] == '.' && upath[u+1] == '.' && upath[u+2] == '/')
-    {
-      apath[a] = '/';
-      u += 2;
-    }
-    else if (upath[u] == '.' && upath[u+1] == '/')
-    {
-      u++;
-    }
-    else if (upath[u] == '/')
-    {
-      apath[a] = '/';
-    }
-    else
-    {
-      apath[a] = upath[u];
-    }
-    // skip all repeated '/'
-    if (upath[u] == '/')
-    {
-      while (upath[u+1] == '/') u++;
-    }
-    u++;
-    a++;
-  }
-  apath[a] = 0;
-}
-
-
 LONG SetFileModificationTime(const char *path, RarTime *ftm)
 {
   if (ftm && ftm->IsSet())
