@@ -136,22 +136,21 @@ int main(int argc, char *argv[])
     Shutdown(ShutdownOnClose);
 #endif
 #ifdef _AMIGA
-  
-  extern int iconv_conversion_error, iconv_open_error;
-  extern const wchar_t *GetCodePageW();
-  if (iconv_open_error)
+
+  if (iconvOpenError)
   {
     mprintf(L"\n");
     mprintf(St(MAmigaConvInitErr), GetCodePageW());
     mprintf(L"\n\n");
   }
-  else if (iconv_conversion_error) 
+  else if (iconvConversionError)
   {
     mprintf(L"\n");
     mprintf(St(MAmigaConvErr), GetCodePageW());
     mprintf(L"\n\n");
   }
-  
+
+  ReleaseConvBase();
   Locale_Close();
 #endif
   ErrHandler.MainExit=true;

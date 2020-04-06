@@ -24,7 +24,7 @@ LDFLAGS=-L../utf8proc -L../wstdio -L../locale -noixemul
 LIBS= -lutf8proc -lwstdio -lunrarlocale
 DESTDIR=/usr
 AMIGA=1
-AMIGA_OBJECTS=amiga.cpp
+AMIGA_OBJECTS=amiga.o
 endif
 
 ifeq ($(PLATFORM),AmigaOS4)
@@ -38,7 +38,7 @@ LDFLAGS=-L../utf8proc -L../wstdio -L../locale -noixemul
 LIBS= -lutf8proc -lwstdio -lunrarlocale
 DESTDIR=/usr
 AMIGA=1
-AMIGA_OBJECTS=amiga.cpp
+AMIGA_OBJECTS=amiga.o
 endif
 
 ifeq ($(PLATFORM),AROS)
@@ -52,7 +52,7 @@ LDFLAGS=-L../utf8proc -L../wstdio -L../locale
 LIBS= -lutf8proc -lwstdio -lunrarlocale -liconv
 DESTDIR=/usr
 AMIGA=1
-AMIGA_OBJECTS=amiga.cpp
+AMIGA_OBJECTS=amiga.o
 endif
 
 ifeq ($(PLATFORM),AmigaOS3)
@@ -66,7 +66,7 @@ LDFLAGS=-L../utf8proc -L../wstdio -L../locale -L../wstdio/amigaos3
 LIBS= -lutf8proc -lwstdio -lunrarlocale -liconv
 DESTDIR=/usr
 AMIGA=1
-AMIGA_OBJECTS=amiga.cpp
+AMIGA_OBJECTS=amiga.o
 endif
 
 ifeq ($(AMIGA),)
