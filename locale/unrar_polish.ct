@@ -1529,3 +1529,16 @@ MSG_MUseSmalllerDict
 MSG_MAmigaPortBy
 \nWersja dla %s przygotowana przez Marcina £abeñskiego\n
 ; \n%s port by Marcin Labenski\n
+;
+MSG_MOpenErrAtime
+\nUsuñ -tsp aby otworzyæ ten plik.
+; \nYou may need to remove -tsp switch to open this file.
+;
+MSG_MAmigaConvErr
+UWAGA: niektóre znaki u¿yte w nazwach plików w tym archiwum nie mog³y zostaæ skonwertowane poniewa¿ nie wystêpuj± w kodowaniu %s. Ustaw w³a¶ciwe kodowanie jako warto¶æ zmiennej ¶rodowiskowej o nazwie \
+RAR_CODEPAGE. 
+; WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding.
+;
+MSG_MAmigaConvInitErr
+UWAGA: Kodowanie znaków %s nie jest obs³ugiwane. Ustaw w³a¶ciwe kodowanie jako warto¶æ zmiennej ¶rodowiskowej o nazwie RAR_CODEPAGE. 
+; WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable.
