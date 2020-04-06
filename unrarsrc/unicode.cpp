@@ -1,13 +1,6 @@
 #include "rar.hpp"
 #include "unicode.hpp"
 
-#ifdef _AMIGA
-//#include <iconv.h>
-//#include <utf8proc.h>
-//int iconv_conversion_error = 0;
-//int iconv_open_error = 0;
-#endif
-
 #define MBFUNCTIONS
 
 #if defined(_UNIX) && defined(MBFUNCTIONS)
@@ -673,4 +666,5 @@ char* SupportDBCS::strrchrd(const char *s, int c)
   return((char *)found);
 }
 #endif
+
 

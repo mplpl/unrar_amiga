@@ -136,7 +136,6 @@ int main(int argc, char *argv[])
     Shutdown(ShutdownOnClose);
 #endif
 #ifdef _AMIGA
-
   if (iconvOpenError)
   {
     mprintf(L"\n");
