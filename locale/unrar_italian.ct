@@ -1,7 +1,9 @@
-## version $VER: UnRAR.catalog 5.80 (20.01.2020)
+## version $VER: UnRAR.catalog 5.92 (6.04.2020)
 ## codeset 0
 ## language italiano
 ## chunk AUTH Translated by Samir Hawamdeh (http://www.betatesting.it/backforthefuture)
+;
+; flexcat UnRAR.cd UnRAR_italian.ct catalog=UnRAR.catalog
 ;
 MSG_MYesNo
 _Si_No
@@ -1460,11 +1462,11 @@ MSG_MBlocksRecovered
 ; \n%u blocks are recovered, %u blocks are relocated
 ;
 MSG_MRRDamaged
-\nRecord di recupero corrotto
+\nRecord recuperato corrotto
 ; \nRecovery record is corrupt.
 ;
 MSG_MTestingRR
-\nTest del record di recupero
+\nTest di recupero del record
 ; \nTesting the recovery record
 ;
 MSG_MFailed
@@ -1496,7 +1498,7 @@ MSG_MCopyError
 ; \nCannot copy %s to %s.
 ;
 MSG_MCopyErrorHint
-\nPer creare delle voci di riferimento del file è necessario scompattare l'intero archivio
+\nPer creare delle voci di riferimento del file è necessario scompattare l'archivio interamente
 ; \nYou need to unpack the entire archive to create file reference entries.
 ;
 MSG_MCopyingData
@@ -1530,3 +1532,16 @@ MSG_MUseSmalllerDict
 MSG_MAmigaPortBy
 \nPorting su %s a cura di Marcin Labenski\n
 ; \n%s port by Marcin Labenski\n
+;
+MSG_MOpenErrAtime
+\nPotresti aver bisogno di rimuovere lo switch -tsp per aprire questo file
+; \nYou may need to remove -tsp switch to open this file.
+;
+MSG_MAmigaConvErr
+ATTENZIONE: Alcuni caratteri usati nei nomi dei file di questo archivio non sono stati convertiti perchè non disponibili nella codifica %s. Imposta la variabile d'ambiente RAR_CODEPAGE per selezionare la codifica corretta
+; WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding.
+;
+MSG_MAmigaConvInitErr
+ATTENZIONE: La codifica %s non è supportata. Seleziona una codifica differente impostando la variabile d'ambiente RAR_CODEPAGE
+; WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable.
+;
