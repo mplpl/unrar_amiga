@@ -11,8 +11,15 @@ iconv_t convBaseToUtf8 = 0;
 
 #define DEFAULT_CODEPAGE "ISO-8859-1"
 #define CENTRAL_EUROPE_CODEPAGE "ISO-8859-2"
+#define ALT_CENTRAL_EUROPE_CODEPAGE "ISO-8859-16"
+#define MALTESE_CODEPAGE "ISO-8859-3"
 #define CYRILIC_CODEPAGE "Windows-1251"
+#define ALT_CYRILIC_CODEPAGE "ISO-8859-5"
 #define GREEK_CODEPAGE "ISO-8859-7"
+#define HEBREW_CODEPAGE "ISO-8859-8"
+#define TURKISH_CODEPAGE "ISO-8859-9"
+#define BALTIC_CODEPAGE "ISO-8859-13"
+#define THAI_CODEPAGE "TIS-620"
 
 
 const char *DetectCodePage()
@@ -27,20 +34,58 @@ const char *DetectCodePage()
       strcmp(lang, "slovak") == 0 ||
       strcmp(lang, "slovensko") == 0 ||
       strcmp(lang, "srpski") == 0 ||
-      strcmp(lang, "romana") == 0) {
-    
+      strcmp(lang, "bosanski") == 0)
+  {
     return CENTRAL_EUROPE_CODEPAGE;
-    }
+  }
+
+  if (strcmp(lang, "romanian") == 0)
+  {
+    return ALT_CENTRAL_EUROPE_CODEPAGE;
+  }
     
-  if (strcmp(lang, "russian") == 0 ||
-      strcmp(lang, "ukrainian") == 0 ||
-      strcmp(lang, "bulgarian") == 0 ||
-      strcmp(lang, "belarusian") == 0) {
+  if (strcmp(lang, "russian") == 0)
+  {
     return CYRILIC_CODEPAGE;
   }
   
+  if (strcmp(lang, "ukrainian") == 0 ||
+      strcmp(lang, "bulgarian") == 0 ||
+      strcmp(lang, "belarusian") == 0 ||
+      strcmp(lang, "macedonian") == 0
+      ) {
+    return ALT_CYRILIC_CODEPAGE;
+  }
+
   if (strcmp(lang, "greek") == 0) {
     return GREEK_CODEPAGE;
+  }
+
+  if (strcmp(lang, "hebrew") == 0) {
+    return HEBREW_CODEPAGE;
+  }
+
+  if (strcmp(lang, "estonian") == 0 ||
+      strcmp(lang, "latvian") == 0 ||
+      strcmp(lang, "lithuanian") == 0)
+  {
+    return BALTIC_CODEPAGE;
+  }
+
+  if (strcmp(lang, "maltese") == 0 ||
+      strcmp(lang, "esperanto") == 0)
+  {
+    return MALTESE_CODEPAGE;
+  }
+
+  if (strcmp(lang, "türkçe") == 0)
+  {
+    return TURKISH_CODEPAGE;
+  }
+
+  if (strcmp(lang, "thai") == 0)
+  {
+    return THAI_CODEPAGE;
   }
   
   return DEFAULT_CODEPAGE;
@@ -58,7 +103,11 @@ const char *GetCodePage()
 #else
   static char *codepage = getenv("CODEPAGE");
 #endif
-  return (rar_codepage)?rar_codepage:(codepage)?codepage:DetectCodePage();
+
+  if (rar_codepage) return rar_codepage;         // use code page set explicitely
+  if (codepage) return codepage;                 // use code page set by OS
+  static const char *detectedCodePage = DetectCodePage();
+  return detectedCodePage;                       // use detected code page based on language
 }
 
 
@@ -118,6 +167,27 @@ void ReleaseConvBase()
   }
 }
 
+#if defined(__amigaos4__)
+
+bool DetectConversionError(const char *utf8, const char *local)
+{
+  // iconv in AOS4 does not stop on wrong characters, but it
+  // replaces them with '?' and moves on
+  // because of that, I don't know if encoding is ok or not
+  // this function tries to detect that, by checking number of
+  // '?' in strings before and after conversion - it it does not
+  // match, there was an error in conversion
+
+  int marker1 = 0;
+  int marker2 = 0;
+  int i = -1;
+  while (utf8[++i]) if (utf8[i] == '?') marker1++;
+  i = -1;
+  while (local[++i]) if (local[i] == '?') marker2++;
+  return marker1 != marker2;
+}
+
+#endif
 
 bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
 {
@@ -177,7 +247,14 @@ bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
     if (!outSize || !inSize) break;
   }
   *outPtr = 0;
-  //iconv_close(convBase);
+
+#if defined(__amigaos4__)
+  if (DetectConversionError((const char *)lineBufNorm, Dest))
+  {
+    iconvConversionError = 1;
+  }
+#endif
+
   free(lineBufNorm);
 
   return true;
@@ -215,7 +292,13 @@ bool LocalToWide(const char *Src,wchar *Dest,size_t DestSize)
     if (!outSize || !inSize) break;
   }
   *outPtr = 0;
-  //iconv_close(convBase);
+
+#if defined(__amigaos4__)
+  if (DetectConversionError(buf, Src))
+  {
+    iconvConversionError = 1;
+  }
+#endif
 
   // convert to wide Unicode
   return UtfToWide(buf, Dest, DestSize);
