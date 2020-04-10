@@ -10,6 +10,42 @@ iconv_t convBaseFromUtf8 = 0;
 iconv_t convBaseToUtf8 = 0;
 
 #define DEFAULT_CODEPAGE "ISO-8859-1"
+#define CENTRAL_EUROPE_CODEPAGE "ISO-8859-2"
+#define CYRILIC_CODEPAGE "Windows-1251"
+#define GREEK_CODEPAGE "ISO-8859-7"
+
+
+const char *DetectCodePage()
+{
+  char *lang = getenv("Language");
+  if (!lang) return DEFAULT_CODEPAGE;
+  
+  if (strcmp(lang, "polski") == 0 ||
+      strcmp(lang, "czech") == 0 ||
+      strcmp(lang, "hrvatski") == 0 ||
+      strcmp(lang, "magyar") == 0 ||
+      strcmp(lang, "slovak") == 0 ||
+      strcmp(lang, "slovensko") == 0 ||
+      strcmp(lang, "srpski") == 0 ||
+      strcmp(lang, "romana") == 0) {
+    
+    return CENTRAL_EUROPE_CODEPAGE;
+    }
+    
+  if (strcmp(lang, "russian") == 0 ||
+      strcmp(lang, "ukrainian") == 0 ||
+      strcmp(lang, "bulgarian") == 0 ||
+      strcmp(lang, "belarusian") == 0) {
+    return CYRILIC_CODEPAGE;
+  }
+  
+  if (strcmp(lang, "greek") == 0) {
+    return GREEK_CODEPAGE;
+  }
+  
+  return DEFAULT_CODEPAGE;
+  
+}
 
 
 const char *GetCodePage()
@@ -22,7 +58,7 @@ const char *GetCodePage()
 #else
   static char *codepage = getenv("CODEPAGE");
 #endif
-  return (rar_codepage)?rar_codepage:(codepage)?codepage:DEFAULT_CODEPAGE;
+  return (rar_codepage)?rar_codepage:(codepage)?codepage:DetectCodePage();
 }
 
 
