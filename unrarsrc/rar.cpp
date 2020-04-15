@@ -7,7 +7,7 @@ static const char __attribute((used)) min_stack[] = "$STACK:800000";
 #define QUOTE(x) Q(x)
 static const char __attribute((used)) vers[] = "\\0$VER: UnRAR "
 		QUOTE(RARVER_MAJOR)"."QUOTE(RARVER_MINOR)
-        " (19.1.2020)";
+        " (15.4.2020)";
 
 #include <proto/exec.h>
 int Check_Stack()
