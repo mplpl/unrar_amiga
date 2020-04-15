@@ -84,7 +84,7 @@ MSG_MUNRARTitle1 (//)
 \nUsage:     unrar <command> -<switch 1> -<switch N> <archive> <files...>
 ;
 MSG_MRARTitle2 (//)
-\n               <@listfiles...> <path_to_extract\\>
+\n               <@listfiles...> <path_to_extract/>
 ;
 MSG_MCHelpCmd (//)
 \n\n<Commands>

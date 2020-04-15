@@ -1,4 +1,4 @@
-## Version $VER: xxxxxx.catalog 1.00 (04.04.2020)
+## Version $VER: xxxxxx.catalog 1.00 (15.04.2020)
 ## Languages english
 ## Codeset english 0
 ## SimpleCatConfig CharsPerLine 200
@@ -88,7 +88,7 @@ MSG_MUNRARTitle1
 \nUsage:     unrar <command> -<switch 1> -<switch N> <archive> <files...>
 ;
 MSG_MRARTitle2
-\n               <@listfiles...> <path_to_extract\\>
+\n               <@listfiles...> <path_to_extract/>
 ;
 MSG_MCHelpCmd
 \n\n<Commands>

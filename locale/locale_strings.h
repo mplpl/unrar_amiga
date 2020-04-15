@@ -462,7 +462,7 @@
 #define MSG_MMonthDec_STR "Dec"
 #define MSG_MRARTitle1_STR "\nUsage:     rar <command> -<switch 1> -<switch N> <archive> <files...>"
 #define MSG_MUNRARTitle1_STR "\nUsage:     unrar <command> -<switch 1> -<switch N> <archive> <files...>"
-#define MSG_MRARTitle2_STR "\n               <@listfiles...> <path_to_extract\\>"
+#define MSG_MRARTitle2_STR "\n               <@listfiles...> <path_to_extract/>"
 #define MSG_MCHelpCmd_STR "\n\n<Commands>"
 #define MSG_MCHelpCmdA_STR "\n  a             Add files to archive"
 #define MSG_MCHelpCmdC_STR "\n  c             Add archive comment"

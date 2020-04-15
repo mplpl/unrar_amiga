@@ -26,7 +26,7 @@
 #define   MMonthDec          L"Dec"
 #define   MRARTitle1         L"\nUsage:     rar <command> -<switch 1> -<switch N> <archive> <files...>"
 #define   MUNRARTitle1       L"\nUsage:     unrar <command> -<switch 1> -<switch N> <archive> <files...>"
-#define   MRARTitle2         L"\n               <@listfiles...> <path_to_extract\\>"
+#define   MRARTitle2         L"\n               <@listfiles...> <path_to_extract/>"
 #define   MCHelpCmd          L"\n\n<Commands>"
 #define   MCHelpCmdA         L"\n  a             Add files to archive"
 #define   MCHelpCmdC         L"\n  c             Add archive comment"
