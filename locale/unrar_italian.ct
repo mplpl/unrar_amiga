@@ -1,4 +1,4 @@
-## version $VER: UnRAR.catalog 5.92 (6.04.2020)
+## version $VER: UnRAR.catalog 5.92 (16.04.2020)
 ## codeset 0
 ## language italiano
 ## chunk AUTH Translated by Samir Hawamdeh (http://www.betatesting.it/backforthefuture)
@@ -118,8 +118,8 @@ MSG_MUNRARTitle1
 ; \nUsage:     unrar <command> -<switch 1> -<switch N> <archive> <files...>
 ;
 MSG_MRARTitle2
-\n                <@elencofile...> <percorso_da_estrarre\\>
-; \n               <@listfiles...> <path_to_extract\\>
+\n                <@elencofile...> <percorso_da_estrarre/>
+; \n               <@listfiles...> <path_to_extract/>
 ;
 MSG_MCHelpCmd
 \n\n<Comandi>
@@ -218,7 +218,7 @@ MSG_MCHelpSw
 ; \n\n<Switches>
 ;
 MSG_MCHelpSwm
-\n  -             Stoppa scansione switches
+\n  -             Stoppa scansione degli switch
 ; \n  -             Stop switches scanning
 ;
 MSG_MCHelpSwAT
@@ -622,11 +622,11 @@ Errore di scrittura nel file %s
 ; Write error in the file %s
 ;
 MSG_MErrRead
- Errore di lettura nel file %s
+Errore di lettura nel file %s
 ; Read error in the file %s
 ;
 MSG_MErrSeek
- Errore seek nel file %s
+Errore seek nel file %s
 ; Seek error in the file %s
 ;
 MSG_MErrFClose
@@ -1178,7 +1178,7 @@ MSG_MRprNoFiles
 ; \nNo files found
 ;
 MSG_MLogUnexpEOF
-\nInaspettata fine dell'archivio
+\nFine inaspettata dell'archivio
 ; \nUnexpected end of archive
 ;
 MSG_MRepAskReconst
@@ -1366,7 +1366,7 @@ MSG_MNTFSRequired
 ; \nWrite error: only NTFS file system supports files larger than 4 GB
 ;
 MSG_MFAT32Size
-\nATTENZIONE: Il filesystem FAT32 non supporta file dalla dimensioni di 4 GB o più grandi
+\nATTENZIONE: Il filesystem FAT32 non supporta file della dimensioni di 4 GB o più grandi
 ; \nWARNING: FAT32 file system does not support 4 GB or larger files
 ;
 MSG_MErrChangeAttr
@@ -1474,7 +1474,7 @@ Fallito
 ; Failed
 ;
 MSG_MIncompatSwitch
-\n%s switch non è supportato dal formato di archiviazione RAR %d.x
+\nSwitch %s non supportato dal formato di archiviazione RAR %d.x
 ; \n%s switch is not supported for RAR %d.x archive format.
 ;
 MSG_MSearchDupFiles
