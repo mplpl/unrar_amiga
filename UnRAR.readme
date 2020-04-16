@@ -7,7 +7,7 @@ Architecture: ppc-amigaos >=4.1; ppc-morphos >=3; m68k-amigaos >=2.0; i386-aros
 Distribution: aminet
 
 This is UnRAR port for MorphOS, AmigaOS and AROS based on source code 
-version 5.8.5.
+version 5.9.2.
 
 UnRAR license is available in license.txt file in this archive.
 This port uses also code from newlib 3.1.0, utf8proc, libnix and iconv.
@@ -22,6 +22,7 @@ https://github.com/mplpl/unrar_amiga
 Polish locale made by Marcin Labenski.
 Italian locale made by Samir Hawamdeh.
 Russian locale made by Mikhail Malyshev.
+Spanish locale made by Javier de las Rivas.
 
 
 Requirements
@@ -45,8 +46,17 @@ my test archive with one 2.0GB file in it, needs 32MB of RAM to unpack.
 
 History:
 ========
-5.80 next:
+5.90:
+* based on unrar source code 5.9.2
 * Russian locale added
+* Spanish locale added
+* stack size increased to 800KB in order to handle unpacks using recovery 
+  volumes in rar3 format (it needs more memory)
+* unrar prints a warning when it finds chars not present in a target encoding
+* if Charset/CODEPAGE/RAR_CODEPAGE is not set, unrar tries to set encoding
+  based on Language variable
+* fixed issue with expecing rar path in POSIX format on AmigaOS 2 and 3
+* speed of display increased by optimizing iconv usage
 
 5.80:
 * based on unrar source code 5.8.5
@@ -134,12 +144,15 @@ AmigaOS3 and AmigaOS2.1:
 copy unrar_aos to c:unrar
 copy catalogs to locale:catalogs all
 
+NOTE: you may need RAR_CODEPAGE environment variable to the right value
+to see national characters (read below).
+
 AmigaOS2.0 (no support for locale):
 -----------------------------------
 copy unrar_aos to c:unrar
 
 
-Note: on AmigaOS3 and AmigaOS2.1 Polish translation uses ISO-8859-2 encoding
+NOTE: on AmigaOS3 and AmigaOS2.1 Polish translation uses ISO-8859-2 encoding
 (not AmigaPL!).
 
 
@@ -182,7 +195,15 @@ still not see Spanish characters (unless you have the right font) but at
 least you should get all the files unpacked.
 
 On AmigaOS3 and AmigaOS2, since there is no buit-in variable to determine
-system character encoding, you have to always use RAR_CODEPAGE.
+system character encoding, you have to always use RAR_CODEPAGE. To make it
+slightly simpler, if RAR_CODEPAGE is not set, unrar tries to set encoding 
+based on 'Language' environment variable.
+
+In addition to above, after each text conversion unrar checks if there were
+any unconvertable characters (that is, characters not present in the target
+encoding). If so, it will print a warning message, asking the user to 
+set RAR_CODEPAGE.
+
 
 National characters in file names
 ---------------------------------
@@ -356,9 +377,9 @@ Support for files >4GiB is currently not available on AROS, AmigaOS3 and
 Notes about porting
 ===================
 
-This port is based directly on unrar source code version 5.8.5
-(unrarsrc-5.8.5.tar.gz) from rarlab.com:
-https://www.rarlab.com/rar/unrarsrc-5.8.5.tar.gz
+This port is based directly on unrar source code version 5.9.2
+(unrarsrc-5.9.2.tar.gz) from rarlab.com:
+https://www.rarlab.com/rar/unrarsrc-5.9.2.tar.gz
 
 For normalizing UTF, I used utf8proc. I did not need to port it to Amiga
 - it compiles without any change:
