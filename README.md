@@ -53,7 +53,9 @@ RAR stores data in UTF-8 in an archive file, then reads it into Unicode (wchar_t
 
 Characters that cannot be converted, because are not present in selected codepage, are replaced with '?'. That means that national characters are fully supported but only for selected locale, i.e. if I have Polish locale with ISO-8859-2 encoding and have a rar archive with Spanish characters, they will not appear and will be replaced by '?'. That in turns mean that some files may have the same names even if they are different files. In that case only one will be unpacked. To deal with this, you can use special environment variable RAR_CODEPAGE that allows overriding codepage (for both MorphOS and AmigaOS4) without changing system prefs. For an example above, if you set RAR_CODEPAGE, you will still not see Spanish characters (unless you have the right font) but at least you should get all the files unpacked.
 
-On AmigaOS3 and AmigaOS2, since there is no buit-in variable to determine system character encoding, you have to always use RAR_CODEPAGE.
+On AmigaOS3 and AmigaOS2, since there is no buit-in variable to determine system character encoding, you have to always use RAR_CODEPAGE. To make it slightly simpler, if RAR_CODEPAGE is not set, unrar tries to set encoding based on 'Language' environment variable.
+
+In addition to above, after each text conversion unrar checks if there were any unconvertable characters (that is, characters not present in the target encoding). If so, it will print a warning message, asking the user to set RAR_CODEPAGE.
 
 
 <h4>National characters in file names</h4>
@@ -155,8 +157,8 @@ Support for files >4GiB is currently not available on AROS, AmigaOS3 and AmigaOS
 
 <h2>Notes about porting</h2>
 
-This port is based directly on unrar source code version 5.8.5 (unrarsrc-5.8.5.tar.gz) from rarlab.com:
-https://www.rarlab.com/rar/unrarsrc-5.8.5.tar.gz
+This port is based directly on unrar source code version 5.9.2 (unrarsrc-5.9.2.tar.gz) from rarlab.com:
+https://www.rarlab.com/rar/unrarsrc-5.9.2.tar.gz
 
 For normalizing UTF, I used utf8proc. I did not need to port it to Amiga - it compiles without any change:
 https://juliastrings.github.io/utf8proc/
