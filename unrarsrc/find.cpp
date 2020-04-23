@@ -52,7 +52,14 @@ bool FindFile::Next(FindData *fd,bool GetSymLink)
     wcsncpyz(DirName,FindMask,ASIZE(DirName));
     RemoveNameFromPath(DirName);
     if (*DirName==0)
+#if defined(_AMIGA)
+    // opendir function on MOS, AOS4 and AROS does not
+    // interprete "." as 'current dir' (as ixemul does it)
+    // fortunatelly, using just "" works on all the Amiga systems
+      wcsncpyz(DirName,L"",ASIZE(DirName));
+#else
       wcsncpyz(DirName,L".",ASIZE(DirName));
+#endif
     char DirNameA[NM];
     WideToChar(DirName,DirNameA,ASIZE(DirNameA));
     if ((dirp=opendir(DirNameA))==NULL)
