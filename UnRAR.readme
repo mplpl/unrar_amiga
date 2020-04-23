@@ -55,7 +55,7 @@ History:
 * unrar prints a warning when it finds chars not present in a target encoding
 * if Charset/CODEPAGE/RAR_CODEPAGE is not set, unrar tries to set encoding
   based on Language variable
-* fixed issue with expecing rar path in POSIX format on AmigaOS 2 and 3
+* fixed issue with expecting rar path in POSIX format on AmigaOS 2 and 3
 * speed of display increased by optimizing iconv usage
 
 5.80:
