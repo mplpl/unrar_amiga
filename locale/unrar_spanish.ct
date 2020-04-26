@@ -1,4 +1,4 @@
-## version $VER: unrar.catalog 5.90 (21.04.2020)
+## version $VER: unrar.catalog 5.90 (24.04.2020)
 ## codeset 4
 ## language spanish
 ;
@@ -20,7 +20,7 @@ _Sí_No_Todo_nUnca_Renombrar_sAlir
 ; _Yes_No_All_nEver_Rename_Quit
 ;
 MSG_MContinueQuit
-_Continuar_sAlir
+_Continuar_Salir
 ; _Continue_Quit
 ;
 MSG_MRetryAbort
@@ -728,7 +728,7 @@ MSG_MNewRarFormat
 ; \nUnsupported archive format. Please update RAR to a newer version.
 ;
 MSG_MOk
- Bien
+ correcto
 ;  OK
 ;
 MSG_MDone
@@ -901,8 +901,8 @@ MSG_MExtrTotalErr
 ;
 MSG_MAskReplace
 \n\n¿Reemplazar fichero %s existente?\n\
-ACTUAL: %6s bytes (%s)\n\
-NUEVO : %6s bytes (%s)\n
+ACTUAL: %9s bytes (%s)\n\
+NUEVO : %9s bytes (%s)\n
 ; \n\nWould you like to replace the existing file %s\n%6s bytes, modified on %s\nwith a new one\n%6s bytes, modified on %s\n
 ;
 MSG_MAskOverwrite
@@ -1142,7 +1142,7 @@ MSG_MListStrmHead
 ; \n   NTFS stream: %s
 ;
 MSG_MListUnkHead
-\n   sub-cabecera desconocida: 0x%04x
+\n   tipo desconocido: 0x%04x
 ; \n   Unknown subheader type: 0x%04x
 ;
 MSG_MFileComment
