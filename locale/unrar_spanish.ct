@@ -1,4 +1,4 @@
-## version $VER: unrar.catalog 5.61 (25.01.2020)
+## version $VER: unrar.catalog 5.90 (24.04.2020)
 ## codeset 4
 ## language spanish
 ;
@@ -20,7 +20,7 @@ _Sí_No_Todo_nUnca_Renombrar_sAlir
 ; _Yes_No_All_nEver_Rename_Quit
 ;
 MSG_MContinueQuit
-_Continuar_sAlir
+_Continuar_Salir
 ; _Continue_Quit
 ;
 MSG_MRetryAbort
@@ -116,8 +116,8 @@ MSG_MUNRARTitle1
 ; \nUsage:     unrar <command> -<switch 1> -<switch N> <archive> <files...>
 ;
 MSG_MRARTitle2
-\n           <@lista_ficheros...> <senda_donde_extraer\\>
-; \n               <@listfiles...> <path_to_extract\\>
+\n           <@lista_ficheros...> <senda_donde_extraer/>
+; \n               <@listfiles...> <path_to_extract/>
 ;
 MSG_MCHelpCmd
 \n\n<Comandos>
@@ -272,7 +272,7 @@ MSG_MCHelpSwCU
 ; \n  cu            Convert names to upper case
 ;
 MSG_MCHelpSwDF
-\XXXdf
+\nXXXdf
 ; \n  df            Delete files after archiving
 ;
 MSG_MCHelpSwDH
@@ -524,24 +524,24 @@ MSG_MCHelpSwTL
 ; \n  tl            Set archive time to latest file
 ;
 MSG_MCHelpSwTN
-\n  tn<fecha>     Procesar ficheros más actuales que <fecha>
+\n  tn[mcao]<h>   Procesar ficheros más actuales que <hora>
 ; \n  tn<time>      Process files newer than <time>
 ;
 MSG_MCHelpSwTO
-\n  to<fecha>     Procesar ficheros más antiguos que <fecha>
+\n  to[mcao]<h>   Procesar ficheros más antiguos que <hora>
 ; \n  to<time>      Process files older than <time>
 ;
 MSG_MCHelpSwTA
-\n  ta<fecha>     Procesar ficheros modificados después de <fecha> (YYYYMMDDHHMMSS)
+\n  ta[mcao]<f>   Procesar ficheros modificados después de <fecha> (YYYYMMDDHHMMSS)
 ; \n  ta<date>      Process files modified after <date> in YYYYMMDDHHMMSS format
 ;
 MSG_MCHelpSwTB
-\n  tb<fecha>     Procesar ficheros modificados antes de <fecha> (YYYYMMDDHHMMSS)
+\n  tb[mcao]<f>   Procesar ficheros modificados antes de <fecha> (YYYYMMDDHHMMSS)
 ; \n  tb<date>      Process files modified before <date> in YYYYMMDDHHMMSS format
 ;
 MSG_MCHelpSwTS
-\n  ts[m|c|a]     Guardar/Restaurar fecha del fichero (modificado, creado, acceso)
-; \n  ts[m|c|a]     Save or restore file time (modification, creation, access)
+\n  ts[m,c,a,p]   Guardar/Restaurar fecha del fichero (modificado, creado, acceso, preservar)
+; \n  ts[m|c|a]     Save or restore file time (modification, creation, access, preserve)
 ;
 MSG_MCHelpSwU
 \n  u             Actualizar ficheros
@@ -728,7 +728,7 @@ MSG_MNewRarFormat
 ; \nUnsupported archive format. Please update RAR to a newer version.
 ;
 MSG_MOk
- Bien
+ correcto
 ;  OK
 ;
 MSG_MDone
@@ -827,8 +827,8 @@ MSG_MMdfEncrSol
 \n%s: encriptado
 ; \n%s: encrypted
 ;
-MSG_MCannotMdfEncrSol
-\nXXXMCannotMdfEncrSol
+;MSG_MCannotMdfEncrSol
+;\nXXXMCannotMdfEncrSol
 ; \nCannot modify solid archive containing encrypted files
 ;
 MSG_MAddAnalyze
@@ -901,8 +901,8 @@ MSG_MExtrTotalErr
 ;
 MSG_MAskReplace
 \n\n¿Reemplazar fichero %s existente?\n\
-ACTUAL: %6s bytes (%s)\n\
-NUEVO : %6s bytes (%s)\n
+ACTUAL: %9s bytes (%s)\n\
+NUEVO : %9s bytes (%s)\n
 ; \n\nWould you like to replace the existing file %s\n%6s bytes, modified on %s\nwith a new one\n%6s bytes, modified on %s\n
 ;
 MSG_MAskOverwrite
@@ -1142,7 +1142,7 @@ MSG_MListStrmHead
 ; \n   NTFS stream: %s
 ;
 MSG_MListUnkHead
-\n   sub-cabecera desconocida: 0x%04x
+\n   tipo desconocido: 0x%04x
 ; \n   Unknown subheader type: 0x%04x
 ;
 MSG_MFileComment
@@ -1238,7 +1238,7 @@ MSG_MErrGetOwnerID
 ; \nWARNING: Cannot get owner %s ID\n
 ;
 MSG_MErrGetGroupID
-\nAviso: no puedo obtener \"group"\ ID %s\n
+\nAviso: no puedo obtener \"group\" ID %s\n
 ; \nWARNING: Cannot get group %s ID\n
 ;
 MSG_MOwnersBroken
@@ -1385,9 +1385,13 @@ MSG_MWrongSFXVer
 \nERROR: módulo SFX no soporta archivos RAR V%d.%d
 ; \nERROR: default SFX module does not support RAR %d.%d archives
 ;
-MSG_MCannotEncName
-\nXXXMSG_MCannotEncName
-; \nCannot encrypt archive already containing encrypted files
+MSG_MHeadEncMismatch
+\nNo se puede cambiar la cabecera del modo de encriptación en archivo ya encriptado.
+; \nCannot change the header encryption mode in already encrypted archive
+;
+;MSG_MCannotEncName
+;\nXXXMSG_MCannotEncName
+; \nCannot change the header encryption mode in already encrypted archive
 ;
 MSG_MCannotEmail
 \nXXXMSG_MCannotEmail %s
@@ -1456,6 +1460,10 @@ MSG_MUnkEncMethod
 MSG_MWrongPassword
 \nContraseña incorrecta
 ; \nThe specified password is incorrect.
+;
+MSG_MWrongFilePassword
+\nContraseña para '%s' incorrecta
+; \nIncorrect password for %s
 ;
 MSG_MAreaDamaged
 \nCorruptos %d bytes (0x%08x 0x%08x)
@@ -1537,4 +1545,17 @@ MSG_MAmigaPortBy
 (versión %s por Marcin Labenski; traducción: Javier de las Rivas)\n
 ;                         (versión %s por Marcin Labenski)\n
 ; \n%s port by Marcin Labenski\n
+;
+;
+MSG_MOpenErrAtime
+\nElimine la opción '-tsp' para abrir este fichero.
+; \nYou may need to remove -tsp switch to open this file.
+;
+MSG_MAmigaConvErr
+Aviso: algunos caracteres en los nombres de fichero de este archivo no se han podido convertir, no están disponibles en la codificación %s. Use la variable de entorno RAR_CODEPAGE para establecer la codificación correcta.
+; WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding.
+;
+MSG_MAmigaConvInitErr
+Aviso: codificación %s no soportada. Use la variable de entorno RAR_CODEPAGE para establecer una codificación diferente.
+; WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable.
 ;

@@ -1,4 +1,4 @@
-## version $VER: unRAR.catalog 5.80 (01.02.2020) (Amiga-1251)
+## version $VER: unRAR.catalog 5.90 (15.04.2020) (Amiga-1251)
 ## language russian
 ## codeset 2104
 ## chunk AUTH Translated by ATO-RUS: Mikhail Malyshev <mm@list.ru>
@@ -8,6 +8,9 @@
 ;
 ; 5.80 (01.02.2020) <mmalyshev>
 ; - first build, based on original translation by Alexander Roshal
+;
+; 5.90 (15.04.2020) <mmalyshev>
+; - updated to latest build
 ;
 ;-----------------------------------------------------------------------------
 MSG_MYesNo
@@ -1537,3 +1540,15 @@ MSG_MUseSmalllerDict
 MSG_MAmigaPortBy
 \n%s порт: Марцин Лабенски.  Перевод: Михаил Малышев.\n
 ; \n%s port by Marcin Labenski\n
+;
+MSG_MOpenErrAtime
+\nВозможно, Вам потребуется удалить переключатель -tsp, чтобы открыть этот файл.
+; \nYou may need to remove -tsp switch to open this file.
+;
+MSG_MAmigaConvErr
+ПРЕДУПРЕЖДЕНИЕ: Некоторые символы, используемые в именах файлов в этом архиве, не были преобразованы, поскольку они недоступны в кодировке %s. Установите ENV: переменную RAR_CODEPAGE, чтобы выбрать правильную кодировку.
+; WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding.
+;
+MSG_MAmigaConvInitErr
+ПРЕДУПРЕЖДЕНИЕ: Кодировка %s не поддерживается. Выберите другой вариант, установив ENV: переменную RAR_CODEPAGE.
+; WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable.

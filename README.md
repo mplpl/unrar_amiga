@@ -1,4 +1,4 @@
-# Port of unrar for MorphOS, AmigaOS and AROS
+# Port of unrar for MorphOS, AmigaOS, and AROS
 
 Note: Automatic test package for this unrar port is available at https://github.com/mplpl/unrar_test
 
@@ -25,7 +25,7 @@ variable
 
 <h2>Requirements</h2>
 
-There are no special requirements for MorphOS and AmigaOS4. It should work on any system provided that is has relatively fresh version of operating system (I test on MorphOS 3.12 and AmigaOS 4.1 FE Update 1).
+There are no special requirements for MorphOS and AmigaOS4. It should work on any system provided that it has a relatively fresh version of the operating system (I test on MorphOS 3.12 and AmigaOS 4.1 FE Update 1).
 
 AROS version requires i386 and ABI-v0.
 
@@ -35,46 +35,48 @@ Classic AmigaOS version requires a system with:
 * ixemul V48 (http://aminet.net/package/util/libs/ixemul-48.0)
 * 4MB RAM (unrar needs 2.6MB on its own)
 
-Exact memory utilization depends on a size of compressed files. For instance my test archive with one 2.0GB file in it, needs 32MB of RAM to unpack.
+Exact memory utilization depends on the size of compressed files. For instance, my test archive with one 2.0GB file in it needs 32MB of RAM to unpack.
 
 <h2>Details</h2>
 
 <h3>Basic functions</h3>
 
-All the basic functions like listing (verbose, base, technical), unpacking (w/ or w/o path, selected files or all), testing or printing works fine. Note, that wherever a path is needed it has to be in amiga format not POSIX i.e. //test.rar not ../../test.rar.
+All the basic functions like listing (verbose, base, technical), unpacking (w/ or w/o path, selected files, or all), testing or printing works fine. Note, that wherever a path is needed it has to be in amiga format, not POSIX i.e. //test.rar not ../../test.rar.
 
 <h3>National characters support</h3>
 
-RAR stores data in UTF-8 in an archive file, then reads it into Unicode (wchar_t) and finally it uses it (print, create files, find files, ...) in UTF-8. Unfortunately, no Amiga operating system supports UTF-8 today, therefore in order to handle national characters in file names, comments, etc. it needs to be converted to OS local encoding set in OS prefs. Unrar reads what was set using environment variables:
+RAR stores data in UTF-8 in an archive file, then reads it into Unicode (wchar_t) and finally it uses it (print, create files, find files, ...) in UTF-8. Unfortunately, no Amiga operating system supports UTF-8 today, therefore to handle national characters in file names, comments, etc. it needs to be converted to OS local encoding set in OS prefs. Unrar reads what was set using environment variables:
 * on MorphOS: CODEPAGE
 * on AmigaOS4: Charset
 * on AROS: CHARSET
 * on AmigaOS3 and AmigaOS2: there is no (read below)
 
-Characters that cannot be converted, because are not present in selected codepage, are replaced with '?'. That means that national characters are fully supported but only for selected locale, i.e. if I have Polish locale with ISO-8859-2 encoding and have a rar archive with Spanish characters, they will not appear and will be replaced by '?'. That in turns mean that some files may have the same names even if they are different files. In that case only one will be unpacked. To deal with this, you can use special environment variable RAR_CODEPAGE that allows overriding codepage (for both MorphOS and AmigaOS4) without changing system prefs. For an example above, if you set RAR_CODEPAGE, you will still not see Spanish characters (unless you have the right font) but at least you should get all the files unpacked.
+Characters that cannot be converted, because are not present in selected codepage, are replaced with '?'. That means that national characters are fully supported but only for the selected locale, i.e. if I have Polish locale with ISO-8859-2 encoding and have a rar archive with Spanish characters, they will not appear and will be replaced by '?'. That in turns mean that some files may have the same names even if they are different files. In that case, only one will be unpacked. To deal with this, you can use special environment variable RAR_CODEPAGE that allows overriding codepage (for both MorphOS and AmigaOS4) without changing system prefs. For the example above, if you set RAR_CODEPAGE, you will still not see Spanish characters (unless you have the right font) but at least you should get all the files unpacked.
 
-On AmigaOS3 and AmigaOS2, since there is no buit-in variable to determine system character encoding, you have to always use RAR_CODEPAGE.
+On AmigaOS3 and AmigaOS2, since there is no built-in variable to determine system character encoding, you have to always use RAR_CODEPAGE. To make it slightly simpler, if RAR_CODEPAGE is not set, unrar tries to set encoding based on 'Language' environment variable.
+
+In addition to above, after each text conversion unrar checks if there were any unconvertable characters (that is, characters not present in the target encoding). If so, it will print a warning message, asking the user to set RAR_CODEPAGE.
 
 
 <h4>National characters in file names</h4>
 
-National characters in file names are handled as described above - this covers:
-* name of files, directories and links in an archive
+National characters in filenames are handled as described above - this covers:
+* name of files, directories, and links in an archive
 * targets for symbolic and hard links in an archive
-* archive names given to unrar command
+* archive names that were given to unrar command
 * names in list files (if -sc option is not used)
 
-Obviously, in order to see national characters in shell or when browsing unpacked files in Ambient/Workbench you need to have fonts with the right encoding installed in OS and set as system font and/or as Ambient fonts.
+To see national characters in the shell or when browsing unpacked files in Ambient/Workbench you need to have fonts with the right encoding installed in OS and set as system font and/or as Ambient fonts.
 
 <h4>National characters in password</h4>
 
 National characters are supported in passwords. A password can be given in the following forms:
-* from shell when asked
+* from the shell when asked
 * in command invocation using -p switch 
 * from RAR environment variable
 * from rar.conf configuration file
 
-In each of the case above, only passwords containing national characters of currently selected locale are supported and should be given using locale encoding (as for file names described above). If the password is not using current locale charset, RAR_CODEPAGE need to be used to select it.
+In each of the cases above, only passwords containing national characters of the currently selected locale are supported and should be given using locale encoding (as for file names described above). If the password is not using the current locale charset, RAR_CODEPAGE needs to be used to select it.
 
 <h4>-sc switch</h4>
 
@@ -105,11 +107,11 @@ Amiga style wildcards are not supported at this moment.
 
 <h3>File modification dates</h3>
 
-When unpacking, created files get modification date set as stored in RAR archive. The date is set in the local time zone. As there is no special attribute for creation and access dates in AmigaOS, these values are always ignored.
+When unpacking, created files get modification date set as stored in the RAR archive. The date is set in the local time zone. As there is no special attribute for the creation and access dates in AmigaOS, these values are always ignored.
 
 <h3>File owner and group</h3>
 
-When unpacking from RAR archive with option -ow, unrar will try to set owner name and group. It will only succeed if a user with given name and a group with given name is present in local system. Otherwise an error will be printed. When -ow is not used, owner/group is ignored.
+When unpacking from RAR archive with option -ow, unrar will try to set owner name and group. It will only succeed if a user with a given name and a group with a given name is present in the local system. Otherwise, an error will be printed. When -ow is not used, the owner/group is ignored.
 
 <h3>Symbolic links in an archive</h3>
 
@@ -117,25 +119,25 @@ RAR can store symbolic links and this unrar port supports that. When unpacking, 
 
 As RAR stores symbolic link target in the form that is right on OS where an archive was created, before making links in Amiga, the path needs to be converted (for instance ../test.txt need to be changed to /test.txt). This unrar port does such conversion.
 
-Note: unrar checks if a link is safe to create and will skip links targeting outside of unpacking directory. In order to make it create them, you need to use -ola switch when unpacking.
+Note: unrar checks if a link is safe to create and will skip links targeting outside of the unpacking directory. To make it create them, you need to use -ola switch when unpacking.
 
 <h3>Hard links in an archive</h3>
 
-Hard links are supported in a similar way as symbolic links. Again, they will only work if target filesystem supports hard links (SFS dos not). Otherwise an error will be printed and hard link will be ignored. There is no option in unrar that would allow the user to unpack hard links as regular files or symbolic links - so if target filesystem does not support hard links it is not possible to get them unpacked. 
+Hard links are supported in similarly as symbolic links. Again, they will only work if the target filesystem supports hard links (SFS dos not). Otherwise, an error will be printed and hard links will be ignored. No option in unrar would allow the user to unpack hard links as regular files or symbolic links - so if the target filesystem does not support hard links it is not possible to get them unpacked. 
 
 <h3>Reference files in an archive</h3>
 
-RAR can pack identical files as references inside of an archive - that reduces size of the archive file. In order to make such archive -oi switch should be used when packing. When unpacking, duplicates are re-created as separate files. That is fully supported in this unrar port.
+RAR can pack identical files as references inside of an archive - that reduces the size of the archive file. To make such an archive -oi switch should be used when packing. When unpacking, duplicates are re-created as separate files. That is fully supported in this unrar port.
 
 <h3>NTFS Junction Points in an archive</h3>
 
-NTFS Junction Points are like symbolic links, but their target is always absolute path with a drive letter in front. In Unrar version 5.7 for Unix-like systems (including Amiga) these kinds of links are always skipped silently (!). While it is a different behavior from how it was in 5.0, I decided to keep it unchanged for Amiga. So, in practice, junction points are always skipped when unpacking.
+NTFS Junction Points are like symbolic links, but their target is always an absolute path with a drive letter in front. In Unrar version 5.7 for Unix-like systems (including Amiga), these kinds of links are always skipped silently (!). While it is different behavior from how it was in 5.0, I decided to keep it unchanged for Amiga. So, in practice, junction points are always skipped when unpacking.
 
 <h3>Configuration file</h3>
 
-Unrar has a config file in which you can store switches that will always be used when unrar command is called. In order to do that, "switches=" should be present in the file with all the switches to add (for instance "switches=-ad -ola"). This port of unrar looks for configuration file in s:rar.conf.
+Unrar has a config file in which you can store switches that will always be used when unrar command is called. To do that, "switches=" should be present in the file with all the switches to add (for instance "switches=-ad -ola"). This port of unrar looks for the configuration file in s:rar.conf.
 
-There is also "RAR" environment variable that can have switches to use (like a value of "switches=" in configuration file). The priority of resolving switches to use is: directly given in command, RAR environment variable, configuration file.
+There is also "RAR" environment variable that can have switches to use (like a value of "switches=" in the configuration file). The priority of resolving switches to use is: directly given in the command, RAR environment variable, the configuration file.
 
 <h3>Support for localization</h3>
 
@@ -144,19 +146,19 @@ This unrar port complies with localization rules of MorphOS and AmigaOS. You can
 <h3>Large files support</h3>
 
 On MorphOS and AmigaOS4 large files are supported in the following way:
-* rar file can have size >4GiB
+* a rar file can have size >4GiB
 * a file expanded from a rar file may be bigger than 4GiB
 
-The above is true provided that file system used for unpacking supports files with size >4GiB. 
-OFS, FFS, PFS3, SFS and FAT32 do not support such files.
-NTFS, exFAT and ext2/3/4 (on MorphOS) and SFS2 (on AmigaOS4) support large files.
+The above is true provided that the file system used for unpacking supports files with size >4GiB. 
+OFS, FFS, PFS3, SFS, and FAT32 do not support such files.
+NTFS, exFAT, and ext2/3/4 (on MorphOS) and SFS2 (on AmigaOS4) support large files.
 
-Support for files >4GiB is currently not available on AROS, AmigaOS3 and AmigaOS2.
+Support for files >4GiB is currently not available on AROS, AmigaOS3, and AmigaOS2.
 
 <h2>Notes about porting</h2>
 
-This port is based directly on unrar source code version 5.8.5 (unrarsrc-5.8.5.tar.gz) from rarlab.com:
-https://www.rarlab.com/rar/unrarsrc-5.8.5.tar.gz
+This port is based directly on unrar source code version 5.9.2 (unrarsrc-5.9.2.tar.gz) from rarlab.com:
+https://www.rarlab.com/rar/unrarsrc-5.9.2.tar.gz
 
 For normalizing UTF, I used utf8proc. I did not need to port it to Amiga - it compiles without any change:
 https://juliastrings.github.io/utf8proc/
@@ -176,9 +178,9 @@ MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.14).
 
 AmigaOS4 version of unrar has been compiled using gcc 4.2.4 (part of SDK 53.20).
 
-AROS version of unrar has been compoled using gcc 4.6.4 (part of Icaros 2.2).
+AROS version of unrar has been compiled using gcc 4.6.4 (part of Icaros 2.2).
 
 AmigaOS3/AmigaOS2 version of unrar has been compiled using gcc 3.3 (part of Cubic IDE).
 
-All AmigaOS versions can also be created by crosscompiling using the same compile versions as above from AmiDevCpp package.
+All AmigaOS versions can also be created by cross-compiling using the same compile versions as above from AmiDevCpp package.
 

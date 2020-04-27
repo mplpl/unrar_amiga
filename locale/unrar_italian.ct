@@ -1,7 +1,9 @@
-## version $VER: UnRAR.catalog 5.80 (20.01.2020)
+## version $VER: UnRAR.catalog 5.92 (16.04.2020)
 ## codeset 0
 ## language italiano
 ## chunk AUTH Translated by Samir Hawamdeh (http://www.betatesting.it/backforthefuture)
+;
+; flexcat UnRAR.cd UnRAR_italian.ct catalog=UnRAR.catalog
 ;
 MSG_MYesNo
 _Si_No
@@ -116,8 +118,8 @@ MSG_MUNRARTitle1
 ; \nUsage:     unrar <command> -<switch 1> -<switch N> <archive> <files...>
 ;
 MSG_MRARTitle2
-\n                <@elencofile...> <percorso_da_estrarre\\>
-; \n               <@listfiles...> <path_to_extract\\>
+\n                <@elencofile...> <percorso_da_estrarre/>
+; \n               <@listfiles...> <path_to_extract/>
 ;
 MSG_MCHelpCmd
 \n\n<Comandi>
@@ -216,7 +218,7 @@ MSG_MCHelpSw
 ; \n\n<Switches>
 ;
 MSG_MCHelpSwm
-\n  -             Stoppa scansione switches
+\n  -             Stoppa scansione degli switch
 ; \n  -             Stop switches scanning
 ;
 MSG_MCHelpSwAT
@@ -620,11 +622,11 @@ Errore di scrittura nel file %s
 ; Write error in the file %s
 ;
 MSG_MErrRead
- Errore di lettura nel file %s
+Errore di lettura nel file %s
 ; Read error in the file %s
 ;
 MSG_MErrSeek
- Errore seek nel file %s
+Errore seek nel file %s
 ; Seek error in the file %s
 ;
 MSG_MErrFClose
@@ -1176,7 +1178,7 @@ MSG_MRprNoFiles
 ; \nNo files found
 ;
 MSG_MLogUnexpEOF
-\nInaspettata fine dell'archivio
+\nFine inaspettata dell'archivio
 ; \nUnexpected end of archive
 ;
 MSG_MRepAskReconst
@@ -1364,7 +1366,7 @@ MSG_MNTFSRequired
 ; \nWrite error: only NTFS file system supports files larger than 4 GB
 ;
 MSG_MFAT32Size
-\nATTENZIONE: Il filesystem FAT32 non supporta file dalla dimensioni di 4 GB o più grandi
+\nATTENZIONE: Il filesystem FAT32 non supporta file della dimensioni di 4 GB o più grandi
 ; \nWARNING: FAT32 file system does not support 4 GB or larger files
 ;
 MSG_MErrChangeAttr
@@ -1460,11 +1462,11 @@ MSG_MBlocksRecovered
 ; \n%u blocks are recovered, %u blocks are relocated
 ;
 MSG_MRRDamaged
-\nRecord di recupero corrotto
+\nRecord recuperato corrotto
 ; \nRecovery record is corrupt.
 ;
 MSG_MTestingRR
-\nTest del record di recupero
+\nTest di recupero del record
 ; \nTesting the recovery record
 ;
 MSG_MFailed
@@ -1472,7 +1474,7 @@ Fallito
 ; Failed
 ;
 MSG_MIncompatSwitch
-\n%s switch non è supportato dal formato di archiviazione RAR %d.x
+\nSwitch %s non supportato dal formato di archiviazione RAR %d.x
 ; \n%s switch is not supported for RAR %d.x archive format.
 ;
 MSG_MSearchDupFiles
@@ -1496,7 +1498,7 @@ MSG_MCopyError
 ; \nCannot copy %s to %s.
 ;
 MSG_MCopyErrorHint
-\nPer creare delle voci di riferimento del file è necessario scompattare l'intero archivio
+\nPer creare delle voci di riferimento del file è necessario scompattare l'archivio interamente
 ; \nYou need to unpack the entire archive to create file reference entries.
 ;
 MSG_MCopyingData
@@ -1530,3 +1532,16 @@ MSG_MUseSmalllerDict
 MSG_MAmigaPortBy
 \nPorting su %s a cura di Marcin Labenski\n
 ; \n%s port by Marcin Labenski\n
+;
+MSG_MOpenErrAtime
+\nPotresti aver bisogno di rimuovere lo switch -tsp per aprire questo file
+; \nYou may need to remove -tsp switch to open this file.
+;
+MSG_MAmigaConvErr
+ATTENZIONE: Alcuni caratteri usati nei nomi dei file di questo archivio non sono stati convertiti perchè non disponibili nella codifica %s. Imposta la variabile d'ambiente RAR_CODEPAGE per selezionare la codifica corretta
+; WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding.
+;
+MSG_MAmigaConvInitErr
+ATTENZIONE: La codifica %s non è supportata. Seleziona una codifica differente impostando la variabile d'ambiente RAR_CODEPAGE
+; WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable.
+;

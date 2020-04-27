@@ -421,9 +421,10 @@
 #define MSG_MUseSmalllerDict 380
 #define MSG_MAmigaPortBy 381
 #define MSG_MOpenErrAtime 382
-#define MSG_MAmigaEncodingErr 383
+#define MSG_MAmigaConvErr 383
+#define MSG_MAmigaConvInitErr 384
 
-#define CATCOMP_LASTID 383
+#define CATCOMP_LASTID 384
 
 #endif /* CATCOMP_NUMBERS */
 
@@ -461,7 +462,7 @@
 #define MSG_MMonthDec_STR "Dec"
 #define MSG_MRARTitle1_STR "\nUsage:     rar <command> -<switch 1> -<switch N> <archive> <files...>"
 #define MSG_MUNRARTitle1_STR "\nUsage:     unrar <command> -<switch 1> -<switch N> <archive> <files...>"
-#define MSG_MRARTitle2_STR "\n               <@listfiles...> <path_to_extract\\>"
+#define MSG_MRARTitle2_STR "\n               <@listfiles...> <path_to_extract/>"
 #define MSG_MCHelpCmd_STR "\n\n<Commands>"
 #define MSG_MCHelpCmdA_STR "\n  a             Add files to archive"
 #define MSG_MCHelpCmdC_STR "\n  c             Add archive comment"
@@ -816,7 +817,8 @@
 #define MSG_MUseSmalllerDict_STR "\nPlease use a smaller compression dictionary."
 #define MSG_MAmigaPortBy_STR "\n%s port by Marcin Labenski\n"
 #define MSG_MOpenErrAtime_STR "\nYou may need to remove -tsp switch to open this file."
-#define MSG_MAmigaEncodingErr_STR "WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding."
+#define MSG_MAmigaConvErr_STR "WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding."
+#define MSG_MAmigaConvInitErr_STR "WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable."
 
 #endif /* CATCOMP_STRINGS */
 
@@ -1217,7 +1219,8 @@ static const struct CatCompArrayType CatCompArray[] =
     {MSG_MUseSmalllerDict,(STRPTR)MSG_MUseSmalllerDict_STR},
     {MSG_MAmigaPortBy,(STRPTR)MSG_MAmigaPortBy_STR},
     {MSG_MOpenErrAtime,(STRPTR)MSG_MOpenErrAtime_STR},
-    {MSG_MAmigaEncodingErr,(STRPTR)MSG_MAmigaEncodingErr_STR},
+    {MSG_MAmigaConvErr,(STRPTR)MSG_MAmigaConvErr_STR},
+    {MSG_MAmigaConvInitErr,(STRPTR)MSG_MAmigaConvInitErr_STR},
 };
 
 #endif /* CATCOMP_ARRAY */
@@ -1997,7 +2000,9 @@ static const char CatCompBlock[] =
     "\x00\x00\x01\x7E\x00\x38"
     MSG_MOpenErrAtime_STR "\x00\x00"
     "\x00\x00\x01\x7F\x00\xC8"
-    MSG_MAmigaEncodingErr_STR "\x00\x00"
+    MSG_MAmigaConvErr_STR "\x00\x00"
+    "\x00\x00\x01\x80\x00\x6C"
+    MSG_MAmigaConvInitErr_STR "\x00"
 };
 
 #endif /* CATCOMP_BLOCK */

@@ -7,7 +7,7 @@ static const char __attribute((used)) min_stack[] = "$STACK:800000";
 #define QUOTE(x) Q(x)
 static const char __attribute((used)) vers[] = "\\0$VER: UnRAR "
 		QUOTE(RARVER_MAJOR)"."QUOTE(RARVER_MINOR)
-        " (19.1.2020)";
+        " (23.4.2020)";
 
 #include <proto/exec.h>
 int Check_Stack()
@@ -136,15 +136,20 @@ int main(int argc, char *argv[])
     Shutdown(ShutdownOnClose);
 #endif
 #ifdef _AMIGA
-  
-  extern int iconv_conversion_error;
-  extern const wchar_t *GetCodePageW();
-  if (iconv_conversion_error) 
+  if (iconvOpenError)
   {
-    mprintf(St(MAmigaEncodingErr), GetCodePageW());
+    mprintf(L"\n");
+    mprintf(St(MAmigaConvInitErr), GetCodePageW());
     mprintf(L"\n\n");
   }
-  
+  else if (iconvConversionError)
+  {
+    mprintf(L"\n");
+    mprintf(St(MAmigaConvErr), GetCodePageW());
+    mprintf(L"\n\n");
+  }
+
+  ReleaseConvBase();
   Locale_Close();
 #endif
   ErrHandler.MainExit=true;

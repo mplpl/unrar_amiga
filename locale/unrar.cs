@@ -1,4 +1,4 @@
-## Version $VER: xxxxxx.catalog 1.00 (03.04.2020)
+## Version $VER: xxxxxx.catalog 1.00 (15.04.2020)
 ## Languages english
 ## Codeset english 0
 ## SimpleCatConfig CharsPerLine 200
@@ -88,7 +88,7 @@ MSG_MUNRARTitle1
 \nUsage:     unrar <command> -<switch 1> -<switch N> <archive> <files...>
 ;
 MSG_MRARTitle2
-\n               <@listfiles...> <path_to_extract\\>
+\n               <@listfiles...> <path_to_extract/>
 ;
 MSG_MCHelpCmd
 \n\n<Commands>
@@ -1152,5 +1152,8 @@ MSG_MAmigaPortBy
 MSG_MOpenErrAtime
 \nYou may need to remove -tsp switch to open this file.
 ;
-MSG_MAmigaEncodingErr
+MSG_MAmigaConvErr
 WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding.
+;
+MSG_MAmigaConvInitErr
+WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable.

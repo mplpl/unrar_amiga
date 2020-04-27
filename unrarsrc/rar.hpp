@@ -86,4 +86,8 @@
 #include "benchmark.hpp"
 #endif
 
+#ifdef _AMIGA
+#include "amiga.hpp"
+#endif
+
 #endif

@@ -1,7 +1,8 @@
 MAKEDIR=makedir
 COPY=copy
 RM=delete
-VERSION=5.80
+RENAME=rename
+VERSION=5.90
 
 ifneq ($(PLATFORM),)
 export PLATFORM=$(PLATFORM)
@@ -28,12 +29,13 @@ dist:
 	$(COPY) unrar_aros dist/unrar_$(VERSION)/unrar_aros
 	$(COPY) unrar_aos dist/unrar_$(VERSION)/unrar_aos
 	$(COPY) catalogs dist/unrar_$(VERSION)/catalogs all
+	$(RENAME) dist/unrar_$(VERSION)/catalogs/espanol dist/unrar_$(VERSION)/catalogs/español 
 	$(COPY) license.txt dist/unrar_$(VERSION)
 	$(COPY) license_newlib.txt dist/unrar_$(VERSION)
 	$(COPY) license_utf8proc.txt dist/unrar_$(VERSION)
 	$(COPY) license_libiconv.txt dist/unrar_$(VERSION)
 	$(COPY) license_getpass.txt dist/unrar_$(VERSION)
-	@cd dist; lha -r a UnRAR-5.80.lha unrar_$(VERSION)
+	@cd dist; lha -r a UnRAR-$(VERSION).lha unrar_$(VERSION)
 	$(RM) dist/unrar_$(VERSION) all
 	$(COPY) UnRAR.readme dist/UnRAR-$(VERSION).readme
 

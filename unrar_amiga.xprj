@@ -81,6 +81,10 @@
             <Option objcincludes="-I/gg/Frameworks/include"/>
             <Option objcdefines=""/>
         </CompilerSettings>
+        <FileUnit filepath="unrarsrc/amiga.cpp">
+            <Option inproject="1"/>
+            <Option filetype="3"/>
+        </FileUnit>
         <FileUnit filepath="unrarsrc/arccmt.cpp">
             <Option inproject="1"/>
             <Option filetype="3"/>
@@ -413,6 +417,10 @@
             <Option inproject="1"/>
             <Option filetype="3"/>
         </FileUnit>
+        <FileUnit filepath="unrarsrc/amiga.hpp">
+            <Option inproject="1"/>
+            <Option filetype="4"/>
+        </FileUnit>
         <FileUnit filepath="unrarsrc/archive.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
@@ -672,10 +680,6 @@
         <FileUnit filepath="unrarsrc/volume.hpp">
             <Option inproject="1"/>
             <Option filetype="4"/>
-        </FileUnit>
-        <FileUnit filepath="../../../Applications/FlowStudio">
-            <Option inproject="1"/>
-            <Option filetype="3"/>
         </FileUnit>
         <FileUnit filepath="../../../Applications/FlowStudio">
             <Option inproject="1"/>
