@@ -44,387 +44,392 @@
 #define MSG_MYesNoAllRenQ 3
 #define MSG_MContinueQuit 4
 #define MSG_MRetryAbort 5
-#define MSG_MCopyright 6
-#define MSG_MRegTo 7
-#define MSG_MShare 8
-#define MSG_MRegKeyWarning 9
-#define MSG_MUCopyright 10
-#define MSG_MBeta 11
-#define MSG_Mx86 12
-#define MSG_Mx64 13
-#define MSG_MMonthJan 14
-#define MSG_MMonthFeb 15
-#define MSG_MMonthMar 16
-#define MSG_MMonthApr 17
-#define MSG_MMonthMay 18
-#define MSG_MMonthJun 19
-#define MSG_MMonthJul 20
-#define MSG_MMonthAug 21
-#define MSG_MMonthSep 22
-#define MSG_MMonthOct 23
-#define MSG_MMonthNov 24
-#define MSG_MMonthDec 25
-#define MSG_MRARTitle1 26
-#define MSG_MUNRARTitle1 27
-#define MSG_MRARTitle2 28
-#define MSG_MCHelpCmd 29
-#define MSG_MCHelpCmdA 30
-#define MSG_MCHelpCmdC 31
-#define MSG_MCHelpCmdCH 32
-#define MSG_MCHelpCmdCW 33
-#define MSG_MCHelpCmdD 34
-#define MSG_MCHelpCmdE 35
-#define MSG_MCHelpCmdF 36
-#define MSG_MCHelpCmdI 37
-#define MSG_MCHelpCmdK 38
-#define MSG_MCHelpCmdL 39
-#define MSG_MCHelpCmdM 40
-#define MSG_MCHelpCmdP 41
-#define MSG_MCHelpCmdR 42
-#define MSG_MCHelpCmdRC 43
-#define MSG_MCHelpCmdRN 44
-#define MSG_MCHelpCmdRR 45
-#define MSG_MCHelpCmdRV 46
-#define MSG_MCHelpCmdS 47
-#define MSG_MCHelpCmdT 48
-#define MSG_MCHelpCmdU 49
-#define MSG_MCHelpCmdV 50
-#define MSG_MCHelpCmdX 51
-#define MSG_MCHelpSw 52
-#define MSG_MCHelpSwm 53
-#define MSG_MCHelpSwAT 54
-#define MSG_MCHelpSwAC 55
-#define MSG_MCHelpSwAD 56
-#define MSG_MCHelpSwAG 57
-#define MSG_MCHelpSwAI 58
-#define MSG_MCHelpSwAO 59
-#define MSG_MCHelpSwAP 60
-#define MSG_MCHelpSwAS 61
-#define MSG_MCHelpSwCm 62
-#define MSG_MCHelpSwCFGm 63
-#define MSG_MCHelpSwCL 64
-#define MSG_MCHelpSwCU 65
-#define MSG_MCHelpSwDF 66
-#define MSG_MCHelpSwDH 67
-#define MSG_MCHelpSwDR 68
-#define MSG_MCHelpSwDS 69
-#define MSG_MCHelpSwDW 70
-#define MSG_MCHelpSwEa 71
-#define MSG_MCHelpSwED 72
-#define MSG_MCHelpSwEN 73
-#define MSG_MCHelpSwEP 74
-#define MSG_MCHelpSwEP1 75
-#define MSG_MCHelpSwEP2 76
-#define MSG_MCHelpSwEP3 77
-#define MSG_MCHelpSwF 78
-#define MSG_MCHelpSwHP 79
-#define MSG_MCHelpSwHT 80
-#define MSG_MCHelpSwIDP 81
-#define MSG_MCHelpSwIEML 82
-#define MSG_MCHelpSwIERR 83
-#define MSG_MCHelpSwILOG 84
-#define MSG_MCHelpSwINUL 85
-#define MSG_MCHelpSwIOFF 86
-#define MSG_MCHelpSwISND 87
-#define MSG_MCHelpSwIVER 88
-#define MSG_MCHelpSwK 89
-#define MSG_MCHelpSwKB 90
-#define MSG_MCHelpSwLog 91
-#define MSG_MCHelpSwMn 92
-#define MSG_MCHelpSwMA 93
-#define MSG_MCHelpSwMC 94
-#define MSG_MCHelpSwMD 95
-#define MSG_MCHelpSwMS 96
-#define MSG_MCHelpSwMT 97
-#define MSG_MCHelpSwN 98
-#define MSG_MCHelpSwNa 99
-#define MSG_MCHelpSwNal 100
-#define MSG_MCHelpSwO 101
-#define MSG_MCHelpSwOC 102
-#define MSG_MCHelpSwOH 103
-#define MSG_MCHelpSwOI 104
-#define MSG_MCHelpSwOL 105
-#define MSG_MCHelpSwONI 106
-#define MSG_MCHelpSwOR 107
-#define MSG_MCHelpSwOS 108
-#define MSG_MCHelpSwOW 109
-#define MSG_MCHelpSwP 110
-#define MSG_MCHelpSwPm 111
-#define MSG_MCHelpSwQO 112
-#define MSG_MCHelpSwR 113
-#define MSG_MCHelpSwRm 114
-#define MSG_MCHelpSwR0 115
-#define MSG_MCHelpSwRI 116
-#define MSG_MCHelpSwRR 117
-#define MSG_MCHelpSwRV 118
-#define MSG_MCHelpSwS 119
-#define MSG_MCHelpSwSm 120
-#define MSG_MCHelpSwSC 121
-#define MSG_MCHelpSwSFX 122
-#define MSG_MCHelpSwSI 123
-#define MSG_MCHelpSwSL 124
-#define MSG_MCHelpSwSM 125
-#define MSG_MCHelpSwT 126
-#define MSG_MCHelpSwTK 127
-#define MSG_MCHelpSwTL 128
-#define MSG_MCHelpSwTN 129
-#define MSG_MCHelpSwTO 130
-#define MSG_MCHelpSwTA 131
-#define MSG_MCHelpSwTB 132
-#define MSG_MCHelpSwTS 133
-#define MSG_MCHelpSwU 134
-#define MSG_MCHelpSwV 135
-#define MSG_MCHelpSwVUnr 136
-#define MSG_MCHelpSwVn 137
-#define MSG_MCHelpSwVD 138
-#define MSG_MCHelpSwVER 139
-#define MSG_MCHelpSwVN 140
-#define MSG_MCHelpSwVP 141
-#define MSG_MCHelpSwW 142
-#define MSG_MCHelpSwX 143
-#define MSG_MCHelpSwXa 144
-#define MSG_MCHelpSwXal 145
-#define MSG_MCHelpSwY 146
-#define MSG_MCHelpSwZ 147
-#define MSG_MBadArc 148
-#define MSG_MAskPsw 149
-#define MSG_MAskPswFor 150
-#define MSG_MReAskPsw 151
-#define MSG_MNotMatchPsw 152
-#define MSG_MErrWrite 153
-#define MSG_MErrRead 154
-#define MSG_MErrSeek 155
-#define MSG_MErrFClose 156
-#define MSG_MErrOutMem 157
-#define MSG_MErrBrokenArc 158
-#define MSG_MProgAborted 159
-#define MSG_MErrRename 160
-#define MSG_MAbsNextVol 161
-#define MSG_MBreak 162
-#define MSG_MAskCreatVol 163
-#define MSG_MAskNextDisk 164
-#define MSG_MCreatVol 165
-#define MSG_MAskNextVol 166
-#define MSG_MTestVol 167
-#define MSG_MExtrVol 168
-#define MSG_MConverting 169
-#define MSG_MCvtToSFX 170
-#define MSG_MCvtFromSFX 171
-#define MSG_MNotSFX 172
-#define MSG_MNotRAR 173
-#define MSG_MNotFirstVol 174
-#define MSG_MCvtOldFormat 175
-#define MSG_MCannotCreate 176
-#define MSG_MCannotOpen 177
-#define MSG_MUnknownMeth 178
-#define MSG_MNewRarFormat 179
-#define MSG_MOk 180
-#define MSG_MDone 181
-#define MSG_MLockingArc 182
-#define MSG_MNotMdfOld 183
-#define MSG_MNotMdfLock 184
-#define MSG_MNotMdfVol 185
-#define MSG_MPackAskReg 186
-#define MSG_MCreateArchive 187
-#define MSG_MUpdateArchive 188
-#define MSG_MAddSolid 189
-#define MSG_MAddFile 190
-#define MSG_MUpdFile 191
-#define MSG_MAddPoints 192
-#define MSG_MMoveDelFiles 193
-#define MSG_MMoveDelDirs 194
-#define MSG_MMoveDelFile 195
-#define MSG_MMoveDeleted 196
-#define MSG_MMoveNotDeleted 197
-#define MSG_MClearAttrib 198
-#define MSG_MMoveDelDir 199
-#define MSG_MWarErrFOpen 200
-#define MSG_MErrOpenFiles 201
-#define MSG_MErrOpenFile 202
-#define MSG_MAddNoFiles 203
-#define MSG_MMdfEncrSol 204
-#define MSG_MAddAnalyze 205
-#define MSG_MRepacking 206
-#define MSG_MCRCFailed 207
-#define MSG_MExtrTest 208
-#define MSG_MExtracting 209
-#define MSG_MUseCurPsw 210
-#define MSG_MCreatDir 211
-#define MSG_MExtrSkipFile 212
-#define MSG_MExtrTestFile 213
-#define MSG_MExtrFile 214
-#define MSG_MExtrPoints 215
-#define MSG_MExtrErrMkDir 216
-#define MSG_MExtrPrinting 217
-#define MSG_MEncrBadCRC 218
-#define MSG_MExtrNoFiles 219
-#define MSG_MExtrAllOk 220
-#define MSG_MExtrTotalErr 221
-#define MSG_MAskReplace 222
-#define MSG_MAskOverwrite 223
-#define MSG_MAskNewName 224
-#define MSG_MHeaderBroken 225
-#define MSG_MMainHeaderBroken 226
-#define MSG_MLogFileHead 227
-#define MSG_MLogProtectHead 228
-#define MSG_MReadStdinCmt 229
-#define MSG_MReadCommFrom 230
-#define MSG_MDelComment 231
-#define MSG_MAddComment 232
-#define MSG_MFCommAdd 233
-#define MSG_MAskFComm 234
-#define MSG_MLogCommBrk 235
-#define MSG_MCommAskCont 236
-#define MSG_MWriteCommTo 237
-#define MSG_MCommNotPres 238
-#define MSG_MDelFrom 239
-#define MSG_MDeleting 240
-#define MSG_MEraseArc 241
-#define MSG_MNoDelFiles 242
-#define MSG_MLogTitle 243
-#define MSG_MPathTooLong 244
-#define MSG_MListArchive 245
-#define MSG_MListDetails 246
-#define MSG_MListSolid 247
-#define MSG_MListSFX 248
-#define MSG_MListVolume 249
-#define MSG_MListRR 250
-#define MSG_MListLock 251
-#define MSG_MListEnc 252
-#define MSG_MListEncHead 253
-#define MSG_MListTitleL 254
-#define MSG_MListTitleV 255
-#define MSG_MListName 256
-#define MSG_MListType 257
-#define MSG_MListFile 258
-#define MSG_MListDir 259
-#define MSG_MListUSymlink 260
-#define MSG_MListWSymlink 261
-#define MSG_MListJunction 262
-#define MSG_MListHardlink 263
-#define MSG_MListCopy 264
-#define MSG_MListStream 265
-#define MSG_MListTarget 266
-#define MSG_MListSize 267
-#define MSG_MListPacked 268
-#define MSG_MListRatio 269
-#define MSG_MListMtime 270
-#define MSG_MListCtime 271
-#define MSG_MListAtime 272
-#define MSG_MListAttr 273
-#define MSG_MListFlags 274
-#define MSG_MListCompInfo 275
-#define MSG_MListHostOS 276
-#define MSG_MListFileVer 277
-#define MSG_MListService 278
-#define MSG_MListUOHead 279
-#define MSG_MListNTACLHead 280
-#define MSG_MListStrmHead 281
-#define MSG_MListUnkHead 282
-#define MSG_MFileComment 283
-#define MSG_MYes 284
-#define MSG_MNo 285
-#define MSG_MListNoFiles 286
-#define MSG_MRprReconstr 287
-#define MSG_MRprBuild 288
-#define MSG_MRprOldFormat 289
-#define MSG_MRprFind 290
-#define MSG_MRprAskIsSol 291
-#define MSG_MRprNoFiles 292
-#define MSG_MLogUnexpEOF 293
-#define MSG_MRepAskReconst 294
-#define MSG_MRRSearch 295
-#define MSG_MAnalyzeFileData 296
-#define MSG_MRecRNotFound 297
-#define MSG_MRecRFound 298
-#define MSG_MRecSecDamage 299
-#define MSG_MRecCorrected 300
-#define MSG_MRecFailed 301
-#define MSG_MAddRecRec 302
-#define MSG_MEraseForVolume 303
-#define MSG_MGetOwnersError 304
-#define MSG_MErrGetOwnerID 305
-#define MSG_MErrGetGroupID 306
-#define MSG_MOwnersBroken 307
-#define MSG_MSetOwnersError 308
-#define MSG_MErrLnkRead 309
-#define MSG_MSymLinkExists 310
-#define MSG_MAskRetryCreate 311
-#define MSG_MDataBadCRC 312
-#define MSG_MFileRO 313
-#define MSG_MACLGetError 314
-#define MSG_MACLSetError 315
-#define MSG_MACLBroken 316
-#define MSG_MACLUnknown 317
-#define MSG_MStreamBroken 318
-#define MSG_MStreamUnknown 319
-#define MSG_MInvalidName 320
-#define MSG_MProcessArc 321
-#define MSG_MCorrectingName 322
-#define MSG_MUnpCannotMerge 323
-#define MSG_MUnknownOption 324
-#define MSG_MSubHeadCorrupt 325
-#define MSG_MSubHeadUnknown 326
-#define MSG_MSubHeadDataCRC 327
-#define MSG_MSubHeadType 328
-#define MSG_MScanError 329
-#define MSG_MNotVolume 330
-#define MSG_MRecVolDiffSets 331
-#define MSG_MRecVolMissing 332
-#define MSG_MRecVolFound 333
-#define MSG_MRecVolAllExist 334
-#define MSG_MRecVolCannotFix 335
-#define MSG_MReconstructing 336
-#define MSG_MCreating 337
-#define MSG_MRenaming 338
-#define MSG_MNTFSRequired 339
-#define MSG_MFAT32Size 340
-#define MSG_MErrChangeAttr 341
-#define MSG_MWrongSFXVer 342
-#define MSG_MHeadEncMismatch 343
-#define MSG_MCannotEmail 344
-#define MSG_MCopyrightS 345
-#define MSG_MSHelpCmd 346
-#define MSG_MSHelpCmdE 347
-#define MSG_MSHelpCmdT 348
-#define MSG_MSHelpCmdV 349
-#define MSG_MRecVolLimit 350
-#define MSG_MVolumeNumber 351
-#define MSG_MCannotDelete 352
-#define MSG_MRecycleFailed 353
-#define MSG_MCalcCRC 354
-#define MSG_MTooLargeSFXArc 355
-#define MSG_MCalcCRCAllVol 356
-#define MSG_MNotEnoughDisk 357
-#define MSG_MNewerRAR 358
-#define MSG_MUnkEncMethod 359
-#define MSG_MWrongPassword 360
-#define MSG_MWrongFilePassword 361
-#define MSG_MAreaDamaged 362
-#define MSG_MBlocksRecovered 363
-#define MSG_MRRDamaged 364
-#define MSG_MTestingRR 365
-#define MSG_MFailed 366
-#define MSG_MIncompatSwitch 367
-#define MSG_MSearchDupFiles 368
-#define MSG_MNumFound 369
-#define MSG_MUnknownExtra 370
-#define MSG_MCorruptExtra 371
-#define MSG_MCopyError 372
-#define MSG_MCopyErrorHint 373
-#define MSG_MCopyingData 374
-#define MSG_MErrCreateLnkS 375
-#define MSG_MErrCreateLnkH 376
-#define MSG_MErrLnkTarget 377
-#define MSG_MNeedAdmin 378
-#define MSG_MDictOutMem 379
-#define MSG_MUseSmalllerDict 380
-#define MSG_MAmigaPortBy 381
-#define MSG_MOpenErrAtime 382
-#define MSG_MAmigaConvErr 383
-#define MSG_MAmigaConvInitErr 384
+#define MSG_MIgnoreAllRetryQuit 6
+#define MSG_MCopyright 7
+#define MSG_MRegTo 8
+#define MSG_MShare 9
+#define MSG_MRegKeyWarning 10
+#define MSG_MUCopyright 11
+#define MSG_MBeta 12
+#define MSG_Mx86 13
+#define MSG_Mx64 14
+#define MSG_MMonthJan 15
+#define MSG_MMonthFeb 16
+#define MSG_MMonthMar 17
+#define MSG_MMonthApr 18
+#define MSG_MMonthMay 19
+#define MSG_MMonthJun 20
+#define MSG_MMonthJul 21
+#define MSG_MMonthAug 22
+#define MSG_MMonthSep 23
+#define MSG_MMonthOct 24
+#define MSG_MMonthNov 25
+#define MSG_MMonthDec 26
+#define MSG_MRARTitle1 27
+#define MSG_MUNRARTitle1 28
+#define MSG_MRARTitle2 29
+#define MSG_MCHelpCmd 30
+#define MSG_MCHelpCmdA 31
+#define MSG_MCHelpCmdC 32
+#define MSG_MCHelpCmdCH 33
+#define MSG_MCHelpCmdCW 34
+#define MSG_MCHelpCmdD 35
+#define MSG_MCHelpCmdE 36
+#define MSG_MCHelpCmdF 37
+#define MSG_MCHelpCmdI 38
+#define MSG_MCHelpCmdK 39
+#define MSG_MCHelpCmdL 40
+#define MSG_MCHelpCmdM 41
+#define MSG_MCHelpCmdP 42
+#define MSG_MCHelpCmdR 43
+#define MSG_MCHelpCmdRC 44
+#define MSG_MCHelpCmdRN 45
+#define MSG_MCHelpCmdRR 46
+#define MSG_MCHelpCmdRV 47
+#define MSG_MCHelpCmdS 48
+#define MSG_MCHelpCmdT 49
+#define MSG_MCHelpCmdU 50
+#define MSG_MCHelpCmdV 51
+#define MSG_MCHelpCmdX 52
+#define MSG_MCHelpSw 53
+#define MSG_MCHelpSwm 54
+#define MSG_MCHelpSwAT 55
+#define MSG_MCHelpSwAC 56
+#define MSG_MCHelpSwAD 57
+#define MSG_MCHelpSwAG 58
+#define MSG_MCHelpSwAI 59
+#define MSG_MCHelpSwAO 60
+#define MSG_MCHelpSwAP 61
+#define MSG_MCHelpSwAS 62
+#define MSG_MCHelpSwCm 63
+#define MSG_MCHelpSwCFGm 64
+#define MSG_MCHelpSwCL 65
+#define MSG_MCHelpSwCU 66
+#define MSG_MCHelpSwDF 67
+#define MSG_MCHelpSwDH 68
+#define MSG_MCHelpSwDR 69
+#define MSG_MCHelpSwDS 70
+#define MSG_MCHelpSwDW 71
+#define MSG_MCHelpSwEa 72
+#define MSG_MCHelpSwED 73
+#define MSG_MCHelpSwEN 74
+#define MSG_MCHelpSwEP 75
+#define MSG_MCHelpSwEP1 76
+#define MSG_MCHelpSwEP2 77
+#define MSG_MCHelpSwEP3 78
+#define MSG_MCHelpSwF 79
+#define MSG_MCHelpSwHP 80
+#define MSG_MCHelpSwHT 81
+#define MSG_MCHelpSwIDP 82
+#define MSG_MCHelpSwIEML 83
+#define MSG_MCHelpSwIERR 84
+#define MSG_MCHelpSwILOG 85
+#define MSG_MCHelpSwINUL 86
+#define MSG_MCHelpSwIOFF 87
+#define MSG_MCHelpSwISND 88
+#define MSG_MCHelpSwIVER 89
+#define MSG_MCHelpSwK 90
+#define MSG_MCHelpSwKB 91
+#define MSG_MCHelpSwLog 92
+#define MSG_MCHelpSwMn 93
+#define MSG_MCHelpSwMA 94
+#define MSG_MCHelpSwMC 95
+#define MSG_MCHelpSwMD 96
+#define MSG_MCHelpSwMS 97
+#define MSG_MCHelpSwMT 98
+#define MSG_MCHelpSwN 99
+#define MSG_MCHelpSwNa 100
+#define MSG_MCHelpSwNal 101
+#define MSG_MCHelpSwO 102
+#define MSG_MCHelpSwOC 103
+#define MSG_MCHelpSwOH 104
+#define MSG_MCHelpSwOI 105
+#define MSG_MCHelpSwOL 106
+#define MSG_MCHelpSwONI 107
+#define MSG_MCHelpSwOR 108
+#define MSG_MCHelpSwOS 109
+#define MSG_MCHelpSwOW 110
+#define MSG_MCHelpSwP 111
+#define MSG_MCHelpSwPm 112
+#define MSG_MCHelpSwQO 113
+#define MSG_MCHelpSwR 114
+#define MSG_MCHelpSwRm 115
+#define MSG_MCHelpSwR0 116
+#define MSG_MCHelpSwRI 117
+#define MSG_MCHelpSwRR 118
+#define MSG_MCHelpSwRV 119
+#define MSG_MCHelpSwS 120
+#define MSG_MCHelpSwSm 121
+#define MSG_MCHelpSwSC 122
+#define MSG_MCHelpSwSFX 123
+#define MSG_MCHelpSwSI 124
+#define MSG_MCHelpSwSL 125
+#define MSG_MCHelpSwSM 126
+#define MSG_MCHelpSwT 127
+#define MSG_MCHelpSwTK 128
+#define MSG_MCHelpSwTL 129
+#define MSG_MCHelpSwTN 130
+#define MSG_MCHelpSwTO 131
+#define MSG_MCHelpSwTA 132
+#define MSG_MCHelpSwTB 133
+#define MSG_MCHelpSwTS 134
+#define MSG_MCHelpSwU 135
+#define MSG_MCHelpSwV 136
+#define MSG_MCHelpSwVUnr 137
+#define MSG_MCHelpSwVn 138
+#define MSG_MCHelpSwVD 139
+#define MSG_MCHelpSwVER 140
+#define MSG_MCHelpSwVN 141
+#define MSG_MCHelpSwVP 142
+#define MSG_MCHelpSwW 143
+#define MSG_MCHelpSwX 144
+#define MSG_MCHelpSwXa 145
+#define MSG_MCHelpSwXal 146
+#define MSG_MCHelpSwY 147
+#define MSG_MCHelpSwZ 148
+#define MSG_MBadArc 149
+#define MSG_MAskPsw 150
+#define MSG_MAskPswFor 151
+#define MSG_MReAskPsw 152
+#define MSG_MNotMatchPsw 153
+#define MSG_MErrWrite 154
+#define MSG_MErrRead 155
+#define MSG_MErrSeek 156
+#define MSG_MErrFClose 157
+#define MSG_MErrOutMem 158
+#define MSG_MErrBrokenArc 159
+#define MSG_MProgAborted 160
+#define MSG_MErrRename 161
+#define MSG_MAbsNextVol 162
+#define MSG_MBreak 163
+#define MSG_MAskCreatVol 164
+#define MSG_MAskNextDisk 165
+#define MSG_MCreatVol 166
+#define MSG_MAskNextVol 167
+#define MSG_MTestVol 168
+#define MSG_MExtrVol 169
+#define MSG_MConverting 170
+#define MSG_MCvtToSFX 171
+#define MSG_MCvtFromSFX 172
+#define MSG_MNotSFX 173
+#define MSG_MNotRAR 174
+#define MSG_MNotFirstVol 175
+#define MSG_MCvtOldFormat 176
+#define MSG_MCannotCreate 177
+#define MSG_MCannotOpen 178
+#define MSG_MUnknownMeth 179
+#define MSG_MNewRarFormat 180
+#define MSG_MOk 181
+#define MSG_MDone 182
+#define MSG_MLockingArc 183
+#define MSG_MNotMdfOld 184
+#define MSG_MNotMdfLock 185
+#define MSG_MNotMdfVol 186
+#define MSG_MPackAskReg 187
+#define MSG_MCreateArchive 188
+#define MSG_MUpdateArchive 189
+#define MSG_MAddSolid 190
+#define MSG_MAddFile 191
+#define MSG_MUpdFile 192
+#define MSG_MAddPoints 193
+#define MSG_MMoveDelFiles 194
+#define MSG_MMoveDelDirs 195
+#define MSG_MMoveDelFile 196
+#define MSG_MMoveDeleted 197
+#define MSG_MMoveNotDeleted 198
+#define MSG_MClearAttrib 199
+#define MSG_MMoveDelDir 200
+#define MSG_MWarErrFOpen 201
+#define MSG_MErrOpenFiles 202
+#define MSG_MErrOpenFile 203
+#define MSG_MAddNoFiles 204
+#define MSG_MMdfEncrSol 205
+#define MSG_MAddAnalyze 206
+#define MSG_MRepacking 207
+#define MSG_MCRCFailed 208
+#define MSG_MExtrTest 209
+#define MSG_MExtracting 210
+#define MSG_MUseCurPsw 211
+#define MSG_MCreatDir 212
+#define MSG_MExtrSkipFile 213
+#define MSG_MExtrTestFile 214
+#define MSG_MExtrFile 215
+#define MSG_MExtrPoints 216
+#define MSG_MExtrErrMkDir 217
+#define MSG_MExtrPrinting 218
+#define MSG_MEncrBadCRC 219
+#define MSG_MExtrNoFiles 220
+#define MSG_MExtrAllOk 221
+#define MSG_MExtrTotalErr 222
+#define MSG_MAskReplace 223
+#define MSG_MAskOverwrite 224
+#define MSG_MAskNewName 225
+#define MSG_MHeaderBroken 226
+#define MSG_MMainHeaderBroken 227
+#define MSG_MLogFileHead 228
+#define MSG_MLogProtectHead 229
+#define MSG_MReadStdinCmt 230
+#define MSG_MReadCommFrom 231
+#define MSG_MDelComment 232
+#define MSG_MAddComment 233
+#define MSG_MFCommAdd 234
+#define MSG_MAskFComm 235
+#define MSG_MLogCommBrk 236
+#define MSG_MCommAskCont 237
+#define MSG_MWriteCommTo 238
+#define MSG_MCommNotPres 239
+#define MSG_MDelFrom 240
+#define MSG_MDeleting 241
+#define MSG_MEraseArc 242
+#define MSG_MNoDelFiles 243
+#define MSG_MLogTitle 244
+#define MSG_MPathTooLong 245
+#define MSG_MListArchive 246
+#define MSG_MListDetails 247
+#define MSG_MListSolid 248
+#define MSG_MListSFX 249
+#define MSG_MListVolume 250
+#define MSG_MListRR 251
+#define MSG_MListLock 252
+#define MSG_MListEnc 253
+#define MSG_MListEncHead 254
+#define MSG_MListTitleL 255
+#define MSG_MListTitleV 256
+#define MSG_MListName 257
+#define MSG_MListType 258
+#define MSG_MListFile 259
+#define MSG_MListDir 260
+#define MSG_MListUSymlink 261
+#define MSG_MListWSymlink 262
+#define MSG_MListJunction 263
+#define MSG_MListHardlink 264
+#define MSG_MListCopy 265
+#define MSG_MListStream 266
+#define MSG_MListTarget 267
+#define MSG_MListSize 268
+#define MSG_MListPacked 269
+#define MSG_MListRatio 270
+#define MSG_MListMtime 271
+#define MSG_MListCtime 272
+#define MSG_MListAtime 273
+#define MSG_MListAttr 274
+#define MSG_MListFlags 275
+#define MSG_MListCompInfo 276
+#define MSG_MListHostOS 277
+#define MSG_MListFileVer 278
+#define MSG_MListService 279
+#define MSG_MListUOHead 280
+#define MSG_MListNTACLHead 281
+#define MSG_MListStrmHead 282
+#define MSG_MListUnkHead 283
+#define MSG_MFileComment 284
+#define MSG_MYes 285
+#define MSG_MNo 286
+#define MSG_MListNoFiles 287
+#define MSG_MRprReconstr 288
+#define MSG_MRprBuild 289
+#define MSG_MRprOldFormat 290
+#define MSG_MRprFind 291
+#define MSG_MRprAskIsSol 292
+#define MSG_MRprNoFiles 293
+#define MSG_MLogUnexpEOF 294
+#define MSG_MRepAskReconst 295
+#define MSG_MRRSearch 296
+#define MSG_MAnalyzeFileData 297
+#define MSG_MRecRNotFound 298
+#define MSG_MRecRFound 299
+#define MSG_MRecSecDamage 300
+#define MSG_MRecCorrected 301
+#define MSG_MRecFailed 302
+#define MSG_MAddRecRec 303
+#define MSG_MEraseForVolume 304
+#define MSG_MGetOwnersError 305
+#define MSG_MErrGetOwnerID 306
+#define MSG_MErrGetGroupID 307
+#define MSG_MOwnersBroken 308
+#define MSG_MSetOwnersError 309
+#define MSG_MErrLnkRead 310
+#define MSG_MSymLinkExists 311
+#define MSG_MAskRetryCreate 312
+#define MSG_MDataBadCRC 313
+#define MSG_MFileRO 314
+#define MSG_MACLGetError 315
+#define MSG_MACLSetError 316
+#define MSG_MACLBroken 317
+#define MSG_MACLUnknown 318
+#define MSG_MStreamBroken 319
+#define MSG_MStreamUnknown 320
+#define MSG_MInvalidName 321
+#define MSG_MProcessArc 322
+#define MSG_MCorrectingName 323
+#define MSG_MUnpCannotMerge 324
+#define MSG_MUnknownOption 325
+#define MSG_MSubHeadCorrupt 326
+#define MSG_MSubHeadUnknown 327
+#define MSG_MSubHeadDataCRC 328
+#define MSG_MSubHeadType 329
+#define MSG_MScanError 330
+#define MSG_MNotVolume 331
+#define MSG_MRecVolDiffSets 332
+#define MSG_MRecVolMissing 333
+#define MSG_MRecVolFound 334
+#define MSG_MRecVolAllExist 335
+#define MSG_MRecVolCannotFix 336
+#define MSG_MReconstructing 337
+#define MSG_MCreating 338
+#define MSG_MRenaming 339
+#define MSG_MNTFSRequired 340
+#define MSG_MFAT32Size 341
+#define MSG_MErrChangeAttr 342
+#define MSG_MWrongSFXVer 343
+#define MSG_MHeadEncMismatch 344
+#define MSG_MCannotEmail 345
+#define MSG_MCopyrightS 346
+#define MSG_MSHelpCmd 347
+#define MSG_MSHelpCmdE 348
+#define MSG_MSHelpCmdT 349
+#define MSG_MSHelpCmdV 350
+#define MSG_MRecVolLimit 351
+#define MSG_MVolumeNumber 352
+#define MSG_MCannotDelete 353
+#define MSG_MRecycleFailed 354
+#define MSG_MCalcCRC 355
+#define MSG_MTooLargeSFXArc 356
+#define MSG_MCalcCRCAllVol 357
+#define MSG_MNotEnoughDisk 358
+#define MSG_MNewerRAR 359
+#define MSG_MUnkEncMethod 360
+#define MSG_MWrongPassword 361
+#define MSG_MWrongFilePassword 362
+#define MSG_MAreaDamaged 363
+#define MSG_MBlocksRecovered 364
+#define MSG_MRRDamaged 365
+#define MSG_MTestingRR 366
+#define MSG_MFailed 367
+#define MSG_MIncompatSwitch 368
+#define MSG_MSearchDupFiles 369
+#define MSG_MNumFound 370
+#define MSG_MUnknownExtra 371
+#define MSG_MCorruptExtra 372
+#define MSG_MCopyError 373
+#define MSG_MCopyErrorHint 374
+#define MSG_MCopyingData 375
+#define MSG_MErrCreateLnkS 376
+#define MSG_MErrCreateLnkH 377
+#define MSG_MErrLnkTarget 378
+#define MSG_MNeedAdmin 379
+#define MSG_MDictOutMem 380
+#define MSG_MUseSmalllerDict 381
+#define MSG_MAmigaPortBy 382
+#define MSG_MOpenErrAtime 383
+#define MSG_MErrReadInfo 384
+#define MSG_MErrReadTrunc 385
+#define MSG_MErrReadCount 386
+#define MSG_MDirNameExists 387
+#define MSG_MAmigaConvErr 388
+#define MSG_MAmigaConvInitErr 389
 
-#define CATCOMP_LASTID 384
+#define CATCOMP_LASTID 389
 
 #endif /* CATCOMP_NUMBERS */
 
@@ -440,6 +445,7 @@
 #define MSG_MYesNoAllRenQ_STR "_Yes_No_All_nEver_Rename_Quit"
 #define MSG_MContinueQuit_STR "_Continue_Quit"
 #define MSG_MRetryAbort_STR "_Retry_Abort"
+#define MSG_MIgnoreAllRetryQuit_STR "_Ignore_iGnore all_Retry_Quit"
 #define MSG_MCopyright_STR "\nRAR %s   Copyright (c) 1993-%d Alexander Roshal   %d %s %d"
 #define MSG_MRegTo_STR "\nRegistered to %s\n"
 #define MSG_MShare_STR "\nTrial version             Type 'rar -?' for help\n"
@@ -490,7 +496,7 @@
 #define MSG_MCHelpSwm_STR "\n  -             Stop switches scanning"
 #define MSG_MCHelpSwAT_STR "\n  @[+]          Disable [enable] file lists"
 #define MSG_MCHelpSwAC_STR "\n  ac            Clear Archive attribute after compression or extraction"
-#define MSG_MCHelpSwAD_STR "\n  ad            Append archive name to destination path"
+#define MSG_MCHelpSwAD_STR "\n  ad[1,2]       Alternate destination path"
 #define MSG_MCHelpSwAG_STR "\n  ag[format]    Generate archive name using the current date"
 #define MSG_MCHelpSwAI_STR "\n  ai            Ignore file attributes"
 #define MSG_MCHelpSwAO_STR "\n  ao            Add files with Archive attribute set"
@@ -515,7 +521,7 @@
 #define MSG_MCHelpSwF_STR "\n  f             Freshen files"
 #define MSG_MCHelpSwHP_STR "\n  hp[password]  Encrypt both file data and headers"
 #define MSG_MCHelpSwHT_STR "\n  ht[b|c]       Select hash type [BLAKE2,CRC32] for file checksum"
-#define MSG_MCHelpSwIDP_STR "\n  id[c,d,p,q]   Disable messages"
+#define MSG_MCHelpSwIDP_STR "\n  id[c,d,n,p,q] Display or disable messages"
 #define MSG_MCHelpSwIEML_STR "\n  ieml[addr]    Send archive by email"
 #define MSG_MCHelpSwIERR_STR "\n  ierr          Send all messages to stderr"
 #define MSG_MCHelpSwILOG_STR "\n  ilog[name]    Log errors to file"
@@ -787,7 +793,7 @@
 #define MSG_MRecVolLimit_STR "\nTotal number of usual and recovery volumes must not exceed %d"
 #define MSG_MVolumeNumber_STR "volume %d"
 #define MSG_MCannotDelete_STR "\nCannot delete %s"
-#define MSG_MRecycleFailed_STR "\nCannot move some files and folders to Recycle Bin"
+#define MSG_MRecycleFailed_STR "\nCannot move some files and directories to Recycle Bin"
 #define MSG_MCalcCRC_STR "\nCalculating the checksum"
 #define MSG_MTooLargeSFXArc_STR "\nToo large SFX archive. Windows cannot run the executable file exceeding 4 GB."
 #define MSG_MCalcCRCAllVol_STR "\nCalculating checksums of all volumes."
@@ -817,6 +823,10 @@
 #define MSG_MUseSmalllerDict_STR "\nPlease use a smaller compression dictionary."
 #define MSG_MAmigaPortBy_STR "\n%s port by Marcin Labenski\n"
 #define MSG_MOpenErrAtime_STR "\nYou may need to remove -tsp switch to open this file."
+#define MSG_MErrReadInfo_STR "\nChoose 'Ignore' to continue with the already read file part only, 'Ignore all' to do it for all read errors, 'Retry' to repeat read and 'Quit' to abort."
+#define MSG_MErrReadTrunc_STR "\n%s is archived incompletely because of read error.\n"
+#define MSG_MErrReadCount_STR "\n%u files are archived incompletely because of read errors."
+#define MSG_MDirNameExists_STR "\nDirectory with such name already exists"
 #define MSG_MAmigaConvErr_STR "WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding."
 #define MSG_MAmigaConvInitErr_STR "WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable."
 
@@ -842,6 +852,7 @@ static const struct CatCompArrayType CatCompArray[] =
     {MSG_MYesNoAllRenQ,(STRPTR)MSG_MYesNoAllRenQ_STR},
     {MSG_MContinueQuit,(STRPTR)MSG_MContinueQuit_STR},
     {MSG_MRetryAbort,(STRPTR)MSG_MRetryAbort_STR},
+    {MSG_MIgnoreAllRetryQuit,(STRPTR)MSG_MIgnoreAllRetryQuit_STR},
     {MSG_MCopyright,(STRPTR)MSG_MCopyright_STR},
     {MSG_MRegTo,(STRPTR)MSG_MRegTo_STR},
     {MSG_MShare,(STRPTR)MSG_MShare_STR},
@@ -1219,6 +1230,10 @@ static const struct CatCompArrayType CatCompArray[] =
     {MSG_MUseSmalllerDict,(STRPTR)MSG_MUseSmalllerDict_STR},
     {MSG_MAmigaPortBy,(STRPTR)MSG_MAmigaPortBy_STR},
     {MSG_MOpenErrAtime,(STRPTR)MSG_MOpenErrAtime_STR},
+    {MSG_MErrReadInfo,(STRPTR)MSG_MErrReadInfo_STR},
+    {MSG_MErrReadTrunc,(STRPTR)MSG_MErrReadTrunc_STR},
+    {MSG_MErrReadCount,(STRPTR)MSG_MErrReadCount_STR},
+    {MSG_MDirNameExists,(STRPTR)MSG_MDirNameExists_STR},
     {MSG_MAmigaConvErr,(STRPTR)MSG_MAmigaConvErr_STR},
     {MSG_MAmigaConvInitErr,(STRPTR)MSG_MAmigaConvInitErr_STR},
 };
@@ -1245,763 +1260,773 @@ static const char CatCompBlock[] =
     MSG_MContinueQuit_STR "\x00\x00"
     "\x00\x00\x00\x05\x00\x0E"
     MSG_MRetryAbort_STR "\x00\x00"
-    "\x00\x00\x00\x06\x00\x3C"
+    "\x00\x00\x00\x06\x00\x1E"
+    MSG_MIgnoreAllRetryQuit_STR "\x00"
+    "\x00\x00\x00\x07\x00\x3C"
     MSG_MCopyright_STR "\x00"
-    "\x00\x00\x00\x07\x00\x14"
+    "\x00\x00\x00\x08\x00\x14"
     MSG_MRegTo_STR "\x00\x00"
-    "\x00\x00\x00\x08\x00\x34"
+    "\x00\x00\x00\x09\x00\x34"
     MSG_MShare_STR "\x00\x00"
-    "\x00\x00\x00\x09\x00\x2E"
+    "\x00\x00\x00\x0A\x00\x2E"
     MSG_MRegKeyWarning_STR "\x00\x00"
-    "\x00\x00\x00\x0A\x00\x40"
+    "\x00\x00\x00\x0B\x00\x40"
     MSG_MUCopyright_STR "\x00"
-    "\x00\x00\x00\x0B\x00\x06"
+    "\x00\x00\x00\x0C\x00\x06"
     MSG_MBeta_STR "\x00\x00"
-    "\x00\x00\x00\x0C\x00\x04"
-    MSG_Mx86_STR "\x00"
     "\x00\x00\x00\x0D\x00\x04"
-    MSG_Mx64_STR "\x00"
+    MSG_Mx86_STR "\x00"
     "\x00\x00\x00\x0E\x00\x04"
-    MSG_MMonthJan_STR "\x00"
+    MSG_Mx64_STR "\x00"
     "\x00\x00\x00\x0F\x00\x04"
-    MSG_MMonthFeb_STR "\x00"
+    MSG_MMonthJan_STR "\x00"
     "\x00\x00\x00\x10\x00\x04"
-    MSG_MMonthMar_STR "\x00"
+    MSG_MMonthFeb_STR "\x00"
     "\x00\x00\x00\x11\x00\x04"
-    MSG_MMonthApr_STR "\x00"
+    MSG_MMonthMar_STR "\x00"
     "\x00\x00\x00\x12\x00\x04"
-    MSG_MMonthMay_STR "\x00"
+    MSG_MMonthApr_STR "\x00"
     "\x00\x00\x00\x13\x00\x04"
-    MSG_MMonthJun_STR "\x00"
+    MSG_MMonthMay_STR "\x00"
     "\x00\x00\x00\x14\x00\x04"
-    MSG_MMonthJul_STR "\x00"
+    MSG_MMonthJun_STR "\x00"
     "\x00\x00\x00\x15\x00\x04"
-    MSG_MMonthAug_STR "\x00"
+    MSG_MMonthJul_STR "\x00"
     "\x00\x00\x00\x16\x00\x04"
-    MSG_MMonthSep_STR "\x00"
+    MSG_MMonthAug_STR "\x00"
     "\x00\x00\x00\x17\x00\x04"
-    MSG_MMonthOct_STR "\x00"
+    MSG_MMonthSep_STR "\x00"
     "\x00\x00\x00\x18\x00\x04"
-    MSG_MMonthNov_STR "\x00"
+    MSG_MMonthOct_STR "\x00"
     "\x00\x00\x00\x19\x00\x04"
+    MSG_MMonthNov_STR "\x00"
+    "\x00\x00\x00\x1A\x00\x04"
     MSG_MMonthDec_STR "\x00"
-    "\x00\x00\x00\x1A\x00\x48"
+    "\x00\x00\x00\x1B\x00\x48"
     MSG_MRARTitle1_STR "\x00\x00"
-    "\x00\x00\x00\x1B\x00\x4A"
+    "\x00\x00\x00\x1C\x00\x4A"
     MSG_MUNRARTitle1_STR "\x00\x00"
-    "\x00\x00\x00\x1C\x00\x34"
+    "\x00\x00\x00\x1D\x00\x34"
     MSG_MRARTitle2_STR "\x00\x00"
-    "\x00\x00\x00\x1D\x00\x0E"
+    "\x00\x00\x00\x1E\x00\x0E"
     MSG_MCHelpCmd_STR "\x00\x00"
-    "\x00\x00\x00\x1E\x00\x26"
-    MSG_MCHelpCmdA_STR "\x00"
     "\x00\x00\x00\x1F\x00\x26"
+    MSG_MCHelpCmdA_STR "\x00"
+    "\x00\x00\x00\x20\x00\x26"
     MSG_MCHelpCmdC_STR "\x00\x00"
-    "\x00\x00\x00\x20\x00\x2C"
+    "\x00\x00\x00\x21\x00\x2C"
     MSG_MCHelpCmdCH_STR "\x00\x00"
-    "\x00\x00\x00\x21\x00\x30"
+    "\x00\x00\x00\x22\x00\x30"
     MSG_MCHelpCmdCW_STR "\x00\x00"
-    "\x00\x00\x00\x22\x00\x2C"
+    "\x00\x00\x00\x23\x00\x2C"
     MSG_MCHelpCmdD_STR "\x00\x00"
-    "\x00\x00\x00\x23\x00\x36"
+    "\x00\x00\x00\x24\x00\x36"
     MSG_MCHelpCmdE_STR "\x00"
-    "\x00\x00\x00\x24\x00\x2A"
-    MSG_MCHelpCmdF_STR "\x00"
     "\x00\x00\x00\x25\x00\x2A"
+    MSG_MCHelpCmdF_STR "\x00"
+    "\x00\x00\x00\x26\x00\x2A"
     MSG_MCHelpCmdI_STR "\x00\x00"
-    "\x00\x00\x00\x26\x00\x1E"
+    "\x00\x00\x00\x27\x00\x1E"
     MSG_MCHelpCmdK_STR "\x00"
-    "\x00\x00\x00\x27\x00\x3E"
+    "\x00\x00\x00\x28\x00\x3E"
     MSG_MCHelpCmdL_STR "\x00"
-    "\x00\x00\x00\x28\x00\x2E"
+    "\x00\x00\x00\x29\x00\x2E"
     MSG_MCHelpCmdM_STR "\x00"
-    "\x00\x00\x00\x29\x00\x26"
+    "\x00\x00\x00\x2A\x00\x26"
     MSG_MCHelpCmdP_STR "\x00"
-    "\x00\x00\x00\x2A\x00\x20"
+    "\x00\x00\x00\x2B\x00\x20"
     MSG_MCHelpCmdR_STR "\x00"
-    "\x00\x00\x00\x2B\x00\x2E"
+    "\x00\x00\x00\x2C\x00\x2E"
     MSG_MCHelpCmdRC_STR "\x00\x00"
-    "\x00\x00\x00\x2C\x00\x28"
+    "\x00\x00\x00\x2D\x00\x28"
     MSG_MCHelpCmdRN_STR "\x00\x00"
-    "\x00\x00\x00\x2D\x00\x2A"
-    MSG_MCHelpCmdRR_STR "\x00"
     "\x00\x00\x00\x2E\x00\x2A"
+    MSG_MCHelpCmdRR_STR "\x00"
+    "\x00\x00\x00\x2F\x00\x2A"
     MSG_MCHelpCmdRV_STR "\x00\x00"
-    "\x00\x00\x00\x2F\x00\x30"
+    "\x00\x00\x00\x30\x00\x30"
     MSG_MCHelpCmdS_STR "\x00"
-    "\x00\x00\x00\x30\x00\x24"
+    "\x00\x00\x00\x31\x00\x24"
     MSG_MCHelpCmdT_STR "\x00"
-    "\x00\x00\x00\x31\x00\x2A"
+    "\x00\x00\x00\x32\x00\x2A"
     MSG_MCHelpCmdU_STR "\x00\x00"
-    "\x00\x00\x00\x32\x00\x48"
+    "\x00\x00\x00\x33\x00\x48"
     MSG_MCHelpCmdV_STR "\x00\x00"
-    "\x00\x00\x00\x33\x00\x2E"
+    "\x00\x00\x00\x34\x00\x2E"
     MSG_MCHelpCmdX_STR "\x00"
-    "\x00\x00\x00\x34\x00\x0E"
+    "\x00\x00\x00\x35\x00\x0E"
     MSG_MCHelpSw_STR "\x00\x00"
-    "\x00\x00\x00\x35\x00\x28"
+    "\x00\x00\x00\x36\x00\x28"
     MSG_MCHelpSwm_STR "\x00"
-    "\x00\x00\x00\x36\x00\x2E"
+    "\x00\x00\x00\x37\x00\x2E"
     MSG_MCHelpSwAT_STR "\x00\x00"
-    "\x00\x00\x00\x37\x00\x4A"
+    "\x00\x00\x00\x38\x00\x4A"
     MSG_MCHelpSwAC_STR "\x00\x00"
-    "\x00\x00\x00\x38\x00\x3A"
-    MSG_MCHelpSwAD_STR "\x00\x00"
-    "\x00\x00\x00\x39\x00\x3E"
+    "\x00\x00\x00\x39\x00\x2C"
+    MSG_MCHelpSwAD_STR "\x00"
+    "\x00\x00\x00\x3A\x00\x3E"
     MSG_MCHelpSwAG_STR "\x00"
-    "\x00\x00\x00\x3A\x00\x28"
+    "\x00\x00\x00\x3B\x00\x28"
     MSG_MCHelpSwAI_STR "\x00"
-    "\x00\x00\x00\x3B\x00\x36"
+    "\x00\x00\x00\x3C\x00\x36"
     MSG_MCHelpSwAO_STR "\x00"
-    "\x00\x00\x00\x3C\x00\x2A"
+    "\x00\x00\x00\x3D\x00\x2A"
     MSG_MCHelpSwAP_STR "\x00\x00"
-    "\x00\x00\x00\x3D\x00\x2E"
+    "\x00\x00\x00\x3E\x00\x2E"
     MSG_MCHelpSwAS_STR "\x00"
-    "\x00\x00\x00\x3E\x00\x28"
+    "\x00\x00\x00\x3F\x00\x28"
     MSG_MCHelpSwCm_STR "\x00\x00"
-    "\x00\x00\x00\x3F\x00\x2C"
+    "\x00\x00\x00\x40\x00\x2C"
     MSG_MCHelpSwCFGm_STR "\x00"
-    "\x00\x00\x00\x40\x00\x2E"
-    MSG_MCHelpSwCL_STR "\x00\x00"
     "\x00\x00\x00\x41\x00\x2E"
-    MSG_MCHelpSwCU_STR "\x00\x00"
+    MSG_MCHelpSwCL_STR "\x00\x00"
     "\x00\x00\x00\x42\x00\x2E"
+    MSG_MCHelpSwCU_STR "\x00\x00"
+    "\x00\x00\x00\x43\x00\x2E"
     MSG_MCHelpSwDF_STR "\x00"
-    "\x00\x00\x00\x43\x00\x24"
+    "\x00\x00\x00\x44\x00\x24"
     MSG_MCHelpSwDH_STR "\x00\x00"
-    "\x00\x00\x00\x44\x00\x2E"
+    "\x00\x00\x00\x45\x00\x2E"
     MSG_MCHelpSwDR_STR "\x00\x00"
-    "\x00\x00\x00\x45\x00\x36"
+    "\x00\x00\x00\x46\x00\x36"
     MSG_MCHelpSwDS_STR "\x00\x00"
-    "\x00\x00\x00\x46\x00\x2C"
+    "\x00\x00\x00\x47\x00\x2C"
     MSG_MCHelpSwDW_STR "\x00"
-    "\x00\x00\x00\x47\x00\x3A"
+    "\x00\x00\x00\x48\x00\x3A"
     MSG_MCHelpSwEa_STR "\x00\x00"
-    "\x00\x00\x00\x48\x00\x2E"
+    "\x00\x00\x00\x49\x00\x2E"
     MSG_MCHelpSwED_STR "\x00"
-    "\x00\x00\x00\x49\x00\x34"
+    "\x00\x00\x00\x4A\x00\x34"
     MSG_MCHelpSwEN_STR "\x00\x00"
-    "\x00\x00\x00\x4A\x00\x2A"
+    "\x00\x00\x00\x4B\x00\x2A"
     MSG_MCHelpSwEP_STR "\x00"
-    "\x00\x00\x00\x4B\x00\x34"
+    "\x00\x00\x00\x4C\x00\x34"
     MSG_MCHelpSwEP1_STR "\x00\x00"
-    "\x00\x00\x00\x4C\x00\x26"
+    "\x00\x00\x00\x4D\x00\x26"
     MSG_MCHelpSwEP2_STR "\x00"
-    "\x00\x00\x00\x4D\x00\x42"
+    "\x00\x00\x00\x4E\x00\x42"
     MSG_MCHelpSwEP3_STR "\x00\x00"
-    "\x00\x00\x00\x4E\x00\x20"
+    "\x00\x00\x00\x4F\x00\x20"
     MSG_MCHelpSwF_STR "\x00\x00"
-    "\x00\x00\x00\x4F\x00\x34"
+    "\x00\x00\x00\x50\x00\x34"
     MSG_MCHelpSwHP_STR "\x00"
-    "\x00\x00\x00\x50\x00\x44"
+    "\x00\x00\x00\x51\x00\x44"
     MSG_MCHelpSwHT_STR "\x00\x00"
-    "\x00\x00\x00\x51\x00\x22"
-    MSG_MCHelpSwIDP_STR "\x00"
-    "\x00\x00\x00\x52\x00\x28"
+    "\x00\x00\x00\x52\x00\x2E"
+    MSG_MCHelpSwIDP_STR "\x00\x00"
+    "\x00\x00\x00\x53\x00\x28"
     MSG_MCHelpSwIEML_STR "\x00\x00"
-    "\x00\x00\x00\x53\x00\x2E"
+    "\x00\x00\x00\x54\x00\x2E"
     MSG_MCHelpSwIERR_STR "\x00\x00"
-    "\x00\x00\x00\x54\x00\x24"
+    "\x00\x00\x00\x55\x00\x24"
     MSG_MCHelpSwILOG_STR "\x00"
-    "\x00\x00\x00\x55\x00\x26"
+    "\x00\x00\x00\x56\x00\x26"
     MSG_MCHelpSwINUL_STR "\x00"
-    "\x00\x00\x00\x56\x00\x3C"
+    "\x00\x00\x00\x57\x00\x3C"
     MSG_MCHelpSwIOFF_STR "\x00\x00"
-    "\x00\x00\x00\x57\x00\x2E"
+    "\x00\x00\x00\x58\x00\x2E"
     MSG_MCHelpSwISND_STR "\x00\x00"
-    "\x00\x00\x00\x58\x00\x2C"
+    "\x00\x00\x00\x59\x00\x2C"
     MSG_MCHelpSwIVER_STR "\x00"
-    "\x00\x00\x00\x59\x00\x1E"
+    "\x00\x00\x00\x5A\x00\x1E"
     MSG_MCHelpSwK_STR "\x00"
-    "\x00\x00\x00\x5A\x00\x2E"
+    "\x00\x00\x00\x5B\x00\x2E"
     MSG_MCHelpSwKB_STR "\x00\x00"
-    "\x00\x00\x00\x5B\x00\x2A"
+    "\x00\x00\x00\x5C\x00\x2A"
     MSG_MCHelpSwLog_STR "\x00\x00"
-    "\x00\x00\x00\x5C\x00\x4A"
+    "\x00\x00\x00\x5D\x00\x4A"
     MSG_MCHelpSwMn_STR "\x00\x00"
-    "\x00\x00\x00\x5D\x00\x38"
+    "\x00\x00\x00\x5E\x00\x38"
     MSG_MCHelpSwMA_STR "\x00\x00"
-    "\x00\x00\x00\x5E\x00\x36"
+    "\x00\x00\x00\x5F\x00\x36"
     MSG_MCHelpSwMC_STR "\x00\x00"
-    "\x00\x00\x00\x5F\x00\x32"
+    "\x00\x00\x00\x60\x00\x32"
     MSG_MCHelpSwMD_STR "\x00\x00"
-    "\x00\x00\x00\x60\x00\x2E"
+    "\x00\x00\x00\x61\x00\x2E"
     MSG_MCHelpSwMS_STR "\x00\x00"
-    "\x00\x00\x00\x61\x00\x2C"
+    "\x00\x00\x00\x62\x00\x2C"
     MSG_MCHelpSwMT_STR "\x00\x00"
-    "\x00\x00\x00\x62\x00\x34"
+    "\x00\x00\x00\x63\x00\x34"
     MSG_MCHelpSwN_STR "\x00"
-    "\x00\x00\x00\x63\x00\x3A"
+    "\x00\x00\x00\x64\x00\x3A"
     MSG_MCHelpSwNa_STR "\x00\x00"
-    "\x00\x00\x00\x64\x00\x3E"
+    "\x00\x00\x00\x65\x00\x3E"
     MSG_MCHelpSwNal_STR "\x00\x00"
-    "\x00\x00\x00\x65\x00\x28"
+    "\x00\x00\x00\x66\x00\x28"
     MSG_MCHelpSwO_STR "\x00"
-    "\x00\x00\x00\x66\x00\x30"
+    "\x00\x00\x00\x67\x00\x30"
     MSG_MCHelpSwOC_STR "\x00\x00"
-    "\x00\x00\x00\x67\x00\x42"
+    "\x00\x00\x00\x68\x00\x42"
     MSG_MCHelpSwOH_STR "\x00\x00"
-    "\x00\x00\x00\x68\x00\x34"
+    "\x00\x00\x00\x69\x00\x34"
     MSG_MCHelpSwOI_STR "\x00"
-    "\x00\x00\x00\x69\x00\x46"
+    "\x00\x00\x00\x6A\x00\x46"
     MSG_MCHelpSwOL_STR "\x00\x00"
-    "\x00\x00\x00\x6A\x00\x36"
+    "\x00\x00\x00\x6B\x00\x36"
     MSG_MCHelpSwONI_STR "\x00"
-    "\x00\x00\x00\x6B\x00\x2C"
+    "\x00\x00\x00\x6C\x00\x2C"
     MSG_MCHelpSwOR_STR "\x00"
-    "\x00\x00\x00\x6C\x00\x24"
+    "\x00\x00\x00\x6D\x00\x24"
     MSG_MCHelpSwOS_STR "\x00\x00"
-    "\x00\x00\x00\x6D\x00\x36"
+    "\x00\x00\x00\x6E\x00\x36"
     MSG_MCHelpSwOW_STR "\x00"
-    "\x00\x00\x00\x6E\x00\x1E"
+    "\x00\x00\x00\x6F\x00\x1E"
     MSG_MCHelpSwP_STR "\x00"
-    "\x00\x00\x00\x6F\x00\x28"
+    "\x00\x00\x00\x70\x00\x28"
     MSG_MCHelpSwPm_STR "\x00\x00"
-    "\x00\x00\x00\x70\x00\x3A"
+    "\x00\x00\x00\x71\x00\x3A"
     MSG_MCHelpSwQO_STR "\x00\x00"
-    "\x00\x00\x00\x71\x00\x28"
+    "\x00\x00\x00\x72\x00\x28"
     MSG_MCHelpSwR_STR "\x00"
-    "\x00\x00\x00\x72\x00\x24"
+    "\x00\x00\x00\x73\x00\x24"
     MSG_MCHelpSwRm_STR "\x00\x00"
-    "\x00\x00\x00\x73\x00\x40"
+    "\x00\x00\x00\x74\x00\x40"
     MSG_MCHelpSwR0_STR "\x00"
-    "\x00\x00\x00\x74\x00\x4E"
+    "\x00\x00\x00\x75\x00\x4E"
     MSG_MCHelpSwRI_STR "\x00\x00"
-    "\x00\x00\x00\x75\x00\x2A"
-    MSG_MCHelpSwRR_STR "\x00"
     "\x00\x00\x00\x76\x00\x2A"
+    MSG_MCHelpSwRR_STR "\x00"
+    "\x00\x00\x00\x77\x00\x2A"
     MSG_MCHelpSwRV_STR "\x00\x00"
-    "\x00\x00\x00\x77\x00\x26"
+    "\x00\x00\x00\x78\x00\x26"
     MSG_MCHelpSwS_STR "\x00"
-    "\x00\x00\x00\x78\x00\x2A"
+    "\x00\x00\x00\x79\x00\x2A"
     MSG_MCHelpSwSm_STR "\x00\x00"
-    "\x00\x00\x00\x79\x00\x2C"
+    "\x00\x00\x00\x7A\x00\x2C"
     MSG_MCHelpSwSC_STR "\x00\x00"
-    "\x00\x00\x00\x7A\x00\x24"
+    "\x00\x00\x00\x7B\x00\x24"
     MSG_MCHelpSwSFX_STR "\x00"
-    "\x00\x00\x00\x7B\x00\x38"
+    "\x00\x00\x00\x7C\x00\x38"
     MSG_MCHelpSwSI_STR "\x00\x00"
-    "\x00\x00\x00\x7C\x00\x3E"
-    MSG_MCHelpSwSL_STR "\x00\x00"
     "\x00\x00\x00\x7D\x00\x3E"
+    MSG_MCHelpSwSL_STR "\x00\x00"
+    "\x00\x00\x00\x7E\x00\x3E"
     MSG_MCHelpSwSM_STR "\x00\x00"
-    "\x00\x00\x00\x7E\x00\x2C"
-    MSG_MCHelpSwT_STR "\x00"
     "\x00\x00\x00\x7F\x00\x2C"
+    MSG_MCHelpSwT_STR "\x00"
+    "\x00\x00\x00\x80\x00\x2C"
     MSG_MCHelpSwTK_STR "\x00"
-    "\x00\x00\x00\x80\x00\x32"
+    "\x00\x00\x00\x81\x00\x32"
     MSG_MCHelpSwTL_STR "\x00\x00"
-    "\x00\x00\x00\x81\x00\x34"
-    MSG_MCHelpSwTN_STR "\x00\x00"
     "\x00\x00\x00\x82\x00\x34"
+    MSG_MCHelpSwTN_STR "\x00\x00"
+    "\x00\x00\x00\x83\x00\x34"
     MSG_MCHelpSwTO_STR "\x00\x00"
-    "\x00\x00\x00\x83\x00\x46"
+    "\x00\x00\x00\x84\x00\x46"
     MSG_MCHelpSwTA_STR "\x00"
-    "\x00\x00\x00\x84\x00\x48"
+    "\x00\x00\x00\x85\x00\x48"
     MSG_MCHelpSwTB_STR "\x00\x00"
-    "\x00\x00\x00\x85\x00\x52"
+    "\x00\x00\x00\x86\x00\x52"
     MSG_MCHelpSwTS_STR "\x00\x00"
-    "\x00\x00\x00\x86\x00\x1E"
+    "\x00\x00\x00\x87\x00\x1E"
     MSG_MCHelpSwU_STR "\x00"
-    "\x00\x00\x00\x87\x00\x4C"
+    "\x00\x00\x00\x88\x00\x4C"
     MSG_MCHelpSwV_STR "\x00"
-    "\x00\x00\x00\x88\x00\x22"
+    "\x00\x00\x00\x89\x00\x22"
     MSG_MCHelpSwVUnr_STR "\x00"
-    "\x00\x00\x00\x89\x00\x42"
+    "\x00\x00\x00\x8A\x00\x42"
     MSG_MCHelpSwVn_STR "\x00"
-    "\x00\x00\x00\x8A\x00\x3C"
+    "\x00\x00\x00\x8B\x00\x3C"
     MSG_MCHelpSwVD_STR "\x00"
-    "\x00\x00\x00\x8B\x00\x26"
+    "\x00\x00\x00\x8C\x00\x26"
     MSG_MCHelpSwVER_STR "\x00"
-    "\x00\x00\x00\x8C\x00\x38"
+    "\x00\x00\x00\x8D\x00\x38"
     MSG_MCHelpSwVN_STR "\x00"
-    "\x00\x00\x00\x8D\x00\x2A"
+    "\x00\x00\x00\x8E\x00\x2A"
     MSG_MCHelpSwVP_STR "\x00"
-    "\x00\x00\x00\x8E\x00\x28"
-    MSG_MCHelpSwW_STR "\x00\x00"
     "\x00\x00\x00\x8F\x00\x28"
+    MSG_MCHelpSwW_STR "\x00\x00"
+    "\x00\x00\x00\x90\x00\x28"
     MSG_MCHelpSwX_STR "\x00"
-    "\x00\x00\x00\x90\x00\x38"
+    "\x00\x00\x00\x91\x00\x38"
     MSG_MCHelpSwXa_STR "\x00\x00"
-    "\x00\x00\x00\x91\x00\x3E"
+    "\x00\x00\x00\x92\x00\x3E"
     MSG_MCHelpSwXal_STR "\x00\x00"
-    "\x00\x00\x00\x92\x00\x2C"
+    "\x00\x00\x00\x93\x00\x2C"
     MSG_MCHelpSwY_STR "\x00\x00"
-    "\x00\x00\x00\x93\x00\x30"
+    "\x00\x00\x00\x94\x00\x30"
     MSG_MCHelpSwZ_STR "\x00"
-    "\x00\x00\x00\x94\x00\x18"
+    "\x00\x00\x00\x95\x00\x18"
     MSG_MBadArc_STR "\x00"
-    "\x00\x00\x00\x95\x00\x24"
+    "\x00\x00\x00\x96\x00\x24"
     MSG_MAskPsw_STR "\x00"
-    "\x00\x00\x00\x96\x00\x2E"
+    "\x00\x00\x00\x97\x00\x2E"
     MSG_MAskPswFor_STR "\x00"
-    "\x00\x00\x00\x97\x00\x14"
+    "\x00\x00\x00\x98\x00\x14"
     MSG_MReAskPsw_STR "\x00"
-    "\x00\x00\x00\x98\x00\x20"
+    "\x00\x00\x00\x99\x00\x20"
     MSG_MNotMatchPsw_STR "\x00"
-    "\x00\x00\x00\x99\x00\x1C"
+    "\x00\x00\x00\x9A\x00\x1C"
     MSG_MErrWrite_STR "\x00\x00"
-    "\x00\x00\x00\x9A\x00\x1A"
-    MSG_MErrRead_STR "\x00"
     "\x00\x00\x00\x9B\x00\x1A"
-    MSG_MErrSeek_STR "\x00"
+    MSG_MErrRead_STR "\x00"
     "\x00\x00\x00\x9C\x00\x1A"
+    MSG_MErrSeek_STR "\x00"
+    "\x00\x00\x00\x9D\x00\x1A"
     MSG_MErrFClose_STR "\x00\x00"
-    "\x00\x00\x00\x9D\x00\x12"
+    "\x00\x00\x00\x9E\x00\x12"
     MSG_MErrOutMem_STR "\x00"
-    "\x00\x00\x00\x9E\x00\x28"
+    "\x00\x00\x00\x9F\x00\x28"
     MSG_MErrBrokenArc_STR "\x00\x00"
-    "\x00\x00\x00\x9F\x00\x10"
+    "\x00\x00\x00\xA0\x00\x10"
     MSG_MProgAborted_STR "\x00"
-    "\x00\x00\x00\xA0\x00\x18"
-    MSG_MErrRename_STR "\x00"
     "\x00\x00\x00\xA1\x00\x18"
+    MSG_MErrRename_STR "\x00"
+    "\x00\x00\x00\xA2\x00\x18"
     MSG_MAbsNextVol_STR "\x00\x00"
-    "\x00\x00\x00\xA2\x00\x0E"
+    "\x00\x00\x00\xA3\x00\x0E"
     MSG_MBreak_STR "\x00\x00"
-    "\x00\x00\x00\xA3\x00\x16"
+    "\x00\x00\x00\xA4\x00\x16"
     MSG_MAskCreatVol_STR "\x00"
-    "\x00\x00\x00\xA4\x00\x18"
+    "\x00\x00\x00\xA5\x00\x18"
     MSG_MAskNextDisk_STR "\x00"
-    "\x00\x00\x00\xA5\x00\x1A"
+    "\x00\x00\x00\xA6\x00\x1A"
     MSG_MCreatVol_STR "\x00\x00"
-    "\x00\x00\x00\xA6\x00\x16"
-    MSG_MAskNextVol_STR "\x00\x00"
     "\x00\x00\x00\xA7\x00\x16"
-    MSG_MTestVol_STR "\x00"
+    MSG_MAskNextVol_STR "\x00\x00"
     "\x00\x00\x00\xA8\x00\x16"
+    MSG_MTestVol_STR "\x00"
+    "\x00\x00\x00\xA9\x00\x16"
     MSG_MExtrVol_STR "\x00"
-    "\x00\x00\x00\xA9\x00\x10"
+    "\x00\x00\x00\xAA\x00\x10"
     MSG_MConverting_STR "\x00\x00"
-    "\x00\x00\x00\xAA\x00\x1A"
+    "\x00\x00\x00\xAB\x00\x1A"
     MSG_MCvtToSFX_STR "\x00\x00"
-    "\x00\x00\x00\xAB\x00\x16"
+    "\x00\x00\x00\xAC\x00\x16"
     MSG_MCvtFromSFX_STR "\x00\x00"
-    "\x00\x00\x00\xAC\x00\x18"
-    MSG_MNotSFX_STR "\x00\x00"
     "\x00\x00\x00\xAD\x00\x18"
+    MSG_MNotSFX_STR "\x00\x00"
+    "\x00\x00\x00\xAE\x00\x18"
     MSG_MNotRAR_STR "\x00\x00"
-    "\x00\x00\x00\xAE\x00\x1C"
+    "\x00\x00\x00\xAF\x00\x1C"
     MSG_MNotFirstVol_STR "\x00"
-    "\x00\x00\x00\xAF\x00\x34"
+    "\x00\x00\x00\xB0\x00\x34"
     MSG_MCvtOldFormat_STR "\x00"
-    "\x00\x00\x00\xB0\x00\x12"
+    "\x00\x00\x00\xB1\x00\x12"
     MSG_MCannotCreate_STR "\x00"
-    "\x00\x00\x00\xB1\x00\x10"
+    "\x00\x00\x00\xB2\x00\x10"
     MSG_MCannotOpen_STR "\x00"
-    "\x00\x00\x00\xB2\x00\x16"
+    "\x00\x00\x00\xB3\x00\x16"
     MSG_MUnknownMeth_STR "\x00"
-    "\x00\x00\x00\xB3\x00\x44"
+    "\x00\x00\x00\xB4\x00\x44"
     MSG_MNewRarFormat_STR "\x00\x00"
-    "\x00\x00\x00\xB4\x00\x04"
+    "\x00\x00\x00\xB5\x00\x04"
     MSG_MOk_STR "\x00"
-    "\x00\x00\x00\xB5\x00\x06"
+    "\x00\x00\x00\xB6\x00\x06"
     MSG_MDone_STR "\x00"
-    "\x00\x00\x00\xB6\x00\x12"
+    "\x00\x00\x00\xB7\x00\x12"
     MSG_MLockingArc_STR "\x00\x00"
-    "\x00\x00\x00\xB7\x00\x2A"
+    "\x00\x00\x00\xB8\x00\x2A"
     MSG_MNotMdfOld_STR "\x00"
-    "\x00\x00\x00\xB8\x00\x18"
+    "\x00\x00\x00\xB9\x00\x18"
     MSG_MNotMdfLock_STR "\x00"
-    "\x00\x00\x00\xB9\x00\x1E"
+    "\x00\x00\x00\xBA\x00\x1E"
     MSG_MNotMdfVol_STR "\x00"
-    "\x00\x00\x00\xBA\x00\x24"
+    "\x00\x00\x00\xBB\x00\x24"
     MSG_MPackAskReg_STR "\x00"
-    "\x00\x00\x00\xBB\x00\x18"
-    MSG_MCreateArchive_STR "\x00"
     "\x00\x00\x00\xBC\x00\x18"
+    MSG_MCreateArchive_STR "\x00"
+    "\x00\x00\x00\xBD\x00\x18"
     MSG_MUpdateArchive_STR "\x00"
-    "\x00\x00\x00\xBD\x00\x08"
+    "\x00\x00\x00\xBE\x00\x08"
     MSG_MAddSolid_STR "\x00\x00"
-    "\x00\x00\x00\xBE\x00\x16"
-    MSG_MAddFile_STR "\x00"
     "\x00\x00\x00\xBF\x00\x16"
-    MSG_MUpdFile_STR "\x00"
+    MSG_MAddFile_STR "\x00"
     "\x00\x00\x00\xC0\x00\x16"
+    MSG_MUpdFile_STR "\x00"
+    "\x00\x00\x00\xC1\x00\x16"
     MSG_MAddPoints_STR "\x00"
-    "\x00\x00\x00\xC1\x00\x18"
+    "\x00\x00\x00\xC2\x00\x18"
     MSG_MMoveDelFiles_STR "\x00\x00"
-    "\x00\x00\x00\xC2\x00\x10"
-    MSG_MMoveDelDirs_STR "\x00"
     "\x00\x00\x00\xC3\x00\x10"
+    MSG_MMoveDelDirs_STR "\x00"
+    "\x00\x00\x00\xC4\x00\x10"
     MSG_MMoveDelFile_STR "\x00"
-    "\x00\x00\x00\xC4\x00\x0C"
+    "\x00\x00\x00\xC5\x00\x0C"
     MSG_MMoveDeleted_STR "\x00"
-    "\x00\x00\x00\xC5\x00\x10"
+    "\x00\x00\x00\xC6\x00\x10"
     MSG_MMoveNotDeleted_STR "\x00"
-    "\x00\x00\x00\xC6\x00\x1A"
-    MSG_MClearAttrib_STR "\x00\x00"
     "\x00\x00\x00\xC7\x00\x1A"
+    MSG_MClearAttrib_STR "\x00\x00"
+    "\x00\x00\x00\xC8\x00\x1A"
     MSG_MMoveDelDir_STR "\x00"
-    "\x00\x00\x00\xC8\x00\x1C"
+    "\x00\x00\x00\xC9\x00\x1C"
     MSG_MWarErrFOpen_STR "\x00"
-    "\x00\x00\x00\xC9\x00\x06"
-    MSG_MErrOpenFiles_STR "\x00"
     "\x00\x00\x00\xCA\x00\x06"
+    MSG_MErrOpenFiles_STR "\x00"
+    "\x00\x00\x00\xCB\x00\x06"
     MSG_MErrOpenFile_STR "\x00\x00"
-    "\x00\x00\x00\xCB\x00\x14"
+    "\x00\x00\x00\xCC\x00\x14"
     MSG_MAddNoFiles_STR "\x00\x00"
-    "\x00\x00\x00\xCC\x00\x10"
+    "\x00\x00\x00\xCD\x00\x10"
     MSG_MMdfEncrSol_STR "\x00\x00"
-    "\x00\x00\x00\xCD\x00\x1C"
-    MSG_MAddAnalyze_STR "\x00"
     "\x00\x00\x00\xCE\x00\x1C"
+    MSG_MAddAnalyze_STR "\x00"
+    "\x00\x00\x00\xCF\x00\x1C"
     MSG_MRepacking_STR "\x00"
-    "\x00\x00\x00\xCF\x00\x18"
+    "\x00\x00\x00\xD0\x00\x18"
     MSG_MCRCFailed_STR "\x00"
-    "\x00\x00\x00\xD0\x00\x16"
-    MSG_MExtrTest_STR "\x00"
     "\x00\x00\x00\xD1\x00\x16"
+    MSG_MExtrTest_STR "\x00"
+    "\x00\x00\x00\xD2\x00\x16"
     MSG_MExtracting_STR "\x00"
-    "\x00\x00\x00\xD2\x00\x1E"
+    "\x00\x00\x00\xD3\x00\x1E"
     MSG_MUseCurPsw_STR "\x00\x00"
-    "\x00\x00\x00\xD3\x00\x14"
-    MSG_MCreatDir_STR "\x00\x00"
     "\x00\x00\x00\xD4\x00\x14"
-    MSG_MExtrSkipFile_STR "\x00\x00"
+    MSG_MCreatDir_STR "\x00\x00"
     "\x00\x00\x00\xD5\x00\x14"
-    MSG_MExtrTestFile_STR "\x00\x00"
+    MSG_MExtrSkipFile_STR "\x00\x00"
     "\x00\x00\x00\xD6\x00\x14"
-    MSG_MExtrFile_STR "\x00\x00"
+    MSG_MExtrTestFile_STR "\x00\x00"
     "\x00\x00\x00\xD7\x00\x14"
+    MSG_MExtrFile_STR "\x00\x00"
+    "\x00\x00\x00\xD8\x00\x14"
     MSG_MExtrPoints_STR "\x00\x00"
-    "\x00\x00\x00\xD8\x00\x1C"
+    "\x00\x00\x00\xD9\x00\x1C"
     MSG_MExtrErrMkDir_STR "\x00"
-    "\x00\x00\x00\xD9\x00\x16"
+    "\x00\x00\x00\xDA\x00\x16"
     MSG_MExtrPrinting_STR "\x00"
-    "\x00\x00\x00\xDA\x00\x4A"
+    "\x00\x00\x00\xDB\x00\x4A"
     MSG_MEncrBadCRC_STR "\x00"
-    "\x00\x00\x00\xDB\x00\x16"
+    "\x00\x00\x00\xDC\x00\x16"
     MSG_MExtrNoFiles_STR "\x00\x00"
-    "\x00\x00\x00\xDC\x00\x08"
+    "\x00\x00\x00\xDD\x00\x08"
     MSG_MExtrAllOk_STR "\x00"
-    "\x00\x00\x00\xDD\x00\x14"
+    "\x00\x00\x00\xDE\x00\x14"
     MSG_MExtrTotalErr_STR "\x00\x00"
-    "\x00\x00\x00\xDE\x00\x76"
+    "\x00\x00\x00\xDF\x00\x76"
     MSG_MAskReplace_STR "\x00\x00"
-    "\x00\x00\x00\xDF\x00\x10"
+    "\x00\x00\x00\xE0\x00\x10"
     MSG_MAskOverwrite_STR "\x00"
-    "\x00\x00\x00\xE0\x00\x12"
+    "\x00\x00\x00\xE1\x00\x12"
     MSG_MAskNewName_STR "\x00"
-    "\x00\x00\x00\xE1\x00\x1A"
+    "\x00\x00\x00\xE2\x00\x1A"
     MSG_MHeaderBroken_STR "\x00\x00"
-    "\x00\x00\x00\xE2\x00\x20"
+    "\x00\x00\x00\xE3\x00\x20"
     MSG_MMainHeaderBroken_STR "\x00"
-    "\x00\x00\x00\xE3\x00\x22"
+    "\x00\x00\x00\xE4\x00\x22"
     MSG_MLogFileHead_STR "\x00\x00"
-    "\x00\x00\x00\xE4\x00\x24"
+    "\x00\x00\x00\xE5\x00\x24"
     MSG_MLogProtectHead_STR "\x00"
-    "\x00\x00\x00\xE5\x00\x1E"
+    "\x00\x00\x00\xE6\x00\x1E"
     MSG_MReadStdinCmt_STR "\x00\x00"
-    "\x00\x00\x00\xE6\x00\x1A"
-    MSG_MReadCommFrom_STR "\x00\x00"
     "\x00\x00\x00\xE7\x00\x1A"
+    MSG_MReadCommFrom_STR "\x00\x00"
+    "\x00\x00\x00\xE8\x00\x1A"
     MSG_MDelComment_STR "\x00"
-    "\x00\x00\x00\xE8\x00\x16"
-    MSG_MAddComment_STR "\x00"
     "\x00\x00\x00\xE9\x00\x16"
+    MSG_MAddComment_STR "\x00"
+    "\x00\x00\x00\xEA\x00\x16"
     MSG_MFCommAdd_STR "\x00"
-    "\x00\x00\x00\xEA\x00\x2A"
+    "\x00\x00\x00\xEB\x00\x2A"
     MSG_MAskFComm_STR "\x00"
-    "\x00\x00\x00\xEB\x00\x20"
+    "\x00\x00\x00\xEC\x00\x20"
     MSG_MLogCommBrk_STR "\x00"
-    "\x00\x00\x00\xEC\x00\x2C"
+    "\x00\x00\x00\xED\x00\x2C"
     MSG_MCommAskCont_STR "\x00\x00"
-    "\x00\x00\x00\xED\x00\x16"
+    "\x00\x00\x00\xEE\x00\x16"
     MSG_MWriteCommTo_STR "\x00\x00"
-    "\x00\x00\x00\xEE\x00\x18"
+    "\x00\x00\x00\xEF\x00\x18"
     MSG_MCommNotPres_STR "\x00"
-    "\x00\x00\x00\xEF\x00\x12"
+    "\x00\x00\x00\xF0\x00\x12"
     MSG_MDelFrom_STR "\x00"
-    "\x00\x00\x00\xF0\x00\x0E"
+    "\x00\x00\x00\xF1\x00\x0E"
     MSG_MDeleting_STR "\x00\x00"
-    "\x00\x00\x00\xF1\x00\x1A"
+    "\x00\x00\x00\xF2\x00\x1A"
     MSG_MEraseArc_STR "\x00"
-    "\x00\x00\x00\xF2\x00\x14"
+    "\x00\x00\x00\xF3\x00\x14"
     MSG_MNoDelFiles_STR "\x00"
-    "\x00\x00\x00\xF3\x00\x20"
+    "\x00\x00\x00\xF4\x00\x20"
     MSG_MLogTitle_STR "\x00"
-    "\x00\x00\x00\xF4\x00\x18"
+    "\x00\x00\x00\xF5\x00\x18"
     MSG_MPathTooLong_STR "\x00\x00"
-    "\x00\x00\x00\xF5\x00\x08"
-    MSG_MListArchive_STR "\x00"
     "\x00\x00\x00\xF6\x00\x08"
+    MSG_MListArchive_STR "\x00"
+    "\x00\x00\x00\xF7\x00\x08"
     MSG_MListDetails_STR "\x00"
-    "\x00\x00\x00\xF7\x00\x06"
+    "\x00\x00\x00\xF8\x00\x06"
     MSG_MListSolid_STR "\x00"
-    "\x00\x00\x00\xF8\x00\x04"
+    "\x00\x00\x00\xF9\x00\x04"
     MSG_MListSFX_STR "\x00"
-    "\x00\x00\x00\xF9\x00\x08"
+    "\x00\x00\x00\xFA\x00\x08"
     MSG_MListVolume_STR "\x00\x00"
-    "\x00\x00\x00\xFA\x00\x10"
+    "\x00\x00\x00\xFB\x00\x10"
     MSG_MListRR_STR "\x00"
-    "\x00\x00\x00\xFB\x00\x06"
+    "\x00\x00\x00\xFC\x00\x06"
     MSG_MListLock_STR "\x00\x00"
-    "\x00\x00\x00\xFC\x00\x0A"
+    "\x00\x00\x00\xFD\x00\x0A"
     MSG_MListEnc_STR "\x00"
-    "\x00\x00\x00\xFD\x00\x12"
+    "\x00\x00\x00\xFE\x00\x12"
     MSG_MListEncHead_STR "\x00"
-    "\x00\x00\x00\xFE\x00\x2E"
+    "\x00\x00\x00\xFF\x00\x2E"
     MSG_MListTitleL_STR "\x00"
-    "\x00\x00\x00\xFF\x00\x48"
+    "\x00\x00\x01\x00\x00\x48"
     MSG_MListTitleV_STR "\x00\x00"
-    "\x00\x00\x01\x00\x00\x06"
-    MSG_MListName_STR "\x00\x00"
     "\x00\x00\x01\x01\x00\x06"
-    MSG_MListType_STR "\x00\x00"
+    MSG_MListName_STR "\x00\x00"
     "\x00\x00\x01\x02\x00\x06"
+    MSG_MListType_STR "\x00\x00"
+    "\x00\x00\x01\x03\x00\x06"
     MSG_MListFile_STR "\x00\x00"
-    "\x00\x00\x01\x03\x00\x0A"
+    "\x00\x00\x01\x04\x00\x0A"
     MSG_MListDir_STR "\x00"
-    "\x00\x00\x01\x04\x00\x14"
+    "\x00\x00\x01\x05\x00\x14"
     MSG_MListUSymlink_STR "\x00\x00"
-    "\x00\x00\x01\x05\x00\x16"
+    "\x00\x00\x01\x06\x00\x16"
     MSG_MListWSymlink_STR "\x00"
-    "\x00\x00\x01\x06\x00\x14"
+    "\x00\x00\x01\x07\x00\x14"
     MSG_MListJunction_STR "\x00"
-    "\x00\x00\x01\x07\x00\x0A"
+    "\x00\x00\x01\x08\x00\x0A"
     MSG_MListHardlink_STR "\x00"
-    "\x00\x00\x01\x08\x00\x10"
+    "\x00\x00\x01\x09\x00\x10"
     MSG_MListCopy_STR "\x00\x00"
-    "\x00\x00\x01\x09\x00\x1C"
+    "\x00\x00\x01\x0A\x00\x1C"
     MSG_MListStream_STR "\x00\x00"
-    "\x00\x00\x01\x0A\x00\x08"
+    "\x00\x00\x01\x0B\x00\x08"
     MSG_MListTarget_STR "\x00\x00"
-    "\x00\x00\x01\x0B\x00\x06"
+    "\x00\x00\x01\x0C\x00\x06"
     MSG_MListSize_STR "\x00\x00"
-    "\x00\x00\x01\x0C\x00\x0C"
+    "\x00\x00\x01\x0D\x00\x0C"
     MSG_MListPacked_STR "\x00"
-    "\x00\x00\x01\x0D\x00\x06"
-    MSG_MListRatio_STR "\x00"
     "\x00\x00\x01\x0E\x00\x06"
-    MSG_MListMtime_STR "\x00"
+    MSG_MListRatio_STR "\x00"
     "\x00\x00\x01\x0F\x00\x06"
-    MSG_MListCtime_STR "\x00"
+    MSG_MListMtime_STR "\x00"
     "\x00\x00\x01\x10\x00\x06"
+    MSG_MListCtime_STR "\x00"
+    "\x00\x00\x01\x11\x00\x06"
     MSG_MListAtime_STR "\x00"
-    "\x00\x00\x01\x11\x00\x0C"
+    "\x00\x00\x01\x12\x00\x0C"
     MSG_MListAttr_STR "\x00\x00"
-    "\x00\x00\x01\x12\x00\x06"
+    "\x00\x00\x01\x13\x00\x06"
     MSG_MListFlags_STR "\x00"
-    "\x00\x00\x01\x13\x00\x0C"
+    "\x00\x00\x01\x14\x00\x0C"
     MSG_MListCompInfo_STR "\x00"
-    "\x00\x00\x01\x14\x00\x08"
+    "\x00\x00\x01\x15\x00\x08"
     MSG_MListHostOS_STR "\x00"
-    "\x00\x00\x01\x15\x00\x0E"
+    "\x00\x00\x01\x16\x00\x0E"
     MSG_MListFileVer_STR "\x00\x00"
-    "\x00\x00\x01\x16\x00\x08"
+    "\x00\x00\x01\x17\x00\x08"
     MSG_MListService_STR "\x00"
-    "\x00\x00\x01\x17\x00\x2A"
+    "\x00\x00\x01\x18\x00\x2A"
     MSG_MListUOHead_STR "\x00"
-    "\x00\x00\x01\x18\x00\x18"
+    "\x00\x00\x01\x19\x00\x18"
     MSG_MListNTACLHead_STR "\x00\x00"
-    "\x00\x00\x01\x19\x00\x14"
+    "\x00\x00\x01\x1A\x00\x14"
     MSG_MListStrmHead_STR "\x00"
-    "\x00\x00\x01\x1A\x00\x24"
+    "\x00\x00\x01\x1B\x00\x24"
     MSG_MListUnkHead_STR "\x00\x00"
-    "\x00\x00\x01\x1B\x00\x0C"
+    "\x00\x00\x01\x1C\x00\x0C"
     MSG_MFileComment_STR "\x00\x00"
-    "\x00\x00\x01\x1C\x00\x04"
-    MSG_MYes_STR "\x00"
     "\x00\x00\x01\x1D\x00\x04"
+    MSG_MYes_STR "\x00"
+    "\x00\x00\x01\x1E\x00\x04"
     MSG_MNo_STR "\x00\x00"
-    "\x00\x00\x01\x1E\x00\x0C"
+    "\x00\x00\x01\x1F\x00\x0C"
     MSG_MListNoFiles_STR "\x00\x00"
-    "\x00\x00\x01\x1F\x00\x14"
+    "\x00\x00\x01\x20\x00\x14"
     MSG_MRprReconstr_STR "\x00\x00"
-    "\x00\x00\x01\x20\x00\x0E"
+    "\x00\x00\x01\x21\x00\x0E"
     MSG_MRprBuild_STR "\x00\x00"
-    "\x00\x00\x01\x21\x00\x28"
+    "\x00\x00\x01\x22\x00\x28"
     MSG_MRprOldFormat_STR "\x00\x00"
-    "\x00\x00\x01\x22\x00\x0C"
+    "\x00\x00\x01\x23\x00\x0C"
     MSG_MRprFind_STR "\x00\x00"
-    "\x00\x00\x01\x23\x00\x38"
+    "\x00\x00\x01\x24\x00\x38"
     MSG_MRprAskIsSol_STR "\x00"
-    "\x00\x00\x01\x24\x00\x10"
+    "\x00\x00\x01\x25\x00\x10"
     MSG_MRprNoFiles_STR "\x00"
-    "\x00\x00\x01\x25\x00\x1C"
+    "\x00\x00\x01\x26\x00\x1C"
     MSG_MLogUnexpEOF_STR "\x00\x00"
-    "\x00\x00\x01\x26\x00\x22"
+    "\x00\x00\x01\x27\x00\x22"
     MSG_MRepAskReconst_STR "\x00\x00"
-    "\x00\x00\x01\x27\x00\x20"
+    "\x00\x00\x01\x28\x00\x20"
     MSG_MRRSearch_STR "\x00\x00"
-    "\x00\x00\x01\x28\x00\x16"
+    "\x00\x00\x01\x29\x00\x16"
     MSG_MAnalyzeFileData_STR "\x00\x00"
-    "\x00\x00\x01\x29\x00\x20"
+    "\x00\x00\x01\x2A\x00\x20"
     MSG_MRecRNotFound_STR "\x00"
-    "\x00\x00\x01\x2A\x00\x1C"
+    "\x00\x00\x01\x2B\x00\x1C"
     MSG_MRecRFound_STR "\x00"
-    "\x00\x00\x01\x2B\x00\x28"
+    "\x00\x00\x01\x2C\x00\x28"
     MSG_MRecSecDamage_STR "\x00"
-    "\x00\x00\x01\x2C\x00\x12"
+    "\x00\x00\x01\x2D\x00\x12"
     MSG_MRecCorrected_STR "\x00"
-    "\x00\x00\x01\x2D\x00\x18"
+    "\x00\x00\x01\x2E\x00\x18"
     MSG_MRecFailed_STR "\x00\x00"
-    "\x00\x00\x01\x2E\x00\x1E"
+    "\x00\x00\x01\x2F\x00\x1E"
     MSG_MAddRecRec_STR "\x00\x00"
-    "\x00\x00\x01\x2F\x00\x22"
+    "\x00\x00\x01\x30\x00\x22"
     MSG_MEraseForVolume_STR "\x00\x00"
-    "\x00\x00\x01\x30\x00\x2A"
+    "\x00\x00\x01\x31\x00\x2A"
     MSG_MGetOwnersError_STR "\x00\x00"
-    "\x00\x00\x01\x31\x00\x22"
-    MSG_MErrGetOwnerID_STR "\x00"
     "\x00\x00\x01\x32\x00\x22"
+    MSG_MErrGetOwnerID_STR "\x00"
+    "\x00\x00\x01\x33\x00\x22"
     MSG_MErrGetGroupID_STR "\x00"
-    "\x00\x00\x01\x33\x00\x2E"
+    "\x00\x00\x01\x34\x00\x2E"
     MSG_MOwnersBroken_STR "\x00\x00"
-    "\x00\x00\x01\x34\x00\x2A"
+    "\x00\x00\x01\x35\x00\x2A"
     MSG_MSetOwnersError_STR "\x00\x00"
-    "\x00\x00\x01\x35\x00\x28"
+    "\x00\x00\x01\x36\x00\x28"
     MSG_MErrLnkRead_STR "\x00\x00"
-    "\x00\x00\x01\x36\x00\x2A"
+    "\x00\x00\x01\x37\x00\x2A"
     MSG_MSymLinkExists_STR "\x00"
-    "\x00\x00\x01\x37\x00\x1C"
+    "\x00\x00\x01\x38\x00\x1C"
     MSG_MAskRetryCreate_STR "\x00\x00"
-    "\x00\x00\x01\x38\x00\x32"
+    "\x00\x00\x01\x39\x00\x32"
     MSG_MDataBadCRC_STR "\x00\x00"
-    "\x00\x00\x01\x39\x00\x12"
+    "\x00\x00\x01\x3A\x00\x12"
     MSG_MFileRO_STR "\x00\x00"
-    "\x00\x00\x01\x3A\x00\x28"
-    MSG_MACLGetError_STR "\x00\x00"
     "\x00\x00\x01\x3B\x00\x28"
+    MSG_MACLGetError_STR "\x00\x00"
+    "\x00\x00\x01\x3C\x00\x28"
     MSG_MACLSetError_STR "\x00\x00"
-    "\x00\x00\x01\x3C\x00\x26"
+    "\x00\x00\x01\x3D\x00\x26"
     MSG_MACLBroken_STR "\x00"
-    "\x00\x00\x01\x3D\x00\x2E"
+    "\x00\x00\x01\x3E\x00\x2E"
     MSG_MACLUnknown_STR "\x00"
-    "\x00\x00\x01\x3E\x00\x24"
+    "\x00\x00\x01\x3F\x00\x24"
     MSG_MStreamBroken_STR "\x00"
-    "\x00\x00\x01\x3F\x00\x2C"
+    "\x00\x00\x01\x40\x00\x2C"
     MSG_MStreamUnknown_STR "\x00"
-    "\x00\x00\x01\x40\x00\x1E"
+    "\x00\x00\x01\x41\x00\x1E"
     MSG_MInvalidName_STR "\x00\x00"
-    "\x00\x00\x01\x41\x00\x18"
+    "\x00\x00\x01\x42\x00\x18"
     MSG_MProcessArc_STR "\x00"
-    "\x00\x00\x01\x42\x00\x36"
+    "\x00\x00\x01\x43\x00\x36"
     MSG_MCorrectingName_STR "\x00"
-    "\x00\x00\x01\x43\x00\x4C"
+    "\x00\x00\x01\x44\x00\x4C"
     MSG_MUnpCannotMerge_STR "\x00\x00"
-    "\x00\x00\x01\x44\x00\x1C"
+    "\x00\x00\x01\x45\x00\x1C"
     MSG_MUnknownOption_STR "\x00\x00"
-    "\x00\x00\x01\x45\x00\x2C"
+    "\x00\x00\x01\x46\x00\x2C"
     MSG_MSubHeadCorrupt_STR "\x00\x00"
-    "\x00\x00\x01\x46\x00\x2E"
+    "\x00\x00\x01\x47\x00\x2E"
     MSG_MSubHeadUnknown_STR "\x00"
-    "\x00\x00\x01\x47\x00\x1E"
+    "\x00\x00\x01\x48\x00\x1E"
     MSG_MSubHeadDataCRC_STR "\x00"
-    "\x00\x00\x01\x48\x00\x16"
+    "\x00\x00\x01\x49\x00\x16"
     MSG_MSubHeadType_STR "\x00"
-    "\x00\x00\x01\x49\x00\x1C"
+    "\x00\x00\x01\x4A\x00\x1C"
     MSG_MScanError_STR "\x00"
-    "\x00\x00\x01\x4A\x00\x12"
+    "\x00\x00\x01\x4B\x00\x12"
     MSG_MNotVolume_STR "\x00"
-    "\x00\x00\x01\x4B\x00\x2C"
+    "\x00\x00\x01\x4C\x00\x2C"
     MSG_MRecVolDiffSets_STR "\x00\x00"
-    "\x00\x00\x01\x4C\x00\x14"
+    "\x00\x00\x01\x4D\x00\x14"
     MSG_MRecVolMissing_STR "\x00"
-    "\x00\x00\x01\x4D\x00\x1C"
+    "\x00\x00\x01\x4E\x00\x1C"
     MSG_MRecVolFound_STR "\x00\x00"
-    "\x00\x00\x01\x4E\x00\x18"
+    "\x00\x00\x01\x4F\x00\x18"
     MSG_MRecVolAllExist_STR "\x00"
-    "\x00\x00\x01\x4F\x00\x1C"
+    "\x00\x00\x01\x50\x00\x1C"
     MSG_MRecVolCannotFix_STR "\x00\x00"
-    "\x00\x00\x01\x50\x00\x14"
+    "\x00\x00\x01\x51\x00\x14"
     MSG_MReconstructing_STR "\x00\x00"
-    "\x00\x00\x01\x51\x00\x0E"
+    "\x00\x00\x01\x52\x00\x0E"
     MSG_MCreating_STR "\x00\x00"
-    "\x00\x00\x01\x52\x00\x14"
+    "\x00\x00\x01\x53\x00\x14"
     MSG_MRenaming_STR "\x00\x00"
-    "\x00\x00\x01\x53\x00\x44"
+    "\x00\x00\x01\x54\x00\x44"
     MSG_MNTFSRequired_STR "\x00"
-    "\x00\x00\x01\x54\x00\x42"
+    "\x00\x00\x01\x55\x00\x42"
     MSG_MFAT32Size_STR "\x00"
-    "\x00\x00\x01\x55\x00\x2A"
+    "\x00\x00\x01\x56\x00\x2A"
     MSG_MErrChangeAttr_STR "\x00\x00"
-    "\x00\x00\x01\x56\x00\x40"
+    "\x00\x00\x01\x57\x00\x40"
     MSG_MWrongSFXVer_STR "\x00\x00"
-    "\x00\x00\x01\x57\x00\x48"
+    "\x00\x00\x01\x58\x00\x48"
     MSG_MHeadEncMismatch_STR "\x00\x00"
-    "\x00\x00\x01\x58\x00\x1A"
+    "\x00\x00\x01\x59\x00\x1A"
     MSG_MCannotEmail_STR "\x00"
-    "\x00\x00\x01\x59\x00\x12"
+    "\x00\x00\x01\x5A\x00\x12"
     MSG_MCopyrightS_STR "\x00\x00"
-    "\x00\x00\x01\x5A\x00\x0E"
+    "\x00\x00\x01\x5B\x00\x0E"
     MSG_MSHelpCmd_STR "\x00\x00"
-    "\x00\x00\x01\x5B\x00\x2A"
+    "\x00\x00\x01\x5C\x00\x2A"
     MSG_MSHelpCmdE_STR "\x00"
-    "\x00\x00\x01\x5C\x00\x1E"
+    "\x00\x00\x01\x5D\x00\x1E"
     MSG_MSHelpCmdT_STR "\x00"
-    "\x00\x00\x01\x5D\x00\x2E"
+    "\x00\x00\x01\x5E\x00\x2E"
     MSG_MSHelpCmdV_STR "\x00"
-    "\x00\x00\x01\x5E\x00\x40"
+    "\x00\x00\x01\x5F\x00\x40"
     MSG_MRecVolLimit_STR "\x00\x00"
-    "\x00\x00\x01\x5F\x00\x0A"
+    "\x00\x00\x01\x60\x00\x0A"
     MSG_MVolumeNumber_STR "\x00"
-    "\x00\x00\x01\x60\x00\x12"
+    "\x00\x00\x01\x61\x00\x12"
     MSG_MCannotDelete_STR "\x00"
-    "\x00\x00\x01\x61\x00\x34"
+    "\x00\x00\x01\x62\x00\x38"
     MSG_MRecycleFailed_STR "\x00\x00"
-    "\x00\x00\x01\x62\x00\x1A"
+    "\x00\x00\x01\x63\x00\x1A"
     MSG_MCalcCRC_STR "\x00"
-    "\x00\x00\x01\x63\x00\x50"
+    "\x00\x00\x01\x64\x00\x50"
     MSG_MTooLargeSFXArc_STR "\x00\x00"
-    "\x00\x00\x01\x64\x00\x28"
+    "\x00\x00\x01\x65\x00\x28"
     MSG_MCalcCRCAllVol_STR "\x00\x00"
-    "\x00\x00\x01\x65\x00\x26"
-    MSG_MNotEnoughDisk_STR "\x00"
     "\x00\x00\x01\x66\x00\x26"
+    MSG_MNotEnoughDisk_STR "\x00"
+    "\x00\x00\x01\x67\x00\x26"
     MSG_MNewerRAR_STR "\x00"
-    "\x00\x00\x01\x67\x00\x22"
+    "\x00\x00\x01\x68\x00\x22"
     MSG_MUnkEncMethod_STR "\x00\x00"
-    "\x00\x00\x01\x68\x00\x26"
+    "\x00\x00\x01\x69\x00\x26"
     MSG_MWrongPassword_STR "\x00"
-    "\x00\x00\x01\x69\x00\x1C"
+    "\x00\x00\x01\x6A\x00\x1C"
     MSG_MWrongFilePassword_STR "\x00\x00"
-    "\x00\x00\x01\x6A\x00\x20"
+    "\x00\x00\x01\x6B\x00\x20"
     MSG_MAreaDamaged_STR "\x00\x00"
-    "\x00\x00\x01\x6B\x00\x32"
+    "\x00\x00\x01\x6C\x00\x32"
     MSG_MBlocksRecovered_STR "\x00"
-    "\x00\x00\x01\x6C\x00\x1E"
-    MSG_MRRDamaged_STR "\x00\x00"
     "\x00\x00\x01\x6D\x00\x1E"
+    MSG_MRRDamaged_STR "\x00\x00"
+    "\x00\x00\x01\x6E\x00\x1E"
     MSG_MTestingRR_STR "\x00\x00"
-    "\x00\x00\x01\x6E\x00\x08"
+    "\x00\x00\x01\x6F\x00\x08"
     MSG_MFailed_STR "\x00\x00"
-    "\x00\x00\x01\x6F\x00\x3A"
+    "\x00\x00\x01\x70\x00\x3A"
     MSG_MIncompatSwitch_STR "\x00\x00"
-    "\x00\x00\x01\x70\x00\x20"
+    "\x00\x00\x01\x71\x00\x20"
     MSG_MSearchDupFiles_STR "\x00\x00"
-    "\x00\x00\x01\x71\x00\x0A"
+    "\x00\x00\x01\x72\x00\x0A"
     MSG_MNumFound_STR "\x00"
-    "\x00\x00\x01\x72\x00\x1C"
+    "\x00\x00\x01\x73\x00\x1C"
     MSG_MUnknownExtra_STR "\x00"
-    "\x00\x00\x01\x73\x00\x20"
+    "\x00\x00\x01\x74\x00\x20"
     MSG_MCorruptExtra_STR "\x00\x00"
-    "\x00\x00\x01\x74\x00\x18"
+    "\x00\x00\x01\x75\x00\x18"
     MSG_MCopyError_STR "\x00\x00"
-    "\x00\x00\x01\x75\x00\x4A"
+    "\x00\x00\x01\x76\x00\x4A"
     MSG_MCopyErrorHint_STR "\x00\x00"
-    "\x00\x00\x01\x76\x00\x0E"
+    "\x00\x00\x01\x77\x00\x0E"
     MSG_MCopyingData_STR "\x00"
-    "\x00\x00\x01\x77\x00\x20"
+    "\x00\x00\x01\x78\x00\x20"
     MSG_MErrCreateLnkS_STR "\x00"
-    "\x00\x00\x01\x78\x00\x1C"
+    "\x00\x00\x01\x79\x00\x1C"
     MSG_MErrCreateLnkH_STR "\x00"
-    "\x00\x00\x01\x79\x00\x2A"
-    MSG_MErrLnkTarget_STR "\x00"
     "\x00\x00\x01\x7A\x00\x2A"
+    MSG_MErrLnkTarget_STR "\x00"
+    "\x00\x00\x01\x7B\x00\x2A"
     MSG_MNeedAdmin_STR "\x00"
-    "\x00\x00\x01\x7B\x00\x48"
+    "\x00\x00\x01\x7C\x00\x48"
     MSG_MDictOutMem_STR "\x00\x00"
-    "\x00\x00\x01\x7C\x00\x2E"
+    "\x00\x00\x01\x7D\x00\x2E"
     MSG_MUseSmalllerDict_STR "\x00"
-    "\x00\x00\x01\x7D\x00\x1E"
+    "\x00\x00\x01\x7E\x00\x1E"
     MSG_MAmigaPortBy_STR "\x00\x00"
-    "\x00\x00\x01\x7E\x00\x38"
+    "\x00\x00\x01\x7F\x00\x38"
     MSG_MOpenErrAtime_STR "\x00\x00"
-    "\x00\x00\x01\x7F\x00\xC8"
+    "\x00\x00\x01\x80\x00\x9A"
+    MSG_MErrReadInfo_STR "\x00"
+    "\x00\x00\x01\x81\x00\x36"
+    MSG_MErrReadTrunc_STR "\x00\x00"
+    "\x00\x00\x01\x82\x00\x3C"
+    MSG_MErrReadCount_STR "\x00"
+    "\x00\x00\x01\x83\x00\x2A"
+    MSG_MDirNameExists_STR "\x00\x00"
+    "\x00\x00\x01\x84\x00\xC8"
     MSG_MAmigaConvErr_STR "\x00\x00"
-    "\x00\x00\x01\x80\x00\x6C"
+    "\x00\x00\x01\x85\x00\x6C"
     MSG_MAmigaConvInitErr_STR "\x00"
 };
 

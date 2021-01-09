@@ -19,6 +19,7 @@ LIBS=../unrarsrc/unicode.o -lwstdio -lutf8proc
 ifeq ($(PLATFORM),MorphOS)
 CXX=ppc-morphos-g++-4
 AR=ppc-morphos-ar
+CXXFLAGS+= -noixemul
 LDFLAGS+= -noixemul
 AMIGA=1
 endif
