@@ -6,8 +6,10 @@
 typedef uint8_t          byte;   // Unsigned 8 bits.
 typedef uint16_t         ushort; // Preferably 16 bits, but can be more.
 typedef unsigned int     uint;   // 32 bits or more.
+#ifndef __amigaos4__
 typedef uint32_t         uint32; // 32 bits exactly.
 typedef int32_t          int32;  // Signed 32 bits exactly.
+#endif
 typedef uint64_t         uint64; // 64 bits exactly.
 typedef int64_t          int64;  // Signed 64 bits exactly.
 typedef wchar_t          wchar;  // Unicode character

@@ -292,7 +292,11 @@ void ListFileHeader(Archive &Arc,FileHeader &hd,bool &TitleShown,bool Verbose,bo
             LinkTargetA[DataSize > 0 ? DataSize : 0] = 0;
           }
           wchar LinkTarget[NM];
+#ifdef _AMIGA
+          UtfToWide(LinkTargetA,LinkTarget,ASIZE(LinkTarget));
+#else
           CharToWide(LinkTargetA,LinkTarget,ASIZE(LinkTarget));
+#endif
           mprintf(L"\n%12ls: %ls",St(MListTarget),LinkTarget);
         }
         else

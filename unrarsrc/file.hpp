@@ -4,13 +4,13 @@
 #define FILE_USE_OPEN
 
 #ifdef _WIN_ALL
-  typedef HANDLE FileHandle;
+  typedef HANDLE FHandle;
   #define FILE_BAD_HANDLE INVALID_HANDLE_VALUE
 #elif defined(FILE_USE_OPEN)
-  typedef off_t FileHandle;
+  typedef off_t FHandle;
   #define FILE_BAD_HANDLE -1
 #else
-  typedef FILE* FileHandle;
+  typedef FILE* FHandle;
   #define FILE_BAD_HANDLE NULL
 #endif
 
@@ -56,7 +56,7 @@ enum FILE_READ_ERROR_MODE {
 class File
 {
   private:
-    FileHandle hFile;
+    FHandle hFile;
     bool LastWrite;
     FILE_HANDLETYPE HandleType;
     bool SkipClose;

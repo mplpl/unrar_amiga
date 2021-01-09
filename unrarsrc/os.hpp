@@ -133,7 +133,7 @@
 
 #ifdef _UNIX
 
-#define NM  2048
+#define  NM  2048
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -146,12 +146,16 @@
   #include <sys/sysctl.h>
 #endif
 #ifndef SFX_MODULE
+#ifndef _AMIGA
     #include <sys/statvfs.h>
+#endif
 #endif
 #include <pwd.h>
 #include <grp.h>
 #include <wchar.h>
+#if !defined(__AROS__)
 #include <wctype.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -165,8 +169,15 @@
 #include <utime.h>
 #include <locale.h>
 
+#if defined(__amigaos4__) || defined(__AROS__) || defined(__amigaos3__)
+#include "../wstdio/wstdio.h"
+#endif
 
-#ifdef  S_IFLNK
+#if defined(__amigaos4__)
+typedef _off64_t off64_t;
+#endif
+
+#if defined(S_IFLNK)
 #define SAVE_LINKS
 #endif
 
@@ -177,7 +188,11 @@
 
 #define ENABLE_ACCESS
 
+#ifdef _AMIGA
+#define DefConfigName  L"rar.conf"
+#else
 #define DefConfigName  L".rarrc"
+#endif
 #define DefLogName     L".rarlog"
 
 
@@ -206,7 +221,7 @@
   #endif
 #endif
 
-#if defined(__sparc) || defined(sparc) || defined(__hpux)
+#if defined(__sparc) || defined(sparc) || defined(__hpux) || defined(__amigaos__)
   #ifndef BIG_ENDIAN
      #define BIG_ENDIAN
   #endif

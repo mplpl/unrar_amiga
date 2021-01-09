@@ -1,4 +1,25 @@
+#ifdef __amigaos3__
+#include <devices/timer.h>
+#endif
+
 #include "rar.hpp"
+
+#ifdef _AMIGA
+#define __USE_INLINE__
+#include <proto/dos.h>
+#undef Open
+#undef Rename
+#undef Seek
+#undef Read
+#undef Write
+#undef File
+#undef Close
+#undef Exit
+#undef Flush
+int fsync(int fd) {return 0;}
+// flock is only used below when updating rar - not in urar
+int flock(int fs, int op) {return 0;}
+#endif
 
 File::File()
 {
@@ -47,7 +68,7 @@ void File::operator = (File &SrcFile)
 bool File::Open(const wchar *Name,uint Mode)
 {
   ErrorType=FILE_SUCCESS;
-  FileHandle hNewFile;
+  FHandle hNewFile;
   bool OpenShared=File::OpenShared || (Mode & FMF_OPENSHARED)!=0;
   bool UpdateMode=(Mode & FMF_UPDATE)!=0;
   bool WriteMode=(Mode & FMF_WRITE)!=0;
@@ -113,7 +134,6 @@ bool File::Open(const wchar *Name,uint Mode)
 #endif
   char NameA[NM];
   WideToChar(Name,NameA,ASIZE(NameA));
-
   int handle=open(NameA,flags);
 #ifdef LOCK_EX
 
@@ -201,7 +221,6 @@ bool File::Create(const wchar *Name,uint Mode)
     if (GetWinLongPath(Name,LongName,ASIZE(LongName)))
       hFile=CreateFile(LongName,Access,ShareMode,NULL,CREATE_ALWAYS,0,NULL);
   }
-
 #else
   char NameA[NM];
   WideToChar(Name,NameA,ASIZE(NameA));
@@ -512,8 +531,13 @@ bool File::RawSeek(int64 Offset,int Method)
 #else
   LastWrite=false;
 #ifdef FILE_USE_OPEN
+#if defined(_LARGEFILE64_SOURCE)
+  if (lseek64(hFile,(off64_t)Offset,Method)==-1)
+    return false;
+#else
   if (lseek(hFile,(off_t)Offset,Method)==-1)
     return false;
+#endif
 #elif defined(_LARGEFILE_SOURCE) && !defined(_OSF_SOURCE) && !defined(__VMS)
   if (fseeko(hFile,Offset,Method)!=0)
     return false;
@@ -544,7 +568,11 @@ int64 File::Tell()
   return INT32TO64(HighDist,LowDist);
 #else
 #ifdef FILE_USE_OPEN
+#if defined(_LARGEFILE64_SOURCE)
+  return lseek64(hFile,0,SEEK_CUR);
+#else
   return lseek(hFile,0,SEEK_CUR);
+#endif
 #elif defined(_LARGEFILE_SOURCE) && !defined(_OSF_SOURCE)
   return ftello(hFile);
 #else
@@ -658,7 +686,7 @@ void File::SetCloseFileTimeByName(const wchar *Name,RarTime *ftm,RarTime *fta)
   {
     char NameA[NM];
     WideToChar(Name,NameA,ASIZE(NameA));
-
+	  
 #ifdef UNIX_TIME_NS
     timespec times[2];
     times[0].tv_sec=seta ? fta->GetUnix() : 0;
@@ -666,6 +694,16 @@ void File::SetCloseFileTimeByName(const wchar *Name,RarTime *ftm,RarTime *fta)
     times[1].tv_sec=setm ? ftm->GetUnix() : 0;
     times[1].tv_nsec=setm ? long(ftm->GetUnixNS()%1000000000) : UTIME_NOW;
     utimensat(AT_FDCWD,NameA,times,0);
+#elif defined(_AMIGA)
+    if (setm)
+    {
+      struct DateStamp ds;
+      time_t amitime = ftm->GetUnix() - 252457200; // Amiga counts from Jan 1 78
+      ds.ds_Days = amitime / (60 * 60 * 24);
+      ds.ds_Minute = amitime % (60 * 60 * 24) / 60;
+      ds.ds_Tick = amitime % 60 * TICKS_PER_SECOND;
+      SetFileDate(NameA, &ds);
+    }
 #else
     utimbuf ut;
     if (setm)
@@ -719,7 +757,6 @@ bool File::IsDevice()
   return isatty(GetFD());
 #endif
 }
-
 
 #ifndef SFX_MODULE
 int64 File::Copy(File &Dest,int64 Length)

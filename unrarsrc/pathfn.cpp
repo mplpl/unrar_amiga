@@ -143,7 +143,7 @@ bool IsPathDiv(int Ch)
 
 bool IsDriveDiv(int Ch)
 {
-#ifdef _UNIX
+#if defined(_UNIX) && !defined(_AMIGA)
   return false;
 #else
   return Ch==':';
@@ -170,7 +170,12 @@ int GetPathDisk(const wchar *Path)
 void AddEndSlash(wchar *Path,size_t MaxLength)
 {
   size_t Length=wcslen(Path);
+#ifdef _AMIGA
+  if (Length>0 && Path[Length-1]!=CPATHDIVIDER && Length+1<MaxLength && \
+    !IsDriveDiv(Path[Length-1]))
+#else
   if (Length>0 && Path[Length-1]!=CPATHDIVIDER && Length+1<MaxLength)
+#endif
   {
     Path[Length]=CPATHDIVIDER;
     Path[Length+1]=0;
@@ -262,7 +267,11 @@ void GetRarDataPath(wchar *Path,size_t MaxSize,bool Create)
 #ifndef SFX_MODULE
 bool EnumConfigPaths(uint Number,wchar *Path,size_t MaxSize,bool Create)
 {
-#ifdef _UNIX
+#ifdef _AMIGA
+  if (Number>0) return false;
+  wcsncpyz(Path,L"s:", MaxSize);
+  return true;
+#elif defined(_UNIX)
   static const wchar *ConfPath[]={
     L"/etc", L"/etc/rar", L"/usr/lib", L"/usr/local/lib", L"/usr/local/etc"
   };
