@@ -113,8 +113,8 @@ class File
     FILE_HANDLETYPE GetHandleType() {return HandleType;}
     bool IsDevice();
     static bool RemoveCreated();
-    FileHandle GetHandle() {return hFile;}
-    void SetHandle(FileHandle Handle) {Close();hFile=Handle;}
+    FHandle GetHandle() {return hFile;}
+    void SetHandle(FHandle Handle) {Close();hFile=Handle;}
     void SetReadErrorMode(FILE_READ_ERROR_MODE Mode) {ReadErrorMode=Mode;}
     int64 Copy(File &Dest,int64 Length=INT64NDF);
     void SetAllowDelete(bool Allow) {AllowDelete=Allow;}
