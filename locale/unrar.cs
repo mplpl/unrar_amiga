@@ -1,4 +1,4 @@
-## Version $VER: xxxxxx.catalog 1.00 (15.04.2020)
+## Version $VER: xxxxxx.catalog 1.00 (10.01.2021)
 ## Languages english
 ## Codeset english 0
 ## SimpleCatConfig CharsPerLine 200
@@ -20,6 +20,9 @@ _Continue_Quit
 ;
 MSG_MRetryAbort
 _Retry_Abort
+;
+MSG_MIgnoreAllRetryQuit
+_Ignore_iGnore all_Retry_Quit
 ;
 MSG_MCopyright
 \nRAR %s   Copyright (c) 1993-%d Alexander Roshal   %d %s %d
@@ -172,7 +175,7 @@ MSG_MCHelpSwAC
 \n  ac            Clear Archive attribute after compression or extraction
 ;
 MSG_MCHelpSwAD
-\n  ad            Append archive name to destination path
+\n  ad[1,2]       Alternate destination path
 ;
 MSG_MCHelpSwAG
 \n  ag[format]    Generate archive name using the current date
@@ -247,7 +250,7 @@ MSG_MCHelpSwHT
 \n  ht[b|c]       Select hash type [BLAKE2,CRC32] for file checksum
 ;
 MSG_MCHelpSwIDP
-\n  id[c,d,p,q]   Disable messages
+\n  id[c,d,n,p,q] Display or disable messages
 ;
 MSG_MCHelpSwIEML
 \n  ieml[addr]    Send archive by email
@@ -1063,7 +1066,7 @@ MSG_MCannotDelete
 \nCannot delete %s
 ;
 MSG_MRecycleFailed
-\nCannot move some files and folders to Recycle Bin
+\nCannot move some files and directories to Recycle Bin
 ;
 MSG_MCalcCRC
 \nCalculating the checksum
@@ -1151,6 +1154,18 @@ MSG_MAmigaPortBy
 ;
 MSG_MOpenErrAtime
 \nYou may need to remove -tsp switch to open this file.
+;
+MSG_MErrReadInfo
+\nChoose 'Ignore' to continue with the already read file part only, 'Ignore all' to do it for all read errors, 'Retry' to repeat read and 'Quit' to abort.
+;
+MSG_MErrReadTrunc
+\n%s is archived incompletely because of read error.\n
+;
+MSG_MErrReadCount
+\n%u files are archived incompletely because of read errors.
+;
+MSG_MDirNameExists
+\nDirectory with such name already exists
 ;
 MSG_MAmigaConvErr
 WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding.
