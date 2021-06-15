@@ -1,0 +1,64 @@
+ifeq ($(PLATFORM),)
+PLATFORM=$(shell uname)
+endif
+
+ifeq ($(PLATFORM),AmigaOS)
+ifeq ($(shell uname -m),ppc)
+PLATFORM=AmigaOS4
+else
+PLATFORM=AmigaOS3
+endif
+endif
+
+LIBFLAGS=-fPIC
+DEFINES=
+CXXFLAGS=-O2 -Wno-switch -D_AMIGA
+LDFLAGS=-L../wstdio -L../utf8proc
+LIBS=../unrarsrc/unicode.o -lwstdio -lutf8proc
+
+ifeq ($(PLATFORM),MorphOS)
+CXX=ppc-morphos-g++-4
+AR=ppc-morphos-ar
+CXXFLAGS+= -noixemul
+LDFLAGS+= -noixemul
+AMIGA=1
+endif
+
+ifeq ($(PLATFORM),AmigaOS4)
+CXX=ppc-amigaos-c++
+AR=ppc-amigaos-ar
+LDFLAGS+= -noixemul
+AMIGA=1
+endif
+
+ifeq ($(PLATFORM),AROS)
+CXX=i386-aros-g++
+AR=ar
+CXXFLAGS+= -fshort-wchar
+LIBS+= -liconv
+AMIGA=1
+endif
+
+ifeq ($(PLATFORM),AmigaOS3)
+CXX=m68k-amigaos-g++
+AR=m68k-amigaos-ar
+CXXFLAGS+= -D__amigaos3__ -I../wstdio -I../wstdio/amigaos3
+AMIGA=1
+endif
+
+ifeq ($(AMIGA),)
+$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3)
+endif
+
+LINK=$(CXX)
+	
+all: unrar_locale.o
+	$(AR) rs libunrarlocale.a unrar_locale.o
+
+test: test.o unrar_locale.o
+	$(LINK) -o test $(LDFLAGS) test.o unrar_locale.o $(LIBS)
+
+
+clean:
+	-@rm -f test test.o unrar_locale.o libunrarlocale.a
+	

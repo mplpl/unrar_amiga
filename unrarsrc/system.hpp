@@ -1,6 +1,10 @@
 #ifndef _RAR_SYSTEM_
 #define _RAR_SYSTEM_
 
+#ifdef _AMIGA
+#undef Wait
+#endif
+
 #ifdef _WIN_ALL
 #ifndef BELOW_NORMAL_PRIORITY_CLASS
 #define BELOW_NORMAL_PRIORITY_CLASS     0x00004000

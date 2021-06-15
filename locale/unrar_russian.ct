@@ -1,0 +1,1554 @@
+## version $VER: unRAR.catalog 5.90 (15.04.2020) (Amiga-1251)
+## language russian
+## codeset 2104
+## chunk AUTH Translated by ATO-RUS: Mikhail Malyshev <mm@list.ru>
+;-----------------------------------------------------------------------------
+;
+; CATALOG TRANSLATION REVISION HISTORY
+;
+; 5.80 (01.02.2020) <mmalyshev>
+; - first build, based on original translation by Alexander Roshal
+;
+; 5.90 (15.04.2020) <mmalyshev>
+; - updated to latest build
+;
+;-----------------------------------------------------------------------------
+MSG_MYesNo
+_Y=да_N=нет
+; _Yes_No
+;
+MSG_MYesNoAll
+_Y=да_N=нет_A=все
+; _Yes_No_All
+;
+MSG_MYesNoAllQ
+_Y=да_N=нет_A=все_E=никогда_Q=выход
+; _Yes_No_All_nEver_Quit
+;
+MSG_MYesNoAllRenQ
+_Y=да_N=нет_A=все_E=никогда_R=переименовать_Q=выход
+; _Yes_No_All_nEver_Rename_Quit
+;
+MSG_MContinueQuit
+_C=продолжить_Q=выход
+; _Continue_Quit
+;
+MSG_MRetryAbort
+_R=повторить_A=прервать
+; _Retry_Abort
+;
+MSG_MCopyright
+\nRAR %s   Авторские права (c) 1993-%d Александр Рошал   %d %s %d
+; \nRAR %s   Copyright (c) 1993-%d Alexander Roshal   %d %s %d
+;
+MSG_MRegTo
+\nЗарегистрировано: %s\n
+; \nRegistered to %s\n
+;
+MSG_MShare
+\nПробная версия    (наберите RAR -? для вывода справки)\n
+; \nTrial version             Type 'rar -?' for help\n
+;
+MSG_MRegKeyWarning
+\nЛицензионный ключ подходит только для %s\n
+; \nAvailable license key is valid only for %s\n
+;
+MSG_MUCopyright
+\nUNRAR %s freeware   Авторские права (c) 1993-%d Александр Рошал\n
+; \nUNRAR %s freeware      Copyright (c) 1993-%d Alexander Roshal\n
+;
+MSG_MBeta
+бета
+; beta
+;
+MSG_Mx86
+x86
+; x86
+;
+MSG_Mx64
+x64
+; x64
+;
+MSG_MMonthJan
+Янв
+; Jan
+;
+MSG_MMonthFeb
+Фев
+; Feb
+;
+MSG_MMonthMar
+Мар
+; Mar
+;
+MSG_MMonthApr
+Апр
+; Apr
+;
+MSG_MMonthMay
+Май
+; May
+;
+MSG_MMonthJun
+Июн
+; Jun
+;
+MSG_MMonthJul
+Июл
+; Jul
+;
+MSG_MMonthAug
+Авг
+; Aug
+;
+MSG_MMonthSep
+Сен
+; Sep
+;
+MSG_MMonthOct
+Окт
+; Oct
+;
+MSG_MMonthNov
+Ноя
+; Nov
+;
+MSG_MMonthDec
+Дек
+; Dec
+;
+MSG_MRARTitle1
+\nИспользование:  RAR <команда> -<ключ 1> -<ключ N> <архив> <файлы...>
+; \nUsage:     rar <command> -<switch 1> -<switch N> <archive> <files...>
+;
+MSG_MUNRARTitle1
+\nИспользование:  UNRAR <команда> -<ключ 1> -<ключ N> <архив> <файлы...>
+; \nUsage:     unrar <command> -<switch 1> -<switch N> <archive> <files...>
+;
+MSG_MRARTitle2
+\n                <@файл-список...> <путь_для_извлечения/>
+; \n               <@listfiles...> <path_to_extract\\>
+;
+MSG_MCHelpCmd
+\n\n<Команды>
+; \n\n<Commands>
+;
+MSG_MCHelpCmdA
+\n  a             Добавить файлы в архив
+; \n  a             Add files to archive
+;
+MSG_MCHelpCmdC
+\n  c             Добавить комментарий архива
+; \n  c             Add archive comment
+;
+MSG_MCHelpCmdCH
+\n  ch            Изменить параметры архива
+; \n  ch            Change archive parameters
+;
+MSG_MCHelpCmdCW
+\n  cw            Сохранить комментарий архива в файле
+; \n  cw            Write archive comment to file
+;
+MSG_MCHelpCmdD
+\n  d             Удалить файлы из архива
+; \n  d             Delete files from archive
+;
+MSG_MCHelpCmdE
+\n  e             Извлечь файлы без сохранённых в архиве путей
+; \n  e             Extract files without archived paths
+;
+MSG_MCHelpCmdF
+\n  f             Обновить только имеющиеся в архиве файлы
+; \n  f             Freshen files in archive
+;
+MSG_MCHelpCmdI
+\n  i[пар]=<стр>  Найти строку в архивах
+; \n  i[par]=<str>  Find string in archives
+;
+MSG_MCHelpCmdK
+\n  k             Заблокировать архив
+; \n  k             Lock archive
+;
+MSG_MCHelpCmdL
+\n  l[t[a],b]     Показать содержание архива [техинфо[все],минимум]
+; \n  l[t[a],b]     List archive contents [technical[all], bare]
+;
+MSG_MCHelpCmdM
+\n  m[f]          Переместить в архив [только файлы]
+; \n  m[f]          Move to archive [files only]
+;
+MSG_MCHelpCmdP
+\n  p             Извлечь (распечатать) файл на stdout
+; \n  p             Print file to stdout
+;
+MSG_MCHelpCmdR
+\n  r             Исправить повреждённый архив
+; \n  r             Repair archive
+;
+MSG_MCHelpCmdRC
+\n  rc            Воссоздать отсутствующие/повреждённые тома
+; \n  rc            Reconstruct missing volumes
+;
+MSG_MCHelpCmdRN
+\n  rn            Переименовать файлы в архиве
+; \n  rn            Rename archived files
+;
+MSG_MCHelpCmdRR
+\n  rr[N]         Добавить данные для восстановления
+; \n  rr[N]         Add data recovery record
+;
+MSG_MCHelpCmdRV
+\n  rv[N]         Создать тома для восстановления
+; \n  rv[N]         Create recovery volumes
+;
+MSG_MCHelpCmdS
+\n  s[модуль|-]   Преобразовать архив в/из SFX
+; \n  s[name|-]     Convert archive to or from SFX
+;
+MSG_MCHelpCmdT
+\n  t             Протестировать архив
+; \n  t             Test archive files
+;
+MSG_MCHelpCmdU
+\n  u             Обновить файлы в архиве
+; \n  u             Update files in archive
+;
+MSG_MCHelpCmdV
+\n  v[t[a],b]     Показать подробное содержание архива [техинфо[все],минимум]
+; \n  v[t[a],b]     Verbosely list archive contents [technical[all],bare]
+;
+MSG_MCHelpCmdX
+\n  x             Извлечь файлы с полными путями
+; \n  x             Extract files with full path
+;
+MSG_MCHelpSw
+\n\n<Ключи>
+; \n\n<Switches>
+;
+MSG_MCHelpSwm
+\n  -             Прервать дальнейший поиск ключей в командной строке
+; \n  -             Stop switches scanning
+;
+MSG_MCHelpSwAT
+\n  @[+]          Запретить [разрешить] списки файлов
+; \n  @[+]          Disable [enable] file lists
+;
+MSG_MCHelpSwAC
+\n  ac            Снять атрибут "Архивный" после архивации/извлечения
+; \n  ac            Clear Archive attribute after compression or extraction
+;
+MSG_MCHelpSwAD
+\n  ad            Добавить имя архива к целевому пути
+; \n  ad            Append archive name to destination path
+;
+MSG_MCHelpSwAG
+\n  ag[формат]    Добавить текущие дату и время к имени архива
+; \n  ag[format]    Generate archive name using the current date
+;
+MSG_MCHelpSwAI
+\n  ai            Игнорировать файловые атрибуты
+; \n  ai            Ignore file attributes
+;
+MSG_MCHelpSwAO
+\n  ao            Добавить файлы с установленным атрибутом "Архивный"
+; \n  ao            Add files with Archive attribute set
+;
+MSG_MCHelpSwAP
+\n  ap<путь>      Указать путь внутри архива
+; \n  ap<path>      Set path inside archive
+;
+MSG_MCHelpSwAS
+\n  as            Синхронизировать содержимое архива
+; \n  as            Synchronize archive contents
+;
+MSG_MCHelpSwCm
+\n  c-            Не показывать комментарии
+; \n  c-            Disable comments show
+;
+MSG_MCHelpSwCFGm
+\n  cfg-          Запретить чтение конфигурации
+; \n  cfg-          Disable read configuration
+;
+MSG_MCHelpSwCL
+\n  cl            Преобразовывать имена файлов в нижний регистр
+; \n  cl            Convert names to lower case
+;
+MSG_MCHelpSwCU
+\n  cu            Преобразовывать имена файлов в верхний регистр
+; \n  cu            Convert names to upper case
+;
+MSG_MCHelpSwDF
+\n  df            Удалить файлы после архивации
+; \n  df            Delete files after archiving
+;
+MSG_MCHelpSwDH
+\n  dh            Открывать совместно используемые файлы
+; \n  dh            Open shared files
+;
+MSG_MCHelpSwDR
+\n  dr            Удалить файлы в Корзину
+; \n  dr            Delete files to Recycle Bin
+;
+MSG_MCHelpSwDS
+\n  ds            Не сортировать файлы при добавлении в непрерывный архив
+; \n  ds            Disable name sort for solid archive
+;
+MSG_MCHelpSwDW
+\n  dw            Уничтожить (затереть) файлы после архивации
+; \n  dw            Wipe files after archiving
+;
+MSG_MCHelpSwEa
+\n  e[+]<атр>     Исключить/включить в обработку файлы с указанными атрибутами
+; \n  e[+]<attr>    Set file exclude and include attributes
+;
+MSG_MCHelpSwED
+\n  ed            Не добавлять пустые каталоги
+; \n  ed            Do not add empty directories
+;
+MSG_MCHelpSwEN
+\n  en            Не добавлять в архив блок "Конец архива" (для RAR4 и младше)
+; \n  en            Do not put 'end of archive' block
+;
+MSG_MCHelpSwEP
+\n  ep            Исключить пути из имён
+; \n  ep            Exclude paths from names
+;
+MSG_MCHelpSwEP1
+\n  ep1           Исключить базовый каталог из имён
+; \n  ep1           Exclude base directory from names
+;
+MSG_MCHelpSwEP2
+\n  ep2           Сохранять полные пути файлов
+; \n  ep2           Expand paths to full
+;
+MSG_MCHelpSwEP3
+\n  ep3           Сохранять полные пути файлов, включая буквы дисков
+; \n  ep3           Expand paths to full including the drive letter
+;
+MSG_MCHelpSwF
+\n  f             Обновить имеющиеся файлы
+; \n  f             Freshen files
+;
+MSG_MCHelpSwHP
+\n  hp[пароль]    Шифровать содержимое файлов и оглавление архива
+; \n  hp[password]  Encrypt both file data and headers
+;
+MSG_MCHelpSwHT
+\n  ht[b|c]       Выбрать тип хеша [BLAKE2|CRC32] для контрольных сумм
+; \n  ht[b|c]       Select hash type [BLAKE2,CRC32] for file checksum
+;
+MSG_MCHelpSwIDP
+\n  id[c,d,p,q]   Не показывать сообщения
+; \n  id[c,d,p,q]   Disable messages
+;
+MSG_MCHelpSwIEML
+\n  ieml[адрес]   Отправить архив по электронной почте
+; \n  ieml[addr]    Send archive by email
+;
+MSG_MCHelpSwIERR
+\n  ierr          Отправлять все сообщения на stderr
+; \n  ierr          Send all messages to stderr
+;
+MSG_MCHelpSwILOG
+\n  ilog[имя]     Записывать ошибки в файл-журнал
+; \n  ilog[name]    Log errors to file
+;
+MSG_MCHelpSwINUL
+\n  inul          Не показывать никаких сообщений
+; \n  inul          Disable all messages
+;
+MSG_MCHelpSwIOFF
+\n  ioff[n]       Выключить компьютер по завершении операции
+; \n  ioff[n]       Turn PC off after completing an operation
+;
+MSG_MCHelpSwISND
+\n  isnd[-]       Управление звуковыми сигналами
+; \n  isnd[-]       Control notification sounds
+;
+MSG_MCHelpSwIVER
+\n  iver          Показать номер версии
+; \n  iver          Display the version number
+;
+MSG_MCHelpSwK
+\n  k             Заблокировать архив
+; \n  k             Lock archive
+;
+MSG_MCHelpSwKB
+\n  kb            Оставлять на диске файлы, извлечённые с ошибками
+; \n  kb            Keep broken extracted files
+;
+MSG_MCHelpSwLog
+\n  log[ф][=имя]  Записывать имена в файл-журнал (ф=A,F,P,U)
+; \n  log[f][=name] Write names to log file
+;
+MSG_MCHelpSwMn
+\n  m<0...5>      Метод сжатия (0-без сжатия...3-обычный...5-максимальный)
+; \n  m<0..5>       Set compression level (0-store...3-default...5-maximal)
+;
+MSG_MCHelpSwMA
+\n  ma[4|5]       Версия формата архивирования (RAR4|RAR5)
+; \n  ma[4|5]       Specify a version of archiving format
+;
+MSG_MCHelpSwMC
+\n  mc<параметр>  Дополнительные параметры сжатия
+; \n  mc<par>       Set advanced compression parameters
+;
+MSG_MCHelpSwMD
+\n  md<n>[k,m,g]  Размер словаря в КБ, МБ или ГБ
+; \n  md<n>[k,m,g]  Dictionary size in KB, MB or GB
+;
+MSG_MCHelpSwMS
+\n  ms[расш;расш] Расширения файлов для архивирования без сжатия
+; \n  ms[ext;ext]   Specify file types to store
+;
+MSG_MCHelpSwMT
+\n  mt<потоки>    Количество потоков
+; \n  mt<threads>   Set the number of threads
+;
+MSG_MCHelpSwN
+\n  n<файл>       Дополнительный фильтр файлов, включённых в обработку
+; \n  n<file>       Additionally filter included files
+;
+MSG_MCHelpSwNa
+\n  n@            Прочитать дополнительные маски фильтрации с stdin
+; \n  n@            Read additional filter masks from stdin
+;
+MSG_MCHelpSwNal
+\n  n@<список>    Прочитать дополнительные маски фильтрации из файла-списка
+; \n  n@<list>      Read additional filter masks from list file
+;
+MSG_MCHelpSwO
+\n  o[+|-]        Задать режим перезаписи
+; \n  o[+|-]        Set the overwrite mode
+;
+MSG_MCHelpSwOC
+\n  oc            Устанавливать NTFS-атрибут "Сжатый"
+; \n  oc            Set NTFS Compressed attribute
+;
+MSG_MCHelpSwOH
+\n  oh            Сохранять жёсткие ссылки как ссылки, а не как файлы
+; \n  oh            Save hard links as the link instead of the file
+;
+MSG_MCHelpSwOI
+\n  oi[0-4][:мин] Сохранять идентичные файлы как ссылки
+; \n  oi[0-4][:min] Save identical files as references
+;
+MSG_MCHelpSwOL
+\n  ol[a]         Обрабатывать символические ссылки как ссылки [с абсолютными путями]
+; \n  ol[a]         Process symbolic links as the link [absolute paths]
+;
+MSG_MCHelpSwONI
+\n  oni           Разрешить потенциально несовместимые имена
+; \n  oni           Allow potentially incompatible names
+;
+MSG_MCHelpSwOR
+\n  or            Переименовывать файлы автоматически
+; \n  or            Rename files automatically
+;
+MSG_MCHelpSwOS
+\n  os            Сохранять потоки NTFS
+; \n  os            Save NTFS streams
+;
+MSG_MCHelpSwOW
+\n  ow            Сохранять/восстанавливать информацию о правах доступа к файлам
+; \n  ow            Save or restore file owner and group
+;
+MSG_MCHelpSwP
+\n  p[пароль]     Указать пароль шифрования архива
+; \n  p[password]   Set password
+;
+MSG_MCHelpSwPm
+\n  p-            Не спрашивать пароль
+; \n  p-            Do not query password
+;
+MSG_MCHelpSwQO
+\n  qo[-|+]       Добавить данные для быстрого открытия архива [нет|принудительно]
+; \n  qo[-|+]       Add quick open information [none|force]
+;
+MSG_MCHelpSwR
+\n  r             Включить в обработку подкаталоги
+; \n  r             Recurse subdirectories
+;
+MSG_MCHelpSwRm
+\n  r-            Запретить обработку подкаталогов
+; \n  r-            Disable recursion
+;
+MSG_MCHelpSwR0
+\n  r0            Обрабатывать подкаталоги в соответствии с шаблоном
+; \n  r0            Recurse subdirectories for wildcard names only
+;
+MSG_MCHelpSwRI
+\n  ri<P>[:<S>]   Приоритет (0-по умолчанию,1-мин...15-макс) и время простоя (мс)
+; \n  ri<P>[:<S>]   Set priority (0-default,1-min..15-max) and sleep time in ms
+;
+MSG_MCHelpSwRR
+\n  rr[N]         Добавить данные для восстановления
+; \n  rr[N]         Add data recovery record
+;
+MSG_MCHelpSwRV
+\n  rv[N]         Создать тома для восстановления
+; \n  rv[N]         Create recovery volumes
+;
+MSG_MCHelpSwS
+\n  s[<N>,v[-],e] Создать непрерывный архив
+; \n  s[<N>,v[-],e] Create solid archive
+;
+MSG_MCHelpSwSm
+\n  s-            Запретить создание непрерывных архивов
+; \n  s-            Disable solid archiving
+;
+MSG_MCHelpSwSC
+\n  sc<код>[об]   Указать кодировку символов (и объекты)
+; \n  sc<chr>[obj]  Specify the character set
+;
+MSG_MCHelpSwSFX
+\n  sfx[модуль]   Создать самораспаковывающийся (SFX) архив
+; \n  sfx[name]     Create SFX archive
+;
+MSG_MCHelpSwSI
+\n  si[имя]       Читать данные с stdin (стандартного потока ввода)
+; \n  si[name]      Read data from standard input (stdin)
+;
+MSG_MCHelpSwSL
+\n  sl<размер>    Обрабатывать файлы размером меньше указанного
+; \n  sl<size>      Process files with size less than specified
+;
+MSG_MCHelpSwSM
+\n  sm<размер>    Обрабатывать файлы размером больше указанного
+; \n  sm<size>      Process files with size more than specified
+;
+MSG_MCHelpSwT
+\n  t             Протестировать файлы после упаковки
+; \n  t             Test files after archiving
+;
+MSG_MCHelpSwTK
+\n  tk            Не изменять исходное время архива
+; \n  tk            Keep original archive time
+;
+MSG_MCHelpSwTL
+\n  tl            Устанавливать время архива по времени новейшего файла
+; \n  tl            Set archive time to latest file
+;
+MSG_MCHelpSwTN
+\n  tn[mcao]<пер> Обрабатывать файлы не старее, чем <период> времени
+; \n  tn[mcao]<t>   Process files newer than <t> time
+;
+MSG_MCHelpSwTO
+\n  to[mcao]<пер> Обрабатывать файлы более старые, чем <период> времени
+; \n  to[mcao]<t>   Process files older than <t> time
+;
+MSG_MCHelpSwTA
+\n  ta[mcao]<дат> Обрабатывать файлы, изменённые после <даты> (ГГГГММДДЧЧММСС)
+; \n  ta[mcao]<d>   Process files modified after <d> YYYYMMDDHHMMSS date
+;
+MSG_MCHelpSwTB
+\n  tb[mcao]<дат> Обрабатывать файлы, изменённые до <даты> (ГГГГММДДЧЧММСС)
+; \n  tb[mcao]<d>   Process files modified before <d> YYYYMMDDHHMMSS date
+;
+MSG_MCHelpSwTS
+\n  ts[m,c,a,p]   Сохранять/восстанавливать время файлов (изменения, создания, доступа, исходных)
+; \n  ts[m,c,a,p]   Save or restore time (modification, creation, access, preserve)
+;
+MSG_MCHelpSwU
+\n  u             Обновить файлы
+; \n  u             Update files
+;
+MSG_MCHelpSwV
+\n  v             Создавать архивные тома с автоопределением размера
+; \n  v             Create volumes with size autodetection or list all volumes
+;
+MSG_MCHelpSwVUnr
+\n  v             Показать содержание всех томов
+; \n  v             List all volumes
+;
+MSG_MCHelpSwVn
+\n  v<N>[k,b,m,M] Создавать архивные тома размером=<N>*1000 [*1024, *1, ...]
+; \n  v<size>[k,b]  Create volumes with size=<size>*1000 [*1024, *1]
+;
+MSG_MCHelpSwVD
+\n  vd            Удалять содержимое сменного носителя перед созданием тома
+; \n  vd            Erase disk contents before creating volume
+;
+MSG_MCHelpSwVER
+\n  ver[n]        Управление версиями файлов
+; \n  ver[n]        File version control
+;
+MSG_MCHelpSwVN
+\n  vn            Использовать старую схему именования томов
+; \n  vn            Use the old style volume naming scheme
+;
+MSG_MCHelpSwVP
+\n  vp            Пауза перед каждым томом
+; \n  vp            Pause before each volume
+;
+MSG_MCHelpSwW
+\n  w<путь>       Задать каталог для временных файлов
+; \n  w<path>       Assign work directory
+;
+MSG_MCHelpSwX
+\n  x<имя>        Не обрабатывать указанный файл или каталог
+; \n  x<file>       Exclude specified file
+;
+MSG_MCHelpSwXa
+\n  x@            Прочитать имена исключаемых из обработки файлов из stdin
+; \n  x@            Read file names to exclude from stdin
+;
+MSG_MCHelpSwXal
+\n  x@<список>    Не обрабатывать файлы/шаблоны, указанные в файле-списке
+; \n  x@<list>      Exclude files listed in specified list file
+;
+MSG_MCHelpSwY
+\n  y             Подразумевать ответ "Да" на все запросы
+; \n  y             Assume Yes on all queries
+;
+MSG_MCHelpSwZ
+\n  z[файл]       Прочитать комментарий архива из файла
+; \n  z[file]       Read archive comment from file
+;
+MSG_MBadArc
+\nОШИБКА: Плохой архив %s
+; \nERROR: Bad archive %s\n
+;
+MSG_MAskPsw
+\nВведите пароль (ввод не отображается)
+; Enter password (will not be echoed)
+;
+MSG_MAskPswFor
+\nВведите пароль (ввод не отображается) для %s: 
+; \nEnter password (will not be echoed) for %s: 
+;
+MSG_MReAskPsw
+\nВведите пароль ещё раз: 
+; \nReenter password: 
+;
+MSG_MNotMatchPsw
+\nОШИБКА: Пароли не совпадают\n
+; \nERROR: Passwords do not match\n
+;
+MSG_MErrWrite
+Ошибка записи в файле %s
+; Write error in the file %s
+;
+MSG_MErrRead
+Ошибка чтения в файле %s
+; Read error in the file %s
+;
+MSG_MErrSeek
+Ошибка позиционирования в файле %s
+; Seek error in the file %s
+;
+MSG_MErrFClose
+Невозможно закрыть файл %s
+; Cannot close the file %s
+;
+MSG_MErrOutMem
+Недостаточно памяти
+; Not enough memory
+;
+MSG_MErrBrokenArc
+Архив повреждён, используйте команду "Исправить"
+; Corrupt archive - use 'Repair' command
+;
+MSG_MProgAborted
+Работа программы прервана
+; Program aborted
+;
+MSG_MErrRename
+\nНевозможно переименовать %s в %s
+; \nCannot rename %s to %s
+;
+MSG_MAbsNextVol
+\nНе найден том %s
+; \nCannot find volume %s
+;
+MSG_MBreak
+\nПрервано пользователем
+; \nUser break\n
+;
+MSG_MAskCreatVol
+\nСоздать следующий том?
+; \nCreate next volume ?
+;
+MSG_MAskNextDisk
+\nДиск заполнен, вставьте следующий
+; \nDisk full. Insert next
+;
+MSG_MCreatVol
+\nСоздание %sархива %s
+; \n\nCreating %sarchive %s\n
+;
+MSG_MAskNextVol
+\nВставьте диск с %s
+; \nInsert disk with %s
+;
+MSG_MTestVol
+\nТестирование архива %s
+; \n\nTesting archive %s\n
+;
+MSG_MExtrVol
+\nИзвлечение из %s
+; \n\nExtracting from %s\n
+;
+MSG_MConverting
+\nПреобразование %s
+; \nConverting %s
+;
+MSG_MCvtToSFX
+\nПреобразование архива в SFX
+; \nConvert archives to SFX
+;
+MSG_MCvtFromSFX
+\nУдаление SFX-модуля
+; \nRemoving SFX module
+;
+MSG_MNotSFX
+\n%s - не SFX-архив
+; \n%s is not SFX archive
+;
+MSG_MNotRAR
+\n%s - не архив RAR
+; \n%s is not RAR archive
+;
+MSG_MNotFirstVol
+\n%s - не первый том
+; \n%s is not the first volume
+;
+MSG_MCvtOldFormat
+\n%s - невозможно преобразовать в SFX-архив старого формата
+; \n%s - cannot convert to SFX archive with old format
+;
+MSG_MCannotCreate
+\nНевозможно создать %s
+; \nCannot create %s
+;
+MSG_MCannotOpen
+\nНевозможно открыть %s
+; \nCannot open %s
+;
+MSG_MUnknownMeth
+\nНеизвестный метод в %s
+; \nUnknown method in %s
+;
+MSG_MNewRarFormat
+\nНеподдерживаемый формат архива. Установите более новую версию RAR.
+; \nUnsupported archive format. Please update RAR to a newer version.
+;
+MSG_MOk
+ OK
+;  OK
+;
+MSG_MDone
+\nГотово
+; \nDone
+;
+MSG_MLockingArc
+\nБлокировка архива
+; \nLocking archive
+;
+MSG_MNotMdfOld
+\nОШИБКА: Невозможно изменить архив старого формата
+; \n\nERROR: Cannot modify old format archive
+;
+MSG_MNotMdfLock
+\n\nОШИБКА: Заблокированный архив
+; \n\nERROR: Locked archive
+;
+MSG_MNotMdfVol
+\n\nОШИБКА: Невозможно изменить том
+; \n\nERROR: Cannot modify volume
+;
+MSG_MPackAskReg
+\nНезарегистрированная копия. Пожалуйста, зарегистрируйтесь.\n
+; \nEvaluation copy. Please register.\n
+;
+MSG_MCreateArchive
+\nСоздание %sархива %s\n
+; \nCreating %sarchive %s\n
+;
+MSG_MUpdateArchive
+\nОбновление %sархива %s\n
+; \nUpdating %sarchive %s\n
+;
+MSG_MAddSolid
+непрерывного 
+; solid 
+;
+MSG_MAddFile
+\nДобавление %-58s     
+; \nAdding    %-58s     
+;
+MSG_MUpdFile
+\nОбновление %-58s     
+; \nUpdating  %-58s     
+;
+MSG_MAddPoints
+\n...        %-58s     
+; \n...       %-58s     
+;
+MSG_MMoveDelFiles
+\n\nУдаление файлов %s...
+; \n\nDeleting files %s...
+;
+MSG_MMoveDelDirs
+и каталогов
+; and directories
+;
+MSG_MMoveDelFile
+\nУдаление %-30s
+; \nDeleting %-30s
+;
+MSG_MMoveDeleted
+    удалено
+;     deleted
+;
+MSG_MMoveNotDeleted
+    НЕ УДАЛЕНО
+;     NOT DELETED
+;
+MSG_MClearAttrib
+\n\nСнятие атрибутов...
+; \n\nClearing attributes...
+;
+MSG_MMoveDelDir
+\nУдаление каталога %-30s
+; \nDeleting directory %-30s
+;
+MSG_MWarErrFOpen
+\nВНИМАНИЕ: Невозможно открыть файлы (%d %s)
+; \nWARNING: Cannot open %d %s
+;
+MSG_MErrOpenFiles
+шт.
+; files
+;
+MSG_MErrOpenFile
+шт.
+; file
+;
+MSG_MAddNoFiles
+\nВНИМАНИЕ: Нет файлов
+; \nWARNING: No files
+;
+MSG_MMdfEncrSol
+\n%s: зашифрован
+; \n%s: encrypted
+;
+MSG_MAddAnalyze
+\nАнализ файлов в архиве: 
+; \nAnalyzing archived files: 
+;
+MSG_MRepacking
+\nПерепаковка файлов в архиве: 
+; \nRepacking archived files: 
+;
+MSG_MCRCFailed
+\n%-20s - ошибка контрольной суммы
+; \n%-20s - checksum error
+;
+MSG_MExtrTest
+\n\nТестирование архива %s
+; \n\nTesting archive %s\n
+;
+MSG_MExtracting
+\n\nИзвлечение из %s\n
+; \n\nExtracting from %s\n
+;
+MSG_MUseCurPsw
+\n%s - использовать текущий пароль?
+; \n%s - use current password ?
+;
+MSG_MCreatDir
+\nСоздание    %-56s
+; \nCreating    %-56s
+;
+MSG_MExtrSkipFile
+\nПропуск     %-56s
+; \nSkipping    %-56s
+;
+MSG_MExtrTestFile
+\nТест        %-56s
+; \nTesting     %-56s
+;
+MSG_MExtrFile
+\nИзвлечение  %-56s
+; \nExtracting  %-56s
+;
+MSG_MExtrPoints
+\n...         %-56s
+; \n...         %-56s
+;
+MSG_MExtrErrMkDir
+\nНевозможно создать каталог %s
+; \nCannot create directory %s
+;
+MSG_MExtrPrinting
+\n------ Печать %s\n\n
+; \n------ Printing %s\n\n
+;
+MSG_MEncrBadCRC
+\nОшибка контрольной суммы в зашифрованном файле %s. Файл повреждён или указан неверный пароль.
+; \nChecksum error in the encrypted file %s. Corrupt file or wrong password.
+;
+MSG_MExtrNoFiles
+\nНет файлов для извлечения
+; \nNo files to extract
+;
+MSG_MExtrAllOk
+\nГотово
+; \nAll OK
+;
+MSG_MExtrTotalErr
+\nВсего ошибок: %ld
+; \nTotal errors: %ld
+;
+MSG_MAskReplace
+\n\nВы собираетесь перезаписать уже имеющийся файл %s\n%6s байт, изменён %s\nновым файлом\n%6s байт, изменён %s\n
+; \n\nWould you like to replace the existing file %s\n%6s bytes, modified on %s\nwith a new one\n%6s bytes, modified on %s\n
+;
+MSG_MAskOverwrite
+\nПерезаписать %s?
+; \nOverwrite %s ?
+;
+MSG_MAskNewName
+\nВведите новое имя: 
+; \nEnter new name: 
+;
+MSG_MHeaderBroken
+\nОбнаружен повреждённый заголовок
+; \nCorrupt header is found
+;
+MSG_MMainHeaderBroken
+\nПовреждён главный заголовок архива
+; \nMain archive header is corrupt
+;
+MSG_MLogFileHead
+\n%s - повреждён заголовок файла
+; \n%s - the file header is corrupt
+;
+MSG_MLogProtectHead
+Повреждён заголовок данных для восстановления
+; The data recovery header is corrupt
+;
+MSG_MReadStdinCmt
+\nЧтение комментария с stdin\n
+; \nReading comment from stdin\n
+;
+MSG_MReadCommFrom
+\nЧтение комментария из %s
+; \nReading comment from %s
+;
+MSG_MDelComment
+\nУдаление комментария из %s
+; \nDeleting comment from %s
+;
+MSG_MAddComment
+\nДобавление комментария в %s
+; \nAdding comment to %s
+;
+MSG_MFCommAdd
+\nДобавление файловых комментариев
+; \nAdding file comments
+;
+MSG_MAskFComm
+\n\nЧтение комментария для %s : %s с stdin\n
+; \n\nReading comment for %s : %s from stdin\n
+;
+MSG_MLogCommBrk
+\nПовреждён комментарий архива
+; \nThe archive comment is corrupt
+;
+MSG_MCommAskCont
+\nНажмите Enter для продолжения или Q для выхода:
+; \nPress 'Enter' to continue or 'Q' to quit:
+;
+MSG_MWriteCommTo
+\nЗапись комментария в %s
+; \nWrite comment to %s
+;
+MSG_MCommNotPres
+\nКомментарий отсутствует
+; \nComment is not present
+;
+MSG_MDelFrom
+\nУдаление из %s
+; \nDeleting from %s
+;
+MSG_MDeleting
+\nУдаление %s
+; \nDeleting %s
+;
+MSG_MEraseArc
+\nУдаление пустого архива %s
+; \nErasing empty archive %s
+;
+MSG_MNoDelFiles
+\nНет файлов для удаления
+; \nNo files to delete
+;
+MSG_MLogTitle
+--------  %2d %s %d, архив %s
+; --------  %2d %s %d, archive %s
+;
+MSG_MPathTooLong
+\nОШИБКА: Слишком длинный путь
+; \nERROR: Path too long\n
+;
+MSG_MListArchive
+Архив
+; Archive
+;
+MSG_MListDetails
+Детали
+; Details
+;
+MSG_MListSolid
+непрерывный
+; solid
+;
+MSG_MListSFX
+SFX
+; SFX
+;
+MSG_MListVolume
+том
+; volume
+;
+MSG_MListRR
+данные для восстановления
+; recovery record
+;
+MSG_MListLock
+блокировка
+; lock
+;
+MSG_MListEnc
+зашифрованный
+; encrypted
+;
+MSG_MListEncHead
+зашифрованы заголовки
+; encrypted headers
+;
+MSG_MListTitleL
+   Атрибуты    Размер     Дата    Время  Имя
+;  Attributes      Size     Date    Time   Name
+;
+MSG_MListTitleV
+   Атрибуты    Размер  В архиве Сжатие   Дата    Время Конт.сумма Имя
+;  Attributes      Size    Packed Ratio    Date    Time   Checksum  Name
+;
+MSG_MListName
+Имя
+; Name
+;
+MSG_MListType
+Тип
+; Type
+;
+MSG_MListFile
+Файл
+; File
+;
+MSG_MListDir
+Каталог
+; Directory
+;
+MSG_MListUSymlink
+Символическая ссылка UNIX
+; Unix symbolic link
+;
+MSG_MListWSymlink
+Символическая ссылка Windows
+; Windows symbolic link
+;
+MSG_MListJunction
+Точка соединения NTFS
+; NTFS junction point
+;
+MSG_MListHardlink
+Жёсткая ссылка
+; Hard link
+;
+MSG_MListCopy
+Ссылка на файл
+; File reference
+;
+MSG_MListStream
+Альтернативный поток данных NTFS
+; NTFS alternate data stream
+;
+MSG_MListTarget
+Цель
+; Target
+;
+MSG_MListSize
+Размер
+; Size
+;
+MSG_MListPacked
+В архиве
+; Packed size
+;
+MSG_MListRatio
+Сжатие
+; Ratio
+;
+MSG_MListMtime
+Время m
+; mtime
+;
+MSG_MListCtime
+Время c
+; ctime
+;
+MSG_MListAtime
+Время a
+; atime
+;
+MSG_MListAttr
+Атрибуты
+; Attributes
+;
+MSG_MListFlags
+Флаги
+; Flags
+;
+MSG_MListCompInfo
+Архивация
+; Compression
+;
+MSG_MListHostOS
+Базовая ОС
+; Host OS
+;
+MSG_MListFileVer
+Версия файла
+; File version
+;
+MSG_MListService
+Сервис
+; Service
+;
+MSG_MListUOHead
+\n   Владелец/группа в UNIX:    %-14s %-14s
+; \n   Unix Owner/Group data:    %-14s %-14s
+;
+MSG_MListNTACLHead
+\n   Данные прав доступа NTFS
+; \n   NTFS security data
+;
+MSG_MListStrmHead
+\n   Поток NTFS: %s
+; \n   NTFS stream: %s
+;
+MSG_MListUnkHead
+\n   Неизвестный тип подзаголовка: 0x%04x
+; \n   Unknown subheader type: 0x%04x
+;
+MSG_MFileComment
+\nКомментарий: 
+; \nComment: 
+;
+MSG_MYes
+Да
+; Yes
+;
+MSG_MNo
+Нет
+; No
+;
+MSG_MListNoFiles
+0 файлов\n
+;   0 files\n
+;
+MSG_MRprReconstr
+\nРеконструкция %s
+; \nReconstructing %s
+;
+MSG_MRprBuild
+\nПостроение %s
+; \nBuilding %s
+;
+MSG_MRprOldFormat
+\nНевозможно восстановить архив старого формата
+; \nCannot repair archive with old format
+;
+MSG_MRprFind
+\nНайден  %s
+; \nFound  %s
+;
+MSG_MRprAskIsSol
+\nПовреждён заголовок архива. Считать архив непрерывным?
+; \nThe archive header is corrupt. Mark archive as solid ?
+;
+MSG_MRprNoFiles
+\nФайлы не найдены
+; \nNo files found
+;
+MSG_MLogUnexpEOF
+\nНеожиданный конец архива
+; \nUnexpected end of archive
+;
+MSG_MRepAskReconst
+\nРеконструировать структуру архива?
+; \nReconstruct archive structure ?
+;
+MSG_MRRSearch
+\nПоиск данных для восстановления
+; \nSearching for recovery record
+;
+MSG_MAnalyzeFileData
+\nАнализ файловых данных
+; \nAnalyzing file data
+;
+MSG_MRecRNotFound
+\nДанные для восстановления не найдены
+; \nData recovery record not found
+;
+MSG_MRecRFound
+\nНайдены данные для восстановления
+; \nData recovery record found
+;
+MSG_MRecSecDamage
+\nСектор %ld (смещения %lX...%lX) повреждён
+; \nSector %ld (offsets %lX...%lX) damaged
+;
+MSG_MRecCorrected
+ - данные восстановлены
+;  - data recovered
+;
+MSG_MRecFailed
+ - данные восстановить невозможно
+;  - cannot recover data
+;
+MSG_MAddRecRec
+\nДобавление данных для восстановления
+; \nAdding data recovery record
+;
+MSG_MEraseForVolume
+\nДобавление данных для восстановления %c:\n
+; \n\nErasing contents of drive %c:\n
+;
+MSG_MGetOwnersError
+\nВНИМАНИЕ: Невозможно получить владельца и группу %s
+; \nWARNING: Cannot get %s owner and group\n
+;
+MSG_MErrGetOwnerID
+\nВНИМАНИЕ: Невозможно получить ID владельца %s
+; \nWARNING: Cannot get owner %s ID\n
+;
+MSG_MErrGetGroupID
+\nВНИМАНИЕ: Невозможно получить ID группы %s
+; \nWARNING: Cannot get group %s ID\n
+;
+MSG_MOwnersBroken
+\nОШИБКА: Повреждены данные о группе и владельце %s
+; \nERROR: %s group and owner data are corrupt\n
+;
+MSG_MSetOwnersError
+\nОШИБКА: Повреждены данные о группе и владельце %s
+; \nWARNING: Cannot set %s owner and group\n
+;
+MSG_MErrLnkRead
+\nВНИМАНИЕ: Невозможно прочитать символическую ссылку %s
+; \nWARNING: Cannot read symbolic link %s
+;
+MSG_MSymLinkExists
+\nВНИМАНИЕ: Символическая ссылка %s уже существует
+; \nWARNING: Symbolic link %s already exists
+;
+MSG_MAskRetryCreate
+\nНевозможно создать %s. Повторить?
+; \nCannot create %s. Retry ?
+;
+MSG_MDataBadCRC
+\n%-20s : ошибка контрольной суммы сжатых данных в томе %s
+; \n%-20s : packed data checksum error in volume %s
+;
+MSG_MFileRO
+\n%s - только для чтения
+; \n%s is read-only
+;
+MSG_MACLGetError
+\nВНИМАНИЕ: Невозможно получить права доступа %s\n
+; \nWARNING: Cannot get %s security data\n
+;
+MSG_MACLSetError
+\nВНИМАНИЕ: Невозможно установить права доступа %s\n
+; \nWARNING: Cannot set %s security data\n
+;
+MSG_MACLBroken
+\nОШИБКА: Повреждены данные о правах доступа %s\n
+; \nERROR: %s security data are corrupt\n
+;
+MSG_MACLUnknown
+\nВНИМАНИЕ: Неизвестный формат данных о правах доступа %s\n
+; \nWARNING: Unknown format of %s security data\n
+;
+MSG_MStreamBroken
+\nОШИБКА: Повреждены данные потока %s\n
+; \nERROR: %s stream data are corrupt\n
+;
+MSG_MStreamUnknown
+\nВНИМАНИЕ: Неизвестный формат данных о потоке %s\n
+; \nWARNING: Unknown format of %s stream data\n
+;
+MSG_MInvalidName
+\nОШИБКА: Неверное имя файла %s
+; \nERROR: Invalid file name %s
+;
+MSG_MProcessArc
+\nОШИБКА: Неверное имя файла %s
+; \n\nProcessing archive %s
+;
+MSG_MCorrectingName
+\nВНИМАНИЕ: Попытка исправить неверное имя файла
+; \nWARNING: Attempting to correct the invalid file name
+;
+MSG_MUnpCannotMerge
+\nВНИМАНИЕ: Для извлечения %s необходимо начать распаковку с предыдущего тома
+; \nWARNING: You need to start extraction from a previous volume to unpack %s
+;
+MSG_MUnknownOption
+\nОШИБКА: Неизвестный параметр %s
+; \nERROR: Unknown option: %s
+;
+MSG_MSubHeadCorrupt
+\nОШИБКА: Повреждённый заголовок данных, пропущено
+; \nERROR: Corrupt data header found, ignored
+;
+MSG_MSubHeadUnknown
+\nВНИМАНИЕ: Неизвестный формат заголовка данных, пропущено
+; \nWARNING: Unknown data header format, ignored
+;
+MSG_MSubHeadDataCRC
+\nОШИБКА: Повреждён блок данных %s
+; \nERROR: Corrupt %s data block
+;
+MSG_MSubHeadType
+\nТип заголовка данных: %s
+; \nData header type: %s
+;
+MSG_MScanError
+\nНевозможно прочитать содержимое %s
+; \nCannot read contents of %s
+;
+MSG_MNotVolume
+\n%s - не том
+; \n%s is not volume
+;
+MSG_MRecVolDiffSets
+\nОШИБКА: %s и %s относятся к разным наборам
+; \nERROR: %s and %s belong to different sets
+;
+MSG_MRecVolMissing
+\nОтсутствует томов: %d
+; \n%d volumes missing
+;
+MSG_MRecVolFound
+\nНайдено томов для восстановления: %d
+; \n%d recovery volumes found
+;
+MSG_MRecVolAllExist
+\nНечего реконструировать
+; \nNothing to reconstruct
+;
+MSG_MRecVolCannotFix
+\nРеконструкция невозможна
+; \nReconstruction impossible
+;
+MSG_MReconstructing
+\nРеконструкция...
+; \nReconstructing...
+;
+MSG_MCreating
+\nСоздание %s
+; \nCreating %s
+;
+MSG_MRenaming
+\nПереименование %s в %s
+; \nRenaming %s to %s
+;
+MSG_MNTFSRequired
+\nОшибка записи: файлы размером более 4 ГБ поддерживает только файловая система NTFS
+; \nWrite error: only NTFS file system supports files larger than 4 GB
+;
+MSG_MFAT32Size
+\nВНИМАНИЕ: Файловая система FAT32 не поддерживает файлы размером 4 ГБ и более
+; \nWARNING: FAT32 file system does not support 4 GB or larger files
+;
+MSG_MErrChangeAttr
+\nВНИМАНИЕ: Невозможно изменить атрибуты %s
+; \nWARNING: Cannot change attributes of %s
+;
+MSG_MWrongSFXVer
+\nОШИБКА: Стандартный SFX-модуль не поддерживает архивы RAR %d.%d
+; \nERROR: default SFX module does not support RAR %d.%d archives
+;
+MSG_MHeadEncMismatch
+\nНевозможно изменить режим шифрования заголовка в уже зашифрованном архиве
+; \nCannot change the header encryption mode in already encrypted archive
+;
+MSG_MCannotEmail
+\nНевозможно отправить файл %s по электронной почте
+; \nCannot email the file %s
+;
+MSG_MCopyrightS
+\nСамораспаковывающийся (SFX) архив RAR
+; \nRAR SFX archive
+;
+MSG_MSHelpCmd
+\n\n<Команды>
+; \n\n<Commands>
+;
+MSG_MSHelpCmdE
+\n  -x      Извлечь файлы из архива (по умолчанию)
+; \n  -x      Extract from archive (default)
+;
+MSG_MSHelpCmdT
+\n  -t      Протестировать файлы в архиве
+; \n  -t      Test archive files
+;
+MSG_MSHelpCmdV
+\n  -v      Показать подробное содержание архива
+; \n  -v      Verbosely list contents of archive
+;
+MSG_MRecVolLimit
+\nОбщее количество обычных томов и томов для восстановления не должно превышать %d
+; \nTotal number of usual and recovery volumes must not exceed %d
+;
+MSG_MVolumeNumber
+том %d
+; volume %d
+;
+MSG_MCannotDelete
+Невозможно удалить %s
+; \nCannot delete %s
+;
+MSG_MRecycleFailed
+\nНевозможно переместить в Корзину некоторые файлы и папки
+; \nCannot move some files and folders to Recycle Bin
+;
+MSG_MCalcCRC
+\nВычисление контрольной суммы
+; \nCalculating the checksum
+;
+MSG_MTooLargeSFXArc
+\nСлишком большой SFX-архив. Windows не может запускать исполняемые файлы размером более 4 ГБ.
+; \nToo large SFX archive. Windows cannot run the executable file exceeding 4 GB.
+;
+MSG_MCalcCRCAllVol
+\nВычисление контрольных сумм всех томов.
+; \nCalculating checksums of all volumes.
+;
+MSG_MNotEnoughDisk
+\nОШИБКА: Недостаточно места на диске для %s.
+; \nERROR: Not enough disk space for %s.
+;
+MSG_MNewerRAR
+\nТребуется более новая версия RAR.
+; \nYou may need a newer version of RAR.
+;
+MSG_MUnkEncMethod
+\nНеизвестный метод шифрования в %s
+; \nUnknown encryption method in %s
+;
+MSG_MWrongPassword
+\nУказан неверный пароль.
+; \nThe specified password is incorrect.
+;
+MSG_MWrongFilePassword
+\nНеверный пароль для %s
+; \nIncorrect password for %s
+;
+MSG_MAreaDamaged
+\nПовреждено %d байт в %08x %08x
+; \nCorrupt %d bytes at %08x %08x
+;
+MSG_MBlocksRecovered
+\nБлоков восстановлено: %u, перемещено: %u
+; \n%u blocks are recovered, %u blocks are relocated
+;
+MSG_MRRDamaged
+\nДанные для восстановления повреждены.
+; \nRecovery record is corrupt.
+;
+MSG_MTestingRR
+\nТест данных для восстановления
+; \nTesting the recovery record
+;
+MSG_MFailed
+\nОшибка
+; Failed
+;
+MSG_MIncompatSwitch
+\nКлюч %s не поддерживается в архивах формата RAR %d.x.
+; \n%s switch is not supported for RAR %d.x archive format.
+;
+MSG_MSearchDupFiles
+\nПоиск идентичных файлов
+; \nSearching for identical files
+;
+MSG_MNumFound
+Найдено: %d.
+; %d found.
+;
+MSG_MUnknownExtra
+\nНеизвестное дополнительное поле в %s.
+; \nUnknown extra field in %s.
+;
+MSG_MCorruptExtra
+\nПовреждено дополнительное поле %s.в %s.
+; \nCorrupt %s extra field in %s.
+;
+MSG_MCopyError
+\nНевозможно скопировать %s в %s.
+; \nCannot copy %s to %s.
+;
+MSG_MCopyErrorHint
+\nЧтобы создать ссылки на файлы, нужно распаковать весь архив.
+; \nYou need to unpack the entire archive to create file reference entries.
+;
+MSG_MCopyingData
+\nКопирование данных
+; \nCopying data
+;
+MSG_MErrCreateLnkS
+\nНевозможно создать символическую ссылку %s
+; \nCannot create symbolic link %s
+;
+MSG_MErrCreateLnkH
+\nНевозможно создать жёсткую ссылку %s
+; \nCannot create hard link %s
+;
+MSG_MErrLnkTarget
+\nСначала нужно распаковать целевой объект ссылки
+; \nYou need to unpack the link target first
+;
+MSG_MNeedAdmin
+\nПопробуйте запустить RAR от имени администратора
+; \nYou may need to run RAR as administrator
+;
+MSG_MDictOutMem
+\nНедостаточно памяти для %d-МБ словаря сжатия, изменено на %d МБ.
+; \nNot enough memory for %d MB compression dictionary, changed to %d MB.
+;
+MSG_MUseSmalllerDict
+\nИспользуйте словарь сжатия меньшего размера.
+; \nPlease use a smaller compression dictionary.
+;
+MSG_MAmigaPortBy
+\n%s порт: Марцин Лабенски.  Перевод: Михаил Малышев.\n
+; \n%s port by Marcin Labenski\n
+;
+MSG_MOpenErrAtime
+\nВозможно, Вам потребуется удалить переключатель -tsp, чтобы открыть этот файл.
+; \nYou may need to remove -tsp switch to open this file.
+;
+MSG_MAmigaConvErr
+ПРЕДУПРЕЖДЕНИЕ: Некоторые символы, используемые в именах файлов в этом архиве, не были преобразованы, поскольку они недоступны в кодировке %s. Установите ENV: переменную RAR_CODEPAGE, чтобы выбрать правильную кодировку.
+; WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding.
+;
+MSG_MAmigaConvInitErr
+ПРЕДУПРЕЖДЕНИЕ: Кодировка %s не поддерживается. Выберите другой вариант, установив ENV: переменную RAR_CODEPAGE.
+; WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable.
