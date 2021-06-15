@@ -1,7 +1,9 @@
-static bool UnixSymlink(const char *Target,const wchar *LinkName,RarTime *ftm,RarTime *fta)
+
+
+static bool UnixSymlink(CommandData *Cmd,const char *Target,const wchar *LinkName,RarTime *ftm,RarTime *fta)
 {
 #ifdef _AMIGA
-  CreatePath(LinkName,true);
+  CreatePath(LinkName,true,Cmd->DisableNames);
   DelFile(LinkName);
   char LinkNameA[NM];
   WideToChar(LinkName,LinkNameA,ASIZE(LinkNameA));
@@ -15,8 +17,13 @@ static bool UnixSymlink(const char *Target,const wchar *LinkName,RarTime *ftm,Ra
   }
   SetFileModificationTime(LinkNameA, ftm);
 #else
-  CreatePath(LinkName,true);
+  CreatePath(LinkName,true,Cmd->DisableNames);
+
+  // Overwrite prompt was already issued and confirmed earlier, so we can
+  // remove existing symlink or regular file here. PrepareToDelete was also
+  // called earlier inside of uiAskReplaceEx.
   DelFile(LinkName);
+
   char LinkNameA[NM];
   WideToChar(LinkName,LinkNameA,ASIZE(LinkNameA));
   if (symlink(Target,LinkNameA)==-1) // Error.
@@ -95,7 +102,7 @@ bool ExtractUnixLink30(CommandData *Cmd,ComprDataIO &DataIO,Archive &Arc,const w
     if (!Cmd->AbsoluteLinks && (*TargetW==0 || IsFullPath(TargetW) ||
         !IsRelativeSymlinkSafe(Cmd,Arc.FileHead.FileName,LinkName,TargetW)))
       return false;
-    return UnixSymlink(Target,LinkName,&Arc.FileHead.mtime,&Arc.FileHead.atime);
+    return UnixSymlink(Cmd,Target,LinkName,&Arc.FileHead.mtime,&Arc.FileHead.atime);
   }
   return false;
 }
@@ -121,5 +128,5 @@ bool ExtractUnixLink50(CommandData *Cmd,const wchar *Name,FileHeader *hd)
   if (!Cmd->AbsoluteLinks && (IsFullPath(Target) ||
       !IsRelativeSymlinkSafe(Cmd,hd->FileName,Name,hd->RedirName)))
     return false;
-  return UnixSymlink(Target,Name,&hd->mtime,&hd->atime);
+  return UnixSymlink(Cmd,Target,Name,&hd->mtime,&hd->atime);
 }
