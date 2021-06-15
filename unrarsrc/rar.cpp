@@ -5,9 +5,15 @@ size_t __stack  = 800000;
 static const char __attribute((used)) min_stack[] = "$STACK:800000";
 #define Q(x) #x
 #define QUOTE(x) Q(x)
+#if RARVER_MINOR < 10
+static const char __attribute((used)) vers[] = "\\0$VER: UnRAR "
+		QUOTE(RARVER_MAJOR) ".0" QUOTE(RARVER_MINOR)
+        " (16.6.2021)";
+#else
 static const char __attribute((used)) vers[] = "\\0$VER: UnRAR "
 		QUOTE(RARVER_MAJOR) "." QUOTE(RARVER_MINOR)
-        " (3.9.2020)";
+        " (16.6.2021)";
+#endif
 
 #include <proto/exec.h>
 int Check_Stack()
