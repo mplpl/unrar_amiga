@@ -18,7 +18,7 @@ LONG SetFileModificationTime(const char *path, RarTime *ftm)
 
 #endif
 
-bool ExtractHardlink(CommandData *Cmd,wchar *NameNew,wchar *NameExisting,size_t NameExistingSize)
+bool ExtractHardlink(CommandData *Cmd,wchar *NameNew,wchar *NameExisting,size_t NameExistingSize,Archive &Arc)
 {
   SlashToNative(NameExisting,NameExisting,NameExistingSize); // Not needed for RAR 5.1+ archives.
 
