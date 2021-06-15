@@ -18,7 +18,7 @@ LONG SetFileModificationTime(const char *path, RarTime *ftm)
 
 #endif
 
-bool ExtractHardlink(wchar *NameNew,wchar *NameExisting,size_t NameExistingSize,Archive &Arc)
+bool ExtractHardlink(CommandData *Cmd,wchar *NameNew,wchar *NameExisting,size_t NameExistingSize,Archive &Arc)
 {
   SlashToNative(NameExisting,NameExisting,NameExistingSize); // Not needed for RAR 5.1+ archives.
 
@@ -29,7 +29,7 @@ bool ExtractHardlink(wchar *NameNew,wchar *NameExisting,size_t NameExistingSize,
     ErrHandler.SetErrorCode(RARX_CREATE);
     return false;
   }
-  CreatePath(NameNew,true);
+  CreatePath(NameNew,true,Cmd->DisableNames);
 
 #ifdef _WIN_ALL
   bool Success=CreateHardLink(NameNew,NameExisting,NULL)!=0;
