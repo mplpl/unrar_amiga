@@ -23,6 +23,15 @@ LDFLAGS+= -noixemul
 AMIGA=1
 endif
 
+ifeq ($(PLATFORM),WarpOS)
+CXX=ppc-morphos-g++-9
+AR=ppc-morphos-ar
+CFLAGS=--specs=warpup -D__warpos__
+CXXFLAGS=--specs=warpup -D__warpos__
+LDFLAGS+= --specs=warpup -noixemul
+AMIGA=1
+endif
+
 ifeq ($(PLATFORM),AmigaOS4)
 CXX=ppc-amigaos-c++
 AR=ppc-amigaos-ar
@@ -46,7 +55,7 @@ AMIGA=1
 endif
 
 ifeq ($(AMIGA),)
-$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3)
+$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3, WarpOS)
 endif
 
 LINK=$(CXX)

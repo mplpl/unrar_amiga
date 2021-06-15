@@ -23,6 +23,7 @@ void ExtractUnixOwner20(Archive &Arc,const wchar *FileName)
   }
   uid_t OwnerID=pw->pw_uid;
 
+#if !defined(__warpos__)
   struct group *gr;
   errno=0; // Required by getgrnam specification if we need to check errno.
   if ((gr=getgrnam(Arc.UOHead.GroupName))==NULL)
@@ -32,8 +33,11 @@ void ExtractUnixOwner20(Archive &Arc,const wchar *FileName)
     ErrHandler.SetErrorCode(RARX_CRC);
     return;
   }
-  uint Attr=GetFileAttr(FileName);
   gid_t GroupID=gr->gr_gid;
+#else 
+  gid_t GroupID=100;
+#endif
+  uint Attr=GetFileAttr(FileName);
 #if defined(SAVE_LINKS) && !defined(_APPLE) && !defined(_AMIGA)
   if (lchown(NameA,OwnerID,GroupID)!=0)
 #else
@@ -68,6 +72,7 @@ void ExtractUnixOwner30(Archive &Arc,const wchar *FileName)
   }
   uid_t OwnerID=pw->pw_uid;
 
+#if !defined(__warpos__)
   struct group *gr;
   if ((gr=getgrnam(GroupName))==NULL)
   {
@@ -75,8 +80,11 @@ void ExtractUnixOwner30(Archive &Arc,const wchar *FileName)
     ErrHandler.SetErrorCode(RARX_WARNING);
     return;
   }
-  uint Attr=GetFileAttr(FileName);
   gid_t GroupID=gr->gr_gid;
+#else 
+  gid_t GroupID=100;
+#endif
+  uint Attr=GetFileAttr(FileName);
 #if defined(SAVE_LINKS) && !defined(_APPLE) && !defined(_AMIGA)
   if (lchown(NameA,OwnerID,GroupID)!=0)
 #else
@@ -116,6 +124,7 @@ void SetUnixOwner(Archive &Arc,const wchar *FileName)
   }
   if (*hd.UnixGroupName!=0)
   {
+#if !defined(__warpos__)
     struct group *gr;
     if ((gr=getgrnam(hd.UnixGroupName))==NULL)
     {
@@ -128,6 +137,9 @@ void SetUnixOwner(Archive &Arc,const wchar *FileName)
     }
     else
       hd.UnixGroupID=gr->gr_gid;
+#else
+    hd.UnixGroupID=100;
+#endif
   }
 #if defined(SAVE_LINKS) && !defined(_APPLE) && !defined(_AMIGA)
   if (lchown(NameA,hd.UnixOwnerID,hd.UnixGroupID)!=0)

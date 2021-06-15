@@ -134,7 +134,7 @@ bool FindFile::FastFind(const wchar *FindMask,FindData *fd,bool GetSymLink)
 #endif
   if (GetSymLink)
   {
-#ifdef SAVE_LINKS
+#if defined(SAVE_LINKS) && !defined(__warpos__)
 #if defined(_LARGEFILE64_SOURCE)
     if (lstat64(FindMaskA,&st)!=0)
 #else

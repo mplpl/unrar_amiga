@@ -227,7 +227,7 @@ typedef _off64_t off64_t;
   #endif
 #endif
 
-#if _POSIX_C_SOURCE >= 200809L
+#if _POSIX_C_SOURCE >= 200809L && !defined(__warpos__)
   #define UNIX_TIME_NS // Nanosecond time precision in Unix.
 #endif
 

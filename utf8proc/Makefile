@@ -29,6 +29,14 @@ PICFLAG=
 AMIGA=1
 endif
 
+ifeq ($(PLATFORM),WarpOS)
+AR=ppc-morphos-ar
+CC=ppc-morphos-gcc-9
+CFLAGS+= --specs=warpup
+PICFLAG=
+AMIGA=1
+endif
+
 ifeq ($(PLATFORM),AmigaOS4)
 AR=ppc-amigaos-ar
 CC=ppc-amigaos-gcc

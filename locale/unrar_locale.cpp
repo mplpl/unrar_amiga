@@ -25,10 +25,10 @@
 
 /*************************************************************************/
 
-#ifdef __amigaos4__
+#if defined(__amigaos4__)
 struct Library     *LocaleBase;
 struct LocaleIFace *ILocale;
-#elif defined(__amigaos3__)
+#elif defined(__amigaos3__) || defined(__warpos__)
 struct LocaleBase  *LocaleBase;
 #elif !defined(__AROS__)
 struct Library     *LocaleBase;
@@ -45,7 +45,7 @@ static wchar_t *CACHE[CATCOMP_LASTID + 1];
 BOOL Locale_Open(const char *catname)
 {
   memset(CACHE, 0, sizeof(wchar_t) * (CATCOMP_LASTID + 1));
-#if defined(__AROS__) || defined(__amigaos3__)  
+#if defined(__AROS__) || defined(__amigaos3__) || defined(__warpos__) 
   if( (LocaleBase = (struct LocaleBase *)OpenLibrary("locale.library", 0)) )
 #else
   if( (LocaleBase = OpenLibrary("locale.library", 0)) )
@@ -68,7 +68,7 @@ BOOL Locale_Open(const char *catname)
       DropInterface((struct Interface *)ILocale);
     }
 #endif
-#if defined(__AROS__) || defined(__amigaos3__)
+#if defined(__AROS__) || defined(__amigaos3__) || defined(__warpos__)
     CloseLibrary((struct Library *)LocaleBase);
 #else
     CloseLibrary(LocaleBase);
@@ -103,11 +103,11 @@ void Locale_Close()
 #ifdef __amigaos4__
     DropInterface((struct Interface *)ILocale);
 #endif
-#if defined(__AROS__) || defined(__amigaos3__)
+//#if defined(__AROS__) || defined(__amigaos3__)
     CloseLibrary((struct Library *)LocaleBase);
-#else
-    CloseLibrary(LocaleBase);
-#endif
+//#else
+//    CloseLibrary(LocaleBase);
+//#endif
     LocaleBase = NULL;
   }
 }

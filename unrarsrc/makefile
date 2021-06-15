@@ -27,6 +27,21 @@ AMIGA=1
 AMIGA_OBJECTS=amiga.o
 endif
 
+ifeq ($(PLATFORM),WarpOS)
+CXX=ppc-morphos-g++-9
+CFLAGS=--specs=warpup
+CXXFLAGS=--specs=warpup -O2 -Wno-switch -I../utf8proc -I../locale -I../wstdio/warpos -noixemul
+LIBFLAGS=-fPIC
+DEFINES=-D_AMIGA -D__warpos__
+STRIP=echo strip not found for 
+AR=ar
+LDFLAGS=--specs=warpup -L../utf8proc -L../wstdio -L../locale -L../wstdio/warpos -noixemul 
+LIBS= -lutf8proc -lwstdio -lunrarlocale -liconv
+DESTDIR=/usr
+AMIGA=1
+AMIGA_OBJECTS=amiga.o
+endif
+
 ifeq ($(PLATFORM),AmigaOS4)
 CXX=ppc-amigaos-c++
 CXXFLAGS=-O2 -Wno-switch -I../utf8proc -I../locale -noixemul
@@ -70,7 +85,7 @@ AMIGA_OBJECTS=amiga.o
 endif
 
 ifeq ($(AMIGA),)
-$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3)
+$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3, WarpOS)
 endif
 
 # Linux using GCC

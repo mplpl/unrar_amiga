@@ -6,20 +6,33 @@ static const char __attribute((used)) min_stack[] = "$STACK:800000";
 #define Q(x) #x
 #define QUOTE(x) Q(x)
 static const char __attribute((used)) vers[] = "\\0$VER: UnRAR "
-		QUOTE(RARVER_MAJOR)"."QUOTE(RARVER_MINOR)
-        " (23.4.2020)";
+		QUOTE(RARVER_MAJOR) "." QUOTE(RARVER_MINOR)
+        " (3.9.2020)";
 
 #include <proto/exec.h>
 int Check_Stack()
 {
 #ifdef __amigaos4__
 	return 0;
-#elif __MORPHOS__
+#elif defined(__MORPHOS__) && !defined(__warpos__)
 	return 0;
+#elif defined(__warpos__) 
+  printf("\nWARNING: stack must be 800K or more - before running unrar, call: stack 800000\n");
+  return 0;
+  /*struct TaskPPC *task = FindTaskPPC(NULL);
+  printf("Stack check fired %u \n", task->tp_StackSize);
+	if (task->tp_StackSize < __stack)
+	{
+		printf("Stack too small %d - %d bytes is needed\n",
+			task->tp_StackSize,
+			__stack);
+		return 1;
+	}
+	return 0;*/
 #else
-    struct Task *task = FindTask(NULL);
-	int sz = (int)task->tc_SPUpper - (int)task->tc_SPLower;
-	if (sz < __stack)
+  struct Task *task = FindTask(NULL);
+  size_t sz = (size_t)task->tc_SPUpper - (size_t)task->tc_SPLower;
+  if (sz < __stack)
 	{
 		printf("Stack too small %d - %d bytes is needed\n",
 			sz,

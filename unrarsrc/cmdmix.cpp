@@ -34,6 +34,8 @@ void CommandData::OutTitle()
 #ifdef _AMIGA
 #ifdef __amigaos4__
   mprintf(St(MAmigaPortBy), L"AmigaOS4");
+#elif defined(__warpos__)
+  mprintf(St(MAmigaPortBy), L"WarpOS");
 #elif defined(__morphos__)
   mprintf(St(MAmigaPortBy), L"MorphOS");
 #elif defined(__amigaos3__)
