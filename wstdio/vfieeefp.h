@@ -37,7 +37,7 @@
 #include "sys/config.h"
 #include <sys/cdefs.h>
 
-#ifndef __amigaos4__
+#if !defined(__amigaos4__) && !defined(__warpos__)
 typedef unsigned long __uint32_t;
 #endif
 

@@ -22,6 +22,14 @@ AR=ppc-morphos-ar
 AMIGA=1
 endif
 
+ifeq ($(PLATFORM),WarpOS)
+CC=ppc-morphos-gcc-9
+AR=ppc-morphos-ar
+CFLAGS=--specs=warpup -D__warpos__
+LDFLAGS=--specs=warpup
+AMIGA=1
+endif
+
 ifeq ($(PLATFORM),AmigaOS4)
 CC=ppc-amigaos-gcc
 AR=ppc-amigaos-ar
@@ -45,7 +53,7 @@ AMIGA=1
 endif
 
 ifeq ($(AMIGA),)
-$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3)
+$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3, WarpOS)
 endif
 
 all: $(OBJECTS)
