@@ -68,11 +68,7 @@ BOOL Locale_Open(const char *catname)
       DropInterface((struct Interface *)ILocale);
     }
 #endif
-#if defined(__AROS__) || defined(__amigaos3__) || defined(__warpos__)
     CloseLibrary((struct Library *)LocaleBase);
-#else
-    CloseLibrary(LocaleBase);
-#endif
     LocaleBase = NULL;
   }
   return(FALSE);
@@ -103,11 +99,7 @@ void Locale_Close()
 #ifdef __amigaos4__
     DropInterface((struct Interface *)ILocale);
 #endif
-//#if defined(__AROS__) || defined(__amigaos3__)
     CloseLibrary((struct Library *)LocaleBase);
-//#else
-//    CloseLibrary(LocaleBase);
-//#endif
     LocaleBase = NULL;
   }
 }
