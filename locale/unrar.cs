@@ -1,4 +1,4 @@
-## Version $VER: xxxxxx.catalog 1.00 (10.01.2021)
+## Version $VER: xxxxxx.catalog 1.00 (07.07.2021)
 ## Languages english
 ## Codeset english 0
 ## SimpleCatConfig CharsPerLine 200
@@ -973,7 +973,7 @@ MSG_MProcessArc
 \n\nProcessing archive %s
 ;
 MSG_MCorrectingName
-\nWARNING: Attempting to correct the invalid file name
+\nWARNING: Attempting to correct the invalid file or directory name
 ;
 MSG_MUnpCannotMerge
 \nWARNING: You need to start extraction from a previous volume to unpack %s
