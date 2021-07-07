@@ -26,6 +26,10 @@ MSG_MRetryAbort
 _pOnów_Przerwij
 ; _Retry_Abort
 ;
+MSG_MIgnoreAllRetryQuit
+_Ignoruj_iGnoruj wszystko_pOnów_Przerwij
+; _Ignore_iGnore all_Retry_Quit
+;
 MSG_MCopyright
 \nRAR %s   Copyright (c) 1993-%d Alexander Roshal   %d %s %d
 ; \nRAR %s   Copyright (c) 1993-%d Alexander Roshal   %d %s %d
@@ -227,8 +231,8 @@ MSG_MCHelpSwAC
 ; \n  ac            Clear Archive attribute after compression or extraction
 ;
 MSG_MCHelpSwAD
-\n  ad            Dodaj nazwê archiwum na pocz±tku ¶cie¿ki rozpakowywania
-; \n  ad            Append archive name to destination path
+\n  ad[1,2]       Alternatywna scie¿ka docelowa
+; \n  ad[1,2]       Alternate destination path
 ;
 MSG_MCHelpSwAG
 \n  ag[format]    Wygeneruj nazwê archiwum u¿ywaj±c aktualnej daty
@@ -327,8 +331,8 @@ MSG_MCHelpSwHT
 ; \n  ht[b|c]       Select hash type [BLAKE2,CRC32] for file checksum
 ;
 MSG_MCHelpSwIDP
-\n  id[c,d,p,q]   Wy³±cz wy¶wietlanie komunikatów
-; \n  id[c,d,p,q]   Disable messages
+\n  id[c,d,n,p,q] Wy³±cz wy¶wietlanie komunikatów
+; \n  id[c,d,n,p,q] Display or disable messages
 ;
 MSG_MCHelpSwIEML
 \n  ieml[addr]    Prze¶lij archiwum na adres email
@@ -1292,7 +1296,7 @@ MSG_MProcessArc
 ;
 MSG_MCorrectingName
 \nUWAGA: Korygowanie uszkodzonej nazwy pliku
-; \nWARNING: Attempting to correct the invalid file name
+; \nWARNING: Attempting to correct the invalid file or directory name
 ;
 MSG_MUnpCannotMerge
 \nUWAGA: Musisz rozpocz±æ rozpakowywanie od poprzedniego wolumenu ¿eby rozpakowaæ %s
@@ -1416,7 +1420,7 @@ MSG_MCannotDelete
 ;
 MSG_MRecycleFailed
 \nNie mo¿na przenie¶æ niektórych plików i katalogów do Recycle Bin
-; \nCannot move some files and folders to Recycle Bin
+; \nCannot move some files and directories to Recycle Bin
 ;
 MSG_MCalcCRC
 \nObliczanie sumy kontrolnej
@@ -1533,6 +1537,22 @@ MSG_MAmigaPortBy
 MSG_MOpenErrAtime
 \nUsuñ -tsp aby otworzyæ ten plik.
 ; \nYou may need to remove -tsp switch to open this file.
+;
+MSG_MErrReadInfo
+\nWybierz 'Ignoruj' aby kontynuowaæ z ju¿ odczytan± czêsci± pliku, 'Ignoruj wszysto' aby tak zrobiæ w przypadku nastêpnych b³êdów, 'Ponów' aby ponowiæ odczyt oraz 'Wyjd¼' aby przerwaæ. 
+; \nChoose 'Ignore' to continue with the already read file part only, 'Ignore all' to do it for all read errors, 'Retry' to repeat read and 'Quit' to abort.
+;
+MSG_MErrReadTrunc
+\n%s zosta³ zarchiwizowany niekompletnie z powodu b³êdu.\n
+; \n%s is archived incompletely because of read error.\n
+;
+MSG_MErrReadCount
+\n%u plików zosta³o zarchiwizowanych niekompletnie z powodu b³êdów odczytu.
+; \n%u files are archived incompletely because of read errors.
+;
+MSG_MDirNameExists
+\nKatalog z tak± nazw± ju¿ istnieje
+; \nDirectory with such name already exists
 ;
 MSG_MAmigaConvErr
 UWAGA: niektóre znaki u¿yte w nazwach plików w tym archiwum nie mog³y zostaæ skonwertowane poniewa¿ nie wystêpuj± w kodowaniu %s. Ustaw w³a¶ciwe kodowanie jako warto¶æ zmiennej ¶rodowiskowej o nazwie \
