@@ -1,4 +1,4 @@
-## version $VER: unRAR.catalog 5.90 (15.04.2020) (Amiga-1251)
+## version $VER: unRAR.catalog 6.02 (07.07.2021) (Amiga-1251)
 ## language russian
 ## codeset 2104
 ## chunk AUTH Translated by ATO-RUS: Mikhail Malyshev <mm@list.ru>
@@ -12,7 +12,13 @@
 ; 5.90 (15.04.2020) <mmalyshev>
 ; - updated to latest build
 ;
+; 6.02 (07.07.2021) <mmalyshev>
+; - added new strings and modified changed ones
+;
 ;-----------------------------------------------------------------------------
+; $VER: unrar 6.02 (07.07.2021)
+;-----------------------------------------------------------------------------
+;
 MSG_MYesNo
 _Y=да_N=нет
 ; _Yes_No
@@ -36,6 +42,10 @@ _C=продолжить_Q=выход
 MSG_MRetryAbort
 _R=повторить_A=прервать
 ; _Retry_Abort
+;
+MSG_MIgnoreAllRetryQuit
+_I=пропустить_G=пропустить все_R=повторить_Q=выход
+; _Ignore_iGnore all_Retry_Quit
 ;
 MSG_MCopyright
 \nRAR %s   Авторские права (c) 1993-%d Александр Рошал   %d %s %d
@@ -127,7 +137,7 @@ MSG_MUNRARTitle1
 ;
 MSG_MRARTitle2
 \n                <@файл-список...> <путь_для_извлечения/>
-; \n               <@listfiles...> <path_to_extract\\>
+; \n               <@listfiles...> <path_to_extract/>
 ;
 MSG_MCHelpCmd
 \n\n<Команды>
@@ -238,8 +248,8 @@ MSG_MCHelpSwAC
 ; \n  ac            Clear Archive attribute after compression or extraction
 ;
 MSG_MCHelpSwAD
-\n  ad            Добавить имя архива к целевому пути
-; \n  ad            Append archive name to destination path
+\n  ad[1,2]       Альтернативный целевой путь
+; \n  ad[1,2]       Alternate destination path
 ;
 MSG_MCHelpSwAG
 \n  ag[формат]    Добавить текущие дату и время к имени архива
@@ -338,8 +348,8 @@ MSG_MCHelpSwHT
 ; \n  ht[b|c]       Select hash type [BLAKE2,CRC32] for file checksum
 ;
 MSG_MCHelpSwIDP
-\n  id[c,d,p,q]   Не показывать сообщения
-; \n  id[c,d,p,q]   Disable messages
+\n  id[c,d,n,p,q] Показывать или отключить сообщения
+; \n  id[c,d,n,p,q] Display or disable messages
 ;
 MSG_MCHelpSwIEML
 \n  ieml[адрес]   Отправить архив по электронной почте
@@ -1302,8 +1312,8 @@ MSG_MProcessArc
 ; \n\nProcessing archive %s
 ;
 MSG_MCorrectingName
-\nВНИМАНИЕ: Попытка исправить неверное имя файла
-; \nWARNING: Attempting to correct the invalid file name
+\nВНИМАНИЕ: Попытка исправить неверное имя файла или имя каталога
+; \nWARNING: Attempting to correct the invalid file or directory name
 ;
 MSG_MUnpCannotMerge
 \nВНИМАНИЕ: Для извлечения %s необходимо начать распаковку с предыдущего тома
@@ -1426,8 +1436,8 @@ MSG_MCannotDelete
 ; \nCannot delete %s
 ;
 MSG_MRecycleFailed
-\nНевозможно переместить в Корзину некоторые файлы и папки
-; \nCannot move some files and folders to Recycle Bin
+\nНевозможно переместить в Корзину некоторые файлы и каталоги
+; \nCannot move some files and directories to Recycle Bin
 ;
 MSG_MCalcCRC
 \nВычисление контрольной суммы
@@ -1544,6 +1554,22 @@ MSG_MAmigaPortBy
 MSG_MOpenErrAtime
 \nВозможно, Вам потребуется удалить переключатель -tsp, чтобы открыть этот файл.
 ; \nYou may need to remove -tsp switch to open this file.
+;
+MSG_MErrReadInfo
+\n"Пропустить" - продолжить только с уже прочитанной частью файла, "Пропустить все" - то же для всех последующих ошибок чтения, "Повтор" - повторить чтение, "Выход" - прервать операцию.
+; \nChoose 'Ignore' to continue with the already read file part only, 'Ignore all' to do it for all read errors, 'Retry' to repeat read and 'Quit' to abort.
+;
+MSG_MErrReadTrunc
+\n%s заархивирован не полностью из-за ошибки чтения.\n
+; \n%s is archived incompletely because of read error.\n
+;
+MSG_MErrReadCount
+\nФайлы (%u) заархивированы не полностью из-за ошибок чтения.
+; \n%u files are archived incompletely because of read errors.
+;
+MSG_MDirNameExists
+\nКаталог с таким именем уже существует
+; \nDirectory with such name already exists
 ;
 MSG_MAmigaConvErr
 ПРЕДУПРЕЖДЕНИЕ: Некоторые символы, используемые в именах файлов в этом архиве, не были преобразованы, поскольку они недоступны в кодировке %s. Установите ENV: переменную RAR_CODEPAGE, чтобы выбрать правильную кодировку.
