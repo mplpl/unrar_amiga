@@ -23,6 +23,9 @@
 #include <wchar.h>
 #include <stdlib.h>
 
+#define EXPECTED_CATALOG_VERSION 6
+#define EXPECTED_CATALOG_REVISION 2
+
 /*************************************************************************/
 
 #if defined(__amigaos4__)
@@ -59,7 +62,14 @@ BOOL Locale_Open(const char *catname)
       {
         if((locale_catalog = OpenCatalog(locale_locale, (char *)catname, TAG_DONE)))
         {
-          return(TRUE);
+          if(locale_catalog->cat_Version  == EXPECTED_CATALOG_VERSION  &&
+              locale_catalog->cat_Revision == EXPECTED_CATALOG_REVISION) {
+	          
+            return(TRUE);
+	        }
+
+          CloseLocale(locale_locale);
+          locale_locale = NULL;
         }
         CloseLocale(locale_locale);
         locale_locale = NULL;
