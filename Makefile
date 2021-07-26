@@ -72,9 +72,10 @@ dist:
 	$(COPY) unrar_aos4 dist/unrar_$(VERSION)/unrar_aos4
 	$(COPY) unrar_aros dist/unrar_$(VERSION)/unrar_aros
 	$(COPY) unrar_aos dist/unrar_$(VERSION)/unrar_aos
-	$(COPY) unrar_wos dist/unrar_$(VERSION)/unrar_wos
+	#$(COPY) unrar_wos dist/unrar_$(VERSION)/unrar_wos
 	$(COPY) catalogs dist/unrar_$(VERSION)/catalogs all
 	$(RENAME) dist/unrar_$(VERSION)/catalogs/espanol dist/unrar_$(VERSION)/catalogs/español 
+	$(RENAME) dist/unrar_$(VERSION)/catalogs/francais dist/unrar_$(VERSION)/catalogs/français 
 	$(COPY) license.txt dist/unrar_$(VERSION)
 	$(COPY) license_newlib.txt dist/unrar_$(VERSION)
 	$(COPY) license_utf8proc.txt dist/unrar_$(VERSION)
