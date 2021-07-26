@@ -1,8 +1,13 @@
-## version $VER: UnRAR.catalog 5.92 (16.04.2020)
+## version $VER: UnRAR.catalog 6.02 (24.07.2021)
 ## codeset 0
 ## language italiano
 ## chunk AUTH Translated by Samir Hawamdeh (http://www.betatesting.it/backforthefuture)
 ;
+; ATO Italia
+; Italian translation by Samir 'samo79' Hawamdeh
+; Contact: s.hawamdeh@teletu.it
+;
+; Compiled with FlexCat 2.18 PPC (AmigaOS 4.x)
 ; flexcat UnRAR.cd UnRAR_italian.ct catalog=UnRAR.catalog
 ;
 MSG_MYesNo
@@ -28,6 +33,10 @@ _Continua_Esci
 MSG_MRetryAbort
 _Riprova_Annulla
 ; _Retry_Abort
+;
+MSG_MIgnoreAllRetryQuit
+_Ignora_Ignora Tutto_Riprova_Chiudi
+; _Ignore_iGnore all_Retry_Quit
 ;
 MSG_MCopyright
 \nRAR %s   Copyright (c) 1993-%d di Eugene e Alexander Roshal    %d %s %d
@@ -230,8 +239,8 @@ MSG_MCHelpSwAC
 ; \n  ac            Clear Archive attribute after compression or extraction
 ;
 MSG_MCHelpSwAD
-\n  ad            Aggiungi nome archivio al percorso di destinazione
-; \n  ad            Append archive name to destination path
+\n  ad[1,2]       Alterna percorso di destinazione
+; \n  ad[1,2]       Alternate destination path
 ;
 MSG_MCHelpSwAG
 \n  ag[format]    Genera nome archivio usando la data corrente
@@ -330,8 +339,8 @@ MSG_MCHelpSwHT
 ; \n  ht[b|c]       Select hash type [BLAKE2,CRC32] for file checksum
 ;
 MSG_MCHelpSwIDP
-\n  id[c,d,p,q]   Disattiva messaggi
-; \n  id[c,d,p,q]   Disable messages
+\n  id[c,d,n,p,q] Mostra o disattiva messaggi
+; \n  id[c,d,n,p,q] Display or disable messages
 ;
 MSG_MCHelpSwIEML
 \n  ieml[addr]    Invia archivio tramite posta elettronica
@@ -538,7 +547,7 @@ MSG_MCHelpSwTB
 ; \n  tb[mcao]<d>   Process files modified before <d> YYYYMMDDHHMMSS date
 ;
 MSG_MCHelpSwTS
-\n  ts[m,c,a,p]   Salva o ripristina ora (modifica, crea, accedi, preserva)
+\n  ts[m,c,a,p]   Salva o ripristina orario (modifica, crea, accedi, preserva)
 ; \n  ts[m,c,a,p]   Save or restore time (modification, creation, access, preserve)
 ;
 MSG_MCHelpSwU
@@ -638,7 +647,7 @@ Memoria insufficente
 ; Not enough memory
 ;
 MSG_MErrBrokenArc
-Archivio corrotto - usa il comando 'Ripara'
+Archivio corrotto - usa il comando 'Repair'
 ; Corrupt archive - use 'Repair' command
 ;
 MSG_MProgAborted
@@ -1294,8 +1303,8 @@ MSG_MProcessArc
 ; \n\nProcessing archive %s
 ;
 MSG_MCorrectingName
-\nATTENZIONE: Tentativo di correzione del nome file non valido
-; \nWARNING: Attempting to correct the invalid file name
+\nATTENZIONE: Tentativo di correzione del nome file o della directory non valido
+; \nWARNING: Attempting to correct the invalid file or directory name
 ;
 MSG_MUnpCannotMerge
 \nATTENZIONE: Per scompattare %s è necessario avviare l'estrazione da un volume precedente
@@ -1418,8 +1427,8 @@ MSG_MCannotDelete
 ; \nCannot delete %s
 ;
 MSG_MRecycleFailed
-\nImpossibile spostare alcuni file e cartelle nel cestino
-; \nCannot move some files and folders to Recycle Bin
+\nImpossibile spostare alcuni file e directory nel cestino
+; \nCannot move some files and directories to Recycle Bin
 ;
 MSG_MCalcCRC
 \nCalcolo del checksum
@@ -1536,6 +1545,22 @@ MSG_MAmigaPortBy
 MSG_MOpenErrAtime
 \nPotresti aver bisogno di rimuovere lo switch -tsp per aprire questo file
 ; \nYou may need to remove -tsp switch to open this file.
+;
+MSG_MErrReadInfo
+\nSeleziona 'Ignora' per continuare solo con la parte già letta del file, 'Ignora tutto' per continuare a leggere tutti gli errori, 'Riprova' per ripetere la lettura e 'Chiudi' per annullare l'operazione.
+; \nChoose 'Ignore' to continue with the already read file part only, 'Ignore all' to do it for all read errors, 'Retry' to repeat read and 'Quit' to abort.
+;
+MSG_MErrReadTrunc
+\n%s è un archivio incompleto a causa di un errore di lettura\n
+; \n%s is archived incompletely because of read error.\n
+;
+MSG_MErrReadCount
+\n%u file archiviati in modo incompleto a causa di errori di lettura
+; \n%u files are archived incompletely because of read errors.
+;
+MSG_MDirNameExists
+\nUna directory con questo nome è già esistente
+; \nDirectory with such name already exists
 ;
 MSG_MAmigaConvErr
 ATTENZIONE: Alcuni caratteri usati nei nomi dei file di questo archivio non sono stati convertiti perchè non disponibili nella codifica %s. Imposta la variabile d'ambiente RAR_CODEPAGE per selezionare la codifica corretta
