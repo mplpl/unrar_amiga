@@ -1,13 +1,13 @@
-Short: UnRAR 5.90
+Short: UnRAR 6.02
 Author: Alexander Roshal, Marcin Labenski (Amiga Port)
 Uploader: marcin.labenski@gmail.com
 Type: util/arc
-Version: 5.90
+Version: 6.02
 Architecture: ppc-amigaos >=4.1; ppc-morphos >=3; m68k-amigaos >=2.0; i386-aros
 Distribution: aminet
 
 This is UnRAR port for MorphOS, AmigaOS, and AROS based on source code 
-version 5.9.2.
+version 6.0.7 (which is the code base for UnRAR 6.02).
 
 UnRAR license is available in license.txt file in this archive.
 This port uses also code from newlib 3.1.0, utf8proc, libnix, and iconv.
@@ -23,6 +23,7 @@ Polish locale made by Marcin Labenski.
 Italian locale made by Samir Hawamdeh.
 Russian locale made by Mikhail Malyshev.
 Spanish locale made by Javier de las Rivas.
+French locale made by Filipe BRANDÃO.
 
 
 Requirements
@@ -46,6 +47,11 @@ my test archive with one 2.0GB file in it needs 32MB of RAM to unpack.
 
 History:
 ========
+6.02
+* based in urar source code 6.0.7
+* French locale added
+* unrar only load a catalog file when it has appropriate version set
+
 5.90:
 * based on unrar source code 5.9.2
 * Russian locale added
@@ -377,9 +383,9 @@ Support for files >4GiB is currently not available on AROS, AmigaOS3 and
 Notes about porting
 ===================
 
-This port is based directly on unrar source code version 5.9.2
-(unrarsrc-5.9.2.tar.gz) from rarlab.com:
-https://www.rarlab.com/rar/unrarsrc-5.9.2.tar.gz
+This port is based directly on unrar source code version 6.0.7
+(unrarsrc-6.0.7.tar.gz) from rarlab.com:
+https://www.rarlab.com/rar/unrarsrc-6.0.7.tar.gz
 
 For normalizing UTF, I used utf8proc. I did not need to port it to Amiga
 - it compiles without any change:
@@ -399,7 +405,7 @@ As libiconv is missing in AmigaOS3/AmigaOS2, I use one from Aminet ported by
 Bruno Haible & Diego Casorran (LGPL):
 http://aminet.net/package/dev/gg/libiconv-1.8
 
-MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.14).
+MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.16).
 
 AmigaOS4 version of unrar has been compiled using gcc 4.2.4 (part of SDK 53.20).
 

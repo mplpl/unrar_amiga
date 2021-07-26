@@ -157,8 +157,8 @@ Support for files >4GiB is currently not available on AROS, AmigaOS3, and AmigaO
 
 <h2>Notes about porting</h2>
 
-This port is based directly on unrar source code version 5.9.2 (unrarsrc-5.9.2.tar.gz) from rarlab.com:
-https://www.rarlab.com/rar/unrarsrc-5.9.2.tar.gz
+This port is based directly on unrar source code version 6.0.7 (unrarsrc-6.0.7.tar.gz) from rarlab.com:
+https://www.rarlab.com/rar/unrarsrc-6.0.7.tar.gz
 
 For normalizing UTF, I used utf8proc. I did not need to port it to Amiga - it compiles without any change:
 https://juliastrings.github.io/utf8proc/
@@ -174,7 +174,7 @@ https://github.com/diegocr/libnix
 As libiconv is missing in AmigaOS3/AmigaOS2, I use one from Aminet ported by Bruno Haible & Diego Casorran (LGPL):
 http://aminet.net/package/dev/gg/libiconv-1.8
 
-MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.14).
+MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.16).
 
 AmigaOS4 version of unrar has been compiled using gcc 4.2.4 (part of SDK 53.20).
 
