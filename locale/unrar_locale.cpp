@@ -48,7 +48,9 @@ static wchar_t *CACHE[CATCOMP_LASTID + 1];
 BOOL Locale_Open(const char *catname)
 {
   memset(CACHE, 0, sizeof(wchar_t) * (CATCOMP_LASTID + 1));
-#if defined(__AROS__) || defined(__amigaos3__) || defined(__warpos__) 
+#if defined(__mini__)
+  if (0)
+#elif defined(__AROS__) || defined(__amigaos3__) || defined(__warpos__) 
   if( (LocaleBase = (struct LocaleBase *)OpenLibrary("locale.library", 0)) )
 #else
   if( (LocaleBase = OpenLibrary("locale.library", 0)) )

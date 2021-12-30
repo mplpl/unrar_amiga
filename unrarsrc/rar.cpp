@@ -154,7 +154,7 @@ int main(int argc, char *argv[])
       !ShutdownCheckAnother(false))
     Shutdown(ShutdownOnClose);
 #endif
-#ifdef _AMIGA
+#if defined(_AMIGA) && !defined(__mini__)
   if (iconvOpenError)
   {
     mprintf(L"\n");
@@ -167,7 +167,8 @@ int main(int argc, char *argv[])
     mprintf(St(MAmigaConvErr), GetCodePageW());
     mprintf(L"\n\n");
   }
-
+#endif
+#if defined(_AMIGA)
   ReleaseConvBase();
   Locale_Close();
 #endif

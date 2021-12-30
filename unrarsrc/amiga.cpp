@@ -6,8 +6,8 @@
 int iconvConversionError = 0;
 int iconvOpenError = 0;
 
-iconv_t convBaseFromUtf8 = 0;
-iconv_t convBaseToUtf8 = 0;
+iconv_t convBaseFromUtf8 = (iconv_t)-1;
+iconv_t convBaseToUtf8 = (iconv_t)-1;
 
 #define DEFAULT_CODEPAGE "ISO-8859-1"
 #define CENTRAL_EUROPE_CODEPAGE "ISO-8859-2"
@@ -157,11 +157,11 @@ bool InitConvBaseToUtf8()
 
 void ReleaseConvBase()
 {
-  if (convBaseToUtf8)
+  if (convBaseToUtf8 != (iconv_t)-1)
   {
     iconv_close(convBaseToUtf8);
   }
-  if (convBaseFromUtf8)
+  if (convBaseFromUtf8 != (iconv_t)-1)
   {
     iconv_close(convBaseFromUtf8);
   }
@@ -191,6 +191,15 @@ bool DetectConversionError(const char *utf8, const char *local)
 
 bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
 {
+    
+  // init iconv
+  if (convBaseFromUtf8 == (iconv_t)-1 && !InitConvBaseFromUtf8())
+  {
+    // can't do anything more - let's just return UTF-8
+    WideToUtf(Src,Dest,DestSize);
+    return true;
+  }
+  
   // buffer for UTF-8 version of Src
   unsigned char utf8Buf[NM];
   WideToUtf(Src,(char *)utf8Buf,ASIZE(utf8Buf));
@@ -199,14 +208,6 @@ bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
   unsigned char *lineBufNorm = utf8proc_NFC(utf8Buf);
 
   // converting normalized UTF-8 to local encoding
-
-  // init iconv
-  if (!convBaseFromUtf8 && !InitConvBaseFromUtf8())
-  {
-    // can't do anything more - let's just return UTF-8
-    WideToUtf(Src,Dest,DestSize);
-    return true;
-  }
 
   // perform conversion from UTF-8
 #if defined(__AROS__)
@@ -264,7 +265,7 @@ bool WideToLocal(const wchar *Src,char *Dest,size_t DestSize)
 bool LocalToWide(const char *Src,wchar *Dest,size_t DestSize)
 {
   // init iconv
-  if (!convBaseToUtf8 && !InitConvBaseToUtf8())
+  if (convBaseToUtf8 == (iconv_t)-1 && !InitConvBaseToUtf8())
   {
     // can't do anything more - let's just return what we have
     return UtfToWide(Src, Dest, DestSize);

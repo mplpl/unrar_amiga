@@ -48,13 +48,22 @@ BINNAME=unrar_wos
 AMIGA=1
 endif
 
+ifeq ($(PLATFORM),Mini)
+BINNAME=unrar_aos_mini
+AMIGA=1
+endif
+
 ifeq ($(AMIGA),)
-$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3, WarpOS)
+$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3, WarpOS, Mini)
 endif
 
 TOPTARGETS := all clean
 
+ifeq ($(PLATFORM),Mini)
+SUBDIRS := wstdio locale unrarsrc
+else
 SUBDIRS := utf8proc wstdio locale unrarsrc
+endif
 
 all: $(TOPTARGETS)
 	cp unrarsrc/unrar $(BINNAME)
@@ -73,6 +82,7 @@ dist:
 	$(COPY) unrar_aros dist/unrar_$(VERSION)/unrar_aros
 	$(COPY) unrar_aos dist/unrar_$(VERSION)/unrar_aos
 	#$(COPY) unrar_wos dist/unrar_$(VERSION)/unrar_wos
+	$(COPY) unrar_aos_mini dist/unrar_$(VERSION)/unrar_aos_mini
 	$(COPY) catalogs dist/unrar_$(VERSION)/catalogs all
 	$(RENAME) dist/unrar_$(VERSION)/catalogs/espanol dist/unrar_$(VERSION)/catalogs/español 
 	$(RENAME) dist/unrar_$(VERSION)/catalogs/francais dist/unrar_$(VERSION)/catalogs/français 

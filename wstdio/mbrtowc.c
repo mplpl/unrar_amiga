@@ -228,3 +228,22 @@ mbrtowc (wchar_t *pwc,
     return (size_t)retval;
 }
 
+#ifdef __mini__
+// __mini__ used libnix 2.1 instead of ixemul and it has broken mbtowc
+// therefore I need to re-implement it here
+int
+mbtowc (wchar_t *pwc,
+	const char *s,
+	size_t n)
+{
+  mbstate0_t ps;
+  memset(&ps, 0, sizeof(mbstate0_t));
+  int retval = 0;
+  if (s == NULL)
+	retval = __utf8_mbtowc(NULL, "", 1, (mbstate_t *)&ps);
+  else
+	retval = __utf8_mbtowc(pwc, s, n, (mbstate_t *)&ps);
+
+  return (int)retval;
+}
+#endif

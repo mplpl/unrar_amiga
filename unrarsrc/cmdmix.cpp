@@ -38,6 +38,8 @@ void CommandData::OutTitle()
   mprintf(St(MAmigaPortBy), L"WarpOS");
 #elif defined(__morphos__)
   mprintf(St(MAmigaPortBy), L"MorphOS");
+#elif defined(__mini__)
+  mprintf(St(MAmigaPortBy), L"AmigaOS (Mini)");
 #elif defined(__amigaos3__)
   mprintf(St(MAmigaPortBy), L"AmigaOS");
 #elif defined(__AROS__)

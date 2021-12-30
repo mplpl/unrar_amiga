@@ -111,7 +111,7 @@ void CommandData::ParseArg(wchar *Arg)
     else
       if (*ArcName==0)
 	  {
-#ifdef __amigaos3__
+#if defined(__amigaos3__) && !defined(__mini__)
         AmigaPathToUnix(Arg, ArcName);
 #else
         wcsncpyz(ArcName,Arg,ASIZE(ArcName));

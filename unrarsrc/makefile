@@ -84,8 +84,22 @@ AMIGA=1
 AMIGA_OBJECTS=amiga.o
 endif
 
+ifeq ($(PLATFORM),Mini)
+CXX=m68k-amigaos-g++
+CXXFLAGS=-O2 -Wno-switch -I../utf8proc -I../locale -I../wstdio -I../wstdio/amigaos3
+LIBFLAGS=-fPIC
+DEFINES=-D_AMIGA -D__amigaos3__ -D__mini__
+STRIP=m68k-amigaos-strip
+AR=m68k-amigaos-ar
+LDFLAGS=-L../wstdio -L../locale -L../wstdio/amigaos3
+LIBS= -lwstdio -lunrarlocale -noixemul
+DESTDIR=/usr
+AMIGA=1
+AMIGA_OBJECTS=amiga.o
+endif
+
 ifeq ($(AMIGA),)
-$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3, WarpOS)
+$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3, WarpOS, Mini)
 endif
 
 # Linux using GCC

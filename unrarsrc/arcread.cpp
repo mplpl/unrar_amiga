@@ -1311,6 +1311,9 @@ void Archive::ConvertAttributes()
   // We restore native Unix attributes as is, because it can be backup.
   static mode_t mask = (mode_t) -1;
 
+#if defined(__mini__)
+  mask = 0;
+#else
   if (mask == (mode_t) -1)
   {
     // umask call returns the current umask value. Argument (022) is not
@@ -1320,6 +1323,7 @@ void Archive::ConvertAttributes()
     // Restore the original umask value, which was changed to 022 above.
     umask(mask);
   }
+#endif
 
   switch(FileHead.HSType)
   {

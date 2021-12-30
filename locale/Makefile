@@ -55,8 +55,16 @@ CXXFLAGS+= -D__amigaos3__ -I../wstdio -I../wstdio/amigaos3
 AMIGA=1
 endif
 
+ifeq ($(PLATFORM),Mini)
+CXX=m68k-amigaos-g++
+AR=m68k-amigaos-ar
+CXXFLAGS+= -D__amigaos3__ -D__mini__ -I../wstdio -I../wstdio/amigaos3
+LIBS=../unrarsrc/unicode.o -lwstdio
+AMIGA=1
+endif
+
 ifeq ($(AMIGA),)
-$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3, WarpOS)
+$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3, WarpOS, Mini)
 endif
 
 LINK=$(CXX)

@@ -40,7 +40,9 @@ ifeq ($(PLATFORM),AROS)
 CC=i386-aros-gcc
 AR=ar
 CFLAGS+= -D_STDC_NOINLINE_WCTOMB -fshort-wchar
-OBJECTS+= wcrtomb.o wcschr.o wcscmp.o wcscpy.o wcslen.o wcsncmp.o wcsncpy.o wcspbrk.o wcsrchr.o wmemchr.o wmemset.o wmemmove.o wctomb.o btowc.o fwide.o fputwc.o towupper.o towlower.o getpass.o readpassphrase.o
+OBJECTS+= wcrtomb.o wcschr.o wcscmp.o wcscpy.o wcslen.o wcsncmp.o wcsncpy.o wcspbrk.o \
+wcsrchr.o wmemchr.o wmemset.o wmemmove.o wctomb.o btowc.o fwide.o fputwc.o towupper.o \
+towlower.o getpass.o readpassphrase.o
 AMIGA=1
 endif
 
@@ -48,18 +50,33 @@ ifeq ($(PLATFORM),AmigaOS3)
 CC=m68k-amigaos-gcc
 AR=m68k-amigaos-ar
 CFLAGS+= -D__amigaos3__ -Iamigaos3
-OBJECTS+= wcrtomb.o wcschr.o wcscmp.o wcscpy.o wcslen.o wcsncmp.o wcsncpy.o wcspbrk.o wcsrchr.o wmemchr.o wmemset.o wmemmove.o wctomb.o btowc.o fwide.o fputwc.o towupper.o towlower.o mbrtowc.o
+OBJECTS+= wcrtomb.o wcschr.o wcscmp.o wcscpy.o wcslen.o wcsncmp.o wcsncpy.o wcspbrk.o \
+wcsrchr.o wmemchr.o wmemset.o wmemmove.o wctomb.o btowc.o fwide.o fputwc.o towupper.o \
+towlower.o mbrtowc.o
 AMIGA=1
 endif
 
-ifeq ($(AMIGA),)
-$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3, WarpOS)
+ifeq ($(PLATFORM),Mini)
+CC=m68k-amigaos-gcc
+AR=m68k-amigaos-ar
+LINK=m68k-amigaos-g++
+CFLAGS+= -D__amigaos3__ -Iamigaos3 -D__mini__
+OBJECTS+= wcrtomb.o wcschr.o wcscmp.o wcscpy.o wcslen.o wcsncmp.o wcsncpy.o wcspbrk.o \
+wcsrchr.o wmemchr.o wmemset.o wmemmove.o wctomb.o btowc.o fwide.o fputwc.o towupper.o \
+towlower.o mbrtowc.o getpass.o readpassphrase.o truncate.o iconv_mock.o utf8proc_mock.o
+AMIGA=1
+LDFLAGS=-noixemul
 endif
 
-all: $(OBJECTS)
+ifeq ($(AMIGA),)
+$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3, WarpOS, Mini)
+endif
+
+libwstdio.a: $(OBJECTS)
 	$(AR) rs libwstdio.a $(OBJECTS)
 
-test: test.o $(OBJECTS)
+test: test.o libwstdio.a
+	$(LINK) $(LDFLAGS) -o test test.o libwstdio.a
 
 clean:
 	-@rm -f test test.o libwstdio.a $(OBJECTS)

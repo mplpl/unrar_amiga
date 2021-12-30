@@ -326,7 +326,12 @@ bool File::Write(const void *Data,size_t Size)
     if (hFile==FILE_BAD_HANDLE)
     {
 #ifdef FILE_USE_OPEN
+#ifdef __mini__
+      hFile=STDOUT_FILENO;
+#else
       hFile=dup(STDOUT_FILENO); // Open new stdout stream.
+#endif
+      
 #else
       hFile=fdopen(dup(STDOUT_FILENO),"w"); // Open new stdout stream.
 #endif
@@ -620,6 +625,10 @@ bool File::Truncate()
 {
 #ifdef _WIN_ALL
   return SetEndOfFile(hFile)==TRUE;
+#elif defined(__mini__)
+  char pathA[NM];
+  WideToChar(FileName,pathA,ASIZE(pathA));
+  return truncate(pathA, (off_t)Tell())==0;
 #else
   return ftruncate(GetFD(),(off_t)Tell())==0;
 #endif

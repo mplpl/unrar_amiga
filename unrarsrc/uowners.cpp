@@ -1,4 +1,19 @@
 
+#if defined(__mini__)
+
+void ExtractUnixOwner20(Archive &Arc,const wchar *FileName)
+{
+}
+
+void ExtractUnixOwner30(Archive &Arc,const wchar *FileName)
+{
+}
+
+void SetUnixOwner(Archive &Arc,const wchar *FileName)
+{
+}
+
+#else
 
 void ExtractUnixOwner20(Archive &Arc,const wchar *FileName)
 {
@@ -151,3 +166,5 @@ void SetUnixOwner(Archive &Arc,const wchar *FileName)
     ErrHandler.SetErrorCode(RARX_CREATE);
   }
 }
+
+#endif
