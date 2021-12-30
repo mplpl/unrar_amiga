@@ -336,7 +336,7 @@ MSG_MCHelpSwHT
 ; \n  ht[b|c]       Select hash type [BLAKE2,CRC32] for file checksum
 ;
 MSG_MCHelpSwIDP
-\n  id[c,d,n,p,q]   Mostrar o deshabilitar mensajes
+\n  id[c,d,n,p,q] Mostrar o deshabilitar mensajes
 ; \n  id[c,d,n,p,q] Display or disable messages
 ;
 MSG_MCHelpSwIEML
@@ -1549,7 +1549,6 @@ MSG_MAmigaPortBy
 (versión %s por Marcin Labenski; traducción: Javier de las Rivas)\n
 ;                         (versión %s por Marcin Labenski)\n
 ; \n%s port by Marcin Labenski\n
-;
 ;
 MSG_MOpenErrAtime
 \nElimine la opción '-tsp' para abrir este fichero.
