@@ -1,3 +1,7 @@
+#ifdef __amigaos3__
+#include <devices/timer.h>
+#endif
+
 #include "rar.hpp"
 
 #include "hardlinks.cpp"

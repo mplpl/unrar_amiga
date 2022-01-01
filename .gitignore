@@ -1,0 +1,10 @@
+*.o
+*.a
+unrar
+dist
+unrar_mos
+unrar_aos4
+unrar_aos
+unrar_aros
+unrar_wos
+unrar_aos_mini

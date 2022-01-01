@@ -52,7 +52,14 @@ bool FindFile::Next(FindData *fd,bool GetSymLink)
     wcsncpyz(DirName,FindMask,ASIZE(DirName));
     RemoveNameFromPath(DirName);
     if (*DirName==0)
+#if defined(_AMIGA)
+    // opendir function on MOS, AOS4 and AROS does not
+    // interprete "." as 'current dir' (as ixemul does it)
+    // fortunatelly, using just "" works on all the Amiga systems
+      wcsncpyz(DirName,L"",ASIZE(DirName));
+#else
       wcsncpyz(DirName,L".",ASIZE(DirName));
+#endif
     char DirNameA[NM];
     WideToChar(DirName,DirNameA,ASIZE(DirNameA));
     if ((dirp=opendir(DirNameA))==NULL)
@@ -120,12 +127,19 @@ bool FindFile::FastFind(const wchar *FindMask,FindData *fd,bool GetSymLink)
 #else
   char FindMaskA[NM];
   WideToChar(FindMask,FindMaskA,ASIZE(FindMaskA));
-
+#if defined(_LARGEFILE64_SOURCE)
+  struct stat64 st;
+#else
   struct stat st;
+#endif
   if (GetSymLink)
   {
-#ifdef SAVE_LINKS
+#if defined(SAVE_LINKS) && !defined(__warpos__)
+#if defined(_LARGEFILE64_SOURCE)
+    if (lstat64(FindMaskA,&st)!=0)
+#else
     if (lstat(FindMaskA,&st)!=0)
+#endif
 #else
     if (stat(FindMaskA,&st)!=0)
 #endif
@@ -135,7 +149,11 @@ bool FindFile::FastFind(const wchar *FindMask,FindData *fd,bool GetSymLink)
     }
   }
   else
+#if defined(_LARGEFILE64_SOURCE)
+    if (stat64(FindMaskA,&st)!=0)
+#else
     if (stat(FindMaskA,&st)!=0)
+#endif
     {
       fd->Error=(errno!=ENOENT);
       return false;

@@ -87,7 +87,6 @@ void CommandData::ParseCommandLine(bool Preprocess,int argc, char *argv[])
 }
 #endif
 
-
 #if !defined(SFX_MODULE)
 void CommandData::ParseArg(wchar *Arg)
 {
@@ -116,7 +115,13 @@ void CommandData::ParseArg(wchar *Arg)
     }
     else
       if (*ArcName==0)
+	  {
+#if defined(__amigaos3__) && !defined(__mini__)
+        AmigaPathToUnix(Arg, ArcName);
+#else
         wcsncpyz(ArcName,Arg,ASIZE(ArcName));
+#endif
+	  }
       else
       {
         // Check if last character is the path separator.

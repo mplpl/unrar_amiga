@@ -1,5 +1,11 @@
 // Buffer size for all volumes involved.
+#if defined(__amigaos3__)
+// 64MB for a buffer is too much for most AmigaOS3 systems
+// therefore I'm decreasing it to 2MB
+static const size_t TotalBufferSize=0x200000;
+#else
 static const size_t TotalBufferSize=0x4000000;
+#endif
 
 class RSEncode // Encode or decode data area, one object per one thread.
 {

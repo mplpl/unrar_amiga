@@ -2,6 +2,21 @@
 
 static bool UnixSymlink(CommandData *Cmd,const char *Target,const wchar *LinkName,RarTime *ftm,RarTime *fta)
 {
+#ifdef _AMIGA
+  CreatePath(LinkName,true,Cmd->DisableNames);
+  DelFile(LinkName);
+  char LinkNameA[NM];
+  WideToChar(LinkName,LinkNameA,ASIZE(LinkNameA));
+  char TargetAmiga[NM];
+  UnixPathToAmiga(Target, TargetAmiga);
+  if (!(MakeLink(LinkNameA, (LONG)TargetAmiga, true)))
+  {
+    uiMsg(UIERROR_SLINKCREATE,UINULL,LinkName);
+    ErrHandler.SetErrorCode(RARX_WARNING);
+    return false;
+  }
+  SetFileModificationTime(LinkNameA, ftm);
+#else
   CreatePath(LinkName,true,Cmd->DisableNames);
 
   // Overwrite prompt was already issued and confirmed earlier, so we can
@@ -40,6 +55,8 @@ static bool UnixSymlink(CommandData *Cmd,const char *Target,const wchar *LinkNam
 #endif
 #endif
 
+#endif
+  
   return true;
 }
 
@@ -70,9 +87,14 @@ bool ExtractUnixLink30(CommandData *Cmd,ComprDataIO &DataIO,Archive &Arc,const w
     // and extraction routine will report the checksum error.
     if (!DataIO.UnpHash.Cmp(&Arc.FileHead.FileHash,Arc.FileHead.UseHashKey ? Arc.FileHead.HashKey:NULL))
       return true;
-
+    
     wchar TargetW[NM];
+#ifdef _AMIGA
+    UtfToWide(Target,TargetW,ASIZE(TargetW));
+    WideToChar(TargetW,Target,ASIZE(Target));
+#else
     CharToWide(Target,TargetW,ASIZE(TargetW));
+#endif
     // Check for *TargetW==0 to catch CharToWide failure.
     // Use Arc.FileHead.FileName instead of LinkName, since LinkName
     // can include the destination path as a prefix, which can

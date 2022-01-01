@@ -10,7 +10,7 @@ void CommandData::OutTitle()
   if (TitleShown)
     return;
   TitleShown=true;
-
+  
   wchar Version[80];
   if (RARVER_BETA!=0)
     swprintf(Version,ASIZE(Version),L"%d.%02d %ls %d",RARVER_MAJOR,RARVER_MINOR,St(MBeta),RARVER_BETA);
@@ -31,6 +31,24 @@ void CommandData::OutTitle()
     exit(0);
   }
   mprintf(St(MUCopyright),Version,RARVER_YEAR);
+#ifdef _AMIGA
+#ifdef __amigaos4__
+  mprintf(St(MAmigaPortBy), L"AmigaOS4");
+#elif defined(__warpos__)
+  mprintf(St(MAmigaPortBy), L"WarpOS");
+#elif defined(__morphos__)
+  mprintf(St(MAmigaPortBy), L"MorphOS");
+#elif defined(__mini__)
+  mprintf(St(MAmigaPortBy), L"AmigaOS (Mini)");
+#elif defined(__amigaos3__)
+  mprintf(St(MAmigaPortBy), L"AmigaOS");
+#elif defined(__AROS__)
+  mprintf(St(MAmigaPortBy), L"AROS");
+#else
+  mprintf(St(MAmigaPortBy), L"AmigaOS");
+#endif
+#endif
+  
 #endif
 #endif
 }

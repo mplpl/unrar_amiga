@@ -1,15 +1,116 @@
 #
 # Makefile for UNIX - unrar
 
-# Linux using GCC
-CXX=c++
-CXXFLAGS=-O2 -Wno-logical-op-parentheses -Wno-switch -Wno-dangling-else
+ifeq ($(PLATFORM),)
+PLATFORM=$(shell uname)
+endif
+
+ifeq ($(PLATFORM),AmigaOS)
+ifeq ($(shell uname -m),ppc)
+PLATFORM=AmigaOS4
+else
+PLATFORM=AmigaOS3
+endif
+endif
+
+ifeq ($(PLATFORM),MorphOS)
+CXX=ppc-morphos-g++-4
+CXXFLAGS=-O2 -Wno-switch -I../utf8proc -I../locale -noixemul
 LIBFLAGS=-fPIC
-DEFINES=-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -DRAR_SMP
+DEFINES=-D_AMIGA -D_LARGEFILE64_SOURCE
 STRIP=strip
 AR=ar
-LDFLAGS=-pthread
+LDFLAGS=-L../utf8proc -L../wstdio -L../locale -noixemul
+LIBS= -lutf8proc -lwstdio -lunrarlocale
 DESTDIR=/usr
+AMIGA=1
+AMIGA_OBJECTS=amiga.o
+endif
+
+ifeq ($(PLATFORM),WarpOS)
+CXX=ppc-morphos-g++-9
+CFLAGS=--specs=warpup
+CXXFLAGS=--specs=warpup -O2 -Wno-switch -I../utf8proc -I../locale -I../wstdio/warpos -noixemul
+LIBFLAGS=-fPIC
+DEFINES=-D_AMIGA -D__warpos__
+STRIP=echo strip not found for 
+AR=ar
+LDFLAGS=--specs=warpup -L../utf8proc -L../wstdio -L../locale -L../wstdio/warpos -noixemul 
+LIBS= -lutf8proc -lwstdio -lunrarlocale -liconv
+DESTDIR=/usr
+AMIGA=1
+AMIGA_OBJECTS=amiga.o
+endif
+
+ifeq ($(PLATFORM),AmigaOS4)
+CXX=ppc-amigaos-c++
+CXXFLAGS=-O2 -Wno-switch -I../utf8proc -I../locale -noixemul
+LIBFLAGS=-fPIC
+DEFINES=-D_AMIGA -D_LARGEFILE64_SOURCE
+STRIP=ppc-amigaos-strip
+AR=ppc-amigaos-ar
+LDFLAGS=-L../utf8proc -L../wstdio -L../locale -noixemul
+LIBS= -lutf8proc -lwstdio -lunrarlocale
+DESTDIR=/usr
+AMIGA=1
+AMIGA_OBJECTS=amiga.o
+endif
+
+ifeq ($(PLATFORM),AROS)
+CXX=i386-aros-g++
+CXXFLAGS=-O2 -Wno-switch -I../utf8proc -I../locale -fshort-wchar
+LIBFLAGS=-fPIC
+DEFINES=-D_AMIGA 
+STRIP=strip --strip-unneeded
+AR=ar
+LDFLAGS=-L../utf8proc -L../wstdio -L../locale
+LIBS= -lutf8proc -lwstdio -lunrarlocale -liconv
+DESTDIR=/usr
+AMIGA=1
+AMIGA_OBJECTS=amiga.o
+endif
+
+ifeq ($(PLATFORM),AmigaOS3)
+CXX=m68k-amigaos-g++
+CXXFLAGS=-O2 -Wno-switch -I../utf8proc -I../locale -I../wstdio -I../wstdio/amigaos3
+LIBFLAGS=-fPIC
+DEFINES=-D_AMIGA -D__amigaos3__
+STRIP=m68k-amigaos-strip
+AR=m68k-amigaos-ar
+LDFLAGS=-L../utf8proc -L../wstdio -L../locale -L../wstdio/amigaos3
+LIBS= -lutf8proc -lwstdio -lunrarlocale -liconv
+DESTDIR=/usr
+AMIGA=1
+AMIGA_OBJECTS=amiga.o
+endif
+
+ifeq ($(PLATFORM),Mini)
+CXX=m68k-amigaos-g++
+CXXFLAGS=-O2 -Wno-switch -I../utf8proc -I../locale -I../wstdio -I../wstdio/amigaos3
+LIBFLAGS=-fPIC
+DEFINES=-D_AMIGA -D__amigaos3__ -D__mini__
+STRIP=m68k-amigaos-strip
+AR=m68k-amigaos-ar
+LDFLAGS=-L../wstdio -L../locale -L../wstdio/amigaos3
+LIBS= -lwstdio -lunrarlocale -noixemul
+DESTDIR=/usr
+AMIGA=1
+AMIGA_OBJECTS=amiga.o
+endif
+
+ifeq ($(AMIGA),)
+$(error Amiga platform not detected - use "PLATFORM=" parameter to pass one of: MorphOS, AmigaOS4, AROS, AmigaOS3, WarpOS, Mini)
+endif
+
+# Linux using GCC
+#CXX=c++
+#CXXFLAGS=-O2 -Wno-logical-op-parentheses -Wno-switch -Wno-dangling-else
+#LIBFLAGS=-fPIC
+#DEFINES=-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -DRAR_SMP
+#STRIP=strip
+#AR=ar
+#LDFLAGS=-pthread
+#DESTDIR=/usr
 
 # Linux using LCC
 #CXX=lcc
@@ -126,8 +227,8 @@ OBJECTS=rar.o strlist.o strfn.o pathfn.o smallfn.o global.o file.o filefn.o filc
 	archive.o arcread.o unicode.o system.o isnt.o crypt.o crc.o rawread.o encname.o \
 	resource.o match.o timefn.o rdwrfn.o consio.o options.o errhnd.o rarvm.o secpassword.o \
 	rijndael.o getbits.o sha1.o sha256.o blake2s.o hash.o extinfo.o extract.o volume.o \
-  list.o find.o unpack.o headers.o threadpool.o rs16.o cmddata.o ui.o
-
+  list.o find.o unpack.o headers.o threadpool.o rs16.o cmddata.o ui.o $(AMIGA_OBJECTS)
+  
 .cpp.o:
 	$(COMPILE) -D$(WHAT) -c $<
 
@@ -142,7 +243,7 @@ clean:
 	@rm -f $(OBJECTS) $(UNRAR_OBJ) $(LIB_OBJ)
 	@rm -f unrar libunrar.*
 
-unrar:	clean $(OBJECTS) $(UNRAR_OBJ)
+unrar:	$(OBJECTS) $(UNRAR_OBJ)
 	@rm -f unrar
 	$(LINK) -o unrar $(LDFLAGS) $(OBJECTS) $(UNRAR_OBJ) $(LIBS)	
 	$(STRIP) unrar

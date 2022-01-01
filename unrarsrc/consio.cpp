@@ -108,7 +108,15 @@ static void cvt_wprintf(FILE *dest,const wchar *fmt,va_list arglist)
   DWORD Written;
   WriteConsole(hOut,Msg,(DWORD)wcslen(Msg),&Written,NULL);
 #else
+#if defined(_AMIGA)
+  wchar lineBufW[2*1024];
+  vswprintf(lineBufW, 2*1024, fmtw, arglist);
+  unsigned char lineBufMb[2*1024];
+  WideToChar(lineBufW, (char *)&lineBufMb, 2*1024);
+  fprintf(dest, "%s", (const char *)lineBufMb);
+#else
   vfwprintf(dest,fmtw,arglist);
+#endif
   // We do not use setbuf(NULL) in Unix (see comments in InitConsole).
   fflush(dest);
 #endif
@@ -290,6 +298,16 @@ bool getwstr(wchar *str,size_t n)
     if (ReadConsole(GetStdHandle(STD_INPUT_HANDLE),str,DWORD(n-1),&ReadSize,NULL)==0)
       return false;
     str[ReadSize]=0;
+  }
+#elif defined(_AMIGA)
+  char buf[n+1];
+  if (fgets(buf, n, stdin)==NULL)
+  {
+	  ErrHandler.Exit(RARX_USERBREAK);
+  } 
+  else 
+  {
+	  CharToWide(buf, str, n);
   }
 #else
   if (fgetws(str,n,stdin)==NULL)

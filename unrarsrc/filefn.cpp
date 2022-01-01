@@ -2,7 +2,11 @@
 
 MKDIR_CODE MakeDir(const wchar *Name,bool SetAttr,uint Attr)
 {
-#ifdef _WIN_ALL
+#ifdef _AMIGA
+  char NameA[NM];
+  WideToChar(Name,NameA,ASIZE(NameA));
+  return (mkdir(NameA,(mode_t)Attr)==0) ? MKDIR_SUCCESS : MKDIR_ERROR;
+#elif defined(_WIN_ALL)
   // Windows automatically removes dots and spaces in the end of directory
   // name. So we detect such names and process them with \\?\ prefix.
   wchar *LastChar=PointToLastChar(Name);
@@ -154,7 +158,7 @@ int64 GetFreeDisk(const wchar *Name)
       uiUserFree.u.HighPart<=uiTotalFree.u.HighPart)
     return INT32TO64(uiUserFree.u.HighPart,uiUserFree.u.LowPart);
   return 0;
-#elif defined(_UNIX)
+#elif defined(_UNIX) && !defined(_AMIGA)
   wchar Root[NM];
   GetFilePath(Name,Root,ASIZE(Root));
   char RootA[NM];

@@ -856,8 +856,12 @@ size_t Archive::ReadHeader50()
         size_t ReadNameSize=Min(NameSize,ASIZE(FileName)-1);
         Raw.GetB((byte *)FileName,ReadNameSize);
         FileName[ReadNameSize]=0;
-
+#ifdef _AMIGA
+        UtfToWide((const char *)utf8proc_NFC((unsigned char *)FileName),
+          hd->FileName,ASIZE(hd->FileName));
+#else
         UtfToWide(FileName,hd->FileName,ASIZE(hd->FileName));
+#endif
 
         // Should do it before converting names, because extra fields can
         // affect name processing, like in case of NTFS streams.
@@ -1308,7 +1312,7 @@ void Archive::ConvertAttributes()
   if (FileHead.HSType!=HSYS_WINDOWS)
     FileHead.FileAttr=FileHead.Dir ? 0x10 : 0x20;
 #endif
-#ifdef _UNIX
+#if defined(_UNIX)
   // umask defines which permission bits must not be set by default
   // when creating a file or directory. The typical default value
   // for the process umask is S_IWGRP | S_IWOTH (octal 022),
@@ -1319,6 +1323,9 @@ void Archive::ConvertAttributes()
   // We restore native Unix attributes as is, because it can be backup.
   static mode_t mask = (mode_t) -1;
 
+#if defined(__mini__)
+  mask = 0;
+#else
   if (mask == (mode_t) -1)
   {
     // umask call returns the current umask value. Argument (022) is not
@@ -1328,6 +1335,7 @@ void Archive::ConvertAttributes()
     // Restore the original umask value, which was changed to 022 above.
     umask(mask);
   }
+#endif
 
   switch(FileHead.HSType)
   {
