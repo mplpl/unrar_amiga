@@ -2,7 +2,7 @@ MAKEDIR=makedir
 COPY=copy
 RM=delete
 RENAME=rename
-VERSION=6.02
+VERSION=6.10
 
 ifeq ($(PLATFORM),)
 PLATFORM=$(shell uname)
@@ -72,7 +72,7 @@ $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):
 	$(MAKE) -C $@ $(MAKECMDGOALS)
 
-dist:
+dist: cat
 	-@$(MAKEDIR) dist
 	-@$(RM) dist/unrar_$(VERSION) all
 	@$(MAKEDIR) dist/unrar_$(VERSION)
@@ -83,7 +83,7 @@ dist:
 	$(COPY) unrar_aos dist/unrar_$(VERSION)/unrar_aos
 	#$(COPY) unrar_wos dist/unrar_$(VERSION)/unrar_wos
 	$(COPY) unrar_aos_mini dist/unrar_$(VERSION)/unrar_aos_mini
-	$(COPY) dist/catalogs dist/unrar_$(VERSION)/catalogs all
+	$(COPY) catalogs dist/unrar_$(VERSION)/catalogs all
 	$(COPY) license.txt dist/unrar_$(VERSION)
 	$(COPY) license_newlib.txt dist/unrar_$(VERSION)
 	$(COPY) license_utf8proc.txt dist/unrar_$(VERSION)
