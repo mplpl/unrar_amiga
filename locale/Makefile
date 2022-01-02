@@ -1,3 +1,6 @@
+MAKEDIR=makedir
+RM=delete
+
 ifeq ($(PLATFORM),)
 PLATFORM=$(shell uname)
 endif
@@ -79,3 +82,16 @@ test: test.o unrar_locale.o
 clean:
 	-@rm -f test test.o unrar_locale.o libunrarlocale.a
 	
+cat:
+	-@$(RM) /catalogs all
+	@$(MAKEDIR) /catalogs
+	@$(MAKEDIR) /catalogs/polski 
+	@$(MAKEDIR) /catalogs/italiano 
+	@$(MAKEDIR) /catalogs/español 
+	@$(MAKEDIR) /catalogs/russian 
+	@$(MAKEDIR) /catalogs/français 
+	-flexcat unrar.cd unrar_polish.ct catalog=/catalogs/polski/unrar.catalog
+	-flexcat unrar.cd unrar_italian.ct catalog=/catalogs/italiano/unrar.catalog
+	-flexcat unrar.cd unrar_spanish.ct catalog=/catalogs/español/unrar.catalog
+	-flexcat unrar.cd unrar_russian.ct catalog=/catalogs/russian/unrar.catalog
+	-flexcat unrar.cd unrar_french.ct catalog=/catalogs/français/unrar.catalog

@@ -73,8 +73,8 @@ $(SUBDIRS):
 	$(MAKE) -C $@ $(MAKECMDGOALS)
 
 dist:
-	-@$(RM) dist all
-	@$(MAKEDIR) dist
+	-@$(MAKEDIR) dist
+	-@$(RM) dist/unrar_$(VERSION) all
 	@$(MAKEDIR) dist/unrar_$(VERSION)
 	$(COPY) UnRAR.readme dist/unrar_$(VERSION)
 	$(COPY) unrar_mos dist/unrar_$(VERSION)/unrar_mos
@@ -83,9 +83,7 @@ dist:
 	$(COPY) unrar_aos dist/unrar_$(VERSION)/unrar_aos
 	#$(COPY) unrar_wos dist/unrar_$(VERSION)/unrar_wos
 	$(COPY) unrar_aos_mini dist/unrar_$(VERSION)/unrar_aos_mini
-	$(COPY) catalogs dist/unrar_$(VERSION)/catalogs all
-	$(RENAME) dist/unrar_$(VERSION)/catalogs/espanol dist/unrar_$(VERSION)/catalogs/español 
-	$(RENAME) dist/unrar_$(VERSION)/catalogs/francais dist/unrar_$(VERSION)/catalogs/français 
+	$(COPY) dist/catalogs dist/unrar_$(VERSION)/catalogs all
 	$(COPY) license.txt dist/unrar_$(VERSION)
 	$(COPY) license_newlib.txt dist/unrar_$(VERSION)
 	$(COPY) license_utf8proc.txt dist/unrar_$(VERSION)
@@ -95,4 +93,7 @@ dist:
 	$(RM) dist/unrar_$(VERSION) all
 	$(COPY) UnRAR.readme dist/UnRAR-$(VERSION).readme
 
-.PHONY: $(TOPTARGETS) $(SUBDIRS) dist
+cat:
+	${MAKE} -C locale cat
+	
+.PHONY: $(TOPTARGETS) $(SUBDIRS) dist cat

@@ -1,4 +1,4 @@
-## version $VER: unrar.catalog 6.02 (08.07.2021)
+## version $VER: unrar.catalog 6.10 (02.01.2022)
 ## codeset 5
 ## language polski
 ;
@@ -298,10 +298,6 @@ MSG_MCHelpSwED
 \n  ed            Nie dodawaj pustych katalogów
 ; \n  ed            Do not add empty directories
 ;
-MSG_MCHelpSwEN
-\n  en            Nie dodawaj bloku 'end of archive'
-; \n  en            Do not put 'end of archive' block
-;
 MSG_MCHelpSwEP
 \n  ep            Pomiñ ¶cie¿ki plików
 ; \n  ep            Exclude paths from names
@@ -317,6 +313,10 @@ MSG_MCHelpSwEP2
 MSG_MCHelpSwEP3
 \n  ep3           Rozwiñ ¶cie¿ki do pe³nych uwzglêdniaj±c literê dysku
 ; \n  ep3           Expand paths to full including the drive letter
+;
+MSG_MCHelpSwEP4
+\n  ep4<scie¿ka>  Usuñ pocz±tkow± scie¿kê z nazw plików
+; \n  ep4<path>     Exclude the path prefix from names
 ;
 MSG_MCHelpSwF
 \n  f             Od¶wie¿ pliki
@@ -390,6 +390,10 @@ MSG_MCHelpSwMD
 \n  md<n>[k,m,g]  Rozmiar s³ownika w KB, MB lub GB
 ; \n  md<n>[k,m,g]  Dictionary size in KB, MB or GB
 ;
+MSG_MCHelpSwME
+\n  me[par]       Ustaw parametry szyfrowania
+; \n  me[par]       Set encryption parameters
+;
 MSG_MCHelpSwMS
 \n  ms[ext;ext]   Okre¶l typu plików które maj± byæ uwzglêdnione
 ; \n  ms[ext;ext]   Specify file types to store
@@ -434,6 +438,10 @@ MSG_MCHelpSwONI
 \n  oni           Pozwalaj na potencjalnie niebezpieczne nazwy
 ; \n  oni           Allow potentially incompatible names
 ;
+MSG_MCHelpSwOP
+\n  op<¶cie¿ka>   Ustaw ¶cie¿kê dla wypakowywanych plików
+; \n  op<path>      Set the output path for extracted files
+;
 MSG_MCHelpSwOR
 \n  or            Automatycznie zmieniaj nazwy plików
 ; \n  or            Rename files automatically
@@ -449,10 +457,6 @@ MSG_MCHelpSwOW
 MSG_MCHelpSwP
 \n  p[has³o]      Ustaw has³o
 ; \n  p[password]   Set password
-;
-MSG_MCHelpSwPm
-\n  p-            Nie pytaj o has³o
-; \n  p-            Do not query password
 ;
 MSG_MCHelpSwQO
 \n  qo[-|+]       Dodaj informacje potrzebne do szybkiego otwierania [brak|wymu¶]
@@ -763,7 +767,7 @@ MSG_MUpdateArchive
 ; \nUpdating %sarchive %s\n
 ;
 MSG_MAddSolid
-solid
+solid 
 ; solid 
 ;
 MSG_MAddFile
@@ -1098,6 +1102,18 @@ MSG_MListAtime
 atime
 ; atime
 ;
+MSG_MListModified
+Zmodyfikowany
+; Modified
+;
+MSG_MListCreated
+Utworzony
+; Created
+;
+MSG_MListAccessed
+U¿ywany
+; Accessed
+;
 MSG_MListAttr
 Atrybuty
 ; Attributes
@@ -1131,7 +1147,7 @@ MSG_MListNTACLHead
 ; \n   NTFS security data
 ;
 MSG_MListStrmHead
-\n   dane zabezpieczeñ NTFS
+\n   Strumieñ NTFS: %s
 ; \n   NTFS stream: %s
 ;
 MSG_MListUnkHead
@@ -1539,7 +1555,7 @@ MSG_MOpenErrAtime
 ; \nYou may need to remove -tsp switch to open this file.
 ;
 MSG_MErrReadInfo
-\nWybierz 'Ignoruj' aby kontynuowaæ z ju¿ odczytan± czêsci± pliku, 'Ignoruj wszysto' aby tak zrobiæ w przypadku nastêpnych b³êdów, 'Ponów' aby ponowiæ odczyt oraz 'Wyjd¼' aby przerwaæ. 
+\nWybierz 'Ignoruj' aby kontynuowaæ z ju¿ odczytan± czêsci± pliku, 'Ignoruj wszysto' aby tak zrobiæ w przypadku nastêpnych b³êdów, 'Ponów' aby ponowiæ odczyt oraz 'Wyjd¼' aby przerwaæ.
 ; \nChoose 'Ignore' to continue with the already read file part only, 'Ignore all' to do it for all read errors, 'Retry' to repeat read and 'Quit' to abort.
 ;
 MSG_MErrReadTrunc
@@ -1554,11 +1570,31 @@ MSG_MDirNameExists
 \nKatalog z tak± nazw± ju¿ istnieje
 ; \nDirectory with such name already exists
 ;
+MSG_MStdinNoInput
+\nU¿ywanie klawiatury do podawania informacji nie jest dozwolone przy czytaniu ze standardowego wej¶cie
+; \nKeyboard input is not allowed when reading data from stdin
+;
+MSG_MTruncPsw
+\nHas³o przekracza maksymaln± dozwolon± d³ugo¶æ %u znaków i zostanie skrócone.
+; \nPassword exceeds the maximum allowed length of %u characters and will be truncated.
+;
+MSG_MAdjustValue
+\nZmienianie warto¶ci %s na %s.
+; \nAdjusting %s value to %s.
+;
+MSG_MOpFailed
+\nOperacje nie uda³a siê.
+; \nOperation failed
+;
+MSG_MSkipEncArc
+\nPomijanie zaszyfrowanego archiwum %s
+; \nSkipping the encrypted archive %s
+;
 MSG_MAmigaConvErr
 UWAGA: niektóre znaki u¿yte w nazwach plików w tym archiwum nie mog³y zostaæ skonwertowane poniewa¿ nie wystêpuj± w kodowaniu %s. Ustaw w³a¶ciwe kodowanie jako warto¶æ zmiennej ¶rodowiskowej o nazwie \
-RAR_CODEPAGE. 
+RAR_CODEPAGE.
 ; WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding.
 ;
 MSG_MAmigaConvInitErr
-UWAGA: Kodowanie znaków %s nie jest obs³ugiwane. Ustaw w³a¶ciwe kodowanie jako warto¶æ zmiennej ¶rodowiskowej o nazwie RAR_CODEPAGE. 
-; WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable.
+UWAGA: Kodowanie znaków %s nie jest obs³ugiwane. Ustaw w³a¶ciwe kodowanie jako warto¶æ zmiennej ¶rodowiskowej o nazwie RAR_CODEPAGE.
+; WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable. 
