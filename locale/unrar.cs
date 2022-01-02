@@ -1,4 +1,4 @@
-## Version $VER: xxxxxx.catalog 1.00 (07.07.2021)
+## Version $VER: xxxxxx.catalog 1.00 (02.01.2022)
 ## Languages english
 ## Codeset english 0
 ## SimpleCatConfig CharsPerLine 200
@@ -225,9 +225,6 @@ MSG_MCHelpSwEa
 MSG_MCHelpSwED
 \n  ed            Do not add empty directories
 ;
-MSG_MCHelpSwEN
-\n  en            Do not put 'end of archive' block
-;
 MSG_MCHelpSwEP
 \n  ep            Exclude paths from names
 ;
@@ -239,6 +236,9 @@ MSG_MCHelpSwEP2
 ;
 MSG_MCHelpSwEP3
 \n  ep3           Expand paths to full including the drive letter
+;
+MSG_MCHelpSwEP4
+\n  ep4<path>     Exclude the path prefix from names
 ;
 MSG_MCHelpSwF
 \n  f             Freshen files
@@ -294,6 +294,9 @@ MSG_MCHelpSwMC
 MSG_MCHelpSwMD
 \n  md<n>[k,m,g]  Dictionary size in KB, MB or GB
 ;
+MSG_MCHelpSwME
+\n  me[par]       Set encryption parameters
+;
 MSG_MCHelpSwMS
 \n  ms[ext;ext]   Specify file types to store
 ;
@@ -327,6 +330,9 @@ MSG_MCHelpSwOL
 MSG_MCHelpSwONI
 \n  oni           Allow potentially incompatible names
 ;
+MSG_MCHelpSwOP
+\n  op<path>      Set the output path for extracted files
+;
 MSG_MCHelpSwOR
 \n  or            Rename files automatically
 ;
@@ -338,9 +344,6 @@ MSG_MCHelpSwOW
 ;
 MSG_MCHelpSwP
 \n  p[password]   Set password
-;
-MSG_MCHelpSwPm
-\n  p-            Do not query password
 ;
 MSG_MCHelpSwQO
 \n  qo[-|+]       Add quick open information [none|force]
@@ -825,6 +828,15 @@ ctime
 MSG_MListAtime
 atime
 ;
+MSG_MListModified
+Modified
+;
+MSG_MListCreated
+Created
+;
+MSG_MListAccessed
+Accessed
+;
 MSG_MListAttr
 Attributes
 ;
@@ -1166,6 +1178,21 @@ MSG_MErrReadCount
 ;
 MSG_MDirNameExists
 \nDirectory with such name already exists
+;
+MSG_MStdinNoInput
+\nKeyboard input is not allowed when reading data from stdin
+;
+MSG_MTruncPsw
+\nPassword exceeds the maximum allowed length of %u characters and will be truncated.
+;
+MSG_MAdjustValue
+\nAdjusting %s value to %s.
+;
+MSG_MOpFailed
+\nOperation failed
+;
+MSG_MSkipEncArc
+\nSkipping the encrypted archive %s
 ;
 MSG_MAmigaConvErr
 WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding.
