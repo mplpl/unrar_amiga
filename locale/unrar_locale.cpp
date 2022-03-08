@@ -24,7 +24,7 @@
 #include <stdlib.h>
 
 #define EXPECTED_CATALOG_VERSION 6
-#define EXPECTED_CATALOG_REVISION 10
+#define EXPECTED_CATALOG_REVISION 11
 
 /*************************************************************************/
 
