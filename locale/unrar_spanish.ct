@@ -1,7 +1,6 @@
-## version $VER: unrar.catalog 6.10 (07.07.2021)
+## version $VER: unrar.catalog 6.11 (08.03.2022)
 ## codeset 4
-## language spanish
-;
+## language español
 ;
 MSG_MYesNo
 _Sí_No
@@ -129,22 +128,18 @@ MSG_MCHelpCmd
 ;
 MSG_MCHelpCmdA
 \nXXXa
-;\n  a             Añadir ficheros al archivo
 ; \n  a             Add files to archive
 ;
 MSG_MCHelpCmdC
 \nXXXc
-;\n  c             Añadir comentario al archivo
 ; \n  c             Add archive comment
 ;
 MSG_MCHelpCmdCH
 \nXXXch
-;\n  ch            Cambiar parámetros del archivo
 ; \n  ch            Change archive parameters
 ;
 MSG_MCHelpCmdCW
 \nXXXcw
-;\n  cw             Guardar comentario del archivo en fichero
 ; \n  cw            Write archive comment to file
 ;
 MSG_MCHelpCmdD
@@ -173,7 +168,7 @@ MSG_MCHelpCmdL
 ;
 MSG_MCHelpCmdM
 \nXXXm[f]
-; \n  m[f]          MSG_Move to archive [files only]
+; \n  m[f]          Move to archive [files only]
 ;
 MSG_MCHelpCmdP
 \n  p             Extraer archivo a stdout (CLI/Shell)
@@ -303,10 +298,6 @@ MSG_MCHelpSwED
 \nXXXed
 ; \n  ed            Do not add empty directories
 ;
-MSG_MCHelpSwEN
-\nXXXen
-; \n  en            Do not put 'end of archive' block
-;
 MSG_MCHelpSwEP
 \n  ep            Excluir sendas de los nombres
 ; \n  ep            Exclude paths from names
@@ -322,6 +313,10 @@ MSG_MCHelpSwEP2
 MSG_MCHelpSwEP3
 \n  ep3           Expandir sendas al completo (incluida letra de unidad)
 ; \n  ep3           Expand paths to full including the drive letter
+;
+MSG_MCHelpSwEP4
+\n  ep4<path>     Excluir el prefijo de ruta de los nombres
+; \n  ep4<path>     Exclude the path prefix from names
 ;
 MSG_MCHelpSwF
 \n  f             \"Refrescar\" los ficheros
@@ -361,7 +356,7 @@ MSG_MCHelpSwIOFF
 ;
 MSG_MCHelpSwISND
 \nXXXisnd
-; \n  isnd          Enable sound
+; \n  isnd[-]       Control notification sounds
 ;
 MSG_MCHelpSwIVER
 \nXXXiver
@@ -393,7 +388,11 @@ MSG_MCHelpSwMC
 ;
 MSG_MCHelpSwMD
 \nXXXmd<n>[k,g,m]
-; \n  md<n>[k,m,g]  Dictionary size in KB, MSG_MB or GB
+; \n  md<n>[k,m,g]  Dictionary size in KB, MB or GB
+;
+MSG_MCHelpSwME
+\n  me[par]       Establecer parámetros de cifrado
+; \n  me[par]       Set encryption parameters
 ;
 MSG_MCHelpSwMS
 \nXXXms[ext;ext]
@@ -439,6 +438,10 @@ MSG_MCHelpSwONI
 \nXXXoni
 ; \n  oni           Allow potentially incompatible names
 ;
+MSG_MCHelpSwOP
+\n  op<path>      Establecer la ruta de salida para los archivos extraídos
+; \n  op<path>      Set the output path for extracted files
+;
 MSG_MCHelpSwOR
 \n  or            Renombrar ficheros automáticamente
 ; \n  or            Rename files automatically
@@ -454,10 +457,6 @@ MSG_MCHelpSwOW
 MSG_MCHelpSwP
 \n  p[contraseña] Indicar contraseña
 ; \n  p[password]   Set password
-;
-MSG_MCHelpSwPm
-\n  p-            No solicitar contraseña
-; \n  p-            Do not query password
 ;
 MSG_MCHelpSwQO
 \nXXXqo[-|+]
@@ -504,7 +503,7 @@ MSG_MCHelpSwSFX
 ; \n  sfx[name]     Create SFX archive
 ;
 MSG_MCHelpSwSI
-\nXXXsi[name]
+\n  si[name]      Leer datos de entrada estándar (stdin)
 ; \n  si[name]      Read data from standard input (stdin)
 ;
 MSG_MCHelpSwSL
@@ -529,23 +528,23 @@ MSG_MCHelpSwTL
 ;
 MSG_MCHelpSwTN
 \n  tn[mcao]<h>   Procesar ficheros más actuales que <hora>
-; \n  tn<time>      Process files newer than <time>
+; \n  tn[mcao]<t>   Process files newer than <t> time
 ;
 MSG_MCHelpSwTO
 \n  to[mcao]<h>   Procesar ficheros más antiguos que <hora>
-; \n  to<time>      Process files older than <time>
+; \n  to[mcao]<t>   Process files older than <t> time
 ;
 MSG_MCHelpSwTA
 \n  ta[mcao]<f>   Procesar ficheros modificados después de <fecha> (YYYYMMDDHHMMSS)
-; \n  ta<date>      Process files modified after <date> in YYYYMMDDHHMMSS format
+; \n  ta[mcao]<d>   Process files modified after <d> YYYYMMDDHHMMSS date
 ;
 MSG_MCHelpSwTB
 \n  tb[mcao]<f>   Procesar ficheros modificados antes de <fecha> (YYYYMMDDHHMMSS)
-; \n  tb<date>      Process files modified before <date> in YYYYMMDDHHMMSS format
+; \n  tb[mcao]<d>   Process files modified before <d> YYYYMMDDHHMMSS date
 ;
 MSG_MCHelpSwTS
 \n  ts[m,c,a,p]   Guardar/Restaurar fecha del fichero (modificado, creado, acceso, preservar)
-; \n  ts[m|c|a]     Save or restore file time (modification, creation, access, preserve)
+; \n  ts[m,c,a,p]   Save or restore time (modification, creation, access, preserve)
 ;
 MSG_MCHelpSwU
 \n  u             Actualizar ficheros
@@ -612,11 +611,11 @@ Introducir contraseña (no se muestra)
 ; Enter password (will not be echoed)
 ;
 MSG_MAskPswFor
-\nIntroducir contraseña (no se muestra) para %s: \0
+\nIntroducir contraseña (no se muestra) para %s: 
 ; \nEnter password (will not be echoed) for %s: 
 ;
 MSG_MReAskPsw
-\nReintroducir contraseña: \0
+\nReintroducir contraseña: 
 ; \nReenter password: 
 ;
 MSG_MNotMatchPsw
@@ -768,19 +767,19 @@ MSG_MUpdateArchive
 ; \nUpdating %sarchive %s\n
 ;
 MSG_MAddSolid
- sólido
+ sólido 
 ; solid 
 ;
 MSG_MAddFile
-\nAñadiendo %-58s     \0
+\nAñadiendo %-58s     
 ; \nAdding    %-58s     
 ;
 MSG_MUpdFile
-\nActualiz. %-58s     \0
+\nActualiz. %-58s     
 ; \nUpdating  %-58s     
 ;
 MSG_MAddPoints
-\n...       %-58s     \0
+\n...       %-58s     
 ; \n...       %-58s     
 ;
 MSG_MMoveDelFiles
@@ -831,16 +830,12 @@ MSG_MMdfEncrSol
 \n%s: encriptado
 ; \n%s: encrypted
 ;
-;MSG_MCannotMdfEncrSol
-;\nXXXMCannotMdfEncrSol
-; \nCannot modify solid archive containing encrypted files
-;
 MSG_MAddAnalyze
-\nAnalizando ficheros archivados: \0
+\nAnalizando ficheros archivados: 
 ; \nAnalyzing archived files: 
 ;
 MSG_MRepacking
-\nRecomprimiendo ficheros archivados: \0
+\nRecomprimiendo ficheros archivados: 
 ; \nRepacking archived files: 
 ;
 MSG_MCRCFailed
@@ -904,9 +899,7 @@ MSG_MExtrTotalErr
 ; \nTotal errors: %ld
 ;
 MSG_MAskReplace
-\n\n¿Reemplazar fichero %s existente?\n\
-ACTUAL: %9s bytes (%s)\n\
-NUEVO : %9s bytes (%s)\n
+\n\n¿Reemplazar fichero %s existente?\nACTUAL: %6s bytes (%s)\nNUEVO : %6s bytes (%s)\n
 ; \n\nWould you like to replace the existing file %s\n%6s bytes, modified on %s\nwith a new one\n%6s bytes, modified on %s\n
 ;
 MSG_MAskOverwrite
@@ -914,7 +907,7 @@ MSG_MAskOverwrite
 ; \nOverwrite %s ?
 ;
 MSG_MAskNewName
-\nNuevo nombre: \0
+\nNuevo nombre: 
 ; \nEnter new name: 
 ;
 MSG_MHeaderBroken
@@ -923,7 +916,7 @@ MSG_MHeaderBroken
 ;
 MSG_MMainHeaderBroken
 \nCabecera del archivo principal corrupta
-; \nMSG_Main archive header is corrupt
+; \nMain archive header is corrupt
 ;
 MSG_MLogFileHead
 \n%s - cabecera de fichero corrupta
@@ -1109,6 +1102,18 @@ MSG_MListAtime
 atime
 ; atime
 ;
+MSG_MListModified
+Modificado
+; Modified
+;
+MSG_MListCreated
+Creado
+; Created
+;
+MSG_MListAccessed
+Accedido
+; Accessed
+;
 MSG_MListAttr
 Atributos
 ; Attributes
@@ -1150,7 +1155,7 @@ MSG_MListUnkHead
 ; \n   Unknown subheader type: 0x%04x
 ;
 MSG_MFileComment
-\nComentario: \0
+\nComentario: 
 ; \nComment: 
 ;
 MSG_MYes
@@ -1393,10 +1398,6 @@ MSG_MHeadEncMismatch
 \nNo se puede cambiar la cabecera del modo de encriptación en archivo ya encriptado.
 ; \nCannot change the header encryption mode in already encrypted archive
 ;
-;MSG_MCannotEncName
-;\nXXXMSG_MCannotEncName
-; \nCannot change the header encryption mode in already encrypted archive
-;
 MSG_MCannotEmail
 \nXXXMSG_MCannotEmail %s
 ; \nCannot email the file %s
@@ -1443,7 +1444,7 @@ MSG_MCalcCRC
 ;
 MSG_MTooLargeSFXArc
 \nAviso: archivo SFX demasiado grande (>4GB)
-; \nWARNING: Too large SFX archive. Windows cannot run the executable file exceeding 4 GB.
+; \nToo large SFX archive. Windows cannot run the executable file exceeding 4 GB.
 ;
 MSG_MCalcCRCAllVol
 \nCalculando sumas de comprobación de los volúmenes
@@ -1547,7 +1548,6 @@ MSG_MUseSmalllerDict
 ;
 MSG_MAmigaPortBy
 (versión %s por Marcin Labenski; traducción: Javier de las Rivas)\n
-;                         (versión %s por Marcin Labenski)\n
 ; \n%s port by Marcin Labenski\n
 ;
 MSG_MOpenErrAtime
@@ -1570,11 +1570,31 @@ MSG_MDirNameExists
 \nYa existe un directorio con ese nombre
 ; \nDirectory with such name already exists
 ;
+MSG_MStdinNoInput
+\nLa entrada de teclado no está permitida al leer datos de stdin
+; \nKeyboard input is not allowed when reading data from stdin
+;
+MSG_MTruncPsw
+\nLa contraseña supera la longitud máxima permitida de %u caracteres y se truncará.
+; \nPassword exceeds the maximum allowed length of %u characters and will be truncated.
+;
+MSG_MAdjustValue
+\nAjustando el valor de %s a %s.
+; \nAdjusting %s value to %s.
+;
+MSG_MOpFailed
+\nOperación fallida
+; \nOperation failed
+;
+MSG_MSkipEncArc
+\nOmitiendo el archivo cifrado %s
+; \nSkipping the encrypted archive %s
+;
 MSG_MAmigaConvErr
-Aviso: algunos caracteres en los nombres de fichero de este archivo no se han podido convertir, no están disponibles en la codificación %s. Use la variable de entorno RAR_CODEPAGE para establecer la codificación correcta.
+Aviso: algunos caracteres en los nombres de fichero de este archivo no se han podido convertir, no están disponibles en la codificación %s. Use la variable de entorno RAR_CODEPAGE para establecer la \
+codificación correcta.
 ; WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding.
 ;
 MSG_MAmigaConvInitErr
 Aviso: codificación %s no soportada. Use la variable de entorno RAR_CODEPAGE para establecer una codificación diferente.
 ; WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable.
-;

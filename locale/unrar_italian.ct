@@ -1,14 +1,7 @@
-## version $VER: UnRAR.catalog 6.10 (24.07.2021)
+## version $VER: UnRAR.catalog 6.11 (08.03.2022)
 ## codeset 0
 ## language italiano
 ## chunk AUTH Translated by Samir Hawamdeh (http://www.betatesting.it/backforthefuture)
-;
-; ATO Italia
-; Italian translation by Samir 'samo79' Hawamdeh
-; Contact: s.hawamdeh@teletu.it
-;
-; Compiled with FlexCat 2.18 PPC (AmigaOS 4.x)
-; flexcat UnRAR.cd UnRAR_italian.ct catalog=UnRAR.catalog
 ;
 MSG_MYesNo
 _Si_No
@@ -306,10 +299,6 @@ MSG_MCHelpSwED
 \n  ed            Non aggiungere directory vuote
 ; \n  ed            Do not add empty directories
 ;
-MSG_MCHelpSwEN
-\n  en            Non inserire il blocco 'fine dell'archivio'
-; \n  en            Do not put 'end of archive' block
-;
 MSG_MCHelpSwEP
 \n  ep            Escludi percorsi dai nomi
 ; \n  ep            Exclude paths from names
@@ -325,6 +314,10 @@ MSG_MCHelpSwEP2
 MSG_MCHelpSwEP3
 \n  ep3           Espandi percorsi in modo completo includendo la lettera del drive
 ; \n  ep3           Expand paths to full including the drive letter
+;
+MSG_MCHelpSwEP4
+\n  ep4<path>     Escludi il prefisso di percorso dai nomi
+; \n  ep4<path>     Exclude the path prefix from names
 ;
 MSG_MCHelpSwF
 \n  f             Rinnova i file
@@ -398,6 +391,10 @@ MSG_MCHelpSwMD
 \n  md<n>[k,m,g]  Dimensione dizionario in KB, MB o GB
 ; \n  md<n>[k,m,g]  Dictionary size in KB, MB or GB
 ;
+MSG_MCHelpSwME
+\n  me[par]       Imposta i parametri di crittografia
+; \n  me[par]       Set encryption parameters
+;
 MSG_MCHelpSwMS
 \n  ms[ext;ext]   Specifica tipi di file da archiviare
 ; \n  ms[ext;ext]   Specify file types to store
@@ -442,6 +439,10 @@ MSG_MCHelpSwONI
 \n  oni           Permetti potenziali incompatibilità tra i nomi
 ; \n  oni           Allow potentially incompatible names
 ;
+MSG_MCHelpSwOP
+\n  op<path>      Imposta il percorso di output per i file estratti
+; \n  op<path>      Set the output path for extracted files
+;
 MSG_MCHelpSwOR
 \n  or            Rinomina file automaticamente
 ; \n  or            Rename files automatically
@@ -457,10 +458,6 @@ MSG_MCHelpSwOW
 MSG_MCHelpSwP
 \n  p[password]   Imposta una password
 ; \n  p[password]   Set password
-;
-MSG_MCHelpSwPm
-\n  p-            Non chiedere la password
-; \n  p-            Do not query password
 ;
 MSG_MCHelpSwQO
 \n  qo[-|+]       Aggiungi informazioni di apertura veloce [nessuna|forza]
@@ -1106,6 +1103,18 @@ MSG_MListAtime
 atime
 ; atime
 ;
+MSG_MListModified
+Modificato
+; Modified
+;
+MSG_MListCreated
+Creato
+; Created
+;
+MSG_MListAccessed
+Accesso
+; Accessed
+;
 MSG_MListAttr
 Attributi
 ; Attributes
@@ -1547,7 +1556,8 @@ MSG_MOpenErrAtime
 ; \nYou may need to remove -tsp switch to open this file.
 ;
 MSG_MErrReadInfo
-\nSeleziona 'Ignora' per continuare solo con la parte già letta del file, 'Ignora tutto' per continuare a leggere tutti gli errori, 'Riprova' per ripetere la lettura e 'Chiudi' per annullare l'operazione.
+\nSeleziona 'Ignora' per continuare solo con la parte già letta del file, 'Ignora tutto' per continuare a leggere tutti gli errori, 'Riprova' per ripetere la lettura e 'Chiudi' per annullare \
+l'operazione.
 ; \nChoose 'Ignore' to continue with the already read file part only, 'Ignore all' to do it for all read errors, 'Retry' to repeat read and 'Quit' to abort.
 ;
 MSG_MErrReadTrunc
@@ -1562,11 +1572,31 @@ MSG_MDirNameExists
 \nUna directory con questo nome è già esistente
 ; \nDirectory with such name already exists
 ;
+MSG_MStdinNoInput
+\nL'input da tastiera non è consentito durante la lettura dei dati da stdin
+; \nKeyboard input is not allowed when reading data from stdin
+;
+MSG_MTruncPsw
+\nLa password supera la lunghezza massima consentita di %u caratteri e verrà troncata.
+; \nPassword exceeds the maximum allowed length of %u characters and will be truncated.
+;
+MSG_MAdjustValue
+\nRegolazione del valore di %s su %s.
+; \nAdjusting %s value to %s.
+;
+MSG_MOpFailed
+\nOperazione fallita
+; \nOperation failed
+;
+MSG_MSkipEncArc
+\nSalto dell'archivio crittografato %s
+; \nSkipping the encrypted archive %s
+;
 MSG_MAmigaConvErr
-ATTENZIONE: Alcuni caratteri usati nei nomi dei file di questo archivio non sono stati convertiti perchè non disponibili nella codifica %s. Imposta la variabile d'ambiente RAR_CODEPAGE per selezionare la codifica corretta
+ATTENZIONE: Alcuni caratteri usati nei nomi dei file di questo archivio non sono stati convertiti perchè non disponibili nella codifica %s. Imposta la variabile d'ambiente RAR_CODEPAGE per selezionare \
+la codifica corretta
 ; WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding.
 ;
 MSG_MAmigaConvInitErr
 ATTENZIONE: La codifica %s non è supportata. Seleziona una codifica differente impostando la variabile d'ambiente RAR_CODEPAGE
 ; WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable.
-;

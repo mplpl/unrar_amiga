@@ -1,23 +1,7 @@
-## version $VER: unRAR.catalog 6.10 (07.07.2021) (Amiga-1251)
-## language russian
+## version $VER: unRAR.catalog 6.11 (08.03.2022) (Amiga-1251)
 ## codeset 2104
+## language russian
 ## chunk AUTH Translated by ATO-RUS: Mikhail Malyshev <mm@list.ru>
-;-----------------------------------------------------------------------------
-;
-; CATALOG TRANSLATION REVISION HISTORY
-;
-; 5.80 (01.02.2020) <mmalyshev>
-; - first build, based on original translation by Alexander Roshal
-;
-; 5.90 (15.04.2020) <mmalyshev>
-; - updated to latest build
-;
-; 6.02 (07.07.2021) <mmalyshev>
-; - added new strings and modified changed ones
-;
-;-----------------------------------------------------------------------------
-; $VER: unrar 6.02 (07.07.2021)
-;-----------------------------------------------------------------------------
 ;
 MSG_MYesNo
 _Y=да_N=нет
@@ -315,10 +299,6 @@ MSG_MCHelpSwED
 \n  ed            Не добавлять пустые каталоги
 ; \n  ed            Do not add empty directories
 ;
-MSG_MCHelpSwEN
-\n  en            Не добавлять в архив блок "Конец архива" (для RAR4 и младше)
-; \n  en            Do not put 'end of archive' block
-;
 MSG_MCHelpSwEP
 \n  ep            Исключить пути из имён
 ; \n  ep            Exclude paths from names
@@ -334,6 +314,10 @@ MSG_MCHelpSwEP2
 MSG_MCHelpSwEP3
 \n  ep3           Сохранять полные пути файлов, включая буквы дисков
 ; \n  ep3           Expand paths to full including the drive letter
+;
+MSG_MCHelpSwEP4
+\n  ep4<path>     Исключить префикс пути из имен
+; \n  ep4<path>     Exclude the path prefix from names
 ;
 MSG_MCHelpSwF
 \n  f             Обновить имеющиеся файлы
@@ -407,6 +391,10 @@ MSG_MCHelpSwMD
 \n  md<n>[k,m,g]  Размер словаря в КБ, МБ или ГБ
 ; \n  md<n>[k,m,g]  Dictionary size in KB, MB or GB
 ;
+MSG_MCHelpSwME
+\n  me[par]       Установить параметры шифрования
+; \n  me[par]       Set encryption parameters
+;
 MSG_MCHelpSwMS
 \n  ms[расш;расш] Расширения файлов для архивирования без сжатия
 ; \n  ms[ext;ext]   Specify file types to store
@@ -451,6 +439,10 @@ MSG_MCHelpSwONI
 \n  oni           Разрешить потенциально несовместимые имена
 ; \n  oni           Allow potentially incompatible names
 ;
+MSG_MCHelpSwOP
+\n  op<path>      Установите выходной путь для извлеченных файлов
+; \n  op<path>      Set the output path for extracted files
+;
 MSG_MCHelpSwOR
 \n  or            Переименовывать файлы автоматически
 ; \n  or            Rename files automatically
@@ -466,10 +458,6 @@ MSG_MCHelpSwOW
 MSG_MCHelpSwP
 \n  p[пароль]     Указать пароль шифрования архива
 ; \n  p[password]   Set password
-;
-MSG_MCHelpSwPm
-\n  p-            Не спрашивать пароль
-; \n  p-            Do not query password
 ;
 MSG_MCHelpSwQO
 \n  qo[-|+]       Добавить данные для быстрого открытия архива [нет|принудительно]
@@ -1115,6 +1103,18 @@ MSG_MListAtime
 Время a
 ; atime
 ;
+MSG_MListModified
+Изменено
+; Modified
+;
+MSG_MListCreated
+Созданный
+; Created
+;
+MSG_MListAccessed
+Доступ
+; Accessed
+;
 MSG_MListAttr
 Атрибуты
 ; Attributes
@@ -1571,8 +1571,29 @@ MSG_MDirNameExists
 \nКаталог с таким именем уже существует
 ; \nDirectory with such name already exists
 ;
+MSG_MStdinNoInput
+\nВвод с клавиатуры запрещен при чтении данных со стандартного ввода
+; \nKeyboard input is not allowed when reading data from stdin
+;
+MSG_MTruncPsw
+\nПароль превышает максимально допустимую длину (%u символов) и будет усечен.
+; \nPassword exceeds the maximum allowed length of %u characters and will be truncated.
+;
+MSG_MAdjustValue
+\nИзменение значения %s на %s.
+; \nAdjusting %s value to %s.
+;
+MSG_MOpFailed
+\nОперация не удалась
+; \nOperation failed
+;
+MSG_MSkipEncArc
+\nПропуск зашифрованного архива %s
+; \nSkipping the encrypted archive %s
+;
 MSG_MAmigaConvErr
-ПРЕДУПРЕЖДЕНИЕ: Некоторые символы, используемые в именах файлов в этом архиве, не были преобразованы, поскольку они недоступны в кодировке %s. Установите ENV: переменную RAR_CODEPAGE, чтобы выбрать правильную кодировку.
+ПРЕДУПРЕЖДЕНИЕ: Некоторые символы, используемые в именах файлов в этом архиве, не были преобразованы, поскольку они недоступны в кодировке %s. Установите ENV: переменную RAR_CODEPAGE, чтобы выбрать \
+правильную кодировку.
 ; WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding.
 ;
 MSG_MAmigaConvInitErr

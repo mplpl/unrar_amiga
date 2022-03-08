@@ -1,9 +1,7 @@
-## version $VER: UnRAR.catalog 6.10 (19.07.2021)
+## version $VER: UnRAR.catalog 6.11 (08.03.2022)
 ## codeset 0
 ## language français
 ## chunk AUTH Translated by Filipe BRANDÃO
-;
-; flexcat UnRAR.cd UnRAR_français.ct catalog=UnRAR.catalog
 ;
 MSG_MYesNo
 _Oui_Non
@@ -31,7 +29,7 @@ _Réessayer_Annuler
 ;
 MSG_MIgnoreAllRetryQuit
 _Ignorer_iGnorer tout_Réessayer_Quitter
-;_Ignore_iGnore all_Retry_Quit
+; _Ignore_iGnore all_Retry_Quit
 ;
 MSG_MCopyright
 \nRAR %s   Copyright (c) 1993-%d Eugene et Alexander Roshal    %d %s %d
@@ -198,7 +196,7 @@ MSG_MCHelpCmdRV
 ; \n  rv[N]         Create recovery volumes
 ;
 MSG_MCHelpCmdS
-\n  s[nom|-]      Convertir l'archive vers ou depuis SFX 
+\n  s[nom|-]      Convertir l'archive vers ou depuis SFX
 ; \n  s[name|-]     Convert archive to or from SFX
 ;
 MSG_MCHelpCmdT
@@ -235,7 +233,7 @@ MSG_MCHelpSwAC
 ;
 MSG_MCHelpSwAD
 \n  ad[1,2]       Chemin de destination alternatif
-;\n  ad[1,2]       Alternate destination path
+; \n  ad[1,2]       Alternate destination path
 ;
 MSG_MCHelpSwAG
 \n  ag[format]    Générer le nom d'archive en utilisant la date courante
@@ -250,7 +248,7 @@ MSG_MCHelpSwAO
 ; \n  ao            Add files with Archive attribute set
 ;
 MSG_MCHelpSwAP
-\n  ap<chemin>      Paramétrer le chemin dans l'archive
+\n  ap<chemin>    Paramétrer le chemin dans l'archive
 ; \n  ap<path>      Set path inside archive
 ;
 MSG_MCHelpSwAS
@@ -301,10 +299,6 @@ MSG_MCHelpSwED
 \n  ed            Ne pas ajouter les dossiers vides
 ; \n  ed            Do not add empty directories
 ;
-MSG_MCHelpSwEN
-\n  en            Ne pas ajouter le block 'fin d'archive'
-; \n  en            Do not put 'end of archive' block
-;
 MSG_MCHelpSwEP
 \n  ep            Exclure les chemins des noms
 ; \n  ep            Exclude paths from names
@@ -321,6 +315,10 @@ MSG_MCHelpSwEP3
 \n  ep3           Extraire les chemins complets en incluant la lettre de lecteur
 ; \n  ep3           Expand paths to full including the drive letter
 ;
+MSG_MCHelpSwEP4
+\n  ep4<chemin>   Exclure le préfixe de chemin des noms
+; \n  ep4<path>     Exclude the path prefix from names
+;
 MSG_MCHelpSwF
 \n  f             Rafraîchir les fichiers
 ; \n  f             Freshen files
@@ -335,7 +333,7 @@ MSG_MCHelpSwHT
 ;
 MSG_MCHelpSwIDP
 \n  id[c,d,p,q]   Désactiver les messages
-; \n  id[c,d,p,q]   Disable messages
+; \n  id[c,d,n,p,q] Display or disable messages
 ;
 MSG_MCHelpSwIEML
 \n  ieml[adre]    Envoyer l'archive par email
@@ -393,6 +391,10 @@ MSG_MCHelpSwMD
 \n  md<n>[k,m,g]  Dictionnaire des tailles en Ko, Mo ou Go
 ; \n  md<n>[k,m,g]  Dictionary size in KB, MB or GB
 ;
+MSG_MCHelpSwME
+\n  me[par]       Définir les paramètres de chiffrement
+; \n  me[par]       Set encryption parameters
+;
 MSG_MCHelpSwMS
 \n  ms[ext;ext]   Spécifier les types de fichiers à stocker
 ; \n  ms[ext;ext]   Specify file types to store
@@ -437,6 +439,10 @@ MSG_MCHelpSwONI
 \n  oni           Autoriser les potentiels incompatibilités de noms
 ; \n  oni           Allow potentially incompatible names
 ;
+MSG_MCHelpSwOP
+\n  op<chemin>    Définir le chemin de sortie pour les fichiers extraits
+; \n  op<path>      Set the output path for extracted files
+;
 MSG_MCHelpSwOR
 \n  or            Renommer automatiquement les fichiers
 ; \n  or            Rename files automatically
@@ -452,10 +458,6 @@ MSG_MCHelpSwOW
 MSG_MCHelpSwP
 \n  p[mot_de_passe]Définir un mot de passe
 ; \n  p[password]   Set password
-;
-MSG_MCHelpSwPm
-\n  p-            Ne pas demander le mot de passe
-; \n  p-            Do not query password
 ;
 MSG_MCHelpSwQO
 \n  qo[-|+]       Ajouter les informations d'ouverture rapide [aucune|forcer]
@@ -1101,6 +1103,18 @@ MSG_MListAtime
 atime
 ; atime
 ;
+MSG_MListModified
+Modifié
+; Modified
+;
+MSG_MListCreated
+Créé
+; Created
+;
+MSG_MListAccessed
+Accédé
+; Accessed
+;
 MSG_MListAttr
 Attributs
 ; Attributes
@@ -1299,7 +1313,7 @@ MSG_MProcessArc
 ;
 MSG_MCorrectingName
 \nATTENTION: Tentative de correction du nom de fichier invalide
-; \nWARNING: Attempting to correct the invalid file name
+; \nWARNING: Attempting to correct the invalid file or directory name
 ;
 MSG_MUnpCannotMerge
 \nATTENTION: Démarrer depuis un volume précédent pour extraire %s
@@ -1423,7 +1437,7 @@ MSG_MCannotDelete
 ;
 MSG_MRecycleFailed
 \nImpossible de déplacer quelques fichiers et dossiers vers la corbeille
-; \nCannot move some files and folders to Recycle Bin
+; \nCannot move some files and directories to Recycle Bin
 ;
 MSG_MCalcCRC
 \nCalcul de la somme de contrôle
@@ -1462,7 +1476,7 @@ MSG_MAreaDamaged
 ; \nCorrupt %d bytes at %08x %08x
 ;
 MSG_MBlocksRecovered
-\n%u blocs récupérés, %u blocs réalloués 
+\n%u blocs récupérés, %u blocs réalloués
 ; \n%u blocks are recovered, %u blocks are relocated
 ;
 MSG_MRRDamaged
@@ -1542,26 +1556,47 @@ MSG_MOpenErrAtime
 ; \nYou may need to remove -tsp switch to open this file.
 ;
 MSG_MErrReadInfo
-\nSélectionner 'Ignorer' pour continuer avec la partie de fichier déjà lue, 'Ignorer tout' pour le faire pour toutes les erreurs de lecture, 'Réessayer' pour retenter une lecture et 'Quitter' pour abandonner.
-;\nChoose 'Ignore' to continue with the already read file part only, 'Ignore all' to do it for all read errors, 'Retry' to repeat read and 'Quit' to abort.
+\nSélectionner 'Ignorer' pour continuer avec la partie de fichier déjà lue, 'Ignorer tout' pour le faire pour toutes les erreurs de lecture, 'Réessayer' pour retenter une lecture et 'Quitter' pour \
+abandonner.
+; \nChoose 'Ignore' to continue with the already read file part only, 'Ignore all' to do it for all read errors, 'Retry' to repeat read and 'Quit' to abort.
 ;
 MSG_MErrReadTrunc
 \n%s est archivé de manière incomplète dû à des errerus de lecture.\n
-;\n%s is archived incompletely because of read error.\n
+; \n%s is archived incompletely because of read error.\n
 ;
 MSG_MErrReadCount
-\n%u fichiers sontarchivés de manière incomplète dû à des erreurs de lecture. 
-;\n%u files are archived incompletely because of read errors.
+\n%u fichiers sontarchivés de manière incomplète dû à des erreurs de lecture.
+; \n%u files are archived incompletely because of read errors.
 ;
 MSG_MDirNameExists
 \nUn dossier avec le même nom existe déjà
-;\nDirectory with such name already exists
+; \nDirectory with such name already exists
+;
+MSG_MStdinNoInput
+\nLa saisie au clavier n'est pas autorisée lors de la lecture de données à partir de stdin
+; \nKeyboard input is not allowed when reading data from stdin
+;
+MSG_MTruncPsw
+\nLe mot de passe dépasse la longueur maximale autorisée de %u caractères et sera tronqué.
+; \nPassword exceeds the maximum allowed length of %u characters and will be truncated.
+;
+MSG_MAdjustValue
+\nAjustement de la valeur %s à %s.
+; \nAdjusting %s value to %s.
+;
+MSG_MOpFailed
+\nL'opération a échoué
+; \nOperation failed
+;
+MSG_MSkipEncArc
+\nIgnorer l'archive chiffrée %s
+; \nSkipping the encrypted archive %s
 ;
 MSG_MAmigaConvErr
-ATTENTION: Certains caractères utilisés dans les noms de fichiers n'ont pas été convertis car ils ne sont pas disponibles dans l'encodage %s. Définissez la variable d'environnement RAR_CODEPAGE pour choisir le bon encodage.
+ATTENTION: Certains caractères utilisés dans les noms de fichiers n'ont pas été convertis car ils ne sont pas disponibles dans l'encodage %s. Définissez la variable d'environnement RAR_CODEPAGE pour \
+choisir le bon encodage.
 ; WARNING: Some characters used in file names in this archive have not been converted because they are not available in %s encoding. Set RAR_CODEPAGE environment variable to select the right encoding.
 ;
 MSG_MAmigaConvInitErr
 ATTENTION: Encodage %s non supporté. Sélectionnez un encodage différent à l'aide de la variable d'environnement RAR_CODEPAGE.
 ; WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable.
-;
