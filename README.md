@@ -40,6 +40,7 @@ Exact memory utilization depends on the size of compressed files. For instance, 
 There is also one another version for the classic AmigaOS with the reduced memory footprint. Size of this 'mini' version (the file name is 'unrar_aos_mini') is only ~330KB, it can run on systems with 2MB of RAM and it does not need ixemul library. But there are also limitations:
 * no support for national characters conversion
 * no localization (runs in English only)
+* no automatic stack size set
 
 <h2>Details</h2>
 
