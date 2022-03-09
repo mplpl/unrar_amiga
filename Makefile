@@ -2,7 +2,7 @@ MAKEDIR=makedir
 COPY=copy
 RM=delete
 RENAME=rename
-VERSION=6.10
+VERSION=6.11
 
 ifeq ($(PLATFORM),)
 PLATFORM=$(shell uname)
