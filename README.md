@@ -25,7 +25,7 @@ variable
 
 <h2>Requirements</h2>
 
-There are no special requirements for MorphOS and AmigaOS4. It should work on any system provided that it has a relatively fresh version of the operating system (I test on MorphOS 3.12 and AmigaOS 4.1 FE Update 1).
+There are no special requirements for MorphOS and AmigaOS4. It should work on any system provided that it has a relatively fresh version of the operating system (I test on MorphOS 3.15 and AmigaOS 4.1 FE Update 1).
 
 AROS version requires i386 and ABI-v0.
 
@@ -36,6 +36,10 @@ Classic AmigaOS version requires a system with:
 * 4MB RAM (unrar needs 2.6MB on its own)
 
 Exact memory utilization depends on the size of compressed files. For instance, my test archive with one 2.0GB file in it needs 32MB of RAM to unpack.
+
+There is also one another version for the classic AmigaOS with the reduced memory footprint. Size of this 'mini' version (the file name is 'unrar_aos_mini') is only ~330KB, it can run on systems with 2MB of RAM and it does not need ixemul library. But there are also limitations:
+* no support for national characters conversion
+* no localization (runs in English only)
 
 <h2>Details</h2>
 
@@ -157,8 +161,8 @@ Support for files >4GiB is currently not available on AROS, AmigaOS3, and AmigaO
 
 <h2>Notes about porting</h2>
 
-This port is based directly on unrar source code version 6.0.7 (unrarsrc-6.0.7.tar.gz) from rarlab.com:
-https://www.rarlab.com/rar/unrarsrc-6.0.7.tar.gz
+This port is based directly on unrar source code version 6.1.6 (unrarsrc-6.1.6.tar.gz) from rarlab.com:
+https://www.rarlab.com/rar/unrarsrc-6.1.6.tar.gz
 
 For normalizing UTF, I used utf8proc. I did not need to port it to Amiga - it compiles without any change:
 https://juliastrings.github.io/utf8proc/
