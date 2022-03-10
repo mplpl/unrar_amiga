@@ -1,4 +1,4 @@
-## version $VER: unrar.catalog 6.02 (08.08.21)
+## version $VER: unrar.catalog 6.11 (10.03.22)
 ## codeset 0
 ## language deutsch
 ## chunk AUTH Michael Leimer
@@ -15,1550 +15,1586 @@ MSG_MAmigaConvInitErr
 WARNUNG: %s-Kodierung wird nicht unterstützt. Wählen Sie eine andere, indem Sie die Umgebungsvariable RAR_CODEPAGE setzen.
 ; WARNING: %s encoding is not supported. Select a different one by setting RAR_CODEPAGE environment variable.
 ;
-MSG_MFileRO
-\n%s ist schreibgeschützt.
-; FileRO
-;
-MSG_MExtrTotalErr
-\nFehler insgesamt: %ld
-; ExtrTotalErr
-;
-MSG_MFailed
-Fehlgeschlagen.
-; Failed
-;
-MSG_MCHelpSwILOG
-\n  ilog[Name]    Fehler in eine Datei protokollieren
-; CHelpSwILOG
-;
-MSG_MCHelpSwTS
-\n  ts[m,c,a,p]   Dateizeit (Änderung, Erstellung, Zugriff, Beibehalten) speichern/wiederherstellen
-; CHelpSwTS
-;
-MSG_MAskCreatVol
-\nNächstes Volumen erstellen?
-; AskCreatVol
-;
-MSG_MAreaDamaged
-  "\n%d beschädigte Bytes bei %08x %08x.
-; AreaDamaged
-;
-MSG_MRecCorrected
- " - Daten wiederhergestellt.
-; RecCorrected
-;
-MSG_MCHelpSwEa
-\n  e[+]<Attr>    Dateien mit bestimmten Attributen ein- und ausschließen
-; CHelpSwEa
-;
-MSG_MMoveDeleted
-    gelöscht
-; MoveDeleted
-;
-MSG_MRegKeyWarning
-\nDer aktuelle Lizenzschlüssel ist nur gültig für %s.\n
-; RegKeyWarning
-;
-MSG_MMonthDec
- "Dez
-; MonthDec
-;
-MSG_MRecVolMissing
-\nEs fehlen %d Volumen.
-; RecVolMissing
-;
-MSG_MHeaderBroken
-\nEin beschädigter Header wurde gefunden.
-; HeaderBroken
-;
-MSG_MIgnoreAllRetryQuit
-_Ignorieren_alle iGnorieren_Wiederholen_Beenden
-; IgnoreAllRetryQuit
-;
-MSG_MRRSearch
-\nSuche nach Wiederherstellungsdaten...
-; RRSearch
-;
-MSG_MErrSeek
-Seekfehler in der Datei %s.
-; ErrSeek
-;
-MSG_MUnpCannotMerge
-\nWARNUNG: Um %s zu entpacken, müssen Sie den Entpackvorgang von einem vorherigen Volumen starten.
-; UnpCannotMerge
-;
-MSG_MProcessArc
-\n\nBearbeite das Archiv %s.
-; ProcessArc
-;
-MSG_MCopyingData
-\nKopiere Daten.
-; CopyingData
-;
-MSG_MTestVol
-\n\nTeste Archiv %s\n
-; TestVol
-;
-MSG_MRprBuild
-\nErstelle %s
-; RprBuild
-;
-MSG_MVolumeNumber
-Volume %d
-; VolumeNumber
-;
-MSG_MReAskPsw
-\nPasswort erneut eingeben: 
-; ReAskPsw
-;
-MSG_MACLSetError
-\nWARNUNG: Die Sicherheitsdaten für %s können nicht gesetzt werden.\n
-; ACLSetError
-;
-MSG_MWrongSFXVer
-\nFEHLER: Das Standard-SFX-Modul unterstützt keine RAR-%d.%d-Archive.
-; WrongSFXVer
-;
-MSG_MDictOutMem
-\nNicht genügend Speicher für ein %d MB großes Wörterbuch. Wörterbuchgröße geändert auf %d MB.
-; DictOutMem
-;
-MSG_MShare
-\nTestversion               Geben Sie rar -? für Hilfe ein.\n
-; Share
-;
-MSG_MCHelpSwSM
-\n  sm<Größe>     Dateien größer als die angegebene Größe verarbeiten
-; CHelpSwSM
-;
-MSG_MCHelpSwm
-\n  -             Schalterbearbeitung abbrechen
-; CHelpSwm
-;
-MSG_MLockingArc
-\nVerschließe Archiv
-; LockingArc
-;
-MSG_MListFile
-Datei
-; ListFile
-;
-MSG_MCannotDelete
-\nKann %s nicht löschen.
-; CannotDelete
-;
-MSG_MContinueQuit
-_Fortsetzen_Beenden
-; ContinueQuit
-;
-MSG_MRRDamaged
-\nDie Wiederherstellungsdaten sind beschädigt.
-; RRDamaged
-;
-MSG_MErrOpenFile
-Datei
-; ErrOpenFile
-;
-MSG_MCHelpSwOI
-\n  oi[0-4][:min] Identische Dateien als Verweise speichern
-; CHelpSwOI
-;
-MSG_MCHelpSw
-\n\n<Schalter>
-; CHelpSw
-;
-MSG_MNTFSRequired
-\nSchreibfehler: Nur das NTFS-Dateisystem unterstützt Dateien größer als 4 GB.
-; NTFSRequired
-;
-MSG_MErrGetOwnerID
-\nWARNUNG: Kann Besitzer-ID der Datei %s nicht lesen.\n
-; ErrGetOwnerID
-;
-MSG_MClearAttrib
-\n\nEntferne Attribute...
-; ClearAttrib
-;
-MSG_MSubHeadDataCRC
-\nFEHLER: Beschädigter Datenblock in %s.
-; SubHeadDataCRC
-;
-MSG_MListArchive
-Archiv
-; ListArchive
-;
-MSG_MCHelpSwDF
-\n  df            Dateien nach dem Archivieren löschen
-; CHelpSwDF
-;
-MSG_MNewerRAR
-\nSie benötigen möglicherweise eine neuere Version von RAR.
-; NewerRAR
-;
-MSG_MCHelpCmdRN
-\n  rn            Archivierte Dateien umbenennen
-; CHelpCmdRN
-;
-MSG_MExtrTestFile
-\nTeste       %-56s
-; ExtrTestFile
-;
-MSG_MCalcCRC
-\nBerechne die Prüfsumme.
-; CalcCRC
-;
-MSG_MStreamUnknown
-\nWARNUNG: Unbekanntes Datenstrom-Datenformat in %s.\n
-; StreamUnknown
-;
-MSG_MListTitleV
- Attribute      Größe   Gepackt Verh.    Datum   Zeit   Prüfsumme Name
-; ListTitleV
-;
-MSG_MRepacking
-\nPacke komprimierte Dateien erneut: 
-; Repacking
-;
-MSG_MListAtime
-Zugegriffen
-; ListAtime
-;
-MSG_MSubHeadType
-\nDatenheadertyp: %s
-; SubHeadType
-;
-MSG_MListTitleL
- Attribute      Größe     Datum   Zeit   Name
-; ListTitleL
-;
-MSG_MCannotCreate
-\nKann %s nicht erstellen.
-; CannotCreate
-;
-MSG_MCHelpSwHT
-\n  ht[b|c]       Hashverfahren [BLAKE2,CRC32] für Dateiprüfsumme wählen
-; CHelpSwHT
-;
-MSG_MListCompInfo
-Gepackt mit
-; ListCompInfo
-;
-MSG_MListLock
-Archivverschluss
-; ListLock
-;
-MSG_MUpdFile
-\nErneuere   %-58s     
-; UpdFile
-;
-MSG_MExtracting
-\n\nEntpacke aus %s\n
-; Extracting
-;
-MSG_MErrOpenFiles
-Dateien
-; ErrOpenFiles
-;
-MSG_MCreatDir
-\nErstelle    %-56s
-; CreatDir
-;
-MSG_MAskOverwrite
-\n%s überschreiben?
-; AskOverwrite
-;
-MSG_MCHelpSwMA
-\n  ma[4|5]       Version des Archivformats festlegen
-; CHelpSwMA
-;
-MSG_MCHelpSwINUL
-\n  inul          Alle Meldungen abschalten
-; CHelpSwINUL
-;
-MSG_MNewRarFormat
-\nNicht unterstütztes Archivformat. Bitte updaten Sie auf eine neuere RAR-Version.
-; NewRarFormat
-;
-MSG_MCHelpSwOS
- "\n  os            NTFS-Datenströme speichern
-; CHelpSwOS
-;
-MSG_MListSolid
-solide
-; ListSolid
-;
-MSG_MListPacked
-Gepackt
-; ListPacked
-;
-MSG_MCHelpCmdRR
-\n  rr[N]         Wiederherstellungsdaten hinzufügen
-; CHelpCmdRR
-;
-MSG_MListDetails
-Details
-; ListDetails
-;
-MSG_MNotFirstVol
-\nDie Datei %s ist nicht das erste Volumen.
-; NotFirstVol
-;
-MSG_MErrCreateLnkS
-\nKann den symbolischen Link %s nicht erstellen.
-; ErrCreateLnkS
-;
-MSG_MCHelpSwKB
-\n  kb            Beschädigte entpackte Dateien behalten
-; CHelpSwKB
-;
-MSG_MAddComment
-\nFüge Kommentar zu %s hinzu.
-; AddComment
-;
-MSG_MListEncHead
-verschlüsselte Header
-; ListEncHead
-;
-MSG_MCHelpSwRV
-\n  rv[N]         Wiederherstellungs-Volumen erstellen
-; CHelpSwRV
-;
-MSG_MRecVolAllExist
-\nNichts zum Wiederherstellen.
-; RecVolAllExist
-;
-MSG_MExtrSkipFile
-\nÜberspringe %-56s
-; ExtrSkipFile
-;
-MSG_MSubHeadCorrupt
- "\nFEHLER: Beschädigter Datenheader gefunden, wurde ignoriert.
-; SubHeadCorrupt
-;
-MSG_MRARTitle1
-\nAufruf:    rar <Befehl> -<Schalter 1> -<Schalter N> <Archiv> <Dateien...>
-; RARTitle1
-;
-MSG_MCHelpSwOH
-\n  oh            Harte Links als Links und nicht als Dateien speichern
-; CHelpSwOH
-;
-MSG_MYes
-Ja
-; Yes
-;
-MSG_MListUnkHead
-\n   Unbekannter Subheadertyp: 0x%04x
-; ListUnkHead
-;
-MSG_MListTarget
-Ziel
-; ListTarget
-;
-MSG_MMonthOct
-Okt
-; MonthOct
-;
-MSG_MNotVolume
-\n%s ist kein Volumen.
-; NotVolume
-;
-MSG_MRARTitle2
-\n               <@Dateilistendateien...> <Zielverzeichnispfad\\>
-; RARTitle2
-;
-MSG_MWrongFilePassword
-\nFalsches Passwort für %s.
-; WrongFilePassword
-;
-MSG_MHeadEncMismatch
-  "\nKann den Dateiheader-Verschlüsselungsmodus in bereits verschlüsselten Archiven nicht ändern.
-; HeadEncMismatch
-;
-MSG_MCHelpSwCFGm
-\n  cfg-          Konfiguration nicht einlesen
-; CHelpSwCFGm
-;
-MSG_MListRatio
-Rate
-; ListRatio
-;
-MSG_MListUOHead
-\n   Unix-Benutzer/Gruppendaten:    %-14s %-14s
-; ListUOHead
-;
-MSG_MUseCurPsw
-\n%s - aktuelles Passwort benutzen?
-; UseCurPsw
-;
-MSG_MAddFile
-\nArchiviere %-58s     
-; AddFile
-;
-MSG_MErrReadCount
-\n%u Dateien wurden wegen Lesefehlern nur unvollständig archiviert.
-; ErrReadCount
-;
-MSG_MCHelpSwCm
-\n  c-            Anzeige von Kommentaren abschalten
-; CHelpSwCm
-;
-MSG_MDelFrom
-\nLösche aus %s.
-; DelFrom
-;
-MSG_MCHelpSwMT
-\n  mt<Threads>   Anzahl der Threads festlegen
-; CHelpSwMT
-;
-MSG_MListDir
-Verzeichnis
-; ListDir
-;
-MSG_MSHelpCmdE
- "\n  -x      Aus Archiv entpacken (Standardvorgabe)
-; SHelpCmdE
-;
-MSG_MTestingRR
-\nÜberprüfe die Wiederherstellungsdaten.
-; TestingRR
-;
 MSG_MCHelpSwCL
 \n  cl            Dateinamen in Kleinbuchstaben umwandeln
 ; CHelpSwCL
 ;
-MSG_MWarErrFOpen
-\nWARNUNG: Kann %d %s nicht öffnen.
-; WarErrFOpen
-;
-MSG_MCHelpSwS
-\n  s[<N>,v[-],e] Solides Archiv erstellen
-; CHelpSwS
-;
-MSG_MCHelpSwW
-\n  w<Pfad>       Arbeitsverzeichnis für temporäre Dateien festlegen
-; CHelpSwW
-;
-MSG_MRecFailed
- - Kann Daten nicht wiederherstellen.
-; RecFailed
-;
-MSG_MMonthApr
-Apr
-; MonthApr
-;
-MSG_MCHelpCmdCH
-\n  ch            Archivparameter ändern
-; CHelpCmdCH
-;
-MSG_MCHelpCmdX
-\n  x             Dateien mit vollen Verzeichnisnamen entpacken
-; CHelpCmdX
-;
-MSG_MNumFound
-%d gefunden.
-; NumFound
-;
-MSG_MCHelpCmdI
-\n  i[Par]=<Zei>  In Archiven nach einer Zeichenkette suchen
-; CHelpCmdI
-;
-MSG_MErrWrite
-Schreibfehler in der Datei %s.
-; ErrWrite
-;
-MSG_MListFileVer
-Dateiversion
-; ListFileVer
-;
-MSG_MCHelpSwU
-\n  u             Dateien erneuern
-; CHelpSwU
-;
-MSG_MCHelpSwEP3
-\n  ep3           Auf vollständige Pfadangabe erweitern inkl. Laufwerksbuchstaben
-; CHelpSwEP3
-;
-MSG_MCHelpSwK
-\n  k             Archiv abschließen
-; CHelpSwK
-;
-MSG_MCHelpSwIVER
- "\n  iver          Versionsnummer anzeigen
-; CHelpSwIVER
-;
-MSG_MListVolume
-Volumen
-; ListVolume
-;
-MSG_MMoveDelDir
-\nLösche Verzeichnis %-30s
-; MoveDelDir
-;
-MSG_MListCopy
-Dateiverweis
-; ListCopy
-;
-MSG_MMonthNov
-Nov
-; MonthNov
-;
-MSG_MLogUnexpEOF
-\nUnerwartetes Archivende.
-; LogUnexpEOF
-;
-MSG_MSubHeadUnknown
-\nWARNUNG: Unbekanntes Datenheaderformat, wurde ignoriert.
-; SubHeadUnknown
-;
-MSG_MCHelpSwSC
-\n  sc<Zei>[Obj]  Zeichensatz angeben
-; CHelpSwSC
-;
-MSG_MCopyErrorHint
-\nSie müssen das ganze Archiv entpacken, um die Dateiverweis-Einträge zu erstellen.
-; CopyErrorHint
-;
-MSG_MCHelpCmdK
-\n  k             Archiv abschließen
-; CHelpCmdK
-;
-MSG_MListCtime
-Erstellt
-; ListCtime
-;
-MSG_MYesNoAllRenQ
-_Ja_Nein_Alle_Keine_Umbenennen_Beenden
-; YesNoAllRenQ
-;
-MSG_MListUSymlink
-Symbolischer Link (Unix)
-; ListUSymlink
-;
-MSG_MCHelpSwAG
-\n  ag[Format]    Archivnamen aus aktuellem Datum erzeugen
-; CHelpSwAG
-;
-MSG_MMonthJan
- "Jan
-; MonthJan
-;
-MSG_MCHelpSwSm
-\n  s-            Keine solide Archivierung
-; CHelpSwSm
-;
-MSG_MCHelpCmdRV
-\n  rv[N]         Wiederherstellungs-Volumen erstellen
-; CHelpCmdRV
-;
-MSG_MCHelpSwOW
-\n  ow            Dateibesitzer und Gruppe speichern/wiederherstellen
-; CHelpSwOW
-;
-MSG_MCHelpSwRR
-\n  rr[N]         Wiederherstellungsdaten hinzufügen
-; CHelpSwRR
-;
-MSG_MRecVolCannotFix
-\nWiederherstellung unmöglich.
-; RecVolCannotFix
-;
-MSG_MExtrErrMkDir
-\nKann Verzeichnis %s nicht erstellen.
-; ExtrErrMkDir
-;
-MSG_MListNoFiles
-  0 Dateien\n
-; ListNoFiles
-;
-MSG_MCHelpCmdF
-\n  f             Im Archiv vorhandene Dateien erneuern
-; CHelpCmdF
-;
-MSG_MMonthFeb
-Feb
-; MonthFeb
-;
-MSG_MAskPswFor
-\nPasswort für %s eingeben (wird nicht angezeigt): 
-; AskPswFor
-;
-MSG_MCHelpSwTN
-\n  tn[mcao]<t>   Nur Dateien neuer als Zeit <t> verarbeiten
-; CHelpSwTN
-;
-MSG_MNotSFX
-\nDie Datei %s ist kein selbstentpackendes Archiv.
-; NotSFX
-;
-MSG_MCHelpSwNal
-\n  n@<Liste>     Zusätzliche Dateimasken aus der Datei <Liste> lesen
-; CHelpSwNal
-;
-MSG_MOpenErrAtime
-\nSie müssen den Schalter -tsp entfernen, um diese Datei zu öffnen.
-; OpenErrAtime
-;
-MSG_MCHelpSwEP
-\n  ep            Pfadangabe aus Namen entfernen
-; CHelpSwEP
-;
-MSG_MErrRead
-Lesefehler in der Datei %s.
-; ErrRead
-;
-MSG_MAskNewName
-\nNeuen Dateinamen eingeben: 
-; AskNewName
-;
-MSG_MUCopyright
-\nUNRAR %s Freeware      Copyright © 1993-%d Alexander Roshal\n
-; UCopyright
-;
-MSG_MMoveDelFile
-\nLösche %-30s
-; MoveDelFile
-;
-MSG_MCHelpSwAT
-\n  @[+]          Dateilisten deaktivieren [aktivieren]
-; CHelpSwAT
-;
-MSG_MMonthSep
-Sep
-; MonthSep
-;
-MSG_MCHelpSwTK
-\n  tk            Originale Archivzeit beibehalten
-; CHelpSwTK
-;
-MSG_MErrFClose
-Kann die Datei %s nicht schließen.
-; ErrFClose
-;
-MSG_MAbsNextVol
-\nKann das Volumen %s nicht finden.
-; AbsNextVol
-;
-MSG_MEncrBadCRC
-\nPrüfsummenfehler der verschlüsselten Datei %s. Beschädigte Datei oder falsches Passwort.
-; EncrBadCRC
-;
-MSG_MCHelpSwT
-\n  t             Dateien nach der Archivierung auf Fehler testen
-; CHelpSwT
-;
-MSG_MACLUnknown
-\nWARNUNG: Das Format der Sicherheitsdaten für %s ist unbekannt.\n
-; ACLUnknown
-;
-MSG_MDone
-\nFertig
-; Done
-;
-MSG_MCHelpSwN
-\n  n<Dateimaske> Einzuschließende Dateien zusätzlich filtern
-; CHelpSwN
-;
-MSG_MCHelpSwVP
-\n  vp            Pause vor jedem Volumen
-; CHelpSwVP
-;
-MSG_MCvtToSFX
-\nKonvertiere Archive nach SFX
-; CvtToSFX
-;
-MSG_MRprNoFiles
-\nKeine Dateien gefunden.
-; RprNoFiles
-;
-MSG_MNo
-Nein
-; No
-;
-MSG_MLogProtectHead
-Der Header der Wiederherstellungsdaten ist beschädigt.
-; LogProtectHead
-;
-MSG_MCreatVol
-\n\nErstelle %sArchiv %s\n
-; CreatVol
-;
-MSG_MLogFileHead
-\n%s - der Dateiheader ist beschädigt.
-; LogFileHead
-;
-MSG_MYesNo
-_Ja_Nein
-; YesNo
-;
-MSG_MEraseForVolume
-\n\nLösche Inhalt von Laufwerk %c:\n
-; EraseForVolume
-;
-MSG_MRprFind
-\n%s gefunden.
-; RprFind
-;
-MSG_MCHelpCmdV
-\n  v[t[a],b]     Archivinhalt ausführlich auflisten [technisch[alles], einfach]
-; CHelpCmdV
-;
-MSG_MAskReplace
-\n\nMöchten Sie die vorhandene Datei %s\n%6s Bytes, geändert am %s\ndurch diese ersetzen?\n%6s Bytes, geändert am %s\n
-; AskReplace
-;
-MSG_MCHelpSwIOFF
-\n  ioff[n]       PC nach dem Ende der Archivoperation ausschalten
-; CHelpSwIOFF
-;
-MSG_MCHelpSwAS
-\n  as            Archivinhalt synchronisieren
-; CHelpSwAS
-;
-MSG_MListNTACLHead
-\n   NTFS-Sicherheitsdaten
-; ListNTACLHead
-;
-MSG_MSetOwnersError
-\nWARNUNG: Kann Besitzer und Gruppe der Datei %s nicht setzen.\n
-; SetOwnersError
-;
-MSG_MCHelpSwVn
-\n  v<Größe>[k,b] Volumen mit Größe=<Größe>*1000 [*1024, *1] erstellen
-; CHelpSwVn
-;
-MSG_MCalcCRCAllVol
-\nBerechne Prüfsumme aller Teilarchive (Volumen).
-; CalcCRCAllVol
-;
-MSG_MACLBroken
-\nFEHLER: Die Sicherheitsdaten von %s sind fehlerhaft.\n
-; ACLBroken
-;
-MSG_MCHelpSwIEML
-\n  ieml[Adr]     Archiv als E-Mail versenden
-; CHelpSwIEML
-;
-MSG_MNotMatchPsw
-\nFEHLER: Passwörter stimmen nicht überein.\n
-; NotMatchPsw
-;
-MSG_MReadStdinCmt
-\nLese Kommentar von stdin.\n
-; ReadStdinCmt
-;
-MSG_MCHelpSwV
-  "\n  v             Volumen mit automatischer Größe erstellen oder Inhalt aller Volumen auflisten
-; CHelpSwV
-;
-MSG_MCHelpCmdR
-\n  r             Archiv reparieren
-; CHelpCmdR
-;
-MSG_MCreating
-\nErstelle %s.
-; Creating
-;
-MSG_MACLGetError
-\nWARNUNG: Die Sicherheitsdaten für %s können nicht gelesen werden.\n
-; ACLGetError
-;
-MSG_MCHelpSwRm
-\n  r-            Rekursion abschalten
-; CHelpSwRm
-;
-MSG_MCHelpCmdRC
-\n  rc            Fehlende Volumen wiederherstellen
-; CHelpCmdRC
-;
-MSG_MYesNoAllQ
-_Ja_Nein_Alle_Keine_Beenden
-; YesNoAllQ
-;
-MSG_MCHelpSwZ
-\n  z[Datei]      Archivkommentar aus Datei lesen
-; CHelpSwZ
-;
-MSG_MListSFX
-SFX
-; ListSFX
-;
-MSG_MDataBadCRC
- "\n%-20s : Prüfsummenfehler der gepackten Daten in Volume %s.
-; DataBadCRC
-;
-MSG_MMonthJul
-Jul
-; MonthJul
-;
-MSG_MCHelpCmdL
-\n  l[t[a],b]     Archivinhalt auflisten [technisch[alles], einfach]
-; CHelpCmdL
-;
-MSG_MCopyError
-\nKonnte %s nicht nach %s kopieren.
-; CopyError
-;
-MSG_MDirNameExists
-\nEin Verzeichnis mit diesem Namen existiert bereits.
-; DirNameExists
-;
-MSG_MNotMdfVol
-\n\nFEHLER: Kann Volumen nicht verändern.
-; NotMdfVol
+MSG_MOwnersBroken
+\nFEHLER: Gruppen- und Besitzerdaten der Datei %s sind beschädigt.\n
+; OwnersBroken
 ;
 MSG_MUNRARTitle1
 \nAufruf:  unrar <Befehl> -<Schalter 1> -<Schalter N> <Archiv> <Dateien...>
 ; UNRARTitle1
 ;
-MSG_MOk
- OK
-; Ok
-;
-MSG_MCHelpSwXa
-\n  x@            Auszuschließende Dateinamen von stdin lesen
-; CHelpSwXa
-;
-MSG_MCHelpSwEN
-\n  en            'Archivende'-Block nicht hinzufügen
-; CHelpSwEN
+MSG_MCHelpSwIERR
+\n  ierr          Alle Fehlermeldungen an stderr senden
+; CHelpSwIERR
 ;
 MSG_MCHelpSwDH
 \n  dh            Durch andere Anwendungen gesperrte Dateien öffnen
 ; CHelpSwDH
 ;
-MSG_MRecVolDiffSets
-\nFEHLER: %s und %s gehören zu verschiedenen Archiven.
-; RecVolDiffSets
-;
-MSG_MListService
-Service
-; ListService
-;
-MSG_MCHelpCmd
-\n\n<Befehle>
-; CHelpCmd
-;
-MSG_MCHelpSwR
-\n  r             Unterverzeichnisse rekursiv durchsuchen
-; CHelpSwR
-;
-MSG_MErrReadInfo
-\nWählen Sie 'Ignorieren', um nur mit dem bereits gelesenen Teil der Datei fortzusetzen, 'Alle ignorieren', um das für alle weiteren Lesefehler so festzulegen, 'Wiederholen', um das Lesen zu wiederholen, und 'Beenden', um abzubrechen.
-; ErrReadInfo
-;
-MSG_MConverting
-\nKonvertiere %s
-; Converting
-;
-MSG_MRecSecDamage
-\nDer Sektor %ld (Offsets %lX...%lX) ist beschädigt.
-; RecSecDamage
-;
-MSG_MCHelpSwDW
-\n  dw            Dateien nach dem Archivieren sicher löschen
-; CHelpSwDW
-;
-MSG_MCHelpSwTA
-\n  ta[mcao]<d>   Nur Dateien verarbeiten, die nach Datum <d> (Format JJJJMMTTSSMMSS) geändert wurden
-; CHelpSwTA
-;
-MSG_MMonthMar
-Mär
-; MonthMar
-;
-MSG_MExtrPrinting
-\n------ Drucke %s\n\n
-; ExtrPrinting
-;
-MSG_MErrOutMem
-Nicht genügend Speicher.
-; ErrOutMem
-;
-MSG_MSHelpCmdV
-\n  -v      Archivinhalt ausführlich auflisten
-; SHelpCmdV
-;
-MSG_MCHelpSwOR
-\n  or            Dateien automatisch umbenennen
-; CHelpSwOR
-;
-MSG_MListStream
-NTFS-Datenstrom
-; ListStream
-;
-MSG_MListWSymlink
-Symbolischer Link (Windows)
-; ListWSymlink
-;
-MSG_MMonthAug
-Aug
-; MonthAug
-;
-MSG_MCHelpCmdM
-\n  m[f]          In ein Archiv verschieben [nur Dateien]
-; CHelpCmdM
-;
-MSG_MCHelpCmdCW
- "\n  cw            Archivkommentar in eine Datei schreiben
-; CHelpCmdCW
-;
-MSG_MRprOldFormat
-\nKann Archiv im alten Komprimierungsformat nicht reparieren.
-; RprOldFormat
-;
-MSG_MCHelpSwNa
-\n  n@            Zusätzliche Dateimasken von stdin lesen
-; CHelpSwNa
-;
-MSG_MRepAskReconst
-\nArchivstruktur wiederherstellen?
-; RepAskReconst
-;
-MSG_MCHelpSwIERR
-\n  ierr          Alle Fehlermeldungen an stderr senden
-; CHelpSwIERR
-;
-MSG_Mx64
-x64
-; x64
-;
-MSG_MCopyrightS
-\nSelbstentpackendes RAR-Archiv
-; CopyrightS
-;
-MSG_MCHelpSwMC
-\n  mc<Par>       Erweiterte Komprimierungsparameter einstellen
-; CHelpSwMC
-;
-MSG_MListHostOS
-System
-; ListHostOS
-;
-MSG_MOwnersBroken
- "\nFEHLER: Gruppen- und Besitzerdaten der Datei %s sind beschädigt.\n
-; OwnersBroken
-;
-MSG_MDelComment
-\nLösche Kommentar von %s.
-; DelComment
-;
-MSG_MNeedAdmin
-\nSie müssen RAR als Administrator ausführen.
-; NeedAdmin
-;
-MSG_MListSize
-Größe
-; ListSize
-;
-MSG_MRenaming
-\nBenenne %s nach %s um.
-; Renaming
-;
-MSG_MFileComment
-\nKommentar: 
-; FileComment
-;
-MSG_MCHelpSwLog
-\n  log[f][=Name] Datei- / Archivnamen in Protokolldatei schreiben
-; CHelpSwLog
-;
-MSG_MMoveDelFiles
-\n\nLösche Dateien %s...
-; MoveDelFiles
-;
-MSG_MAddPoints
-\n...        %-58s     
-; AddPoints
-;
-MSG_MCHelpSwF
-\n  f             Bereits vorhandene Dateien erneuern
-; CHelpSwF
-;
-MSG_MCHelpSwHP
-\n  hp[Passwort]  Dateidaten und Dateiköpfe verschlüsseln
-; CHelpSwHP
-;
-MSG_MReconstructing
-\nStelle Daten wieder her...
-; Reconstructing
-;
-MSG_MNotMdfLock
-\n\nFEHLER: Abgeschlossenes Archiv.
-; NotMdfLock
-;
-MSG_MRprAskIsSol
-\nDer Archivheader ist beschädigt. Das Archiv als solide kennzeichnen?
-; RprAskIsSol
-;
-MSG_MCHelpSwMS
-\n  ms[Erw;Erw]   Ohne Komprimierung zu speichernde Dateitypen festlegen
-; CHelpSwMS
-;
-MSG_MMoveNotDeleted
-    NICHT GELÖSCHT
-; MoveNotDeleted
-;
-MSG_MEraseArc
-\nLösche leeres Archiv %s.
-; EraseArc
-;
-MSG_MCHelpSwCU
-\n  cu            Dateinamen in Großbuchstaben umwandeln
-; CHelpSwCU
-;
-MSG_MCorruptExtra
-\nBeschädigtes zusätzliches Feld %s in %s.
-; CorruptExtra
-;
-MSG_MListStrmHead
-\n   NTFS-Datenstrom: %s
-; ListStrmHead
-;
 MSG_MListEnc
 verschlüsselt
 ; ListEnc
-;
-MSG_MSHelpCmd
-\n\n<Befehle>
-; SHelpCmd
-;
-MSG_MExtrTest
-\n\nTeste Archiv %s\n
-; ExtrTest
-;
-MSG_MCannotOpen
-\nKann %s nicht öffnen.
-; CannotOpen
-;
-MSG_MCHelpCmdU
-\n  u             Dateien im Archiv erneuern und hinzufügen
-; CHelpCmdU
-;
-MSG_MCHelpSwAO
-\n  ao            Dateien mit gesetztem Archivattribut hinzufügen
-; CHelpSwAO
-;
-MSG_MRecycleFailed
-\nKonnte einige Dateien und Verzeichnisse nicht in den Papierkorb verschieben.
-; RecycleFailed
-;
-MSG_MCHelpSwEP2
-\n  ep2           Auf vollständige Pfadangabe erweitern
-; CHelpSwEP2
-;
-MSG_MNoDelFiles
-\nKeine Dateien zum Löschen.
-; NoDelFiles
-;
-MSG_MCHelpSwQO
-\n  qo[-|+]       Informationen für schnelles Öffnen hinzufügen [nie|immer]
-; CHelpSwQO
-;
-MSG_MExtrPoints
-\n...         %-56s
-; ExtrPoints
-;
-MSG_MCHelpSwAP
-\n  ap<Pfad>      Pfad innerhalb des Archivs setzen
-; CHelpSwAP
-;
-MSG_MAskNextVol
-\nDiskette/Datenträger mit %s einlegen.
-; AskNextVol
-;
-MSG_MCHelpSwMD
-\n  md<n>[k,m,g]  Wörterbuchgröße in  in kB, MB or GB
-; CHelpSwMD
-;
-MSG_MCHelpSwVN
-\n  vn            Alte Volumennamen verwenden
-; CHelpSwVN
-;
-MSG_MErrRename
- "\nKann %s nicht nach %s umbenennen.
-; ErrRename
-;
-MSG_MCHelpSwISND
-\n  isnd[-]       Benachrichtigungstöne steuern
-; CHelpSwISND
-;
-MSG_MCommAskCont
- "\nDrücken Sie 'Return' zum Fortsetzen oder 'B' zum Beenden:
-; CommAskCont
-;
-MSG_MErrBrokenArc
- "Beschädigtes Archiv - Befehl 'Reparieren' benutzen.
-; ErrBrokenArc
-;
-MSG_MCopyright
-\nRAR %s   Copyright © 1993-%d Alexander Roshal   %d %s %d
-; Copyright
-;
-MSG_MCHelpSwSFX
-\n  sfx[Name]     Selbstentpackendes Archiv (SFX-Archiv) erstellen
-; CHelpSwSFX
-;
-MSG_MMonthJun
-Jun
-; MonthJun
-;
-MSG_MBadArc
-\nFEHLER: Fehlerhaftes Archiv %s.\n
-; BadArc
-;
-MSG_MSHelpCmdT
-\n  -t      Archivierte Dateien testen
-; SHelpCmdT
-;
-MSG_MGetOwnersError
-\nWARNUNG: Kann Besitzer und Gruppe der Datei %s nicht lesen.\n
-; GetOwnersError
-;
-MSG_MPackAskReg
-\nUnregistrierte Version. Bitte lassen Sie sich registieren.\n
-; PackAskReg
-;
-MSG_MRecRNotFound
-\nWiederherstellungsdaten nicht gefunden.
-; RecRNotFound
-;
-MSG_MAskFComm
-\n\nLese Kommentar für %s : %s von stdin\n
-; AskFComm
-;
-MSG_MPathTooLong
-\nFEHLER: Verzeichnisname ist zu lang.\n
-; PathTooLong
-;
-MSG_MLogCommBrk
-\nDer Archivkommentar ist beschädigt.
-; LogCommBrk
 ;
 MSG_MCHelpSwRI
 \n  ri<P>[:<S>]   Priorität (0-Standard,1-min..15-max) und Ruhezeit in ms
 ; CHelpSwRI
 ;
-MSG_MCHelpSwOC
-\n  oc            NTFS-Attribut \"Komprimiert\" setzen
-; CHelpSwOC
+MSG_MCHelpSwVP
+\n  vp            Pause vor jedem Volumen
+; CHelpSwVP
 ;
-MSG_MUnknownExtra
-\nUnbekanntes zusätzliches Feld in %s.
-; UnknownExtra
+MSG_MRecVolMissing
+\nEs fehlen %d Volumen.
+; RecVolMissing
 ;
-MSG_MWrongPassword
-\nDas angegebene Passwort ist falsch.
-; WrongPassword
+MSG_MLogFileHead
+\n%s - der Dateiheader ist beschädigt.
+; LogFileHead
 ;
-MSG_MAskRetryCreate
-\nKann %s nicht erstellen. Erneut versuchen?
-; AskRetryCreate
+MSG_MListRatio
+Rate
+; ListRatio
 ;
-MSG_MExtrAllOk
-\nAlles OK
-; ExtrAllOk
+MSG_MACLUnknown
+\nWARNUNG: Das Format der Sicherheitsdaten für %s ist unbekannt.\n
+; ACLUnknown
 ;
-MSG_MRecVolLimit
-\nDie Anzahl aller normalen Volumen und Wiederherstellungsvolumen darf %d nicht überschreiten.
-; RecVolLimit
+MSG_MAbsNextVol
+\nKann das Volumen %s nicht finden.
+; AbsNextVol
 ;
-MSG_MExtrVol
-\n\nEntpacke aus %s\n
-; ExtrVol
+MSG_MOpenErrAtime
+\nSie müssen den Schalter -tsp entfernen, um diese Datei zu öffnen.
+; OpenErrAtime
 ;
-MSG_MListHardlink
-Harter Link
-; ListHardlink
-;
-MSG_MCannotEmail
-\nKann die Datei %s nicht per E-Mail verschicken.
-; CannotEmail
-;
-MSG_MWriteCommTo
-\nSchreibe Kommentar in die Datei %s.
-; WriteCommTo
-;
-MSG_MAddAnalyze
-\nAnalysiere komprimierte Dateien  : 
-; AddAnalyze
-;
-MSG_MUnknownMeth
-\nUnbekannte Komprimierungsmethode in %s.
-; UnknownMeth
-;
-MSG_MSymLinkExists
-\nWARNUNG: Die symbolische Verknüpfung %s ist bereits vorhanden.
-; SymLinkExists
-;
-MSG_MCHelpSwO
-\n  o[+|-]        Überschreibmodus festlegen
-; CHelpSwO
-;
-MSG_MNotRAR
-\nDie Datei %s ist kein RAR-Archiv.
-; NotRAR
-;
-MSG_MCRCFailed
-\n%-20s - Prüfsummenfehler
-; CRCFailed
-;
-MSG_MErrChangeAttr
-\nWARNUNG: Kann Attribute von %s nicht ändern.
-; ErrChangeAttr
-;
-MSG_MCHelpSwED
-\n  ed            Leere Verzeichnisse nicht hinzufügen
-; CHelpSwED
-;
-MSG_MCHelpSwAI
-\n  ai            Dateiattribute ignorieren
-; CHelpSwAI
-;
-MSG_MCHelpSwTB
-\n  tb[mcao]<d>   Nur Dateien verarbeiten, die vor Datum <d> (Format JJJJMMTTSSMMSS) geändert wurden
-; CHelpSwTB
-;
-MSG_MCHelpSwONI
-\n  oni           Potenziell nicht kompatible Namen zulassen
-; CHelpSwONI
-;
-MSG_MCorrectingName
-\nWARNUNG: Versuche den ungültigen Datei- oder Verzeichnisnamen zu korrigieren.
-; CorrectingName
-;
-MSG_MCHelpCmdT
-\n  t             Archivierte Dateien testen
-; CHelpCmdT
-;
-MSG_MCHelpSwX
-\n  x<Datei>      Angegebene Datei ausschließen
-; CHelpSwX
-;
-MSG_MNotEnoughDisk
-\nFEHLER: Nicht genügend Speicherplatz auf dem Laufwerk für %s.
-; NotEnoughDisk
-;
-MSG_MUpdateArchive
-\nErneuere %sArchiv %s\n
-; UpdateArchive
-;
-MSG_MCHelpSwVUnr
-\n  v             Inhalt aller Volumen auflisten
-; CHelpSwVUnr
-;
-MSG_MListRR
-Wiederherstellungsdaten
-; ListRR
-;
-MSG_MAskPsw
-Passwort eingeben (wird nicht angezeigt)
-; AskPsw
-;
-MSG_MReadCommFrom
-\nLese Kommentar aus der Datei %s.
-; ReadCommFrom
-;
-MSG_MErrGetGroupID
-\nWARNUNG: Kann Gruppen-ID der Datei %s nicht lesen.\n
-; ErrGetGroupID
-;
-MSG_MDeleting
-\nLösche %s.
-; Deleting
-;
-MSG_MCHelpSwR0
-\n  r0            Unterverzeichnisse nur bei Wildcards rekursiv durchsuchen
-; CHelpSwR0
-;
-MSG_MAddRecRec
-\nFüge Wiederherstellungsdaten hinzu.
-; AddRecRec
-;
-MSG_MListAttr
-Attribute
-; ListAttr
-;
-MSG_MBreak
-  "\nBenutzerabbruch\n
-; Break
-;
-MSG_MBeta
-Beta
-; Beta
-;
-MSG_MErrLnkTarget
-\nSie müssen zuerst das Linkziel entpacken.
-; ErrLnkTarget
-;
-MSG_MRecVolFound
-\nEs wurden %d Wiederherstellungs-Volumen gefunden.
-; RecVolFound
-;
-MSG_MProgAborted
-Programm abgebrochen.
-; ProgAborted
-;
-MSG_MAddSolid
-solides 
-; AddSolid
-;
-MSG_MCHelpCmdD
-\n  d             Dateien aus einem Archiv löschen
-; CHelpCmdD
-;
-MSG_MListJunction
-NTFS-Junction-Point
-; ListJunction
-;
-MSG_MIncompatSwitch
-\nDer Schalter %s wird durch das RAR %d.x Archivformat nicht unterstützt.
-; IncompatSwitch
-;
-MSG_MCHelpSwSL
-\n  sl<Größe>     Dateien kleiner als die angegebene Größe verarbeiten
-; CHelpSwSL
-;
-MSG_MCHelpSwVD
-\n  vd            Laufwerksinhalt von Wechselmedien beim Erstellen von Volumen löschen
-; CHelpSwVD
-;
-MSG_MNotMdfOld
-\n\nFEHLER: Kann Archiv im alten Format nicht verändern.
-; NotMdfOld
-;
-MSG_MCHelpSwXal
-\n  x@<Liste>     In einer Listendatei angegebene Dateien ausschließen
-; CHelpSwXal
-;
-MSG_MAddNoFiles
-\nWARNUNG: Keine Dateien
-; AddNoFiles
-;
-MSG_MRecRFound
-\nWiederherstellungsdaten gefunden.
-; RecRFound
-;
-MSG_MCHelpCmdS
-\n  s[Name|-]     Archiv nach oder von SFX konvertieren
-; CHelpCmdS
-;
-MSG_MCHelpSwAC
-\n  ac            Archivattribut nach dem Packen oder Entpacken löschen
-; CHelpSwAC
-;
-MSG_MFAT32Size
-\nWARNUNG: Das FAT32-Dateisystem unterstützt keine Dateien größer als 4 GB.
-; FAT32Size
-;
-MSG_MCHelpCmdC
-\n  c             Archivkommentar hinzufügen
-; CHelpCmdC
-;
-MSG_MStreamBroken
-\nFEHLER: Die Datenstrom-Daten von %s sind beschädigt.\n
-; StreamBroken
-;
-MSG_MMdfEncrSol
-\n%s: verschlüsselt
-; MdfEncrSol
-;
-MSG_MCvtFromSFX
-\nEntferne SFX-Modul
-; CvtFromSFX
-;
-MSG_MCHelpCmdP
-\n  p             Dateien nach stdout ausgeben
-; CHelpCmdP
-;
-MSG_MCHelpSwTL
-\n  tl            Archivzeit auf die Dateizeit der neusten Datei setzen
-; CHelpSwTL
+MSG_MMonthJul
+Jul
+; MonthJul
 ;
 MSG_MListType
 Art
 ; ListType
 ;
-MSG_MListFlags
-Kennzeichen
-; ListFlags
+MSG_MListSize
+Größe
+; ListSize
 ;
-MSG_MCommNotPres
-\nEin Kommentar ist nicht vorhanden.
-; CommNotPres
-;
-MSG_MListMtime
-Geändert
-; ListMtime
-;
-MSG_MMoveDelDirs
-und Verzeichnisse
-; MoveDelDirs
-;
-MSG_MCHelpSwEP1
-\n  ep1           Stammverzeichnis aus Namen entfernen
-; CHelpSwEP1
-;
-MSG_MUnkEncMethod
-\nUnbekannte Verschlüsselungsmethode in %s.
-; UnkEncMethod
-;
-MSG_MScanError
-\nKann Inhalt von %s nicht lesen.
-; ScanError
-;
-MSG_MCHelpSwDS
-\n  ds            Namenssortierung für solide Archive abschalten
-; CHelpSwDS
-;
-MSG_MListName
-Name
-; ListName
-;
-MSG_Mx86
-x86
-; x86
-;
-MSG_MCHelpCmdE
-\n  e             Dateien ohne gespeicherte Pfade entpacken
-; CHelpCmdE
-;
-MSG_MAskNextDisk
-\nDiskette/Datenträger voll. Bitte Nächsten einlegen.
-; AskNextDisk
-;
-MSG_MTooLargeSFXArc
-\nSFX-Archiv zu groß. Windows kann eine Programmdatei mit einer Größe von mehr als 4 GB nicht ausführen.
-; TooLargeSFXArc
-;
-MSG_MCHelpSwIDP
-\n  id[c,d,n,p,q] Meldungen anzeigen oder unterdrücken
-; CHelpSwIDP
-;
-MSG_MCHelpSwAD
-\n  ad[1,2]       Zielverzeichnispfad wechseln
-; CHelpSwAD
-;
-MSG_MLogTitle
---------  %2d %s %d, Archiv %s
-; LogTitle
-;
-MSG_MCHelpSwOL
-\n  ol[a]         Symbolische Links als Links verarbeiten [absolute Pfade]
-; CHelpSwOL
-;
-MSG_MErrReadTrunc
-\n%s wurde aufgrund eines Lesefehlers nur unvollständig archiviert.\n
-; ErrReadTrunc
-;
-MSG_MCHelpSwP
-\n  p[Passwort]   Passwort setzen
-; CHelpSwP
+MSG_MContinueQuit
+_Fortsetzen_Beenden
+; ContinueQuit
 ;
 MSG_MUnknownOption
- "\nFEHLER: Unbekannte Option: %s
+\nFEHLER: Unbekannte Option: %s
 ; UnknownOption
 ;
-MSG_MCHelpSwSI
-\n  si[Name]      Daten von der Standardeingabe (stdin) lesen
-; CHelpSwSI
+MSG_MExtrPrinting
+\n------ Drucke %s\n\n
+; ExtrPrinting
 ;
-MSG_MCHelpSwPm
- "\n  p-            Passwort nicht abfragen
-; CHelpSwPm
+MSG_MCHelpSwV
+\n  v             Volumen mit automatischer Größe erstellen oder Inhalt aller Volumen auflisten
+; CHelpSwV
 ;
-MSG_MFCommAdd
-\nFüge Dateikommentar(e) hinzu.
-; FCommAdd
+MSG_MTruncPsw
+\nDas Passwort überschreitet die maximal zulässige Länge von %u Zeichen und wird gekürzt.
+; TruncPsw
 ;
-MSG_MErrLnkRead
-\nWARNUNG: Kann die symbolische Verknüpfung %s nicht lesen.
-; ErrLnkRead
-;
-MSG_MSearchDupFiles
-\nSuche nach identischen Dateien.
-; SearchDupFiles
-;
-MSG_MCreateArchive
-\nErstelle %sArchiv %s\n
-; CreateArchive
-;
-MSG_MRprReconstr
-\nStelle %s wieder her.
-; RprReconstr
-;
-MSG_MCHelpSwY
-  "\n  y             Alle Fragen mit 'Ja' beantworten
-; CHelpSwY
-;
-MSG_MAnalyzeFileData
-\nUntersuche Dateidaten...
-; AnalyzeFileData
-;
-MSG_MInvalidName
-\nFEHLER: Ungültiger Dateiname: %s.
-; InvalidName
-;
-MSG_MErrCreateLnkH
-\nKann den harten Link %s nicht erstellen.
-; ErrCreateLnkH
-;
-MSG_MMonthMay
-Mai
-; MonthMay
-;
-MSG_MRegTo
- "\nRegistriert für %s\n
-; RegTo
-;
-MSG_MCHelpSwVER
-\n  ver[n]        Verschiedene Versionen einer Datei ermöglichen
-; CHelpSwVER
-;
-MSG_MExtrFile
-\nEntpacke    %-56s
-; ExtrFile
-;
-MSG_MCvtOldFormat
-\n%s - kann Archiv im alten Format nicht in SFX konvertieren.
-; CvtOldFormat
-;
-MSG_MRetryAbort
-_Wiederholen_Abbrechen
-; RetryAbort
-;
-MSG_MCHelpSwDR
-\n  dr            Dateien beim Löschen in den Papierkorb verschieben
-; CHelpSwDR
-;
-MSG_MCHelpSwTO
- "\n  to[mcao]<t>   Nur Dateien älter als Zeit <t> verarbeiten
-; CHelpSwTO
-;
-MSG_MExtrNoFiles
-\nKeine Dateien zum Entpacken.
-; ExtrNoFiles
-;
-MSG_MUseSmalllerDict
-\nBitte verwenden Sie ein kleineres Wörterbuch für die Komprimierung.
-; UseSmalllerDict
-;
-MSG_MYesNoAll
-_Ja_Nein_Alle
-; YesNoAll
+MSG_MListStream
+NTFS-Datenstrom
+; ListStream
 ;
 MSG_MMainHeaderBroken
 \nDer Hauptarchivheader ist beschädigt.
 ; MainHeaderBroken
 ;
+MSG_MYesNoAllQ
+_Ja_Nein_Alle_Keine_Beenden
+; YesNoAllQ
+;
+MSG_MNotEnoughDisk
+\nFEHLER: Nicht genügend Speicherplatz auf dem Laufwerk für %s.
+; NotEnoughDisk
+;
+MSG_MErrReadTrunc
+\n%s wurde aufgrund eines Lesefehlers nur unvollständig archiviert.\n
+; ErrReadTrunc
+;
+MSG_MListFileVer
+Dateiversion
+; ListFileVer
+;
+MSG_MWriteCommTo
+\nSchreibe Kommentar in die Datei %s.
+; WriteCommTo
+;
+MSG_MCHelpCmdT
+\n  t             Archivierte Dateien testen
+; CHelpCmdT
+;
+MSG_MExtrVol
+\n\nEntpacke aus %s\n
+; ExtrVol
+;
+MSG_MListPacked
+Gepackt
+; ListPacked
+;
+MSG_MFAT32Size
+\nWARNUNG: Das FAT32-Dateisystem unterstützt keine Dateien größer als 4 GB.
+; FAT32Size
+;
+MSG_MMonthMay
+Mai
+; MonthMay
+;
+MSG_MCHelpSwAT
+\n  @[+]          Dateilisten deaktivieren [aktivieren]
+; CHelpSwAT
+;
+MSG_MCHelpSwIOFF
+\n  ioff[n]       PC nach dem Ende der Archivoperation ausschalten
+; CHelpSwIOFF
+;
+MSG_MYesNoAllRenQ
+_Ja_Nein_Alle_Keine_Umbenennen_Beenden
+; YesNoAllRenQ
+;
+MSG_MBadArc
+\nFEHLER: Fehlerhaftes Archiv %s.\n
+; BadArc
+;
+MSG_MNotMatchPsw
+\nFEHLER: Passwörter stimmen nicht überein.\n
+; NotMatchPsw
+;
+MSG_MCHelpSwVUnr
+\n  v             Inhalt aller Volumen auflisten
+; CHelpSwVUnr
+;
+MSG_MCHelpSwVN
+\n  vn            Alte Volumennamen verwenden
+; CHelpSwVN
+;
+MSG_MMoveDeleted
+    gelöscht
+; MoveDeleted
+;
+MSG_MCannotOpen
+	"\nKann %s nicht öffnen.
+; CannotOpen
+;
+MSG_MErrLnkTarget
+\nSie müssen zuerst das Linkziel entpacken.
+; ErrLnkTarget
+;
+MSG_MACLBroken
+\nFEHLER: Die Sicherheitsdaten von %s sind fehlerhaft.\n
+; ACLBroken
+;
+MSG_MCHelpSwY
+\n  y             Alle Fragen mit 'Ja' beantworten
+; CHelpSwY
+;
+MSG_MListUnkHead
+\n   Unbekannter Subheadertyp: 0x%04x
+; ListUnkHead
+;
+MSG_MCHelpSwR
+\n  r             Unterverzeichnisse rekursiv durchsuchen
+; CHelpSwR
+;
+MSG_MCHelpSwAD
+\n  ad[1,2]       Zielverzeichnispfad wechseln
+; CHelpSwAD
+;
+MSG_MCopyError
+\nKonnte %s nicht nach %s kopieren.
+; CopyError
+;
+MSG_MCHelpSwISND
+\n  isnd[-]       Benachrichtigungstöne steuern
+; CHelpSwISND
+;
+MSG_MCHelpSwm
+\n  -             Schalterbearbeitung abbrechen
+; CHelpSwm
+;
+MSG_MCvtOldFormat
+\n%s - kann Archiv im alten Format nicht in SFX konvertieren.
+; CvtOldFormat
+;
+MSG_MCHelpSwOC
+\n  oc            NTFS-Attribut \"Komprimiert\" setzen
+; CHelpSwOC
+;
+MSG_MInvalidName
+\nFEHLER: Ungültiger Dateiname: %s."	
+; InvalidName
+;
+MSG_MCHelpCmdRV
+\n  rv[N]         Wiederherstellungs-Volumen erstellen
+; CHelpCmdRV
+;
+MSG_MCHelpSwN
+\n  n<Dateimaske> Einzuschließende Dateien zusätzlich filtern
+; CHelpSwN
+;
+MSG_MReadCommFrom
+\nLese Kommentar aus der Datei %s.
+; ReadCommFrom
+;
+MSG_MCHelpSwSFX
+\n  sfx[Name]     Selbstentpackendes Archiv (SFX-Archiv) erstellen
+; CHelpSwSFX
+;
+MSG_MCHelpSwX
+\n  x<Datei>      Angegebene Datei ausschließen
+; CHelpSwX
+;
+MSG_MListHostOS
+System
+; ListHostOS
+;
+MSG_MListFile
+Datei
+; ListFile
+;
+MSG_MCHelpCmdRC
+\n  rc            Fehlende Volumen wiederherstellen
+; CHelpCmdRC
+;
+MSG_MCorrectingName
+\nWARNUNG: Versuche den ungültigen Datei- oder Verzeichnisnamen zu korrigieren.
+; CorrectingName
+;
+MSG_MCHelpSwSI
+\n  si[Name]      Daten von der Standardeingabe (stdin) lesen
+; CHelpSwSI
+;
+MSG_MCHelpSwEa
+\n  e[+]<Attr>    Dateien mit bestimmten Attributen ein- und ausschließen
+; CHelpSwEa
+;
+MSG_MCopyingData
+\nKopiere Daten.
+; CopyingData
+;
+MSG_MVolumeNumber
+Volume %d
+; VolumeNumber
+;
+MSG_MBlocksRecovered
+\n%u Blöcke wiederhergestellt, %u Blöcke neu zugeordnet.
+; BlocksRecovered
+;
+MSG_MSHelpCmdV
+\n  -v      Archivinhalt ausführlich auflisten
+; SHelpCmdV
+;
+MSG_MFCommAdd
+\nFüge Dateikommentar(e) hinzu.
+; FCommAdd
+;
+MSG_MLockingArc
+\nVerschließe Archiv
+; LockingArc
+;
+MSG_MScanError
+\nKann Inhalt von %s nicht lesen.
+; ScanError
+;
+MSG_MListSolid
+solide
+; ListSolid
+;
+MSG_MReAskPsw
+\nPasswort erneut eingeben: 
+; ReAskPsw
+;
+MSG_MSHelpCmdT
+\n  -t      Archivierte Dateien testen
+; SHelpCmdT
+;
+MSG_MListTarget
+Ziel
+; ListTarget
+;
+MSG_MLogUnexpEOF
+\nUnerwartetes Archivende.
+; LogUnexpEOF
+;
+MSG_MACLSetError
+\nWARNUNG: Die Sicherheitsdaten für %s können nicht gesetzt werden.\n
+; ACLSetError
+;
+MSG_MRecFailed
+ - Kann Daten nicht wiederherstellen.
+; RecFailed
+;
+MSG_MCHelpSwZ
+\n  z[Datei]      Archivkommentar aus Datei lesen
+; CHelpSwZ
+;
+MSG_MUnpCannotMerge
+\nWARNUNG: Um %s zu entpacken, müssen Sie den Entpackvorgang von einem vorherigen Volumen starten.
+; UnpCannotMerge
+;
+MSG_MListNoFiles
+  0 Dateien\n
+; ListNoFiles
+;
+MSG_MListCompInfo
+Gepackt mit
+; ListCompInfo
+;
+MSG_MCopyErrorHint
+\nSie müssen das ganze Archiv entpacken, um die Dateiverweis-Einträge zu erstellen.
+; CopyErrorHint
+;
+MSG_MMoveDelDir
+\nLösche Verzeichnis %-30s
+; MoveDelDir
+;
+MSG_MNotFirstVol
+\nDie Datei %s ist nicht das erste Volumen.
+; NotFirstVol
+;
+MSG_MCHelpSwF
+\n  f             Bereits vorhandene Dateien erneuern
+; CHelpSwF
+;
+MSG_MGetOwnersError
+\nWARNUNG: Kann Besitzer und Gruppe der Datei %s nicht lesen.\n
+; GetOwnersError
+;
+MSG_MTooLargeSFXArc
+\nSFX-Archiv zu groß. Windows kann eine Programmdatei mit einer Größe von mehr als 4 GB nicht ausführen.
+; TooLargeSFXArc
+;
+MSG_MCHelpSwMC
+\n  mc<Par>       Erweiterte Komprimierungsparameter einstellen
+; CHelpSwMC
+;
+MSG_MListFlags
+Kennzeichen
+; ListFlags
+;
+MSG_MCHelpSwT
+\n  t             Dateien nach der Archivierung auf Fehler testen
+; CHelpSwT
+;
+MSG_MCHelpSwQO
+\n  qo[-|+]       Informationen für schnelles Öffnen hinzufügen [nie|immer]
+; CHelpSwQO
+;
+MSG_MCHelpSwIEML
+\n  ieml[Adr]     Archiv als E-Mail versenden
+; CHelpSwIEML
+;
+MSG_MRecRNotFound
+\nWiederherstellungsdaten nicht gefunden.
+; RecRNotFound
+;
+MSG_MRprAskIsSol
+\nDer Archivheader ist beschädigt. Das Archiv als solide kennzeichnen?
+; RprAskIsSol
+;
+MSG_MListModified
+Geändert
+; ListModified
+;
+MSG_MMonthApr
+Apr
+; MonthApr
+;
+MSG_MProcessArc
+\n\nBearbeite das Archiv %s.
+; ProcessArc
+;
+MSG_MWarErrFOpen
+\nWARNUNG: Kann %d %s nicht öffnen.
+; WarErrFOpen
+;
+MSG_MRecVolAllExist
+\nNichts zum Wiederherstellen.
+; RecVolAllExist
+;
+MSG_MCHelpSwDW
+\n  dw            Dateien nach dem Archivieren sicher löschen
+; CHelpSwDW
+;
+MSG_MCHelpSwXal
+\n  x@<Liste>     In einer Listendatei angegebene Dateien ausschließen
+; CHelpSwXal
+;
+MSG_MCHelpCmdS
+\n  s[Name|-]     Archiv nach oder von SFX konvertieren
+; CHelpCmdS
+;
+MSG_MCHelpSwCm
+\n  c-            Anzeige von Kommentaren abschalten
+; CHelpSwCm
+;
+MSG_MBreak
+\nBenutzerabbruch\n
+; Break
+;
+MSG_MRenaming
+\nBenenne %s nach %s um.
+; Renaming
+;
+MSG_MMonthMar
+Mär
+; MonthMar
+;
+MSG_MNumFound
+%d gefunden.
+; NumFound
+;
+MSG_MListAtime
+Zugegriffen
+; ListAtime
+;
+MSG_MAddComment
+\nFüge Kommentar zu %s hinzu.
+; AddComment
+;
+MSG_MCHelpSwMT
+\n  mt<Threads>   Anzahl der Threads festlegen
+; CHelpSwMT
+;
+MSG_MListDetails
+Details
+; ListDetails
+;
+MSG_MCHelpSwSC
+\n  sc<Zei>[Obj]  Zeichensatz angeben
+; CHelpSwSC
+;
+MSG_MCHelpSwIVER
+\n  iver          Versionsnummer anzeigen
+; CHelpSwIVER
+;
+MSG_MCorruptExtra
+\nBeschädigtes zusätzliches Feld %s in %s.
+; CorruptExtra
+;
+MSG_MErrSeek
+Seekfehler in der Datei %s.
+; ErrSeek
+;
+MSG_MCHelpSwEP1
+\n  ep1           Stammverzeichnis aus Namen entfernen
+; CHelpSwEP1
+;
+MSG_MNTFSRequired
+\nSchreibfehler: Nur das NTFS-Dateisystem unterstützt Dateien größer als 4 GB.
+; NTFSRequired
+;
+MSG_MCHelpSwAS
+\n  as            Archivinhalt synchronisieren
+; CHelpSwAS
+;
+MSG_MNotMdfLock
+\n\nFEHLER: Abgeschlossenes Archiv.
+; NotMdfLock
+;
+MSG_MAskCreatVol
+\nNächstes Volumen erstellen?
+; AskCreatVol
+;
+MSG_MCHelpSwTN
+\n  tn[mcao]<t>   Nur Dateien neuer als Zeit <t> verarbeiten
+; CHelpSwTN
+;
+MSG_MCannotDelete
+\nKann %s nicht löschen.
+; CannotDelete
+;
+MSG_MWrongPassword
+\nDas angegebene Passwort ist falsch."	
+; WrongPassword
+;
+MSG_MNotMdfVol
+\n\nFEHLER: Kann Volumen nicht verändern.
+; NotMdfVol
+;
+MSG_MCHelpSwOW
+\n  ow            Dateibesitzer und Gruppe speichern/wiederherstellen
+; CHelpSwOW
+;
+MSG_MCHelpSwRm
+\n  r-            Rekursion abschalten
+; CHelpSwRm
+;
+MSG_MListAccessed
+Zugegriffen
+; ListAccessed
+;
+MSG_MDone
+\nFertig
+; Done
+;
+MSG_MCHelpSwTO
+\n  to[mcao]<t>   Nur Dateien älter als Zeit <t> verarbeiten
+; CHelpSwTO
+;
+MSG_MCHelpSwOP
+\n  op<Pfad>      Zielverzeichnispfad für entpackte Dateien festlegen
+; CHelpSwOP
+;
+MSG_MSkipEncArc
+\nÜberspringe das verschlüsselte Archiv %s
+; SkipEncArc
+;
+MSG_MReadStdinCmt
+\nLese Kommentar von stdin.\n
+; ReadStdinCmt
+;
+MSG_MDeleting
+\nLösche %s.
+; Deleting
+;
+MSG_MListCopy
+Dateiverweis
+; ListCopy
+;
+MSG_MMonthFeb
+Feb
+; MonthFeb
+;
+MSG_MCHelpSwSL
+\n  sl<Größe>     Dateien kleiner als die angegebene Größe verarbeiten
+; CHelpSwSL
+;
+MSG_MNotMdfOld
+\n\nFEHLER: Kann Archiv im alten Format nicht verändern.
+; NotMdfOld
+;
+MSG_MCHelpSwNal
+\n  n@<Liste>     Zusätzliche Dateimasken aus der Datei <Liste> lesen
+; CHelpSwNal
+;
+MSG_MListDir
+Verzeichnis
+; ListDir
+;
+MSG_MWrongSFXVer
+\nFEHLER: Das Standard-SFX-Modul unterstützt keine RAR-%d.%d-Archive.
+; WrongSFXVer
+;
+MSG_MCHelpSwRR
+\n  rr[N]         Wiederherstellungsdaten hinzufügen
+; CHelpSwRR
+;
+MSG_MExtrNoFiles
+\nKeine Dateien zum Entpacken.
+; ExtrNoFiles
+;
+MSG_MNo
+Nein
+; No
+;
+MSG_MMonthNov
+Nov
+; MonthNov
+;
+MSG_MCHelpCmdD
+\n  d             Dateien aus einem Archiv löschen
+; CHelpCmdD
+;
+MSG_MErrRead
+Lesefehler in der Datei %s.
+; ErrRead
+;
+MSG_MSubHeadDataCRC
+\nFEHLER: Beschädigter Datenblock in %s.
+; SubHeadDataCRC
+;
+MSG_MRegTo
+\nRegistriert für %s\n
+; RegTo
+;
+MSG_MListAttr
+Attribute
+; ListAttr
+;
+MSG_MYesNo
+_Ja_Nein
+; YesNo
+;
+MSG_MErrReadInfo
+\nWählen Sie 'Ignorieren', um nur mit dem bereits gelesenen Teil der Datei fortzusetzen, 'Alle ignorieren', um das für alle weiteren Lesefehler so festzulegen, 'Wiederholen', um das Lesen zu wiederholen, und 'Beenden', um abzubrechen.
+; ErrReadInfo
+;
+MSG_MErrRename
+\nKann %s nicht nach %s umbenennen.
+; ErrRename
+;
+MSG_MNewRarFormat
+\nNicht unterstütztes Archivformat. Bitte updaten Sie auf eine neuere RAR-Version.
+; NewRarFormat
+;
+MSG_MYesNoAll
+_Ja_Nein_Alle
+; YesNoAll
+;
+MSG_MExtrFile
+\nEntpacke    %-56s
+; ExtrFile
+;
+MSG_MMonthSep
+Sep
+; MonthSep
+;
+MSG_MYes
+Ja
+; Yes
+;
+MSG_MListStrmHead
+\n   NTFS-Datenstrom: %s
+; ListStrmHead
+;
+MSG_MCHelpSwEP2
+\n  ep2           Auf vollständige Pfadangabe erweitern
+; CHelpSwEP2
+;
+MSG_MTestingRR
+\nÜberprüfe die Wiederherstellungsdaten.
+; TestingRR
+;
+MSG_MNoDelFiles
+\nKeine Dateien zum Löschen.
+; NoDelFiles
+;
+MSG_MSubHeadUnknown
+\nWARNUNG: Unbekanntes Datenheaderformat, wurde ignoriert.
+; SubHeadUnknown
+;
+MSG_MRprNoFiles
+\nKeine Dateien gefunden.
+; RprNoFiles
+;
+MSG_MListUOHead
+\n   Unix-Benutzer/Gruppendaten:    %-14s %-14s
+; ListUOHead
+;
+MSG_MRecVolCannotFix
+\nWiederherstellung unmöglich.
+; RecVolCannotFix
+;
+MSG_MAddFile
+\nArchiviere %-58s     
+; AddFile
+;
+MSG_MErrGetOwnerID
+\nWARNUNG: Kann Besitzer-ID der Datei %s nicht lesen.\n
+; ErrGetOwnerID
+;
+MSG_MListLock
+Archivverschluss
+; ListLock
+;
+MSG_MListJunction
+NTFS-Junction-Point
+; ListJunction
+;
+MSG_MUseSmalllerDict
+\nBitte verwenden Sie ein kleineres Wörterbuch für die Komprimierung.
+; UseSmalllerDict
+;
+MSG_MCHelpSwRV
+\n  rv[N]         Wiederherstellungs-Volumen erstellen
+; CHelpSwRV
+;
+MSG_MAskRetryCreate
+\nKann %s nicht erstellen. Erneut versuchen?
+; AskRetryCreate
+;
+MSG_MCHelpSwTB
+\n  tb[mcao]<d>   Nur Dateien verarbeiten, die vor Datum <d> (Format JJJJMMTTSSMMSS) geändert wurden
+; CHelpSwTB
+;
 MSG_MCHelpCmdA
 \n  a             Dateien zu einem Archiv hinzufügen
 ; CHelpCmdA
+;
+MSG_MListTitleL
+ Attribute      Größe     Datum   Zeit   Name
+; ListTitleL
+;
+MSG_MRecVolDiffSets
+\nFEHLER: %s und %s gehören zu verschiedenen Archiven.
+; RecVolDiffSets
+;
+MSG_MCommAskCont
+\nDrücken Sie 'Return' zum Fortsetzen oder 'B' zum Beenden:
+; CommAskCont
+;
+MSG_MCHelpSwVD
+\n  vd            Laufwerksinhalt von Wechselmedien beim Erstellen von Volumen löschen
+; CHelpSwVD
+;
+MSG_MCHelpSwO
+\n  o[+|-]        Überschreibmodus festlegen
+; CHelpSwO
+;
+MSG_MSubHeadType
+\nDatenheadertyp: %s
+; SubHeadType
+;
+MSG_MExtrAllOk
+\nAlles OK
+; ExtrAllOk
+;
+MSG_MSHelpCmdE
+\n  -x      Aus Archiv entpacken (Standardvorgabe)
+; SHelpCmdE
+;
+MSG_MCHelpSwHT
+\n  ht[b|c]       Hashverfahren [BLAKE2,CRC32] für Dateiprüfsumme wählen
+; CHelpSwHT
+;
+MSG_MMonthOct
+Okt
+; MonthOct
+;
+MSG_Mx86
+x86
+; x86
+;
+MSG_MMonthDec
+Dez
+; MonthDec
+;
+MSG_MEraseArc
+\nLösche leeres Archiv %s.
+; EraseArc
+;
+MSG_MErrChangeAttr
+\nWARNUNG: Kann Attribute von %s nicht ändern.
+; ErrChangeAttr
+;
+MSG_MCreateArchive
+\nErstelle %sArchiv %s\n
+; CreateArchive
+;
+MSG_MAskFComm
+\n\nLese Kommentar für %s : %s von stdin\n
+; AskFComm
+;
+MSG_MUCopyright
+\nUNRAR %s Freeware      Copyright (c) 1993-%d Alexander Roshal\n
+; UCopyright
+;
+MSG_MStreamUnknown
+\nWARNUNG: Unbekanntes Datenstrom-Datenformat in %s.\n
+; StreamUnknown
+;
+MSG_MRecVolFound
+\nEs wurden %d Wiederherstellungs-Volumen gefunden.
+; RecVolFound
+;
+MSG_MCHelpCmdRN
+\n  rn            Archivierte Dateien umbenennen
+; CHelpCmdRN
+;
+MSG_MFileComment
+\nKommentar: 
+; FileComment
+;
+MSG_MUseCurPsw
+\n%s - aktuelles Passwort benutzen?
+; UseCurPsw
+;
+MSG_MCHelpSwOL
+\n  ol[a]         Symbolische Links als Links verarbeiten [absolute Pfade]
+; CHelpSwOL
+;
+MSG_MCHelpCmdM
+\n  m[f]          In ein Archiv verschieben [nur Dateien]
+; CHelpCmdM
+;
+MSG_MCHelpSwTL
+\n  tl            Archivzeit auf die Dateizeit der neusten Datei setzen
+; CHelpSwTL
+;
+MSG_MRecCorrected
+ - Daten wiederhergestellt.
+; RecCorrected
+;
+MSG_MRARTitle1
+\nAufruf:    rar <Befehl> -<Schalter 1> -<Schalter N> <Archiv> <Dateien...>
+; RARTitle1
+;
+MSG_MCHelpSwME
+\n  me[Par]       Verschlüsselungsparameter einstellen
+; CHelpSwME
+;
+MSG_MCHelpSwINUL
+\n  inul          Alle Meldungen abschalten
+; CHelpSwINUL
+;
+MSG_MSetOwnersError
+\nWARNUNG: Kann Besitzer und Gruppe der Datei %s nicht setzen.\n
+; SetOwnersError
+;
+MSG_MCHelpSwILOG
+\n  ilog[Name]    Fehler in eine Datei protokollieren
+; CHelpSwILOG
+;
+MSG_MProgAborted
+Programm abgebrochen.
+; ProgAborted
+;
+MSG_MCHelpSwDR
+\n  dr            Dateien beim Löschen in den Papierkorb verschieben
+; CHelpSwDR
+;
+MSG_MCannotCreate
+\nKann %s nicht erstellen.
+; CannotCreate
+;
+MSG_MConverting
+\nKonvertiere %s
+; Converting
+;
+MSG_MEraseForVolume
+\n\nLösche Inhalt von Laufwerk %c:\n
+; EraseForVolume
+;
+MSG_MCHelpSwR0
+\n  r0            Unterverzeichnisse nur bei Wildcards rekursiv durchsuchen"	
+; CHelpSwR0
+;
+MSG_MTestVol
+\n\nTeste Archiv %s\n
+; TestVol
+;
+MSG_MCHelpCmdK
+\n  k             Archiv abschließen
+; CHelpCmdK
+;
+MSG_MSHelpCmd
+\n\n<Befehle>
+; SHelpCmd
+;
+MSG_MMoveNotDeleted
+    NICHT GELÖSCHT
+; MoveNotDeleted
+;
+MSG_MNotSFX
+\nDie Datei %s ist kein selbstentpackendes Archiv.
+; NotSFX
+;
+MSG_MHeaderBroken
+\nEin beschädigter Header wurde gefunden.
+; HeaderBroken
+;
+MSG_MErrOpenFile
+Datei
+; ErrOpenFile
+;
+MSG_MACLGetError
+\nWARNUNG: Die Sicherheitsdaten für %s können nicht gelesen werden.\n
+; ACLGetError
+;
+MSG_MCHelpCmdCW
+\n  cw            Archivkommentar in eine Datei schreiben
+; CHelpCmdCW
+;
+MSG_MRRDamaged
+\nDie Wiederherstellungsdaten sind beschädigt.
+; RRDamaged
+;
+MSG_MIncompatSwitch
+\nDer Schalter %s wird durch das RAR %d.x Archivformat nicht unterstützt.
+; IncompatSwitch
+;
+MSG_MBeta
+Beta
+; Beta
+;
+MSG_MMonthJan
+Jan
+; MonthJan
+;
+MSG_MCHelpSwMA
+\n  ma[4|5]       Version des Archivformats festlegen
+; CHelpSwMA
+;
+MSG_MNotRAR
+\nDie Datei %s ist kein RAR-Archiv.
+; NotRAR
+;
+MSG_MNeedAdmin
+\nSie müssen RAR als Administrator ausführen.
+; NeedAdmin
+;
+MSG_MReconstructing
+\nStelle Daten wieder her...
+; Reconstructing
+;
+MSG_MStdinNoInput
+\nTastatureingaben sind beim Lesen von Daten von der Standardeingabe (stdin) nicht erlaubt.
+; StdinNoInput
+;
+MSG_MCHelpSwKB
+\n  kb            Beschädigte entpackte Dateien behalten
+; CHelpSwKB
+;
+MSG_MOpFailed
+	"\nOperation fehlgeschlagen.
+; OpFailed
+;
+MSG_MRepacking
+\nPacke komprimierte Dateien erneut: 
+; Repacking
+;
+MSG_MErrCreateLnkH
+\nKann den harten Link %s nicht erstellen.
+; ErrCreateLnkH
+;
+MSG_MAskOverwrite
+\n%s überschreiben?
+; AskOverwrite
+;
+MSG_MAskNextDisk
+\nDiskette/Datenträger voll. Bitte Nächsten einlegen.
+; AskNextDisk
+;
+MSG_MCHelpSwCFGm
+\n  cfg-          Konfiguration nicht einlesen
+; CHelpSwCFGm
+;
+MSG_MCHelpCmdU
+\n  u             Dateien im Archiv erneuern und hinzufügen
+; CHelpCmdU
+;
+MSG_MListTitleV
+ Attribute      Größe   Gepackt Verh.    Datum   Zeit   Prüfsumme Name
+; ListTitleV
+;
+MSG_MCHelpSwOS
+\n  os            NTFS-Datenströme speichern
+; CHelpSwOS
+;
+MSG_MCHelpSwNa
+\n  n@            Zusätzliche Dateimasken von stdin lesen
+; CHelpSwNa
+;
+MSG_MRegKeyWarning
+\nDer aktuelle Lizenzschlüssel ist nur gültig für %s.\n
+; RegKeyWarning
+;
+MSG_MCHelpSwHP
+\n  hp[Passwort]  Dateidaten und Dateiköpfe verschlüsseln
+; CHelpSwHP
+;
+MSG_MExtrErrMkDir
+\nKann Verzeichnis %s nicht erstellen.
+; ExtrErrMkDir
+;
+MSG_MRecVolLimit
+\nDie Anzahl aller normalen Volumen und Wiederherstellungsvolumen darf %d nicht überschreiten.
+; RecVolLimit
+;
+MSG_MListCreated
+Erstellt
+; ListCreated
+;
+MSG_MExtracting
+\n\nEntpacke aus %s\n
+; Extracting
+;
+MSG_MCreatDir
+\nErstelle    %-56s
+; CreatDir
+;
+MSG_MDirNameExists
+\nEin Verzeichnis mit diesem Namen existiert bereits.
+; DirNameExists
+;
+MSG_MCHelpCmdE
+\n  e             Dateien ohne gespeicherte Pfade entpacken
+; CHelpCmdE
+;
+MSG_MCHelpCmdR
+\n  r             Archiv reparieren
+; CHelpCmdR
+;
+MSG_MCHelpCmdX
+\n  x             Dateien mit vollen Verzeichnisnamen entpacken
+; CHelpCmdX
+;
+MSG_MMdfEncrSol
+\n%s: verschlüsselt
+; MdfEncrSol
+;
+MSG_MCHelpSwSM
+\n  sm<Größe>     Dateien größer als die angegebene Größe verarbeiten
+; CHelpSwSM
+;
+MSG_MRRSearch
+\nSuche nach Wiederherstellungsdaten
+; RRSearch
+;
+MSG_MUnknownMeth
+\nUnbekannte Komprimierungsmethode in %s.
+; UnknownMeth
+;
+MSG_MOk
+ OK
+; Ok
+;
+MSG_MRprOldFormat
+\nKann Archiv im alten Komprimierungsformat nicht reparieren.
+; RprOldFormat
+;
+MSG_MCHelpSw
+\n\n<Schalter>
+; CHelpSw
+;
+MSG_MRprFind
+\n%s gefunden.
+; RprFind
+;
+MSG_MMonthJun
+Jun
+; MonthJun
+;
+MSG_MSymLinkExists
+\nWARNUNG: Die symbolische Verknüpfung %s ist bereits vorhanden.
+; SymLinkExists
+;
+MSG_MCHelpSwTK
+\n  tk            Originale Archivzeit beibehalten
+; CHelpSwTK
+;
+MSG_MCHelpSwAG
+\n  ag[Format]    Archivnamen aus aktuellem Datum erzeugen
+; CHelpSwAG
+;
+MSG_MCHelpSwTA
+\n  ta[mcao]<d>   Nur Dateien verarbeiten, die nach Datum <d> (Format JJJJMMTTSSMMSS) geändert wurden
+; CHelpSwTA
+;
+MSG_MNotVolume
+\n%s ist kein Volumen.
+; NotVolume
+;
+MSG_MFailed
+Fehlgeschlagen.
+; Failed
+;
+MSG_MCHelpCmdL
+\n  l[t[a],b]     Archivinhalt auflisten [technisch[alles], einfach]
+; CHelpCmdL
+;
+MSG_MShare
+\nTestversion               Geben Sie rar -? für Hilfe ein.\n
+; Share
+;
+MSG_MCHelpSwVn
+\n  v<Größe>[k,b] Volumen mit Größe=<Größe>*1000 [*1024, *1] erstellen
+; CHelpSwVn
+;
+MSG_MAddNoFiles
+\nWARNUNG: Keine Dateien
+; AddNoFiles
+;
+MSG_MListNTACLHead
+\n   NTFS-Sicherheitsdaten
+; ListNTACLHead
+;
+MSG_MPackAskReg
+\nUnregistrierte Version. Bitte lassen Sie sich registieren.\n
+; PackAskReg
+;
+MSG_MRprReconstr
+\nStelle %s wieder her.
+; RprReconstr
+;
+MSG_MCHelpSwEP
+\n  ep            Pfadangabe aus Namen entfernen
+; CHelpSwEP
+;
+MSG_MCannotEmail
+\nKann die Datei %s nicht per E-Mail verschicken.
+; CannotEmail
+;
+MSG_MClearAttrib
+\n\nEntferne Attribute...
+; ClearAttrib
+;
+MSG_MAddPoints
+\n...        %-58s     
+; AddPoints
+;
+MSG_MCHelpSwAP
+\n  ap<Pfad>      Pfad innerhalb des Archivs setzen
+; CHelpSwAP
+;
+MSG_MCHelpSwAO
+\n  ao            Dateien mit gesetztem Archivattribut hinzufügen
+; CHelpSwAO
+;
+MSG_MCHelpSwAC
+\n  ac            Archivattribut nach dem Packen oder Entpacken löschen
+; CHelpSwAC
+;
+MSG_MCHelpSwW
+\n  w<Pfad>       Arbeitsverzeichnis für temporäre Dateien festlegen
+; CHelpSwW
+;
+MSG_MErrFClose
+Kann die Datei %s nicht schließen.
+; ErrFClose
+;
+MSG_MSearchDupFiles
+\nSuche nach identischen Dateien.
+; SearchDupFiles
+;
+MSG_MRprBuild
+\nErstelle %s
+; RprBuild
+;
+MSG_MListWSymlink
+Symbolischer Link (Windows)
+; ListWSymlink
+;
+MSG_MCopyrightS
+\nSelbstentpackendes RAR-Archiv
+; CopyrightS
+;
+MSG_MUnkEncMethod
+\nUnbekannte Verschlüsselungsmethode in %s.
+; UnkEncMethod
+;
+MSG_MIgnoreAllRetryQuit
+_Ignorieren_alle iGnorieren_Wiederholen_Beenden
+; IgnoreAllRetryQuit
+;
+MSG_MCHelpSwMS
+\n  ms[Erw;Erw]   Ohne Komprimierung zu speichernde Dateitypen festlegen
+; CHelpSwMS
+;
+MSG_MExtrTotalErr
+\nFehler insgesamt: %ld
+; ExtrTotalErr
+;
+MSG_MCHelpSwP
+\n  p[Passwort]   Passwort setzen
+; CHelpSwP
+;
+MSG_MCHelpCmdV
+\n  v[t[a],b]     Archivinhalt ausführlich auflisten [technisch[alles], einfach]
+; CHelpCmdV
+;
+MSG_MCHelpSwDS
+\n  ds            Namenssortierung für solide Archive abschalten
+; CHelpSwDS
+;
+MSG_MAddRecRec
+\nFüge Wiederherstellungsdaten hinzu.
+; AddRecRec
+;
+MSG_MCHelpSwEP4
+\n  ep4<Pfad>     Pfadpräfix aus Namen entfernen
+; CHelpSwEP4
+;
+MSG_MErrOpenFiles
+Dateien
+; ErrOpenFiles
+;
+MSG_MListMtime
+Geändert
+; ListMtime
+;
+MSG_MCHelpCmdC
+\n  c             Archivkommentar hinzufügen
+; CHelpCmdC
+;
+MSG_MCHelpSwSm
+\n  s-            Keine solide Archivierung
+; CHelpSwSm
+;
+MSG_MMoveDelFiles
+\n\nLösche Dateien %s...
+; MoveDelFiles
+;
+MSG_MHeadEncMismatch
+\nKann den Dateiheader-Verschlüsselungsmodus in bereits verschlüsselten Archiven nicht ändern.
+; HeadEncMismatch
+;
+MSG_MRARTitle2
+\n               <@Dateilistendateien...> <Zielverzeichnispfad\\>
+; RARTitle2
+;
+MSG_MCHelpSwED
+\n  ed            Leere Verzeichnisse nicht hinzufügen
+; CHelpSwED
+;
+MSG_MDelComment
+\nLösche Kommentar von %s.
+; DelComment
+;
+MSG_MListVolume
+Volumen
+; ListVolume
+;
+MSG_MCHelpCmdRR
+\n  rr[N]         Wiederherstellungsdaten hinzufügen
+; CHelpCmdRR
+;
+MSG_MAskNextVol
+\nDiskette/Datenträger mit %s einlegen.
+; AskNextVol
+;
+MSG_MCalcCRC
+\nBerechne die Prüfsumme.
+; CalcCRC
+;
+MSG_MDelFrom
+\nLösche aus %s.
+; DelFrom
+;
+MSG_MListUSymlink
+Symbolischer Link (Unix)
+; ListUSymlink
+;
+MSG_MListEncHead
+verschlüsselte Header
+; ListEncHead
+;
+MSG_MCvtToSFX
+\nKonvertiere Archive nach SFX
+; CvtToSFX
+;
+MSG_MRetryAbort
+_Wiederholen_Abbrechen
+; RetryAbort
+;
+MSG_MListService
+Service
+; ListService
+;
+MSG_MUnknownExtra
+\nUnbekanntes zusätzliches Feld in %s.
+; UnknownExtra
+;
+MSG_MCHelpSwEP3
+\n  ep3           Auf vollständige Pfadangabe erweitern inkl. Laufwerksbuchstaben
+; CHelpSwEP3
+;
+MSG_MCreating
+\nErstelle %s.
+; Creating
+;
+MSG_MCHelpSwONI
+\n  oni           Potenziell nicht kompatible Namen zulassen
+; CHelpSwONI
+;
+MSG_MDataBadCRC
+\n%-20s : Prüfsummenfehler der gepackten Daten in Volume %s.
+; DataBadCRC
+;
+MSG_Mx64
+x64
+; x64
+;
+MSG_MSubHeadCorrupt
+\nFEHLER: Beschädigter Datenheader gefunden, wurde ignoriert.
+; SubHeadCorrupt
+;
+MSG_MAskNewName
+\nNeuen Dateinamen eingeben: 
+; AskNewName
+;
+MSG_MCHelpSwXa
+\n  x@            Auszuschließende Dateinamen von stdin lesen
+; CHelpSwXa
+;
+MSG_MCvtFromSFX
+\nEntferne SFX-Modul
+; CvtFromSFX
+;
+MSG_MMoveDelFile
+\nLösche %-30s
+; MoveDelFile
+;
+MSG_MListRR
+Wiederherstellungsdaten
+; ListRR
+;
+MSG_MAskPswFor
+\nPasswort für %s eingeben (wird nicht angezeigt): 
+; AskPswFor
+;
+MSG_MCHelpSwOI
+\n  oi[0-4][:min] Identische Dateien als Verweise speichern
+; CHelpSwOI
+;
+MSG_MCHelpSwLog
+\n  log[f][=Name] Datei- / Archivnamen in Protokolldatei schreiben
+; CHelpSwLog
+;
+MSG_MCHelpCmdP
+\n  p             Dateien nach stdout ausgeben
+; CHelpCmdP
+;
+MSG_MListHardlink
+Harter Link
+; ListHardlink
+;
+MSG_MListSFX
+SFX
+; ListSFX
+;
+MSG_MCHelpCmd
+\n\n<Befehle>
+; CHelpCmd
+;
+MSG_MAskReplace
+\n\nMöchten Sie die vorhandene Datei %s\n%6s Bytes, geändert am %s\ndurch diese ersetzen?\n%6s Bytes, geändert am %s\n
+; AskReplace
+;
+MSG_MCHelpSwMD
+\n  md<n>[k,m,g]  Wörterbuchgröße in  in kB, MB or GB
+; CHelpSwMD
+;
+MSG_MAnalyzeFileData
+\nUntersuche Dateidaten
+; AnalyzeFileData
+;
+MSG_MCHelpSwS
+\n  s[<N>,v[-],e] Solides Archiv erstellen
+; CHelpSwS
+;
+MSG_MErrLnkRead
+\nWARNUNG: Kann die symbolische Verknüpfung %s nicht lesen.
+; ErrLnkRead
+;
+MSG_MPathTooLong
+\nFEHLER: Verzeichnisname ist zu lang.\n
+; PathTooLong
+;
+MSG_MFileRO
+\n%s ist schreibgeschützt.
+; FileRO
+;
+MSG_MRecycleFailed
+\nKonnte einige Dateien und Verzeichnisse nicht in den Papierkorb verschieben.
+; RecycleFailed
+;
+MSG_MCHelpSwOH
+\n  oh            Harte Links als Links und nicht als Dateien speichern
+; CHelpSwOH
+;
+MSG_MCHelpSwIDP
+\n  id[c,d,n,p,q] Meldungen anzeigen oder unterdrücken
+; CHelpSwIDP
+;
+MSG_MUpdFile
+\nErneuere   %-58s     
+; UpdFile
+;
+MSG_MAskPsw
+Passwort eingeben (wird nicht angezeigt)
+; AskPsw
+;
+MSG_MErrCreateLnkS
+\nKann den symbolischen Link %s nicht erstellen.
+; ErrCreateLnkS
+;
+MSG_MCHelpSwDF
+\n  df            Dateien nach dem Archivieren löschen
+; CHelpSwDF
+;
+MSG_MListArchive
+Archiv
+; ListArchive
+;
+MSG_MCHelpSwK
+\n  k             Archiv abschließen
+; CHelpSwK
+;
+MSG_MCopyright
+\nRAR %s   Copyright (c) 1993-%d Alexander Roshal   %d %s %d
+; Copyright
+;
+MSG_MExtrTestFile
+\nTeste       %-56s
+; ExtrTestFile
+;
+MSG_MNewerRAR
+\nSie benötigen möglicherweise eine neuere Version von RAR.
+; NewerRAR
+;
+MSG_MCreatVol
+\n\nErstelle %sArchiv %s\n
+; CreatVol
+;
+MSG_MCHelpSwTS
+\n  ts[m,c,a,p]   Dateizeit (Änderung, Erstellung, Zugriff, Beibehalten) speichern/wiederherstellen
+; CHelpSwTS
+;
+MSG_MLogTitle
+--------  %2d %s %d, Archiv %s
+; LogTitle
+;
+MSG_MMoveDelDirs
+und Verzeichnisse
+; MoveDelDirs
+;
+MSG_MListName
+Name
+; ListName
+;
+MSG_MCHelpSwOR
+\n  or            Dateien automatisch umbenennen
+; CHelpSwOR
+;
+MSG_MRepAskReconst
+\nArchivstruktur wiederherstellen?
+; RepAskReconst
+;
+MSG_MCHelpCmdCH
+\n  ch            Archivparameter ändern"	
+; CHelpCmdCH
+;
+MSG_MCRCFailed
+\n%-20s - Prüfsummenfehler
+; CRCFailed
+;
+MSG_MExtrTest
+\n\nTeste Archiv %s\n
+; ExtrTest
+;
+MSG_MUpdateArchive
+\nErneuere %sArchiv %s\n
+; UpdateArchive
+;
+MSG_MErrGetGroupID
+\nWARNUNG: Kann Gruppen-ID der Datei %s nicht lesen.\n
+; ErrGetGroupID
+;
+MSG_MExtrSkipFile
+\nÜberspringe %-56s
+; ExtrSkipFile
 ;
 MSG_MCHelpSwMn
 \n  m<0..5>       Komprimierungsmethode angeben (0-keine...3-Standard...5-maximal)
 ; CHelpSwMn
 ;
-MSG_MBlocksRecovered
-\n%u Blöcke wiederhergestellt, %u Blöcke neu zugeordnet.
-; BlocksRecovered
+MSG_MCommNotPres
+\nEin Kommentar ist nicht vorhanden.
+; CommNotPres
+;
+MSG_MCalcCRCAllVol
+\nBerechne Prüfsumme aller Teilarchive (Volumen).
+; CalcCRCAllVol
+;
+MSG_MCHelpSwCU
+\n  cu            Dateinamen in Großbuchstaben umwandeln
+; CHelpSwCU
+;
+MSG_MStreamBroken
+\nFEHLER: Die Datenstrom-Daten von %s sind beschädigt.\n
+; StreamBroken
+;
+MSG_MCHelpSwU
+\n  u             Dateien erneuern
+; CHelpSwU
+;
+MSG_MDictOutMem
+\nNicht genügend Speicher für ein %d MB großes Wörterbuch. Wörterbuchgröße geändert auf %d MB.
+; DictOutMem
+;
+MSG_MAddSolid
+solides 
+; AddSolid
+;
+MSG_MEncrBadCRC
+\nPrüfsummenfehler der verschlüsselten Datei %s. Beschädigte Datei oder falsches Passwort.
+; EncrBadCRC
+;
+MSG_MErrReadCount
+\n%u Dateien wurden wegen Lesefehlern nur unvollständig archiviert.
+; ErrReadCount
+;
+MSG_MListCtime
+Erstellt
+; ListCtime
+;
+MSG_MCHelpSwVER
+\n  ver[n]        Verschiedene Versionen einer Datei ermöglichen
+; CHelpSwVER
+;
+MSG_MRecSecDamage
+\nDer Sektor %ld (Offsets %lX...%lX) ist beschädigt.
+; RecSecDamage
+;
+MSG_MExtrPoints
+\n...         %-56s
+; ExtrPoints
+;
+MSG_MLogCommBrk
+\nDer Archivkommentar ist beschädigt.
+; LogCommBrk
+;
+MSG_MWrongFilePassword
+\nFalsches Passwort für %s.
+; WrongFilePassword
+;
+MSG_MErrOutMem
+Nicht genügend Speicher.
+; ErrOutMem
+;
+MSG_MErrBrokenArc
+Beschädigtes Archiv - Befehl 'Reparieren' benutzen.
+; ErrBrokenArc
+;
+MSG_MErrWrite
+Schreibfehler in der Datei %s.
+; ErrWrite
+;
+MSG_MAdjustValue
+\nÄndere den Wert von %s zu %s.
+; AdjustValue
+;
+MSG_MRecRFound
+\nWiederherstellungsdaten gefunden.
+; RecRFound
+;
+MSG_MMonthAug
+Aug
+; MonthAug
+;
+MSG_MCHelpCmdF
+\n  f             Im Archiv vorhandene Dateien erneuern
+; CHelpCmdF
+;
+MSG_MLogProtectHead
+Der Header der Wiederherstellungsdaten ist beschädigt.
+; LogProtectHead
+;
+MSG_MCHelpCmdI
+\n  i[Par]=<Zei>  In Archiven nach einer Zeichenkette suchen
+; CHelpCmdI
+;
+MSG_MAreaDamaged
+\n%d beschädigte Bytes bei %08x %08x.
+; AreaDamaged
+;
+MSG_MAddAnalyze
+\nAnalysiere komprimierte Dateien  : 
+; AddAnalyze
+;
+MSG_MCHelpSwAI
+\n  ai            Dateiattribute ignorieren
+; CHelpSwAI

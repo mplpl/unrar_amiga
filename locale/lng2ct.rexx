@@ -3,7 +3,7 @@ do while ~eof(stdin)
 	pull line
 	if line=":STRINGS" then leave
 end
-say "## version $VER: unrar.catalog 6.02 ("translate(date(e),'.','/')")"
+say "## version $VER: unrar.catalog 6.11 ("translate(date(e),'.','/')")"
 say "## codeset 0"
 say "## language deutsch"
 say "## chunk AUTH Michael Leimer"
@@ -24,7 +24,7 @@ do while ~eof(stdin)
 	if key>"" then do
 		say ";"
 		say "MSG_M"key
-		say strip(strip(strip(strip(strip(translation),,"09"x)),,"09"x),,'"')
+		say strip(strip(strip(strip(strip(strip(translation),,"09"x)),,"09"x)),,'"')
 		say "; "key
 	end
 end

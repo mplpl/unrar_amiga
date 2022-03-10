@@ -90,8 +90,10 @@ cat:
 	@$(MAKEDIR) /catalogs/español 
 	@$(MAKEDIR) /catalogs/russian 
 	@$(MAKEDIR) /catalogs/français 
+	@$(MAKEDIR) /catalogs/deutsch
 	-flexcat unrar.cd unrar_polish.ct catalog=/catalogs/polski/unrar.catalog
 	-flexcat unrar.cd unrar_italian.ct catalog=/catalogs/italiano/unrar.catalog
 	-flexcat unrar.cd unrar_spanish.ct catalog=/catalogs/español/unrar.catalog
 	-flexcat unrar.cd unrar_russian.ct catalog=/catalogs/russian/unrar.catalog
 	-flexcat unrar.cd unrar_french.ct catalog=/catalogs/français/unrar.catalog
+	-flexcat unrar.cd unrar_german.ct catalog=/catalogs/deutsch/unrar.catalog
