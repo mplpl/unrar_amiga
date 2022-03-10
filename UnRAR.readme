@@ -24,6 +24,7 @@ Italian locale made by Samir Hawamdeh.
 Russian locale made by Mikhail Malyshev.
 Spanish locale made by Javier de las Rivas.
 French locale made by Filipe BRANDÃO.
+German translation comes from WinRAR with permission from win.rar GmbH.
 
 
 Requirements
@@ -57,6 +58,7 @@ History:
 6.11
 * based on unrar source code 6.1.6
 * 'mini' version added for classic Amiga OS with reduced memory footprint
+* German translation added
 
 6.02
 * based on unrar source code 6.0.7
