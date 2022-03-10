@@ -3,6 +3,8 @@
 
 #include <utf8proc.h>
 
+#define AMIGA_REL_DATE 11.3.2022
+
 extern int iconvConversionError;
 extern int iconvOpenError;
 

@@ -8,11 +8,11 @@ static const char __attribute((used)) min_stack[] = "$STACK:800000";
 #if RARVER_MINOR < 10
 static const char __attribute((used)) vers[] = "\\0$VER: UnRAR "
 		QUOTE(RARVER_MAJOR) ".0" QUOTE(RARVER_MINOR)
-        " (16.6.2021)";
+        " (" QUOTE(AMIGA_REL_DATE) ")";
 #else
 static const char __attribute((used)) vers[] = "\\0$VER: UnRAR "
 		QUOTE(RARVER_MAJOR) "." QUOTE(RARVER_MINOR)
-        " (16.6.2021)";
+        " (" QUOTE(AMIGA_REL_DATE) ")";
 #endif
 
 #include <proto/exec.h>
