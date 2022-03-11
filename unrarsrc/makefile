@@ -14,7 +14,7 @@ endif
 endif
 
 ifeq ($(PLATFORM),MorphOS)
-CXX=ppc-morphos-g++-4
+CXX=ppc-morphos-g++-10
 CXXFLAGS=-O2 -Wno-switch -I../utf8proc -I../locale -noixemul
 LIBFLAGS=-fPIC
 DEFINES=-D_AMIGA -D_LARGEFILE64_SOURCE

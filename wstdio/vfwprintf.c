@@ -75,7 +75,7 @@
 #include <limits.h>
 #include <stdint.h>
 #include <wchar.h>
-//#include <wctype.h>
+#include <ctype.h>
 //#include <sys/lock.h>
 #include <stdarg.h>
 //#include "local.h"

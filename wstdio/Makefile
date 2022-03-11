@@ -17,7 +17,7 @@ CFLAGS=-Wno-switch -D_AMIGA -I.
 OBJECTS=vfwprintf.o vswprintf.o others.o fake_file.o
 
 ifeq ($(PLATFORM),MorphOS)
-CC=ppc-morphos-gcc-4
+CC=ppc-morphos-gcc-10
 AR=ppc-morphos-ar
 AMIGA=1
 endif

@@ -20,7 +20,7 @@ LDFLAGS=-L../wstdio -L../utf8proc
 LIBS=../unrarsrc/unicode.o -lwstdio -lutf8proc
 
 ifeq ($(PLATFORM),MorphOS)
-CXX=ppc-morphos-g++-4
+CXX=ppc-morphos-g++-10
 AR=ppc-morphos-ar
 CXXFLAGS+= -noixemul
 LDFLAGS+= -noixemul
