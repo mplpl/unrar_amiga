@@ -75,6 +75,7 @@ $(SUBDIRS):
 dist: cat
 	-@$(MAKEDIR) dist
 	-@$(RM) dist/unrar_$(VERSION) all
+	-@$(RM) dist/UnRAR-$(VERSION).lha
 	@$(MAKEDIR) dist/unrar_$(VERSION)
 	$(COPY) UnRAR.readme dist/unrar_$(VERSION)
 	$(COPY) unrar_mos dist/unrar_$(VERSION)/unrar_mos
