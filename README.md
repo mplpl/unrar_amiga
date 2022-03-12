@@ -25,7 +25,7 @@ variable
 
 <h2>Requirements</h2>
 
-There are no special requirements for MorphOS and AmigaOS4. It should work on any system provided that it has a relatively fresh version of the operating system (I test on MorphOS 3.15 and AmigaOS 4.1 FE Update 1).
+There are no special requirements for MorphOS and AmigaOS4. It should work on any system provided that it has a relatively fresh version of the operating system (I test on MorphOS 3.16 and AmigaOS 4.1 FE Update 1).
 
 AROS version requires i386 and ABI-v0.
 
@@ -179,7 +179,7 @@ https://github.com/diegocr/libnix
 As libiconv is missing in AmigaOS3/AmigaOS2, I use one from Aminet ported by Bruno Haible & Diego Casorran (LGPL):
 http://aminet.net/package/dev/gg/libiconv-1.8
 
-MorphOS version of unrar has been compiled using gcc 4.4.5 (part of SDK 3.16).
+MorphOS version of unrar has been compiled using gcc 10.3.0 (part of SDK 3.16).
 
 AmigaOS4 version of unrar has been compiled using gcc 4.2.4 (part of SDK 53.20).
 
