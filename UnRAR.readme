@@ -144,10 +144,10 @@ to use the one from c: you need to call it explicitly, like this:
 
 c:unrar l my_archive.rar
 
-To avoid this, you can also copy unrar to c:unrar5, and then call it as unrar5:
+To avoid this, you can also copy unrar to c:unrar6, and then call it as unrar5:
 
-copy unrar_mos to c:unrar5
-unrar5 l my_archive.rar
+copy unrar_mos to c:unrar6
+unrar6 l my_archive.rar
 
 AmigaOS4:
 ---------
@@ -181,7 +181,7 @@ AmigaOS3 and AmigaOS2.1 - reduced memory footprint version:
 copy unrar_aos_mini to c:unrar
 
 NOTE: 'mini' version does not automatically set the stack size - it must be
-set using 'stack 800000' prior to running the command.
+set using 'stack 400000' prior to running the command.
 
 
 Detailed port description
