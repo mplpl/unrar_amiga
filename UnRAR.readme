@@ -181,7 +181,7 @@ AmigaOS3 and AmigaOS2.1 - reduced memory footprint version:
 copy unrar_aos_mini to c:unrar
 
 NOTE: 'mini' version does not automatically set the stack size - it must be
-set using 'stack 400000' prior to running the command.
+set using 'stack 600000' prior to running the command.
 
 
 Detailed port description
