@@ -6,7 +6,7 @@
 #define AMIGA_REL_DATE 14.3.2022
 
 #ifdef __mini__
-size_t __stack  = 400000;
+size_t __stack  = 600000;
 #else
 size_t __stack  = 800000;
 #endif
